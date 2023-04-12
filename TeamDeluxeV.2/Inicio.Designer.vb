@@ -107,7 +107,7 @@ Partial Class Inicio
         Me.TxPasswordBD.Size = New System.Drawing.Size(176, 36)
         Me.TxPasswordBD.TabIndex = 3
         Me.TxPasswordBD.Text = ""
-        Me.TxPasswordBD.TrailingIcon = Nothing
+        Me.TxPasswordBD.TrailingIcon = CType(resources.GetObject("TxPasswordBD.TrailingIcon"), System.Drawing.Image)
         Me.TxPasswordBD.UseTallSize = False
         '
         'TxUserBD
@@ -126,7 +126,7 @@ Partial Class Inicio
         Me.TxUserBD.Size = New System.Drawing.Size(176, 36)
         Me.TxUserBD.TabIndex = 2
         Me.TxUserBD.Text = ""
-        Me.TxUserBD.TrailingIcon = Nothing
+        Me.TxUserBD.TrailingIcon = CType(resources.GetObject("TxUserBD.TrailingIcon"), System.Drawing.Image)
         Me.TxUserBD.UseTallSize = False
         '
         'TxDatabase
@@ -145,7 +145,7 @@ Partial Class Inicio
         Me.TxDatabase.Size = New System.Drawing.Size(176, 36)
         Me.TxDatabase.TabIndex = 1
         Me.TxDatabase.Text = ""
-        Me.TxDatabase.TrailingIcon = Nothing
+        Me.TxDatabase.TrailingIcon = CType(resources.GetObject("TxDatabase.TrailingIcon"), System.Drawing.Image)
         Me.TxDatabase.UseTallSize = False
         '
         'TxServerBD
@@ -164,7 +164,7 @@ Partial Class Inicio
         Me.TxServerBD.Size = New System.Drawing.Size(176, 36)
         Me.TxServerBD.TabIndex = 0
         Me.TxServerBD.Text = ""
-        Me.TxServerBD.TrailingIcon = Nothing
+        Me.TxServerBD.TrailingIcon = CType(resources.GetObject("TxServerBD.TrailingIcon"), System.Drawing.Image)
         Me.TxServerBD.UseTallSize = False
         '
         'BtnConnection
@@ -243,7 +243,7 @@ Partial Class Inicio
         Me.TxPassword.TabIndex = 8
         Me.TxPassword.TabStop = False
         Me.TxPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.TxPassword.TrailingIcon = Nothing
+        Me.TxPassword.TrailingIcon = CType(resources.GetObject("TxPassword.TrailingIcon"), System.Drawing.Image)
         Me.TxPassword.UseSystemPasswordChar = True
         Me.TxPassword.UseTallSize = False
         '
@@ -266,6 +266,7 @@ Partial Class Inicio
         Me.CboUsuarios.MouseState = MaterialSkin.MouseState.OUT
         Me.CboUsuarios.Name = "CboUsuarios"
         Me.CboUsuarios.Size = New System.Drawing.Size(180, 35)
+        Me.CboUsuarios.Sorted = True
         Me.CboUsuarios.StartIndex = 0
         Me.CboUsuarios.TabIndex = 9
         Me.CboUsuarios.UseTallSize = False

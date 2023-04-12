@@ -65,6 +65,9 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.OleDb, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.OleDb.7.0.0\lib\net462\System.Data.OleDb.dll</HintPath>
+    </Reference>
     <Reference Include="System.Deployment" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
@@ -91,12 +94,42 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ejercicios.Designer.vb">
+      <DependentUpon>Ejercicios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ejercicios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Entrenamientos.Designer.vb">
+      <DependentUpon>Entrenamientos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Entrenamientos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Objetivos.Designer.vb">
+      <DependentUpon>Objetivos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Objetivos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios.Designer.vb">
+      <DependentUpon>Usuarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Database.vb" />
     <Compile Include="Inicio.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inicio.Designer.vb">
       <DependentUpon>Inicio.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDI_Principal.Designer.vb">
+      <DependentUpon>MDI_Principal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MDI_Principal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -119,6 +152,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDI_Principal.resx">
+      <DependentUpon>MDI_Principal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

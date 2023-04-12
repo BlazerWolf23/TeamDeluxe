@@ -6,8 +6,6 @@ Module Database
     Public DatabaseBD As String
     Public Connection As New ADODB.Connection
 
-
-
     Public Sub InicializarBD(user As String, pass As String, Server As String, Database As String)
         Try
             Username = Trim(user)
@@ -15,6 +13,7 @@ Module Database
             ServerBD = Trim(Server)
             DatabaseBD = Trim(Database)
             Connection = New ADODB.Connection
+
             Connection.Open("Provider=SQLOLEDB;Data Source=" & Server & ";Initial Catalog=" & Database &
                 ";User ID=" & Username & ";Password=" & Password & ";")
             GuardarDatosEnRegistro("ServerSQL", ServerBD)
