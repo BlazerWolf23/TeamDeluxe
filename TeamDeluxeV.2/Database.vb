@@ -14,7 +14,7 @@ Module Database
             DatabaseBD = Trim(Database)
             Connection = New ADODB.Connection
 
-            Connection.Open("Provider=SQLOLEDB;Data Source=" & Server & ";Initial Catalog=" & Database &
+            Connection.Open("Provider=SQLNCLI10;Persist Security Info=False;Data Source=" & Server & ";Initial Catalog=" & Database &
                 ";User ID=" & Username & ";Password=" & Password & ";")
             GuardarDatosEnRegistro("ServerSQL", ServerBD)
             GuardarDatosEnRegistro("UsernameSQL", Username)

@@ -26,6 +26,8 @@ Partial Class MDI_Principal
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MDI_Principal))
         Me.ToolStrip = New System.Windows.Forms.ToolStrip()
+        Me.BtnSalirInicio = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.NewToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.SaveToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.OpenToolStripButton = New System.Windows.Forms.ToolStripButton()
@@ -35,7 +37,7 @@ Partial Class MDI_Principal
         Me.MDIentrenamientos = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.MDIejercicios = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.MDIobjetivos = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
@@ -48,12 +50,26 @@ Partial Class MDI_Principal
         'ToolStrip
         '
         Me.ToolStrip.AutoSize = False
-        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewToolStripButton, Me.SaveToolStripButton, Me.OpenToolStripButton, Me.ToolStripSeparator2, Me.MDIusuarios, Me.ToolStripSeparator3, Me.MDIentrenamientos, Me.ToolStripSeparator1, Me.MDIejercicios, Me.ToolStripSeparator4, Me.MDIobjetivos, Me.ToolStripSeparator5})
+        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnSalirInicio, Me.ToolStripSeparator4, Me.NewToolStripButton, Me.SaveToolStripButton, Me.OpenToolStripButton, Me.ToolStripSeparator2, Me.MDIusuarios, Me.ToolStripSeparator3, Me.MDIentrenamientos, Me.ToolStripSeparator1, Me.MDIejercicios, Me.ToolStripSeparator6, Me.MDIobjetivos, Me.ToolStripSeparator5})
         Me.ToolStrip.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip.Name = "ToolStrip"
         Me.ToolStrip.Size = New System.Drawing.Size(1193, 36)
         Me.ToolStrip.TabIndex = 6
         Me.ToolStrip.Text = "ToolStrip"
+        '
+        'BtnSalirInicio
+        '
+        Me.BtnSalirInicio.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BtnSalirInicio.Image = CType(resources.GetObject("BtnSalirInicio.Image"), System.Drawing.Image)
+        Me.BtnSalirInicio.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnSalirInicio.Name = "BtnSalirInicio"
+        Me.BtnSalirInicio.Size = New System.Drawing.Size(23, 33)
+        Me.BtnSalirInicio.Text = "Usuarios"
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 36)
         '
         'NewToolStripButton
         '
@@ -121,10 +137,10 @@ Partial Class MDI_Principal
         Me.MDIejercicios.Size = New System.Drawing.Size(76, 33)
         Me.MDIejercicios.Text = "Ejercicios"
         '
-        'ToolStripSeparator4
+        'ToolStripSeparator6
         '
-        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 36)
+        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 36)
         '
         'MDIobjetivos
         '
@@ -188,4 +204,6 @@ Partial Class MDI_Principal
     Friend WithEvents MDIentrenamientos As ToolStripButton
     Friend WithEvents MDIejercicios As ToolStripButton
     Friend WithEvents MDIobjetivos As ToolStripButton
+    Friend WithEvents BtnSalirInicio As ToolStripButton
+    Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
 End Class

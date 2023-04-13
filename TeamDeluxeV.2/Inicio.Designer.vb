@@ -282,6 +282,7 @@ Partial Class Inicio
         Me.Controls.Add(Me.BtnConnection)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "Inicio"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Login"
         Me.Panel1.ResumeLayout(False)
         Me.PanelBD.ResumeLayout(False)
