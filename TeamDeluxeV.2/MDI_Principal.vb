@@ -2,7 +2,11 @@
 Imports System.Windows.Forms
 
 Public Class MDI_Principal
-
+    Dim formu As Form
+    Dim FormUsuarios As New Usuarios
+    Dim FormEntrenamientos As New Usuarios
+    Dim FormEjercicios As New Usuarios
+    Dim FormObjetivos As New Usuarios
     Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles MDIusuarios.Click, MDIentrenamientos.Click, MDIejercicios.Click, MDIobjetivos.Click
         Select Case sender.name
             Case MDIusuarios.Name : AbrirFormu("Usuarios")
@@ -15,13 +19,20 @@ Public Class MDI_Principal
     End Sub
 
     Private Sub AbrirFormu(Nombreformu As String)
-        Dim ChildForm As New System.Windows.Forms.Form With {
-            .StartPosition = FormStartPosition.Manual,
-            .Name = Nombreformu,
-            .MdiParent = Me,
-            .Location = New Point(0, 0)
-        }
-        ChildForm.Show()
+        Select Case Nombreformu
+            Case "Usuarios"
+                FormUsuarios.MdiParent = Me
+                FormUsuarios.Show()
+            Case "Entrenamientos"
+                FormEntrenamientos.MdiParent = Me
+                FormEntrenamientos.Show()
+            Case "Ejercicios"
+                FormEjercicios.MdiParent = Me
+                FormEjercicios.Show()
+            Case "Objetivos"
+                FormObjetivos.MdiParent = Me
+                FormObjetivos.Show()
+        End Select
     End Sub
     Private Sub BtnSalirInicio_Click(sender As Object, e As EventArgs) Handles BtnSalirInicio.Click
         Me.Dispose()
@@ -35,6 +46,33 @@ Public Class MDI_Principal
         Else
             e.Cancel = True
         End If
+    End Sub
+
+    Private Sub MDI_Principal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LabelSpacios.Text = Space(250)
+    End Sub
+
+    Private Sub BtnCerrarFormulario_Click(sender As Object, e As EventArgs) Handles BtnCerrarFormulario.Click
+        ' Encuentra el formulario activo
+        formu = Me.ActiveMdiChild
+
+        ' Si hay algún formulario activo, ciérralo
+        If formu IsNot Nothing Then
+            formu.Close()
+        End If
+    End Sub
+
+    Private Sub NewToolStripButton_Click(sender As Object, e As EventArgs) Handles BtnMDINuevo.Click, BtnMDIGuardar.Click, BtnMDIEliminar.Click
+        Dim str As String
+        formu = Me.ActiveMdiChild
+        Select Case sender.name
+            Case BtnMDINuevo.Name
+                str = "Nuevo"
+            Case BtnMDIGuardar.Name
+                str = "Guardar"
+            Case BtnMDIEliminar.Name
+                str = "Eliminar"
+        End Select
     End Sub
 
     ' PARA UN FUTURO SI ME SALE DE LAS PELOTAS NO CAP

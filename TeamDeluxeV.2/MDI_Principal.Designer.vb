@@ -28,9 +28,9 @@ Partial Class MDI_Principal
         Me.ToolStrip = New System.Windows.Forms.ToolStrip()
         Me.BtnSalirInicio = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
-        Me.NewToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.SaveToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.OpenToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.BtnMDINuevo = New System.Windows.Forms.ToolStripButton()
+        Me.BtnMDIGuardar = New System.Windows.Forms.ToolStripButton()
+        Me.BtnMDIEliminar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.MDIusuarios = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
@@ -39,7 +39,10 @@ Partial Class MDI_Principal
         Me.MDIejercicios = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.MDIobjetivos = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
+        Me.LabelSpacios = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.BtnCerrarFormulario = New System.Windows.Forms.ToolStripButton()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
@@ -50,7 +53,7 @@ Partial Class MDI_Principal
         'ToolStrip
         '
         Me.ToolStrip.AutoSize = False
-        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnSalirInicio, Me.ToolStripSeparator4, Me.NewToolStripButton, Me.SaveToolStripButton, Me.OpenToolStripButton, Me.ToolStripSeparator2, Me.MDIusuarios, Me.ToolStripSeparator3, Me.MDIentrenamientos, Me.ToolStripSeparator1, Me.MDIejercicios, Me.ToolStripSeparator6, Me.MDIobjetivos, Me.ToolStripSeparator5})
+        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnSalirInicio, Me.ToolStripSeparator4, Me.BtnMDINuevo, Me.BtnMDIGuardar, Me.BtnMDIEliminar, Me.ToolStripSeparator2, Me.MDIusuarios, Me.ToolStripSeparator3, Me.MDIentrenamientos, Me.ToolStripSeparator1, Me.MDIejercicios, Me.ToolStripSeparator6, Me.MDIobjetivos, Me.ToolStripSeparator7, Me.LabelSpacios, Me.ToolStripSeparator5, Me.BtnCerrarFormulario})
         Me.ToolStrip.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip.Name = "ToolStrip"
         Me.ToolStrip.Size = New System.Drawing.Size(1193, 36)
@@ -71,32 +74,32 @@ Partial Class MDI_Principal
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
         Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 36)
         '
-        'NewToolStripButton
+        'BtnMDINuevo
         '
-        Me.NewToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.NewToolStripButton.Image = CType(resources.GetObject("NewToolStripButton.Image"), System.Drawing.Image)
-        Me.NewToolStripButton.ImageTransparentColor = System.Drawing.Color.Black
-        Me.NewToolStripButton.Name = "NewToolStripButton"
-        Me.NewToolStripButton.Size = New System.Drawing.Size(23, 33)
-        Me.NewToolStripButton.Text = "New"
+        Me.BtnMDINuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BtnMDINuevo.Image = CType(resources.GetObject("BtnMDINuevo.Image"), System.Drawing.Image)
+        Me.BtnMDINuevo.ImageTransparentColor = System.Drawing.Color.Black
+        Me.BtnMDINuevo.Name = "BtnMDINuevo"
+        Me.BtnMDINuevo.Size = New System.Drawing.Size(23, 33)
+        Me.BtnMDINuevo.Text = "New"
         '
-        'SaveToolStripButton
+        'BtnMDIGuardar
         '
-        Me.SaveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.SaveToolStripButton.Image = CType(resources.GetObject("SaveToolStripButton.Image"), System.Drawing.Image)
-        Me.SaveToolStripButton.ImageTransparentColor = System.Drawing.Color.Black
-        Me.SaveToolStripButton.Name = "SaveToolStripButton"
-        Me.SaveToolStripButton.Size = New System.Drawing.Size(23, 33)
-        Me.SaveToolStripButton.Text = "Save"
+        Me.BtnMDIGuardar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BtnMDIGuardar.Image = CType(resources.GetObject("BtnMDIGuardar.Image"), System.Drawing.Image)
+        Me.BtnMDIGuardar.ImageTransparentColor = System.Drawing.Color.Black
+        Me.BtnMDIGuardar.Name = "BtnMDIGuardar"
+        Me.BtnMDIGuardar.Size = New System.Drawing.Size(23, 33)
+        Me.BtnMDIGuardar.Text = "Save"
         '
-        'OpenToolStripButton
+        'BtnMDIEliminar
         '
-        Me.OpenToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.OpenToolStripButton.Image = CType(resources.GetObject("OpenToolStripButton.Image"), System.Drawing.Image)
-        Me.OpenToolStripButton.ImageTransparentColor = System.Drawing.Color.Black
-        Me.OpenToolStripButton.Name = "OpenToolStripButton"
-        Me.OpenToolStripButton.Size = New System.Drawing.Size(23, 33)
-        Me.OpenToolStripButton.Text = "Open"
+        Me.BtnMDIEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BtnMDIEliminar.Image = CType(resources.GetObject("BtnMDIEliminar.Image"), System.Drawing.Image)
+        Me.BtnMDIEliminar.ImageTransparentColor = System.Drawing.Color.Black
+        Me.BtnMDIEliminar.Name = "BtnMDIEliminar"
+        Me.BtnMDIEliminar.Size = New System.Drawing.Size(23, 33)
+        Me.BtnMDIEliminar.Text = "Open"
         '
         'ToolStripSeparator2
         '
@@ -150,10 +153,31 @@ Partial Class MDI_Principal
         Me.MDIobjetivos.Size = New System.Drawing.Size(77, 33)
         Me.MDIobjetivos.Text = "Objetivos"
         '
+        'ToolStripSeparator7
+        '
+        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
+        Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 36)
+        '
+        'LabelSpacios
+        '
+        Me.LabelSpacios.Enabled = False
+        Me.LabelSpacios.Name = "LabelSpacios"
+        Me.LabelSpacios.Size = New System.Drawing.Size(87, 33)
+        Me.LabelSpacios.Text = "ToolStripLabel1"
+        '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
         Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 36)
+        '
+        'BtnCerrarFormulario
+        '
+        Me.BtnCerrarFormulario.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BtnCerrarFormulario.Image = CType(resources.GetObject("BtnCerrarFormulario.Image"), System.Drawing.Image)
+        Me.BtnCerrarFormulario.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.BtnCerrarFormulario.Name = "BtnCerrarFormulario"
+        Me.BtnCerrarFormulario.Size = New System.Drawing.Size(23, 33)
+        Me.BtnCerrarFormulario.Text = "ToolStripButton2"
         '
         'StatusStrip
         '
@@ -191,10 +215,10 @@ Partial Class MDI_Principal
     Friend WithEvents ToolTip As System.Windows.Forms.ToolTip
     Friend WithEvents ToolStripStatusLabel As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents StatusStrip As System.Windows.Forms.StatusStrip
-    Friend WithEvents NewToolStripButton As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BtnMDINuevo As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStrip As System.Windows.Forms.ToolStrip
-    Friend WithEvents OpenToolStripButton As System.Windows.Forms.ToolStripButton
-    Friend WithEvents SaveToolStripButton As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BtnMDIEliminar As System.Windows.Forms.ToolStripButton
+    Friend WithEvents BtnMDIGuardar As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
@@ -206,4 +230,7 @@ Partial Class MDI_Principal
     Friend WithEvents MDIobjetivos As ToolStripButton
     Friend WithEvents BtnSalirInicio As ToolStripButton
     Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
+    Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
+    Friend WithEvents BtnCerrarFormulario As ToolStripButton
+    Friend WithEvents LabelSpacios As ToolStripLabel
 End Class
