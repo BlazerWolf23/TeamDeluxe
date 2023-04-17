@@ -1,4 +1,4 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Usuarios
     Inherits System.Windows.Forms.Form
 
@@ -22,12 +22,12 @@ Partial Class Usuarios
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Usuarios))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.MaterialCard2 = New MaterialSkin.Controls.MaterialCard()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DbgUsuarios = New System.Windows.Forms.DataGridView()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -36,7 +36,7 @@ Partial Class Usuarios
         Me.Equipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.BtnFiltrar = New MaterialSkin.Controls.MaterialFloatingActionButton()
-        Me.TxEquipoBus = New MaterialSkin.Controls.MaterialComboBox()
+        Me.CboEquipoBus = New MaterialSkin.Controls.MaterialComboBox()
         Me.TxNombreBus = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.TxIDbus = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.TxDNIbus = New MaterialSkin.Controls.MaterialMaskedTextBox()
@@ -69,7 +69,7 @@ Partial Class Usuarios
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.MaterialCard2.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DbgUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.MaterialCard1.SuspendLayout()
         Me.SuspendLayout()
@@ -98,7 +98,7 @@ Partial Class Usuarios
         'MaterialCard2
         '
         Me.MaterialCard2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.MaterialCard2.Controls.Add(Me.DataGridView1)
+        Me.MaterialCard2.Controls.Add(Me.DbgUsuarios)
         Me.MaterialCard2.Controls.Add(Me.Panel3)
         Me.MaterialCard2.Depth = 0
         Me.MaterialCard2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -110,20 +110,20 @@ Partial Class Usuarios
         Me.MaterialCard2.Size = New System.Drawing.Size(642, 452)
         Me.MaterialCard2.TabIndex = 7
         '
-        'DataGridView1
+        'DbgUsuarios
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.Nombre, Me.Apellidos, Me.DNI, Me.Telefono, Me.Equipo})
-        Me.DataGridView1.Location = New System.Drawing.Point(5, 117)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(632, 330)
-        Me.DataGridView1.TabIndex = 0
+        Me.DbgUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DbgUsuarios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.Nombre, Me.Apellidos, Me.DNI, Me.Telefono, Me.Equipo})
+        Me.DbgUsuarios.Location = New System.Drawing.Point(5, 117)
+        Me.DbgUsuarios.Name = "DbgUsuarios"
+        Me.DbgUsuarios.Size = New System.Drawing.Size(632, 330)
+        Me.DbgUsuarios.TabIndex = 0
         '
         'ID
         '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ID.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ID.DefaultCellStyle = DataGridViewCellStyle2
         Me.ID.HeaderText = "ID"
         Me.ID.Name = "ID"
         Me.ID.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
@@ -160,7 +160,7 @@ Partial Class Usuarios
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel3.Controls.Add(Me.BtnFiltrar)
-        Me.Panel3.Controls.Add(Me.TxEquipoBus)
+        Me.Panel3.Controls.Add(Me.CboEquipoBus)
         Me.Panel3.Controls.Add(Me.TxNombreBus)
         Me.Panel3.Controls.Add(Me.TxIDbus)
         Me.Panel3.Controls.Add(Me.TxDNIbus)
@@ -184,29 +184,29 @@ Partial Class Usuarios
         Me.BtnFiltrar.TabIndex = 30
         Me.BtnFiltrar.UseVisualStyleBackColor = True
         '
-        'TxEquipoBus
+        'CboEquipoBus
         '
-        Me.TxEquipoBus.AutoResize = False
-        Me.TxEquipoBus.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TxEquipoBus.Depth = 0
-        Me.TxEquipoBus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable
-        Me.TxEquipoBus.DropDownHeight = 118
-        Me.TxEquipoBus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.TxEquipoBus.DropDownWidth = 121
-        Me.TxEquipoBus.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel)
-        Me.TxEquipoBus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.TxEquipoBus.FormattingEnabled = True
-        Me.TxEquipoBus.Hint = "Equipo"
-        Me.TxEquipoBus.IntegralHeight = False
-        Me.TxEquipoBus.ItemHeight = 29
-        Me.TxEquipoBus.Location = New System.Drawing.Point(365, 56)
-        Me.TxEquipoBus.MaxDropDownItems = 4
-        Me.TxEquipoBus.MouseState = MaterialSkin.MouseState.OUT
-        Me.TxEquipoBus.Name = "TxEquipoBus"
-        Me.TxEquipoBus.Size = New System.Drawing.Size(161, 35)
-        Me.TxEquipoBus.StartIndex = 0
-        Me.TxEquipoBus.TabIndex = 29
-        Me.TxEquipoBus.UseTallSize = False
+        Me.CboEquipoBus.AutoResize = False
+        Me.CboEquipoBus.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CboEquipoBus.Depth = 0
+        Me.CboEquipoBus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable
+        Me.CboEquipoBus.DropDownHeight = 118
+        Me.CboEquipoBus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CboEquipoBus.DropDownWidth = 121
+        Me.CboEquipoBus.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel)
+        Me.CboEquipoBus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CboEquipoBus.FormattingEnabled = True
+        Me.CboEquipoBus.Hint = "Equipo"
+        Me.CboEquipoBus.IntegralHeight = False
+        Me.CboEquipoBus.ItemHeight = 29
+        Me.CboEquipoBus.Location = New System.Drawing.Point(365, 56)
+        Me.CboEquipoBus.MaxDropDownItems = 4
+        Me.CboEquipoBus.MouseState = MaterialSkin.MouseState.OUT
+        Me.CboEquipoBus.Name = "CboEquipoBus"
+        Me.CboEquipoBus.Size = New System.Drawing.Size(161, 35)
+        Me.CboEquipoBus.StartIndex = 0
+        Me.CboEquipoBus.TabIndex = 29
+        Me.CboEquipoBus.UseTallSize = False
         '
         'TxNombreBus
         '
@@ -1020,7 +1020,7 @@ Partial Class Usuarios
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.MaterialCard2.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DbgUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.MaterialCard1.ResumeLayout(False)
         Me.MaterialCard1.PerformLayout()
@@ -1030,7 +1030,7 @@ Partial Class Usuarios
 
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DbgUsuarios As DataGridView
     Friend WithEvents Panel3 As Panel
     Friend WithEvents TxIDbus As MaterialSkin.Controls.MaterialMaskedTextBox
     Friend WithEvents DTPfechaNac As DateTimePicker
@@ -1062,7 +1062,7 @@ Partial Class Usuarios
     Friend WithEvents CboTipoUsuario As MaterialSkin.Controls.MaterialComboBox
     Friend WithEvents MaterialLabel12 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents MaterialCard2 As MaterialSkin.Controls.MaterialCard
-    Friend WithEvents TxEquipoBus As MaterialSkin.Controls.MaterialComboBox
+    Friend WithEvents CboEquipoBus As MaterialSkin.Controls.MaterialComboBox
     Friend WithEvents ID As DataGridViewTextBoxColumn
     Friend WithEvents Nombre As DataGridViewTextBoxColumn
     Friend WithEvents Apellidos As DataGridViewTextBoxColumn

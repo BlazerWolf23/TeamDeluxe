@@ -63,7 +63,6 @@ Public Class MDI_Principal
     End Sub
 
     Private Sub NewToolStripButton_Click(sender As Object, e As EventArgs) Handles BtnMDINuevo.Click, BtnMDIGuardar.Click, BtnMDIEliminar.Click
-        Dim str As String
         formu = Me.ActiveMdiChild
         Select Case sender.name
             Case BtnMDINuevo.Name
