@@ -67,11 +67,17 @@ Public Class MDI_Principal
         formu = Me.ActiveMdiChild
         Select Case sender.name
             Case BtnMDINuevo.Name
-                str = "Nuevo"
+                If TypeOf formu Is Usuarios Then
+                    DirectCast(formu, Usuarios).Nuevo()
+                End If
             Case BtnMDIGuardar.Name
-                str = "Guardar"
+                If TypeOf formu Is Usuarios Then
+                    DirectCast(formu, Usuarios).Guardar()
+                End If
             Case BtnMDIEliminar.Name
-                str = "Eliminar"
+                If TypeOf formu Is Usuarios Then
+                    DirectCast(formu, Usuarios).Eliminar()
+                End If
         End Select
     End Sub
 

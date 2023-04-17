@@ -27,8 +27,6 @@ Partial Class Usuarios
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.MaterialCard2 = New MaterialSkin.Controls.MaterialCard()
-        Me.MaterialComboBox1 = New MaterialSkin.Controls.MaterialComboBox()
-        Me.MaterialMaskedTextBox4 = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -36,9 +34,13 @@ Partial Class Usuarios
         Me.DNI = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Equipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MaterialMaskedTextBox3 = New MaterialSkin.Controls.MaterialMaskedTextBox()
-        Me.MaterialMaskedTextBox1 = New MaterialSkin.Controls.MaterialMaskedTextBox()
-        Me.MaterialMaskedTextBox2 = New MaterialSkin.Controls.MaterialMaskedTextBox()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.BtnFiltrar = New MaterialSkin.Controls.MaterialFloatingActionButton()
+        Me.TxEquipoBus = New MaterialSkin.Controls.MaterialComboBox()
+        Me.TxNombreBus = New MaterialSkin.Controls.MaterialMaskedTextBox()
+        Me.TxIDbus = New MaterialSkin.Controls.MaterialMaskedTextBox()
+        Me.TxDNIbus = New MaterialSkin.Controls.MaterialMaskedTextBox()
+        Me.TxApellidoBus = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.MaterialCard1 = New MaterialSkin.Controls.MaterialCard()
         Me.CboTipoUsuario = New MaterialSkin.Controls.MaterialComboBox()
         Me.MaterialLabel12 = New MaterialSkin.Controls.MaterialLabel()
@@ -64,14 +66,12 @@ Partial Class Usuarios
         Me.MaterialLabel2 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
         Me.TxApellido = New MaterialSkin.Controls.MaterialMaskedTextBox()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.MaterialFloatingActionButton1 = New MaterialSkin.Controls.MaterialFloatingActionButton()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.MaterialCard2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.MaterialCard1.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        Me.MaterialCard1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -109,73 +109,6 @@ Partial Class Usuarios
         Me.MaterialCard2.Padding = New System.Windows.Forms.Padding(14)
         Me.MaterialCard2.Size = New System.Drawing.Size(642, 452)
         Me.MaterialCard2.TabIndex = 7
-        '
-        'MaterialComboBox1
-        '
-        Me.MaterialComboBox1.AutoResize = False
-        Me.MaterialComboBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.MaterialComboBox1.Depth = 0
-        Me.MaterialComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable
-        Me.MaterialComboBox1.DropDownHeight = 118
-        Me.MaterialComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.MaterialComboBox1.DropDownWidth = 121
-        Me.MaterialComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel)
-        Me.MaterialComboBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialComboBox1.FormattingEnabled = True
-        Me.MaterialComboBox1.Hint = "Equipo"
-        Me.MaterialComboBox1.IntegralHeight = False
-        Me.MaterialComboBox1.ItemHeight = 29
-        Me.MaterialComboBox1.Location = New System.Drawing.Point(365, 56)
-        Me.MaterialComboBox1.MaxDropDownItems = 4
-        Me.MaterialComboBox1.MouseState = MaterialSkin.MouseState.OUT
-        Me.MaterialComboBox1.Name = "MaterialComboBox1"
-        Me.MaterialComboBox1.Size = New System.Drawing.Size(161, 35)
-        Me.MaterialComboBox1.StartIndex = 0
-        Me.MaterialComboBox1.TabIndex = 29
-        Me.MaterialComboBox1.UseTallSize = False
-        '
-        'MaterialMaskedTextBox4
-        '
-        Me.MaterialMaskedTextBox4.AllowPromptAsInput = True
-        Me.MaterialMaskedTextBox4.AnimateReadOnly = False
-        Me.MaterialMaskedTextBox4.AsciiOnly = False
-        Me.MaterialMaskedTextBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.MaterialMaskedTextBox4.BeepOnError = False
-        Me.MaterialMaskedTextBox4.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox4.Depth = 0
-        Me.MaterialMaskedTextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.MaterialMaskedTextBox4.HidePromptOnLeave = False
-        Me.MaterialMaskedTextBox4.HideSelection = True
-        Me.MaterialMaskedTextBox4.Hint = "DNI"
-        Me.MaterialMaskedTextBox4.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
-        Me.MaterialMaskedTextBox4.LeadingIcon = Nothing
-        Me.MaterialMaskedTextBox4.Location = New System.Drawing.Point(7, 55)
-        Me.MaterialMaskedTextBox4.Mask = ""
-        Me.MaterialMaskedTextBox4.MaxLength = 32767
-        Me.MaterialMaskedTextBox4.MouseState = MaterialSkin.MouseState.OUT
-        Me.MaterialMaskedTextBox4.Name = "MaterialMaskedTextBox4"
-        Me.MaterialMaskedTextBox4.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialMaskedTextBox4.PrefixSuffixText = Nothing
-        Me.MaterialMaskedTextBox4.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
-        Me.MaterialMaskedTextBox4.ReadOnly = False
-        Me.MaterialMaskedTextBox4.RejectInputOnFirstFailure = False
-        Me.MaterialMaskedTextBox4.ResetOnPrompt = True
-        Me.MaterialMaskedTextBox4.ResetOnSpace = True
-        Me.MaterialMaskedTextBox4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.MaterialMaskedTextBox4.SelectedText = ""
-        Me.MaterialMaskedTextBox4.SelectionLength = 0
-        Me.MaterialMaskedTextBox4.SelectionStart = 0
-        Me.MaterialMaskedTextBox4.ShortcutsEnabled = True
-        Me.MaterialMaskedTextBox4.Size = New System.Drawing.Size(166, 36)
-        Me.MaterialMaskedTextBox4.SkipLiterals = True
-        Me.MaterialMaskedTextBox4.TabIndex = 4
-        Me.MaterialMaskedTextBox4.TabStop = False
-        Me.MaterialMaskedTextBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.MaterialMaskedTextBox4.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox4.TrailingIcon = Nothing
-        Me.MaterialMaskedTextBox4.UseSystemPasswordChar = False
-        Me.MaterialMaskedTextBox4.UseTallSize = False
-        Me.MaterialMaskedTextBox4.ValidatingType = Nothing
         '
         'DataGridView1
         '
@@ -222,134 +155,230 @@ Partial Class Usuarios
         Me.Equipo.HeaderText = "Equipo"
         Me.Equipo.Name = "Equipo"
         '
-        'MaterialMaskedTextBox3
+        'Panel3
         '
-        Me.MaterialMaskedTextBox3.AllowPromptAsInput = True
-        Me.MaterialMaskedTextBox3.AnimateReadOnly = False
-        Me.MaterialMaskedTextBox3.AsciiOnly = False
-        Me.MaterialMaskedTextBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.MaterialMaskedTextBox3.BeepOnError = False
-        Me.MaterialMaskedTextBox3.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox3.Depth = 0
-        Me.MaterialMaskedTextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.MaterialMaskedTextBox3.HidePromptOnLeave = False
-        Me.MaterialMaskedTextBox3.HideSelection = True
-        Me.MaterialMaskedTextBox3.Hint = "Apellido"
-        Me.MaterialMaskedTextBox3.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
-        Me.MaterialMaskedTextBox3.LeadingIcon = Nothing
-        Me.MaterialMaskedTextBox3.Location = New System.Drawing.Point(270, 7)
-        Me.MaterialMaskedTextBox3.Mask = ""
-        Me.MaterialMaskedTextBox3.MaxLength = 32767
-        Me.MaterialMaskedTextBox3.MouseState = MaterialSkin.MouseState.OUT
-        Me.MaterialMaskedTextBox3.Name = "MaterialMaskedTextBox3"
-        Me.MaterialMaskedTextBox3.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialMaskedTextBox3.PrefixSuffixText = Nothing
-        Me.MaterialMaskedTextBox3.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
-        Me.MaterialMaskedTextBox3.ReadOnly = False
-        Me.MaterialMaskedTextBox3.RejectInputOnFirstFailure = False
-        Me.MaterialMaskedTextBox3.ResetOnPrompt = True
-        Me.MaterialMaskedTextBox3.ResetOnSpace = True
-        Me.MaterialMaskedTextBox3.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.MaterialMaskedTextBox3.SelectedText = ""
-        Me.MaterialMaskedTextBox3.SelectionLength = 0
-        Me.MaterialMaskedTextBox3.SelectionStart = 0
-        Me.MaterialMaskedTextBox3.ShortcutsEnabled = True
-        Me.MaterialMaskedTextBox3.Size = New System.Drawing.Size(256, 36)
-        Me.MaterialMaskedTextBox3.SkipLiterals = True
-        Me.MaterialMaskedTextBox3.TabIndex = 3
-        Me.MaterialMaskedTextBox3.TabStop = False
-        Me.MaterialMaskedTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.MaterialMaskedTextBox3.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox3.TrailingIcon = Nothing
-        Me.MaterialMaskedTextBox3.UseSystemPasswordChar = False
-        Me.MaterialMaskedTextBox3.UseTallSize = False
-        Me.MaterialMaskedTextBox3.ValidatingType = Nothing
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel3.Controls.Add(Me.BtnFiltrar)
+        Me.Panel3.Controls.Add(Me.TxEquipoBus)
+        Me.Panel3.Controls.Add(Me.TxNombreBus)
+        Me.Panel3.Controls.Add(Me.TxIDbus)
+        Me.Panel3.Controls.Add(Me.TxDNIbus)
+        Me.Panel3.Controls.Add(Me.TxApellidoBus)
+        Me.Panel3.Location = New System.Drawing.Point(5, 9)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(632, 102)
+        Me.Panel3.TabIndex = 1
         '
-        'MaterialMaskedTextBox1
+        'BtnFiltrar
         '
-        Me.MaterialMaskedTextBox1.AllowPromptAsInput = True
-        Me.MaterialMaskedTextBox1.AnimateReadOnly = False
-        Me.MaterialMaskedTextBox1.AsciiOnly = False
-        Me.MaterialMaskedTextBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.MaterialMaskedTextBox1.BeepOnError = False
-        Me.MaterialMaskedTextBox1.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox1.Depth = 0
-        Me.MaterialMaskedTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.MaterialMaskedTextBox1.HidePromptOnLeave = False
-        Me.MaterialMaskedTextBox1.HideSelection = True
-        Me.MaterialMaskedTextBox1.Hint = "ID"
-        Me.MaterialMaskedTextBox1.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
-        Me.MaterialMaskedTextBox1.LeadingIcon = Nothing
-        Me.MaterialMaskedTextBox1.Location = New System.Drawing.Point(7, 7)
-        Me.MaterialMaskedTextBox1.Mask = ""
-        Me.MaterialMaskedTextBox1.MaxLength = 32767
-        Me.MaterialMaskedTextBox1.MouseState = MaterialSkin.MouseState.OUT
-        Me.MaterialMaskedTextBox1.Name = "MaterialMaskedTextBox1"
-        Me.MaterialMaskedTextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialMaskedTextBox1.PrefixSuffixText = Nothing
-        Me.MaterialMaskedTextBox1.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
-        Me.MaterialMaskedTextBox1.ReadOnly = False
-        Me.MaterialMaskedTextBox1.RejectInputOnFirstFailure = False
-        Me.MaterialMaskedTextBox1.ResetOnPrompt = True
-        Me.MaterialMaskedTextBox1.ResetOnSpace = True
-        Me.MaterialMaskedTextBox1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.MaterialMaskedTextBox1.SelectedText = ""
-        Me.MaterialMaskedTextBox1.SelectionLength = 0
-        Me.MaterialMaskedTextBox1.SelectionStart = 0
-        Me.MaterialMaskedTextBox1.ShortcutsEnabled = True
-        Me.MaterialMaskedTextBox1.Size = New System.Drawing.Size(71, 36)
-        Me.MaterialMaskedTextBox1.SkipLiterals = True
-        Me.MaterialMaskedTextBox1.TabIndex = 1
-        Me.MaterialMaskedTextBox1.TabStop = False
-        Me.MaterialMaskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.MaterialMaskedTextBox1.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox1.TrailingIcon = Nothing
-        Me.MaterialMaskedTextBox1.UseSystemPasswordChar = False
-        Me.MaterialMaskedTextBox1.UseTallSize = False
-        Me.MaterialMaskedTextBox1.ValidatingType = Nothing
+        Me.BtnFiltrar.BackgroundImage = CType(resources.GetObject("BtnFiltrar.BackgroundImage"), System.Drawing.Image)
+        Me.BtnFiltrar.Depth = 0
+        Me.BtnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnFiltrar.Icon = CType(resources.GetObject("BtnFiltrar.Icon"), System.Drawing.Image)
+        Me.BtnFiltrar.Image = CType(resources.GetObject("BtnFiltrar.Image"), System.Drawing.Image)
+        Me.BtnFiltrar.Location = New System.Drawing.Point(557, 20)
+        Me.BtnFiltrar.MouseState = MaterialSkin.MouseState.HOVER
+        Me.BtnFiltrar.Name = "BtnFiltrar"
+        Me.BtnFiltrar.Size = New System.Drawing.Size(56, 55)
+        Me.BtnFiltrar.TabIndex = 30
+        Me.BtnFiltrar.UseVisualStyleBackColor = True
         '
-        'MaterialMaskedTextBox2
+        'TxEquipoBus
         '
-        Me.MaterialMaskedTextBox2.AllowPromptAsInput = True
-        Me.MaterialMaskedTextBox2.AnimateReadOnly = False
-        Me.MaterialMaskedTextBox2.AsciiOnly = False
-        Me.MaterialMaskedTextBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.MaterialMaskedTextBox2.BeepOnError = False
-        Me.MaterialMaskedTextBox2.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox2.Depth = 0
-        Me.MaterialMaskedTextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.MaterialMaskedTextBox2.HidePromptOnLeave = False
-        Me.MaterialMaskedTextBox2.HideSelection = True
-        Me.MaterialMaskedTextBox2.Hint = "Nombre"
-        Me.MaterialMaskedTextBox2.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
-        Me.MaterialMaskedTextBox2.LeadingIcon = Nothing
-        Me.MaterialMaskedTextBox2.Location = New System.Drawing.Point(93, 7)
-        Me.MaterialMaskedTextBox2.Mask = ""
-        Me.MaterialMaskedTextBox2.MaxLength = 32767
-        Me.MaterialMaskedTextBox2.MouseState = MaterialSkin.MouseState.OUT
-        Me.MaterialMaskedTextBox2.Name = "MaterialMaskedTextBox2"
-        Me.MaterialMaskedTextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialMaskedTextBox2.PrefixSuffixText = Nothing
-        Me.MaterialMaskedTextBox2.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
-        Me.MaterialMaskedTextBox2.ReadOnly = False
-        Me.MaterialMaskedTextBox2.RejectInputOnFirstFailure = False
-        Me.MaterialMaskedTextBox2.ResetOnPrompt = True
-        Me.MaterialMaskedTextBox2.ResetOnSpace = True
-        Me.MaterialMaskedTextBox2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.MaterialMaskedTextBox2.SelectedText = ""
-        Me.MaterialMaskedTextBox2.SelectionLength = 0
-        Me.MaterialMaskedTextBox2.SelectionStart = 0
-        Me.MaterialMaskedTextBox2.ShortcutsEnabled = True
-        Me.MaterialMaskedTextBox2.Size = New System.Drawing.Size(161, 36)
-        Me.MaterialMaskedTextBox2.SkipLiterals = True
-        Me.MaterialMaskedTextBox2.TabIndex = 2
-        Me.MaterialMaskedTextBox2.TabStop = False
-        Me.MaterialMaskedTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.MaterialMaskedTextBox2.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox2.TrailingIcon = Nothing
-        Me.MaterialMaskedTextBox2.UseSystemPasswordChar = False
-        Me.MaterialMaskedTextBox2.UseTallSize = False
-        Me.MaterialMaskedTextBox2.ValidatingType = Nothing
+        Me.TxEquipoBus.AutoResize = False
+        Me.TxEquipoBus.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TxEquipoBus.Depth = 0
+        Me.TxEquipoBus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable
+        Me.TxEquipoBus.DropDownHeight = 118
+        Me.TxEquipoBus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.TxEquipoBus.DropDownWidth = 121
+        Me.TxEquipoBus.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel)
+        Me.TxEquipoBus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.TxEquipoBus.FormattingEnabled = True
+        Me.TxEquipoBus.Hint = "Equipo"
+        Me.TxEquipoBus.IntegralHeight = False
+        Me.TxEquipoBus.ItemHeight = 29
+        Me.TxEquipoBus.Location = New System.Drawing.Point(365, 56)
+        Me.TxEquipoBus.MaxDropDownItems = 4
+        Me.TxEquipoBus.MouseState = MaterialSkin.MouseState.OUT
+        Me.TxEquipoBus.Name = "TxEquipoBus"
+        Me.TxEquipoBus.Size = New System.Drawing.Size(161, 35)
+        Me.TxEquipoBus.StartIndex = 0
+        Me.TxEquipoBus.TabIndex = 29
+        Me.TxEquipoBus.UseTallSize = False
+        '
+        'TxNombreBus
+        '
+        Me.TxNombreBus.AllowPromptAsInput = True
+        Me.TxNombreBus.AnimateReadOnly = False
+        Me.TxNombreBus.AsciiOnly = False
+        Me.TxNombreBus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.TxNombreBus.BeepOnError = False
+        Me.TxNombreBus.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxNombreBus.Depth = 0
+        Me.TxNombreBus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.TxNombreBus.HidePromptOnLeave = False
+        Me.TxNombreBus.HideSelection = True
+        Me.TxNombreBus.Hint = "Nombre"
+        Me.TxNombreBus.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
+        Me.TxNombreBus.LeadingIcon = Nothing
+        Me.TxNombreBus.Location = New System.Drawing.Point(93, 7)
+        Me.TxNombreBus.Mask = ""
+        Me.TxNombreBus.MaxLength = 32767
+        Me.TxNombreBus.MouseState = MaterialSkin.MouseState.OUT
+        Me.TxNombreBus.Name = "TxNombreBus"
+        Me.TxNombreBus.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TxNombreBus.PrefixSuffixText = Nothing
+        Me.TxNombreBus.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
+        Me.TxNombreBus.ReadOnly = False
+        Me.TxNombreBus.RejectInputOnFirstFailure = False
+        Me.TxNombreBus.ResetOnPrompt = True
+        Me.TxNombreBus.ResetOnSpace = True
+        Me.TxNombreBus.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.TxNombreBus.SelectedText = ""
+        Me.TxNombreBus.SelectionLength = 0
+        Me.TxNombreBus.SelectionStart = 0
+        Me.TxNombreBus.ShortcutsEnabled = True
+        Me.TxNombreBus.Size = New System.Drawing.Size(161, 36)
+        Me.TxNombreBus.SkipLiterals = True
+        Me.TxNombreBus.TabIndex = 2
+        Me.TxNombreBus.TabStop = False
+        Me.TxNombreBus.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.TxNombreBus.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxNombreBus.TrailingIcon = Nothing
+        Me.TxNombreBus.UseSystemPasswordChar = False
+        Me.TxNombreBus.UseTallSize = False
+        Me.TxNombreBus.ValidatingType = Nothing
+        '
+        'TxIDbus
+        '
+        Me.TxIDbus.AllowPromptAsInput = True
+        Me.TxIDbus.AnimateReadOnly = False
+        Me.TxIDbus.AsciiOnly = False
+        Me.TxIDbus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.TxIDbus.BeepOnError = False
+        Me.TxIDbus.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxIDbus.Depth = 0
+        Me.TxIDbus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.TxIDbus.HidePromptOnLeave = False
+        Me.TxIDbus.HideSelection = True
+        Me.TxIDbus.Hint = "ID"
+        Me.TxIDbus.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
+        Me.TxIDbus.LeadingIcon = Nothing
+        Me.TxIDbus.Location = New System.Drawing.Point(7, 7)
+        Me.TxIDbus.Mask = ""
+        Me.TxIDbus.MaxLength = 32767
+        Me.TxIDbus.MouseState = MaterialSkin.MouseState.OUT
+        Me.TxIDbus.Name = "TxIDbus"
+        Me.TxIDbus.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TxIDbus.PrefixSuffixText = Nothing
+        Me.TxIDbus.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
+        Me.TxIDbus.ReadOnly = False
+        Me.TxIDbus.RejectInputOnFirstFailure = False
+        Me.TxIDbus.ResetOnPrompt = True
+        Me.TxIDbus.ResetOnSpace = True
+        Me.TxIDbus.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.TxIDbus.SelectedText = ""
+        Me.TxIDbus.SelectionLength = 0
+        Me.TxIDbus.SelectionStart = 0
+        Me.TxIDbus.ShortcutsEnabled = True
+        Me.TxIDbus.Size = New System.Drawing.Size(71, 36)
+        Me.TxIDbus.SkipLiterals = True
+        Me.TxIDbus.TabIndex = 1
+        Me.TxIDbus.TabStop = False
+        Me.TxIDbus.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.TxIDbus.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxIDbus.TrailingIcon = Nothing
+        Me.TxIDbus.UseSystemPasswordChar = False
+        Me.TxIDbus.UseTallSize = False
+        Me.TxIDbus.ValidatingType = Nothing
+        '
+        'TxDNIbus
+        '
+        Me.TxDNIbus.AllowPromptAsInput = True
+        Me.TxDNIbus.AnimateReadOnly = False
+        Me.TxDNIbus.AsciiOnly = False
+        Me.TxDNIbus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.TxDNIbus.BeepOnError = False
+        Me.TxDNIbus.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxDNIbus.Depth = 0
+        Me.TxDNIbus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.TxDNIbus.HidePromptOnLeave = False
+        Me.TxDNIbus.HideSelection = True
+        Me.TxDNIbus.Hint = "DNI"
+        Me.TxDNIbus.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
+        Me.TxDNIbus.LeadingIcon = Nothing
+        Me.TxDNIbus.Location = New System.Drawing.Point(7, 55)
+        Me.TxDNIbus.Mask = ""
+        Me.TxDNIbus.MaxLength = 32767
+        Me.TxDNIbus.MouseState = MaterialSkin.MouseState.OUT
+        Me.TxDNIbus.Name = "TxDNIbus"
+        Me.TxDNIbus.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TxDNIbus.PrefixSuffixText = Nothing
+        Me.TxDNIbus.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
+        Me.TxDNIbus.ReadOnly = False
+        Me.TxDNIbus.RejectInputOnFirstFailure = False
+        Me.TxDNIbus.ResetOnPrompt = True
+        Me.TxDNIbus.ResetOnSpace = True
+        Me.TxDNIbus.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.TxDNIbus.SelectedText = ""
+        Me.TxDNIbus.SelectionLength = 0
+        Me.TxDNIbus.SelectionStart = 0
+        Me.TxDNIbus.ShortcutsEnabled = True
+        Me.TxDNIbus.Size = New System.Drawing.Size(166, 36)
+        Me.TxDNIbus.SkipLiterals = True
+        Me.TxDNIbus.TabIndex = 4
+        Me.TxDNIbus.TabStop = False
+        Me.TxDNIbus.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.TxDNIbus.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxDNIbus.TrailingIcon = Nothing
+        Me.TxDNIbus.UseSystemPasswordChar = False
+        Me.TxDNIbus.UseTallSize = False
+        Me.TxDNIbus.ValidatingType = Nothing
+        '
+        'TxApellidoBus
+        '
+        Me.TxApellidoBus.AllowPromptAsInput = True
+        Me.TxApellidoBus.AnimateReadOnly = False
+        Me.TxApellidoBus.AsciiOnly = False
+        Me.TxApellidoBus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.TxApellidoBus.BeepOnError = False
+        Me.TxApellidoBus.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxApellidoBus.Depth = 0
+        Me.TxApellidoBus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.TxApellidoBus.HidePromptOnLeave = False
+        Me.TxApellidoBus.HideSelection = True
+        Me.TxApellidoBus.Hint = "Apellido"
+        Me.TxApellidoBus.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
+        Me.TxApellidoBus.LeadingIcon = Nothing
+        Me.TxApellidoBus.Location = New System.Drawing.Point(270, 7)
+        Me.TxApellidoBus.Mask = ""
+        Me.TxApellidoBus.MaxLength = 32767
+        Me.TxApellidoBus.MouseState = MaterialSkin.MouseState.OUT
+        Me.TxApellidoBus.Name = "TxApellidoBus"
+        Me.TxApellidoBus.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TxApellidoBus.PrefixSuffixText = Nothing
+        Me.TxApellidoBus.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
+        Me.TxApellidoBus.ReadOnly = False
+        Me.TxApellidoBus.RejectInputOnFirstFailure = False
+        Me.TxApellidoBus.ResetOnPrompt = True
+        Me.TxApellidoBus.ResetOnSpace = True
+        Me.TxApellidoBus.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.TxApellidoBus.SelectedText = ""
+        Me.TxApellidoBus.SelectionLength = 0
+        Me.TxApellidoBus.SelectionStart = 0
+        Me.TxApellidoBus.ShortcutsEnabled = True
+        Me.TxApellidoBus.Size = New System.Drawing.Size(256, 36)
+        Me.TxApellidoBus.SkipLiterals = True
+        Me.TxApellidoBus.TabIndex = 3
+        Me.TxApellidoBus.TabStop = False
+        Me.TxApellidoBus.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.TxApellidoBus.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxApellidoBus.TrailingIcon = Nothing
+        Me.TxApellidoBus.UseSystemPasswordChar = False
+        Me.TxApellidoBus.UseTallSize = False
+        Me.TxApellidoBus.ValidatingType = Nothing
         '
         'MaterialCard1
         '
@@ -979,35 +1008,6 @@ Partial Class Usuarios
         Me.TxApellido.UseTallSize = False
         Me.TxApellido.ValidatingType = Nothing
         '
-        'Panel3
-        '
-        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel3.Controls.Add(Me.MaterialFloatingActionButton1)
-        Me.Panel3.Controls.Add(Me.MaterialComboBox1)
-        Me.Panel3.Controls.Add(Me.MaterialMaskedTextBox2)
-        Me.Panel3.Controls.Add(Me.MaterialMaskedTextBox1)
-        Me.Panel3.Controls.Add(Me.MaterialMaskedTextBox4)
-        Me.Panel3.Controls.Add(Me.MaterialMaskedTextBox3)
-        Me.Panel3.Location = New System.Drawing.Point(5, 9)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(632, 102)
-        Me.Panel3.TabIndex = 1
-        '
-        'MaterialFloatingActionButton1
-        '
-        Me.MaterialFloatingActionButton1.BackgroundImage = CType(resources.GetObject("MaterialFloatingActionButton1.BackgroundImage"), System.Drawing.Image)
-        Me.MaterialFloatingActionButton1.Depth = 0
-        Me.MaterialFloatingActionButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.MaterialFloatingActionButton1.Icon = CType(resources.GetObject("MaterialFloatingActionButton1.Icon"), System.Drawing.Image)
-        Me.MaterialFloatingActionButton1.Image = CType(resources.GetObject("MaterialFloatingActionButton1.Image"), System.Drawing.Image)
-        Me.MaterialFloatingActionButton1.Location = New System.Drawing.Point(557, 20)
-        Me.MaterialFloatingActionButton1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialFloatingActionButton1.Name = "MaterialFloatingActionButton1"
-        Me.MaterialFloatingActionButton1.Size = New System.Drawing.Size(56, 55)
-        Me.MaterialFloatingActionButton1.TabIndex = 30
-        Me.MaterialFloatingActionButton1.UseVisualStyleBackColor = True
-        '
         'Usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1021,9 +1021,9 @@ Partial Class Usuarios
         Me.Panel2.ResumeLayout(False)
         Me.MaterialCard2.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
         Me.MaterialCard1.ResumeLayout(False)
         Me.MaterialCard1.PerformLayout()
-        Me.Panel3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1032,7 +1032,7 @@ Partial Class Usuarios
     Friend WithEvents Panel2 As Panel
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents MaterialMaskedTextBox1 As MaterialSkin.Controls.MaterialMaskedTextBox
+    Friend WithEvents TxIDbus As MaterialSkin.Controls.MaterialMaskedTextBox
     Friend WithEvents DTPfechaNac As DateTimePicker
     Friend WithEvents TxDNI As MaterialSkin.Controls.MaterialMaskedTextBox
     Friend WithEvents MaterialLabel4 As MaterialSkin.Controls.MaterialLabel
@@ -1042,9 +1042,9 @@ Partial Class Usuarios
     Friend WithEvents MaterialLabel2 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents MaterialLabel1 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents TxID As MaterialSkin.Controls.MaterialMaskedTextBox
-    Friend WithEvents MaterialMaskedTextBox4 As MaterialSkin.Controls.MaterialMaskedTextBox
-    Friend WithEvents MaterialMaskedTextBox3 As MaterialSkin.Controls.MaterialMaskedTextBox
-    Friend WithEvents MaterialMaskedTextBox2 As MaterialSkin.Controls.MaterialMaskedTextBox
+    Friend WithEvents TxDNIbus As MaterialSkin.Controls.MaterialMaskedTextBox
+    Friend WithEvents TxApellidoBus As MaterialSkin.Controls.MaterialMaskedTextBox
+    Friend WithEvents TxNombreBus As MaterialSkin.Controls.MaterialMaskedTextBox
     Friend WithEvents MaterialCard1 As MaterialSkin.Controls.MaterialCard
     Friend WithEvents MaterialLabel7 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents CboEquipo As MaterialSkin.Controls.MaterialComboBox
@@ -1062,12 +1062,12 @@ Partial Class Usuarios
     Friend WithEvents CboTipoUsuario As MaterialSkin.Controls.MaterialComboBox
     Friend WithEvents MaterialLabel12 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents MaterialCard2 As MaterialSkin.Controls.MaterialCard
-    Friend WithEvents MaterialComboBox1 As MaterialSkin.Controls.MaterialComboBox
+    Friend WithEvents TxEquipoBus As MaterialSkin.Controls.MaterialComboBox
     Friend WithEvents ID As DataGridViewTextBoxColumn
     Friend WithEvents Nombre As DataGridViewTextBoxColumn
     Friend WithEvents Apellidos As DataGridViewTextBoxColumn
     Friend WithEvents DNI As DataGridViewTextBoxColumn
     Friend WithEvents Telefono As DataGridViewTextBoxColumn
     Friend WithEvents Equipo As DataGridViewTextBoxColumn
-    Friend WithEvents MaterialFloatingActionButton1 As MaterialSkin.Controls.MaterialFloatingActionButton
+    Friend WithEvents BtnFiltrar As MaterialSkin.Controls.MaterialFloatingActionButton
 End Class
