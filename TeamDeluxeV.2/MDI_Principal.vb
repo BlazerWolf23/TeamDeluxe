@@ -4,9 +4,9 @@ Imports System.Windows.Forms
 Public Class MDI_Principal
     Dim formu As Form
     Dim FormUsuarios As New Usuarios
-    Dim FormEntrenamientos As New Usuarios
-    Dim FormEjercicios As New Usuarios
-    Dim FormObjetivos As New Usuarios
+    Dim FormEntrenamientos As New Entrenamientos
+    Dim FormEjercicios As New Ejercicios
+    Dim FormObjetivos As New Objetivos
     Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles MDIusuarios.Click, MDIentrenamientos.Click, MDIejercicios.Click, MDIobjetivos.Click
         Select Case sender.name
             Case MDIusuarios.Name : AbrirFormu("Usuarios")
@@ -21,6 +21,7 @@ Public Class MDI_Principal
     Private Sub AbrirFormu(Nombreformu As String)
         Select Case Nombreformu
             Case "Usuarios"
+                FormUsuarios = New Usuarios
                 FormUsuarios.MdiParent = Me
                 FormUsuarios.Show()
             Case "Entrenamientos"

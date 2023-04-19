@@ -43,23 +43,20 @@ Public Class Inicio
 
     Private Sub BtnComprobarContra_Click(sender As Object, e As EventArgs) Handles BtnComprobarContra.Click
         Dim rs As New ADODB.Recordset
-        rs.Open("Select Contra, rol, nombre, IdEquipo, idUsuario from usuarios where nombre like '%" & Trim(CboUsuarios.SelectedItem) & "%'", Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        rs.Open("Select password, rol, nombre, idUsuario from usuarios where nombre like '%" & Trim(CboUsuarios.SelectedItem) & "%'", Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
         If rs.EOF Then Exit Sub
-        If Trim(rs("Contra").Value) = Trim(TxPassword.Text) Then
+        If Trim(rs("password").Value) = Trim(TxPassword.Text) Then
             Cursor = Cursors.WaitCursor
             FormMDI = Nothing
             FormMDI = New MDI_Principal
             FormMDI.Show()
             Me.Visible = False
-            If LCase(Trim(rs("rol").Value)) <> LCase("admin") Then
-                VariablesAPP.IdUsuarioApp = Trim(rs("idUsuario").Value)
+            VariablesAPP.IdUsuarioApp = Trim(rs("idUsuario").Value)
                 VariablesAPP.UsuarioApp = Trim(rs("Nombre").Value)
-                VariablesAPP.RolUsuario = Trim(rs("rol").Value)
-                VariablesAPP.EquipoUsuario = Trim(rs("IdEquipo").Value)
-            End If
+            VariablesAPP.RolUsuario = Trim(rs("rol").Value)
             Cursor = Cursors.Arrow
-            Else
-                MsgBox("Credenciales incorrectas, Compruebe el usuario y la contraseña y inicie sesión de nuevo.", vbExclamation)
+        Else
+            MsgBox("Credenciales incorrectas, Compruebe el usuario y la contraseña y inicie sesión de nuevo.", vbExclamation)
             TxPassword.Text = ""
         End If
     End Sub

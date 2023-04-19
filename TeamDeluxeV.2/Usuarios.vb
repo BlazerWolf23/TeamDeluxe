@@ -1,95 +1,176 @@
 ﻿Imports System.Windows.Controls
-Imports MaterialSkin.Controls
 
 Public Class Usuarios
-    Dim rs As New ADODB.Recordset
-
+    Dim salto As Boolean
+    Dim rsUsuarios As New ADODB.Recordset
+    Dim rsAux As New ADODB.Recordset
+    Dim sql As String
     Public Sub Guardar()
-        If Trim(TxID.Text) = "" Then MsgBox("No se puede dejar este campo vacio.") : Exit Sub
-        If Trim(TxNombre.Text) = "" Then MsgBox("El campo nombre no se puede dejar vacio.") : Exit Sub
+        If Trim(TxNombre.Text) = "" Then
+            MsgBox("Introduzca un nombre para el usuario.", vbExclamation)
+            Exit Sub
+        End If
+        Cursor = Cursors.WaitCursor
+        rsUsuarios = New ADODB.Recordset
+        rsUsuarios.Open("Select * from Usuarios where IdUsuario = " & IIf(TxID.Text = "", 0, TxID.Text), Database.Connection, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        If rsUsuarios.EOF Then
+            rsAux = New ADODB.Recordset
+            rsAux.Open("select top 1 IdUsuario from Usuarios order by IdUsuario desc", Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+            rsUsuarios.AddNew()
+            rsUsuarios("IDusuario").Value = CInt(rsAux("Idusuario").Value) + 1
+        End If
+        rsUsuarios("nombre").Value = Trim(TxNombre.Text)
+        rsUsuarios("apellido").Value = Trim(TxApellido.Text)
+        rsUsuarios("FechaNacimiento").Value = Format(CDate(DTPfechaNac.Value), "yyyy/MM/dd")
+        rsUsuarios("telefono").Value = Trim(TxTelefono.Text)
+        rsUsuarios("direccion").Value = Trim(TxDireccion.Text)
+        rsUsuarios("pais").Value = Trim(TxPais.Text)
+        rsUsuarios("provincia").Value = Trim(TxProvincia.Text)
+        rsUsuarios("poblacion").Value = Trim(TxLocalidad.Text)
+        rsUsuarios("DNI").Value = Trim(TxDNI.Text)
+        rsUsuarios("FechaAlta").Value = Format(CDate(Now.Date), "yyyy/MM/dd")
+        rsUsuarios("password").Value = Trim(TxNuevaPassword.Text)
+        rsUsuarios("Rol").Value = Trim(CboTipoUsuario.SelectedValue)
+        If CboTipoUsuario.SelectedValue = 2 Then
+            rsUsuarios("IDequipoDondeJuega").Value = CInt(CboEquipo.SelectedValue)
+        End If
+        rsUsuarios.Update()
+        Cursor = Cursors.Arrow
+        Nuevo()
     End Sub
 
     Public Sub Consulta()
-        Dim Row As Integer
-        Dim sql As String
-        If VariablesAPP.RolUsuario = "Admin" Then
-            sql = "Select * from usuario"
+        rsUsuarios = New ADODB.Recordset
+        If UCase(VariablesAPP.RolUsuario) <> UCase("admin") Then
+            sql = "Select * from usuarios where idusuario <> 1 and idEquipoDondeJuega <> null"
         Else
-            sql = "Select usuario.*, equipo.nombre as nombreEquipo from usuario Inner Join equipo where usuario.idequipo = equipo.idequipo " &
-                " where usuario.idequipo = " & VariablesAPP.EquipoUsuario
+            sql = "Select * from usuarios where idusuario <> 1"
         End If
-        Dim rs As New ADODB.Recordset
-        rs.Open(sql, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
 
-        Do Until rs.EOF
-            Row = DbgUsuarios.Rows.Add
-            DbgUsuarios.Rows(Row).Cells(0).Value = Trim(rs("id").Value)
-            DbgUsuarios.Rows(Row).Cells(1).Value = Trim(rs("nombre").Value)
-            DbgUsuarios.Rows(Row).Cells(2).Value = Trim(rs("apellido").Value)
-            DbgUsuarios.Rows(Row).Cells(3).Value = Trim(rs("DNI").Value)
-            DbgUsuarios.Rows(Row).Cells(4).Value = Trim(rs("Telefono").Value)
-            DbgUsuarios.Rows(Row).Cells(5).Value = Trim(rs("nombreEquipo").Value)
-            rs.MoveNext()
+        rsUsuarios.Open(sql, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic)
+
+        Do Until rsUsuarios.EOF
+            AniadirLineaGridUsuarios(CInt(rsUsuarios("IDusuario").Value), Trim(rsUsuarios("nombre").Value), Trim(rsUsuarios("apellido").Value), Trim(rsUsuarios("DNI").Value), Trim(rsUsuarios("Telefono").Value))
+            rsUsuarios.MoveNext()
         Loop
+    End Sub
 
-
+    Private Sub AniadirLineaGridUsuarios(id As Integer, nombre As String, apellido As String, DNI As String, telefono As String, Optional equipo As String = "")
+        Dim newRow As DataGridViewRow = New DataGridViewRow()
+        newRow.CreateCells(DbgUsuarios)
+        newRow.Cells(0).Value = id
+        newRow.Cells(1).Value = nombre
+        newRow.Cells(2).Value = apellido
+        newRow.Cells(3).Value = DNI
+        newRow.Cells(4).Value = telefono
+        newRow.Cells(5).Value = equipo
+        DbgUsuarios.Rows.Add(newRow)
     End Sub
 
     Public Sub Eliminar()
-
+        If Trim(TxID.Text) = "" Or Trim(TxID.Text) = "0" Then
+            MsgBox("Seleccione un ID valido para eliminar", vbExclamation)
+            Nuevo()
+            Exit Sub
+        Else
+            If MsgBox("Desea eliminar el Usuario seleccionado (" & Trim(TxID.Text) & ")", vbOKCancel) = vbOK Then
+                Try
+                    Database.Connection.BeginTrans()
+                    Database.Connection.Execute("Delete from Usuarios where IDusuario = " & CInt(TxID.Text))
+                    Database.Connection.CommitTrans()
+                Catch ex As Exception
+                    Database.Connection.RollbackTrans()
+                    MsgBox("Error, no se ha podido eliminar el usuario")
+                    Exit Sub
+                End Try
+            End If
+        End If
     End Sub
 
     Public Sub Nuevo()
-        TxID.Text = "" : TxNombre.Text = ""
-        TxApellido.Text = "" : TxDNI.Text = ""
-        DTPfechaNac.Value = Now.Date : TxTelefono.Text = ""
-        TxDireccion.Text = "" : TxPais.Text = ""
-        TxProvincia.Text = "" : TxLocalidad.Text = ""
-        If Not CboEquipo.Items.Count <= 0 Then CboEquipo.SelectedIndex = 0
-        If Not CboTipoUsuario.Items.Count <= 0 Then CboTipoUsuario.SelectedIndex = 0
-
-        TxIDbus.Text = "" : TxNombreBus.Text = ""
-        TxDNIbus.Text = "" : TxApellidoBus.Text = ""
-        If CboEquipoBus.Items.Count <= 0 Then CboEquipoBus.SelectedIndex = 0
-        TxApellidoBus.Text = ""
+        Cursor = Cursors.WaitCursor
+        TxID.Text = ""
+        TxNombre.Text = ""
+        TxApellido.Text = ""
+        TxDNI.Text = ""
+        DTPfechaNac.Value = Now.Date
+        TxTelefono.Text = ""
+        TxDireccion.Text = ""
+        TxPais.Text = ""
+        TxProvincia.Text = ""
+        TxLocalidad.Text = ""
+        CboTipoUsuario.SelectedValue = 1
+        TxNuevaPassword.Text = ""
+        Cursor = Cursors.Arrow
     End Sub
 
-    Private Sub Usuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Nuevo()
-        CargarTipoUsuarios()
-        CargarEquipo(CboEquipo)
-        CargarEquipo(CboEquipoBus)
+    Private Sub MaterialFloatingActionButton2_Click(sender As Object, e As EventArgs) Handles BtnGuardarPassword.Click
+        If Trim(TxNuevaPassword.Text) = "" Then MsgBox("No se puede dejar el campo contraseña vacio.", vbExclamation) : Exit Sub
+        PanelPass.Visible = False
+    End Sub
+
+    Private Sub TxAbrirPanelPassword_Click(sender As Object, e As EventArgs) Handles BtnAbrirPanelPassword.Click
+        PanelPass.Visible = True
+    End Sub
+
+    Private Sub CboTipoUsuario_SelectedValueChanged(sender As Object, e As EventArgs) Handles CboTipoUsuario.SelectedValueChanged
+        If salto Then Exit Sub
+        If CboTipoUsuario.SelectedValue = 2 Then
+            MaterialLabel7.Visible = True
+            CboEquipo.Visible = True
+        Else
+            MaterialLabel7.Visible = False
+            CboEquipo.Visible = False
+        End If
     End Sub
 
     Private Sub CargarTipoUsuarios()
-        ' De momento cargar a mano ya que no tengo tabla de tipo de usuarios
-        ' Hablar con Javier para decir si esta tabla renta, o renta hacer el cargado a mano
-        If Trim(VariablesAPP.RolUsuario) = "Admin" Then
-            CboTipoUsuario.Items.Add("Admin")
-            CboTipoUsuario.Items.Add("Entrenador")
+        Dim items As New List(Of Item)
+        If UCase(VariablesAPP.RolUsuario) = UCase("admin") Then
+            items.Add(New Item With {.Value = 2, .Description = "Entrenador"})
         End If
-        CboTipoUsuario.Items.Add("Jugador")
+        items.Add(New Item With {.Value = 1, .Description = "Jugador"})
+        CboTipoUsuario.DataSource = items
+        CboTipoUsuario.ValueMember = "Value"
+        CboTipoUsuario.DisplayMember = "Description"
     End Sub
 
-    Private Sub CargarEquipo(Combo As MaterialComboBox)
-        Dim ItemCombo As ComboBoxItem
-        Dim rsEquipos As New ADODB.Recordset
-        Dim index As Integer
-        Dim sql As String
-        If Trim(VariablesAPP.RolUsuario) = "Admin" Then
-            sql = "Select * from equipos"
+    Public Class Item
+        Public Property Value As Integer
+        Public Property Description As String
+    End Class
+
+
+    Private Sub Usuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Consulta()
+        salto = True
+        CargarTipoUsuarios()
+        salto = False
+    End Sub
+
+    Private Sub CargarClienteDeConsulta(idUsuario As Integer)
+        Dim rs As New ADODB.Recordset
+        rs.Open("select * from usuarios where idusuario = " & idUsuario, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        If rs.EOF Then Exit Sub : Nuevo()
+        TxID.Text = CInt(rs("IDusuario").Value)
+        TxNombre.Text = Trim(rs("Nombre").Value)
+        TxApellido.Text = Trim(rs("apellido").Value)
+        TxDNI.Text = Trim(rs("DNI").Value)
+        DTPfechaNac.Value = CDate(rs("fechaNacimiento").Value)
+        TxTelefono.Text = Trim(rs("Telefono").Value)
+        TxDireccion.Text = Trim(rs("Direccion").Value)
+        TxPais.Text = Trim(rs("Pais").Value)
+        TxLocalidad.Text = Trim(rs("Poblacion").Value)
+        TxProvincia.Text = Trim(rs("Provincia").Value)
+        If Trim(rs("Rol").Value) = "1" Then
+            CboTipoUsuario.SelectedValue = 1
         Else
-            sql = "Select * from equipos where idUsuario = " & VariablesAPP.IdUsuarioApp
+            CboTipoUsuario.SelectedValue = 2
         End If
-        rsEquipos.Open(sql, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
-        Do Until rsEquipos.EOF
 
-            index = Combo.Items.Add(Trim(rsEquipos("nombre").Value))
-            rsEquipos.MoveNext()
-        Loop
     End Sub
 
-    Private Sub BtnFiltrar_Click(sender As Object, e As EventArgs) Handles BtnFiltrar.Click
-
+    Private Sub DbgUsuarios_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgUsuarios.CellContentDoubleClick
+        CargarClienteDeConsulta(CInt(DbgUsuarios.Rows(e.RowIndex).Cells(0).Value))
     End Sub
 End Class
