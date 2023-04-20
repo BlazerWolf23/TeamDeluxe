@@ -22,8 +22,8 @@ Partial Class Usuarios
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Usuarios))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.PanelPass = New MaterialSkin.Controls.MaterialCard()
@@ -152,7 +152,7 @@ Partial Class Usuarios
         Me.TxNuevaPassword.MaxLength = 32767
         Me.TxNuevaPassword.MouseState = MaterialSkin.MouseState.OUT
         Me.TxNuevaPassword.Name = "TxNuevaPassword"
-        Me.TxNuevaPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TxNuevaPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.TxNuevaPassword.PrefixSuffixText = Nothing
         Me.TxNuevaPassword.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
         Me.TxNuevaPassword.ReadOnly = False
@@ -171,7 +171,7 @@ Partial Class Usuarios
         Me.TxNuevaPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.TxNuevaPassword.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
         Me.TxNuevaPassword.TrailingIcon = Nothing
-        Me.TxNuevaPassword.UseSystemPasswordChar = False
+        Me.TxNuevaPassword.UseSystemPasswordChar = True
         Me.TxNuevaPassword.UseTallSize = False
         Me.TxNuevaPassword.ValidatingType = Nothing
         '
@@ -214,9 +214,9 @@ Partial Class Usuarios
         '
         'ID
         '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ID.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ID.DefaultCellStyle = DataGridViewCellStyle1
         Me.ID.HeaderText = "ID"
         Me.ID.Name = "ID"
         Me.ID.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
@@ -402,7 +402,7 @@ Partial Class Usuarios
         Me.TxDNIbus.Hint = "DNI"
         Me.TxDNIbus.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
         Me.TxDNIbus.LeadingIcon = Nothing
-        Me.TxDNIbus.Location = New System.Drawing.Point(7, 55)
+        Me.TxDNIbus.Location = New System.Drawing.Point(192, 55)
         Me.TxDNIbus.Mask = ""
         Me.TxDNIbus.MaxLength = 32767
         Me.TxDNIbus.MouseState = MaterialSkin.MouseState.OUT

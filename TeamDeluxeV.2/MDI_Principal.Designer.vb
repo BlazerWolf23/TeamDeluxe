@@ -38,7 +38,7 @@ Partial Class MDI_Principal
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.MDIejercicios = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
-        Me.MDIobjetivos = New System.Windows.Forms.ToolStripButton()
+        Me.MDIequipos = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.LabelSpacios = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
@@ -46,6 +46,8 @@ Partial Class MDI_Principal
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.MdiObjetivos = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -53,7 +55,7 @@ Partial Class MDI_Principal
         'ToolStrip
         '
         Me.ToolStrip.AutoSize = False
-        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnSalirInicio, Me.ToolStripSeparator4, Me.BtnMDINuevo, Me.BtnMDIGuardar, Me.BtnMDIEliminar, Me.ToolStripSeparator2, Me.MDIusuarios, Me.ToolStripSeparator3, Me.MDIentrenamientos, Me.ToolStripSeparator1, Me.MDIejercicios, Me.ToolStripSeparator6, Me.MDIobjetivos, Me.ToolStripSeparator7, Me.LabelSpacios, Me.ToolStripSeparator5, Me.BtnCerrarFormulario})
+        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnSalirInicio, Me.ToolStripSeparator4, Me.BtnMDINuevo, Me.BtnMDIGuardar, Me.BtnMDIEliminar, Me.ToolStripSeparator2, Me.MDIusuarios, Me.ToolStripSeparator3, Me.MDIequipos, Me.ToolStripSeparator7, Me.MDIentrenamientos, Me.ToolStripSeparator1, Me.MDIejercicios, Me.ToolStripSeparator6, Me.MdiObjetivos, Me.ToolStripSeparator8, Me.LabelSpacios, Me.ToolStripSeparator5, Me.BtnCerrarFormulario})
         Me.ToolStrip.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip.Name = "ToolStrip"
         Me.ToolStrip.Size = New System.Drawing.Size(1193, 36)
@@ -145,13 +147,13 @@ Partial Class MDI_Principal
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
         Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 36)
         '
-        'MDIobjetivos
+        'MDIequipos
         '
-        Me.MDIobjetivos.Image = CType(resources.GetObject("MDIobjetivos.Image"), System.Drawing.Image)
-        Me.MDIobjetivos.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.MDIobjetivos.Name = "MDIobjetivos"
-        Me.MDIobjetivos.Size = New System.Drawing.Size(77, 33)
-        Me.MDIobjetivos.Text = "Objetivos"
+        Me.MDIequipos.Image = CType(resources.GetObject("MDIequipos.Image"), System.Drawing.Image)
+        Me.MDIequipos.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.MDIequipos.Name = "MDIequipos"
+        Me.MDIequipos.Size = New System.Drawing.Size(69, 33)
+        Me.MDIequipos.Text = "Equipos"
         '
         'ToolStripSeparator7
         '
@@ -194,6 +196,19 @@ Partial Class MDI_Principal
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
         '
+        'MdiObjetivos
+        '
+        Me.MdiObjetivos.Image = CType(resources.GetObject("MdiObjetivos.Image"), System.Drawing.Image)
+        Me.MdiObjetivos.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.MdiObjetivos.Name = "MdiObjetivos"
+        Me.MdiObjetivos.Size = New System.Drawing.Size(77, 33)
+        Me.MdiObjetivos.Text = "Objetivos"
+        '
+        'ToolStripSeparator8
+        '
+        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(6, 36)
+        '
         'MDI_Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -227,10 +242,12 @@ Partial Class MDI_Principal
     Friend WithEvents MDIusuarios As ToolStripButton
     Friend WithEvents MDIentrenamientos As ToolStripButton
     Friend WithEvents MDIejercicios As ToolStripButton
-    Friend WithEvents MDIobjetivos As ToolStripButton
+    Friend WithEvents MDIequipos As ToolStripButton
     Friend WithEvents BtnSalirInicio As ToolStripButton
     Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
     Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
     Friend WithEvents BtnCerrarFormulario As ToolStripButton
     Friend WithEvents LabelSpacios As ToolStripLabel
+    Friend WithEvents MdiObjetivos As ToolStripButton
+    Friend WithEvents ToolStripSeparator8 As ToolStripSeparator
 End Class

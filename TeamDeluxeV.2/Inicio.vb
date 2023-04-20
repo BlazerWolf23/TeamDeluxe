@@ -52,7 +52,7 @@ Public Class Inicio
             FormMDI.Show()
             Me.Visible = False
             VariablesAPP.IdUsuarioApp = Trim(rs("idUsuario").Value)
-                VariablesAPP.UsuarioApp = Trim(rs("Nombre").Value)
+            VariablesAPP.UsuarioApp = Trim(rs("Nombre").Value)
             VariablesAPP.RolUsuario = Trim(rs("rol").Value)
             Cursor = Cursors.Arrow
         Else

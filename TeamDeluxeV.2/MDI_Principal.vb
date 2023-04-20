@@ -7,12 +7,14 @@ Public Class MDI_Principal
     Dim FormEntrenamientos As New Entrenamientos
     Dim FormEjercicios As New Ejercicios
     Dim FormObjetivos As New Objetivos
-    Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles MDIusuarios.Click, MDIentrenamientos.Click, MDIejercicios.Click, MDIobjetivos.Click
+    Dim formEquipos As New Equipos
+    Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles MDIusuarios.Click, MDIentrenamientos.Click, MDIejercicios.Click, MDIequipos.Click
         Select Case sender.name
             Case MDIusuarios.Name : AbrirFormu("Usuarios")
             Case MDIentrenamientos.Name : AbrirFormu("Entrenamientos")
             Case MDIejercicios.Name : AbrirFormu("Ejercicios")
-            Case MDIobjetivos.Name : AbrirFormu("Objetivos")
+            Case MdiObjetivos.Name : AbrirFormu("Objetivos")
+            Case MDIequipos.Name : AbrirFormu("Equipos")
         End Select
 
 
@@ -25,14 +27,21 @@ Public Class MDI_Principal
                 FormUsuarios.MdiParent = Me
                 FormUsuarios.Show()
             Case "Entrenamientos"
+                FormEntrenamientos = New Entrenamientos
                 FormEntrenamientos.MdiParent = Me
                 FormEntrenamientos.Show()
             Case "Ejercicios"
+                FormEjercicios = New Ejercicios
                 FormEjercicios.MdiParent = Me
                 FormEjercicios.Show()
             Case "Objetivos"
+                FormObjetivos = New Objetivos
                 FormObjetivos.MdiParent = Me
                 FormObjetivos.Show()
+            Case "Equipos"
+                formEquipos = New Equipos
+                formEquipos.MdiParent = Me
+                formEquipos.Show()
         End Select
     End Sub
     Private Sub BtnSalirInicio_Click(sender As Object, e As EventArgs) Handles BtnSalirInicio.Click
@@ -70,13 +79,22 @@ Public Class MDI_Principal
                 If TypeOf formu Is Usuarios Then
                     DirectCast(formu, Usuarios).Nuevo()
                 End If
+                If TypeOf formu Is Equipos Then
+                    DirectCast(formu, Equipos).Nuevo()
+                End If
             Case BtnMDIGuardar.Name
                 If TypeOf formu Is Usuarios Then
                     DirectCast(formu, Usuarios).Guardar()
                 End If
+                If TypeOf formu Is Equipos Then
+                    DirectCast(formu, Equipos).Guardar()
+                End If
             Case BtnMDIEliminar.Name
                 If TypeOf formu Is Usuarios Then
                     DirectCast(formu, Usuarios).Eliminar()
+                End If
+                If TypeOf formu Is Equipos Then
+                    DirectCast(formu, Equipos).Eliminar()
                 End If
         End Select
     End Sub

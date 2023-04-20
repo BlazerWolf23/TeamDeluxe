@@ -30,7 +30,14 @@ Public Class Usuarios
         rsUsuarios("DNI").Value = Trim(TxDNI.Text)
         rsUsuarios("FechaAlta").Value = Format(CDate(Now.Date), "yyyy/MM/dd")
         rsUsuarios("password").Value = Trim(TxNuevaPassword.Text)
-        rsUsuarios("Rol").Value = Trim(CboTipoUsuario.SelectedValue)
+        If CInt(CboTipoUsuario.SelectedValue) = 1 Then
+            rsUsuarios("Rol").Value = "entrenador"
+        ElseIf CInt(CboTipoUsuario.SelectedValue) = 2 Then
+            rsUsuarios("Rol").Value = "jugador"
+        End If
+
+
+
         If CboTipoUsuario.SelectedValue = 2 Then
             rsUsuarios("IDequipoDondeJuega").Value = CInt(CboEquipo.SelectedValue)
         End If
@@ -40,14 +47,31 @@ Public Class Usuarios
     End Sub
 
     Public Sub Consulta()
+        DbgUsuarios.Rows.Clear()
         rsUsuarios = New ADODB.Recordset
         If UCase(VariablesAPP.RolUsuario) <> UCase("admin") Then
             sql = "Select * from usuarios where idusuario <> 1 and idEquipoDondeJuega <> null"
         Else
             sql = "Select * from usuarios where idusuario <> 1"
         End If
-        rsUsuarios.Open(sql, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic)
 
+        If IsNumeric(TxIDbus.Text) Then
+            sql &= " and idusuario = " & CInt(TxIDbus.Text)
+        End If
+
+        If Trim(TxNombreBus.Text) <> "" Then
+            sql &= " and nombre like '%" & Trim(TxNombreBus.Text) & "%'"
+        End If
+
+        If Trim(TxApellidoBus.Text) <> "" Then
+            sql &= " and apellido like '%" & Trim(TxApellido.Text) & "%'"
+        End If
+
+        If TxDNIbus.Text.Length = 9 Then
+            sql &= " and DNI = '" & Trim(TxDNI.Text) & "'"
+        End If
+
+        rsUsuarios.Open(sql, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic)
         Do Until rsUsuarios.EOF
             AniadirLineaGridUsuarios(CInt(rsUsuarios("IDusuario").Value), Trim(rsUsuarios("nombre").Value), Trim(rsUsuarios("apellido").Value), Trim(rsUsuarios("DNI").Value), Trim(rsUsuarios("Telefono").Value))
             rsUsuarios.MoveNext()
@@ -185,7 +209,7 @@ Public Class Usuarios
     End Sub
 
     Private Sub LostFocus1(sender As Object, e As EventArgs) Handles TxID.LostFocus
-        If Trim(TxID.Text) = "" Then Exit Sub
+        If Trim(TxID.Text) = "" And Not IsNumeric(TxID.Text) Then Exit Sub
         rsAux = New ADODB.Recordset
         rsAux.Open("Select * from usuarios where IDusuario = " & CInt(TxID.Text), Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
         If Not rsAux.EOF Then CargarClienteDeConsulta(CInt(rsAux("IDusuario").Value))
@@ -193,6 +217,17 @@ Public Class Usuarios
     End Sub
 
     Private Sub BtnFiltrar_Click(sender As Object, e As EventArgs) Handles BtnFiltrar.Click
+        Consulta()
+    End Sub
+
+    Private Sub TxNombre_Click(sender As Object, e As EventArgs) Handles TxNombre.Click, TxID.Click, TxApellido.Click, TxDNI.Click, TxTelefono.Click, TxDireccion.Click, TxPais.Click, TxProvincia.Click, TxLocalidad.Click, CboEquipo.Click, CboTipoUsuario.Click, TxApellidoBus.Click, TxNombreBus.Click, TxDNIbus.Click, TxIDbus.Click
+        If sender.text.length > 0 Then
+            sender.SelectAll()
+        End If
+    End Sub
+
+
+    Private Sub CargarEquiposEntrenado()
 
     End Sub
 End Class
