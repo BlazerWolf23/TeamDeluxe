@@ -22,10 +22,14 @@ Partial Class Usuarios
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Usuarios))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.PanelPass = New MaterialSkin.Controls.MaterialCard()
+        Me.BtnGuardarPassword = New MaterialSkin.Controls.MaterialFloatingActionButton()
+        Me.TxNuevaPassword = New MaterialSkin.Controls.MaterialMaskedTextBox()
+        Me.MaterialLabel13 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialCard2 = New MaterialSkin.Controls.MaterialCard()
         Me.DbgUsuarios = New System.Windows.Forms.DataGridView()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -42,6 +46,7 @@ Partial Class Usuarios
         Me.TxDNIbus = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.TxApellidoBus = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.MaterialCard1 = New MaterialSkin.Controls.MaterialCard()
+        Me.BtnAbrirPanelPassword = New MaterialSkin.Controls.MaterialFloatingActionButton()
         Me.CboTipoUsuario = New MaterialSkin.Controls.MaterialComboBox()
         Me.MaterialLabel12 = New MaterialSkin.Controls.MaterialLabel()
         Me.TxLocalidad = New MaterialSkin.Controls.MaterialMaskedTextBox()
@@ -66,18 +71,13 @@ Partial Class Usuarios
         Me.MaterialLabel2 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
         Me.TxApellido = New MaterialSkin.Controls.MaterialMaskedTextBox()
-        Me.PanelPass = New MaterialSkin.Controls.MaterialCard()
-        Me.BtnAbrirPanelPassword = New MaterialSkin.Controls.MaterialFloatingActionButton()
-        Me.MaterialLabel13 = New MaterialSkin.Controls.MaterialLabel()
-        Me.TxNuevaPassword = New MaterialSkin.Controls.MaterialMaskedTextBox()
-        Me.BtnGuardarPassword = New MaterialSkin.Controls.MaterialFloatingActionButton()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.PanelPass.SuspendLayout()
         Me.MaterialCard2.SuspendLayout()
         CType(Me.DbgUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         Me.MaterialCard1.SuspendLayout()
-        Me.PanelPass.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -101,6 +101,92 @@ Partial Class Usuarios
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1159, 766)
         Me.Panel2.TabIndex = 1
+        '
+        'PanelPass
+        '
+        Me.PanelPass.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.PanelPass.Controls.Add(Me.BtnGuardarPassword)
+        Me.PanelPass.Controls.Add(Me.TxNuevaPassword)
+        Me.PanelPass.Controls.Add(Me.MaterialLabel13)
+        Me.PanelPass.Depth = 0
+        Me.PanelPass.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.PanelPass.Location = New System.Drawing.Point(675, 6)
+        Me.PanelPass.Margin = New System.Windows.Forms.Padding(14)
+        Me.PanelPass.MouseState = MaterialSkin.MouseState.HOVER
+        Me.PanelPass.Name = "PanelPass"
+        Me.PanelPass.Padding = New System.Windows.Forms.Padding(14)
+        Me.PanelPass.Size = New System.Drawing.Size(297, 135)
+        Me.PanelPass.TabIndex = 8
+        Me.PanelPass.Visible = False
+        '
+        'BtnGuardarPassword
+        '
+        Me.BtnGuardarPassword.BackgroundImage = CType(resources.GetObject("BtnGuardarPassword.BackgroundImage"), System.Drawing.Image)
+        Me.BtnGuardarPassword.Depth = 0
+        Me.BtnGuardarPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnGuardarPassword.Icon = CType(resources.GetObject("BtnGuardarPassword.Icon"), System.Drawing.Image)
+        Me.BtnGuardarPassword.Image = CType(resources.GetObject("BtnGuardarPassword.Image"), System.Drawing.Image)
+        Me.BtnGuardarPassword.Location = New System.Drawing.Point(232, 73)
+        Me.BtnGuardarPassword.MouseState = MaterialSkin.MouseState.HOVER
+        Me.BtnGuardarPassword.Name = "BtnGuardarPassword"
+        Me.BtnGuardarPassword.Size = New System.Drawing.Size(56, 55)
+        Me.BtnGuardarPassword.TabIndex = 32
+        Me.BtnGuardarPassword.UseVisualStyleBackColor = True
+        '
+        'TxNuevaPassword
+        '
+        Me.TxNuevaPassword.AllowPromptAsInput = True
+        Me.TxNuevaPassword.AnimateReadOnly = False
+        Me.TxNuevaPassword.AsciiOnly = False
+        Me.TxNuevaPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.TxNuevaPassword.BeepOnError = False
+        Me.TxNuevaPassword.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxNuevaPassword.Depth = 0
+        Me.TxNuevaPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.TxNuevaPassword.HidePromptOnLeave = False
+        Me.TxNuevaPassword.HideSelection = True
+        Me.TxNuevaPassword.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
+        Me.TxNuevaPassword.LeadingIcon = Nothing
+        Me.TxNuevaPassword.Location = New System.Drawing.Point(9, 31)
+        Me.TxNuevaPassword.Mask = ""
+        Me.TxNuevaPassword.MaxLength = 32767
+        Me.TxNuevaPassword.MouseState = MaterialSkin.MouseState.OUT
+        Me.TxNuevaPassword.Name = "TxNuevaPassword"
+        Me.TxNuevaPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TxNuevaPassword.PrefixSuffixText = Nothing
+        Me.TxNuevaPassword.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
+        Me.TxNuevaPassword.ReadOnly = False
+        Me.TxNuevaPassword.RejectInputOnFirstFailure = False
+        Me.TxNuevaPassword.ResetOnPrompt = True
+        Me.TxNuevaPassword.ResetOnSpace = True
+        Me.TxNuevaPassword.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.TxNuevaPassword.SelectedText = ""
+        Me.TxNuevaPassword.SelectionLength = 0
+        Me.TxNuevaPassword.SelectionStart = 0
+        Me.TxNuevaPassword.ShortcutsEnabled = True
+        Me.TxNuevaPassword.Size = New System.Drawing.Size(279, 36)
+        Me.TxNuevaPassword.SkipLiterals = True
+        Me.TxNuevaPassword.TabIndex = 32
+        Me.TxNuevaPassword.TabStop = False
+        Me.TxNuevaPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.TxNuevaPassword.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxNuevaPassword.TrailingIcon = Nothing
+        Me.TxNuevaPassword.UseSystemPasswordChar = False
+        Me.TxNuevaPassword.UseTallSize = False
+        Me.TxNuevaPassword.ValidatingType = Nothing
+        '
+        'MaterialLabel13
+        '
+        Me.MaterialLabel13.AutoSize = True
+        Me.MaterialLabel13.Depth = 0
+        Me.MaterialLabel13.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.MaterialLabel13.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption
+        Me.MaterialLabel13.Location = New System.Drawing.Point(17, 14)
+        Me.MaterialLabel13.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialLabel13.Name = "MaterialLabel13"
+        Me.MaterialLabel13.Size = New System.Drawing.Size(102, 14)
+        Me.MaterialLabel13.TabIndex = 32
+        Me.MaterialLabel13.Text = "Nueva Contraseña"
         '
         'MaterialCard2
         '
@@ -128,9 +214,9 @@ Partial Class Usuarios
         '
         'ID
         '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ID.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ID.DefaultCellStyle = DataGridViewCellStyle2
         Me.ID.HeaderText = "ID"
         Me.ID.Name = "ID"
         Me.ID.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
@@ -188,7 +274,7 @@ Partial Class Usuarios
         Me.BtnFiltrar.MouseState = MaterialSkin.MouseState.HOVER
         Me.BtnFiltrar.Name = "BtnFiltrar"
         Me.BtnFiltrar.Size = New System.Drawing.Size(56, 55)
-        Me.BtnFiltrar.TabIndex = 30
+        Me.BtnFiltrar.TabIndex = 20
         Me.BtnFiltrar.UseVisualStyleBackColor = True
         '
         'CboEquipoBus
@@ -212,7 +298,7 @@ Partial Class Usuarios
         Me.CboEquipoBus.Name = "CboEquipoBus"
         Me.CboEquipoBus.Size = New System.Drawing.Size(161, 35)
         Me.CboEquipoBus.StartIndex = 0
-        Me.CboEquipoBus.TabIndex = 29
+        Me.CboEquipoBus.TabIndex = 19
         Me.CboEquipoBus.UseTallSize = False
         '
         'TxNombreBus
@@ -249,7 +335,7 @@ Partial Class Usuarios
         Me.TxNombreBus.ShortcutsEnabled = True
         Me.TxNombreBus.Size = New System.Drawing.Size(161, 36)
         Me.TxNombreBus.SkipLiterals = True
-        Me.TxNombreBus.TabIndex = 2
+        Me.TxNombreBus.TabIndex = 16
         Me.TxNombreBus.TabStop = False
         Me.TxNombreBus.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.TxNombreBus.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
@@ -292,7 +378,7 @@ Partial Class Usuarios
         Me.TxIDbus.ShortcutsEnabled = True
         Me.TxIDbus.Size = New System.Drawing.Size(71, 36)
         Me.TxIDbus.SkipLiterals = True
-        Me.TxIDbus.TabIndex = 1
+        Me.TxIDbus.TabIndex = 15
         Me.TxIDbus.TabStop = False
         Me.TxIDbus.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.TxIDbus.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
@@ -335,7 +421,7 @@ Partial Class Usuarios
         Me.TxDNIbus.ShortcutsEnabled = True
         Me.TxDNIbus.Size = New System.Drawing.Size(166, 36)
         Me.TxDNIbus.SkipLiterals = True
-        Me.TxDNIbus.TabIndex = 4
+        Me.TxDNIbus.TabIndex = 18
         Me.TxDNIbus.TabStop = False
         Me.TxDNIbus.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.TxDNIbus.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
@@ -378,7 +464,7 @@ Partial Class Usuarios
         Me.TxApellidoBus.ShortcutsEnabled = True
         Me.TxApellidoBus.Size = New System.Drawing.Size(256, 36)
         Me.TxApellidoBus.SkipLiterals = True
-        Me.TxApellidoBus.TabIndex = 3
+        Me.TxApellidoBus.TabIndex = 17
         Me.TxApellidoBus.TabStop = False
         Me.TxApellidoBus.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.TxApellidoBus.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
@@ -425,6 +511,20 @@ Partial Class Usuarios
         Me.MaterialCard1.Size = New System.Drawing.Size(642, 292)
         Me.MaterialCard1.TabIndex = 6
         '
+        'BtnAbrirPanelPassword
+        '
+        Me.BtnAbrirPanelPassword.BackgroundImage = CType(resources.GetObject("BtnAbrirPanelPassword.BackgroundImage"), System.Drawing.Image)
+        Me.BtnAbrirPanelPassword.Depth = 0
+        Me.BtnAbrirPanelPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAbrirPanelPassword.Icon = CType(resources.GetObject("BtnAbrirPanelPassword.Icon"), System.Drawing.Image)
+        Me.BtnAbrirPanelPassword.Image = CType(resources.GetObject("BtnAbrirPanelPassword.Image"), System.Drawing.Image)
+        Me.BtnAbrirPanelPassword.Location = New System.Drawing.Point(37, 228)
+        Me.BtnAbrirPanelPassword.MouseState = MaterialSkin.MouseState.HOVER
+        Me.BtnAbrirPanelPassword.Name = "BtnAbrirPanelPassword"
+        Me.BtnAbrirPanelPassword.Size = New System.Drawing.Size(56, 55)
+        Me.BtnAbrirPanelPassword.TabIndex = 11
+        Me.BtnAbrirPanelPassword.UseVisualStyleBackColor = True
+        '
         'CboTipoUsuario
         '
         Me.CboTipoUsuario.AutoResize = False
@@ -445,7 +545,7 @@ Partial Class Usuarios
         Me.CboTipoUsuario.Name = "CboTipoUsuario"
         Me.CboTipoUsuario.Size = New System.Drawing.Size(175, 35)
         Me.CboTipoUsuario.StartIndex = 0
-        Me.CboTipoUsuario.TabIndex = 27
+        Me.CboTipoUsuario.TabIndex = 13
         Me.CboTipoUsuario.UseTallSize = False
         '
         'MaterialLabel12
@@ -494,7 +594,7 @@ Partial Class Usuarios
         Me.TxLocalidad.ShortcutsEnabled = True
         Me.TxLocalidad.Size = New System.Drawing.Size(133, 36)
         Me.TxLocalidad.SkipLiterals = True
-        Me.TxLocalidad.TabIndex = 26
+        Me.TxLocalidad.TabIndex = 10
         Me.TxLocalidad.TabStop = False
         Me.TxLocalidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.TxLocalidad.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
@@ -536,7 +636,7 @@ Partial Class Usuarios
         Me.CboEquipo.Name = "CboEquipo"
         Me.CboEquipo.Size = New System.Drawing.Size(175, 35)
         Me.CboEquipo.StartIndex = 0
-        Me.CboEquipo.TabIndex = 17
+        Me.CboEquipo.TabIndex = 12
         Me.CboEquipo.UseTallSize = False
         '
         'MaterialLabel7
@@ -585,7 +685,7 @@ Partial Class Usuarios
         Me.TxProvincia.ShortcutsEnabled = True
         Me.TxProvincia.Size = New System.Drawing.Size(133, 36)
         Me.TxProvincia.SkipLiterals = True
-        Me.TxProvincia.TabIndex = 24
+        Me.TxProvincia.TabIndex = 9
         Me.TxProvincia.TabStop = False
         Me.TxProvincia.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.TxProvincia.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
@@ -640,7 +740,7 @@ Partial Class Usuarios
         Me.TxPais.ShortcutsEnabled = True
         Me.TxPais.Size = New System.Drawing.Size(133, 36)
         Me.TxPais.SkipLiterals = True
-        Me.TxPais.TabIndex = 22
+        Me.TxPais.TabIndex = 8
         Me.TxPais.TabStop = False
         Me.TxPais.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.TxPais.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
@@ -695,7 +795,7 @@ Partial Class Usuarios
         Me.TxDireccion.ShortcutsEnabled = True
         Me.TxDireccion.Size = New System.Drawing.Size(560, 36)
         Me.TxDireccion.SkipLiterals = True
-        Me.TxDireccion.TabIndex = 20
+        Me.TxDireccion.TabIndex = 7
         Me.TxDireccion.TabStop = False
         Me.TxDireccion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.TxDireccion.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
@@ -750,7 +850,7 @@ Partial Class Usuarios
         Me.TxTelefono.ShortcutsEnabled = True
         Me.TxTelefono.Size = New System.Drawing.Size(128, 36)
         Me.TxTelefono.SkipLiterals = True
-        Me.TxTelefono.TabIndex = 16
+        Me.TxTelefono.TabIndex = 6
         Me.TxTelefono.TabStop = False
         Me.TxTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.TxTelefono.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
@@ -794,7 +894,7 @@ Partial Class Usuarios
         Me.DTPfechaNac.Location = New System.Drawing.Point(318, 82)
         Me.DTPfechaNac.Name = "DTPfechaNac"
         Me.DTPfechaNac.Size = New System.Drawing.Size(107, 20)
-        Me.DTPfechaNac.TabIndex = 13
+        Me.DTPfechaNac.TabIndex = 5
         '
         'TxID
         '
@@ -829,7 +929,7 @@ Partial Class Usuarios
         Me.TxID.ShortcutsEnabled = True
         Me.TxID.Size = New System.Drawing.Size(58, 36)
         Me.TxID.SkipLiterals = True
-        Me.TxID.TabIndex = 5
+        Me.TxID.TabIndex = 1
         Me.TxID.TabStop = False
         Me.TxID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.TxID.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
@@ -884,7 +984,7 @@ Partial Class Usuarios
         Me.TxDNI.ShortcutsEnabled = True
         Me.TxDNI.Size = New System.Drawing.Size(128, 36)
         Me.TxDNI.SkipLiterals = True
-        Me.TxDNI.TabIndex = 12
+        Me.TxDNI.TabIndex = 4
         Me.TxDNI.TabStop = False
         Me.TxDNI.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.TxDNI.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
@@ -926,7 +1026,7 @@ Partial Class Usuarios
         Me.TxNombre.ShortcutsEnabled = True
         Me.TxNombre.Size = New System.Drawing.Size(135, 36)
         Me.TxNombre.SkipLiterals = True
-        Me.TxNombre.TabIndex = 8
+        Me.TxNombre.TabIndex = 2
         Me.TxNombre.TabStop = False
         Me.TxNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.TxNombre.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
@@ -1007,7 +1107,7 @@ Partial Class Usuarios
         Me.TxApellido.ShortcutsEnabled = True
         Me.TxApellido.Size = New System.Drawing.Size(235, 36)
         Me.TxApellido.SkipLiterals = True
-        Me.TxApellido.TabIndex = 10
+        Me.TxApellido.TabIndex = 3
         Me.TxApellido.TabStop = False
         Me.TxApellido.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.TxApellido.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
@@ -1015,106 +1115,6 @@ Partial Class Usuarios
         Me.TxApellido.UseSystemPasswordChar = False
         Me.TxApellido.UseTallSize = False
         Me.TxApellido.ValidatingType = Nothing
-        '
-        'PanelPass
-        '
-        Me.PanelPass.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PanelPass.Controls.Add(Me.BtnGuardarPassword)
-        Me.PanelPass.Controls.Add(Me.TxNuevaPassword)
-        Me.PanelPass.Controls.Add(Me.MaterialLabel13)
-        Me.PanelPass.Depth = 0
-        Me.PanelPass.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.PanelPass.Location = New System.Drawing.Point(675, 6)
-        Me.PanelPass.Margin = New System.Windows.Forms.Padding(14)
-        Me.PanelPass.MouseState = MaterialSkin.MouseState.HOVER
-        Me.PanelPass.Name = "PanelPass"
-        Me.PanelPass.Padding = New System.Windows.Forms.Padding(14)
-        Me.PanelPass.Size = New System.Drawing.Size(297, 135)
-        Me.PanelPass.TabIndex = 8
-        Me.PanelPass.Visible = False
-        '
-        'BtnAbrirPanelPassword
-        '
-        Me.BtnAbrirPanelPassword.BackgroundImage = CType(resources.GetObject("BtnAbrirPanelPassword.BackgroundImage"), System.Drawing.Image)
-        Me.BtnAbrirPanelPassword.Depth = 0
-        Me.BtnAbrirPanelPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAbrirPanelPassword.Icon = CType(resources.GetObject("BtnAbrirPanelPassword.Icon"), System.Drawing.Image)
-        Me.BtnAbrirPanelPassword.Image = CType(resources.GetObject("BtnAbrirPanelPassword.Image"), System.Drawing.Image)
-        Me.BtnAbrirPanelPassword.Location = New System.Drawing.Point(37, 228)
-        Me.BtnAbrirPanelPassword.MouseState = MaterialSkin.MouseState.HOVER
-        Me.BtnAbrirPanelPassword.Name = "BtnAbrirPanelPassword"
-        Me.BtnAbrirPanelPassword.Size = New System.Drawing.Size(56, 55)
-        Me.BtnAbrirPanelPassword.TabIndex = 31
-        Me.BtnAbrirPanelPassword.UseVisualStyleBackColor = True
-        '
-        'MaterialLabel13
-        '
-        Me.MaterialLabel13.AutoSize = True
-        Me.MaterialLabel13.Depth = 0
-        Me.MaterialLabel13.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.MaterialLabel13.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption
-        Me.MaterialLabel13.Location = New System.Drawing.Point(17, 14)
-        Me.MaterialLabel13.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel13.Name = "MaterialLabel13"
-        Me.MaterialLabel13.Size = New System.Drawing.Size(102, 14)
-        Me.MaterialLabel13.TabIndex = 32
-        Me.MaterialLabel13.Text = "Nueva Contraseña"
-        '
-        'TxNuevaPassword
-        '
-        Me.TxNuevaPassword.AllowPromptAsInput = True
-        Me.TxNuevaPassword.AnimateReadOnly = False
-        Me.TxNuevaPassword.AsciiOnly = False
-        Me.TxNuevaPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.TxNuevaPassword.BeepOnError = False
-        Me.TxNuevaPassword.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.TxNuevaPassword.Depth = 0
-        Me.TxNuevaPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.TxNuevaPassword.HidePromptOnLeave = False
-        Me.TxNuevaPassword.HideSelection = True
-        Me.TxNuevaPassword.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
-        Me.TxNuevaPassword.LeadingIcon = Nothing
-        Me.TxNuevaPassword.Location = New System.Drawing.Point(17, 31)
-        Me.TxNuevaPassword.Mask = ""
-        Me.TxNuevaPassword.MaxLength = 32767
-        Me.TxNuevaPassword.MouseState = MaterialSkin.MouseState.OUT
-        Me.TxNuevaPassword.Name = "TxNuevaPassword"
-        Me.TxNuevaPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.TxNuevaPassword.PrefixSuffixText = Nothing
-        Me.TxNuevaPassword.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
-        Me.TxNuevaPassword.ReadOnly = False
-        Me.TxNuevaPassword.RejectInputOnFirstFailure = False
-        Me.TxNuevaPassword.ResetOnPrompt = True
-        Me.TxNuevaPassword.ResetOnSpace = True
-        Me.TxNuevaPassword.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.TxNuevaPassword.SelectedText = ""
-        Me.TxNuevaPassword.SelectionLength = 0
-        Me.TxNuevaPassword.SelectionStart = 0
-        Me.TxNuevaPassword.ShortcutsEnabled = True
-        Me.TxNuevaPassword.Size = New System.Drawing.Size(271, 36)
-        Me.TxNuevaPassword.SkipLiterals = True
-        Me.TxNuevaPassword.TabIndex = 32
-        Me.TxNuevaPassword.TabStop = False
-        Me.TxNuevaPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.TxNuevaPassword.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.TxNuevaPassword.TrailingIcon = Nothing
-        Me.TxNuevaPassword.UseSystemPasswordChar = False
-        Me.TxNuevaPassword.UseTallSize = False
-        Me.TxNuevaPassword.ValidatingType = Nothing
-        '
-        'BtnGuardarPassword
-        '
-        Me.BtnGuardarPassword.BackgroundImage = CType(resources.GetObject("BtnGuardarPassword.BackgroundImage"), System.Drawing.Image)
-        Me.BtnGuardarPassword.Depth = 0
-        Me.BtnGuardarPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnGuardarPassword.Icon = CType(resources.GetObject("BtnGuardarPassword.Icon"), System.Drawing.Image)
-        Me.BtnGuardarPassword.Image = CType(resources.GetObject("BtnGuardarPassword.Image"), System.Drawing.Image)
-        Me.BtnGuardarPassword.Location = New System.Drawing.Point(232, 73)
-        Me.BtnGuardarPassword.MouseState = MaterialSkin.MouseState.HOVER
-        Me.BtnGuardarPassword.Name = "BtnGuardarPassword"
-        Me.BtnGuardarPassword.Size = New System.Drawing.Size(56, 55)
-        Me.BtnGuardarPassword.TabIndex = 32
-        Me.BtnGuardarPassword.UseVisualStyleBackColor = True
         '
         'Usuarios
         '
@@ -1124,16 +1124,17 @@ Partial Class Usuarios
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Usuarios"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "CrearUsuarios"
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
+        Me.PanelPass.ResumeLayout(False)
+        Me.PanelPass.PerformLayout()
         Me.MaterialCard2.ResumeLayout(False)
         CType(Me.DbgUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.MaterialCard1.ResumeLayout(False)
         Me.MaterialCard1.PerformLayout()
-        Me.PanelPass.ResumeLayout(False)
-        Me.PanelPass.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

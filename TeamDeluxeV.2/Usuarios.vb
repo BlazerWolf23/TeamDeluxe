@@ -46,7 +46,6 @@ Public Class Usuarios
         Else
             sql = "Select * from usuarios where idusuario <> 1"
         End If
-
         rsUsuarios.Open(sql, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic)
 
         Do Until rsUsuarios.EOF
@@ -110,6 +109,10 @@ Public Class Usuarios
     End Sub
 
     Private Sub TxAbrirPanelPassword_Click(sender As Object, e As EventArgs) Handles BtnAbrirPanelPassword.Click
+        If Trim(TxNombre.Text) = "" Or Trim(TxApellido.Text) = "" Or Trim(TxDNI.Text) = "" Or Trim(TxTelefono.Text) = "" Then
+            MsgBox("Introduzca los datos del usuario antes de poner una contrasenia", vbExclamation)
+            Exit Sub
+        End If
         PanelPass.Visible = True
     End Sub
 
@@ -127,9 +130,9 @@ Public Class Usuarios
     Private Sub CargarTipoUsuarios()
         Dim items As New List(Of Item)
         If UCase(VariablesAPP.RolUsuario) = UCase("admin") Then
-            items.Add(New Item With {.Value = 2, .Description = "Entrenador"})
+            items.Add(New Item With {.Value = 1, .Description = "Entrenador"})
         End If
-        items.Add(New Item With {.Value = 1, .Description = "Jugador"})
+        items.Add(New Item With {.Value = 2, .Description = "Jugador"})
         CboTipoUsuario.DataSource = items
         CboTipoUsuario.ValueMember = "Value"
         CboTipoUsuario.DisplayMember = "Description"
@@ -146,6 +149,7 @@ Public Class Usuarios
         salto = True
         CargarTipoUsuarios()
         salto = False
+        CboTipoUsuario.SelectedValue = 2
     End Sub
 
     Private Sub CargarClienteDeConsulta(idUsuario As Integer)
@@ -172,5 +176,23 @@ Public Class Usuarios
 
     Private Sub DbgUsuarios_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgUsuarios.CellContentDoubleClick
         CargarClienteDeConsulta(CInt(DbgUsuarios.Rows(e.RowIndex).Cells(0).Value))
+    End Sub
+
+    Private Sub TxID_KeyDown(sender As Object, e As KeyEventArgs) Handles TxID.KeyDown, TxNombre.KeyDown, TxApellido.KeyDown, TxDNI.KeyDown, TxTelefono.KeyDown, DTPfechaNac.KeyDown, TxDireccion.KeyDown, TxPais.KeyDown, TxProvincia.KeyDown, TxLocalidad.KeyDown, CboEquipo.KeyDown, CboTipoUsuario.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            SendKeys.Send("{TAB}")
+        End If
+    End Sub
+
+    Private Sub LostFocus1(sender As Object, e As EventArgs) Handles TxID.LostFocus
+        If Trim(TxID.Text) = "" Then Exit Sub
+        rsAux = New ADODB.Recordset
+        rsAux.Open("Select * from usuarios where IDusuario = " & CInt(TxID.Text), Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        If Not rsAux.EOF Then CargarClienteDeConsulta(CInt(rsAux("IDusuario").Value))
+        Nuevo()
+    End Sub
+
+    Private Sub BtnFiltrar_Click(sender As Object, e As EventArgs) Handles BtnFiltrar.Click
+
     End Sub
 End Class
