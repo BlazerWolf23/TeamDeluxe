@@ -10,38 +10,41 @@ Public Class Usuarios
             MsgBox("Introduzca un nombre para el usuario.", vbExclamation)
             Exit Sub
         End If
-        Cursor = Cursors.WaitCursor
-        rsUsuarios = New ADODB.Recordset
-        rsUsuarios.Open("Select * from Usuarios where IdUsuario = " & IIf(TxID.Text = "", 0, TxID.Text), Database.Connection, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic, 1)
-        If rsUsuarios.EOF Then
-            rsAux = New ADODB.Recordset
-            rsAux.Open("select top 1 IdUsuario from Usuarios order by IdUsuario desc", Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
-            rsUsuarios.AddNew()
-            rsUsuarios("IDusuario").Value = CInt(rsAux("Idusuario").Value) + 1
-        End If
-        rsUsuarios("nombre").Value = Trim(TxNombre.Text)
-        rsUsuarios("apellido").Value = Trim(TxApellido.Text)
-        rsUsuarios("FechaNacimiento").Value = Format(CDate(DTPfechaNac.Value), "yyyy/MM/dd")
-        rsUsuarios("telefono").Value = Trim(TxTelefono.Text)
-        rsUsuarios("direccion").Value = Trim(TxDireccion.Text)
-        rsUsuarios("pais").Value = Trim(TxPais.Text)
-        rsUsuarios("provincia").Value = Trim(TxProvincia.Text)
-        rsUsuarios("poblacion").Value = Trim(TxLocalidad.Text)
-        rsUsuarios("DNI").Value = Trim(TxDNI.Text)
-        rsUsuarios("FechaAlta").Value = Format(CDate(Now.Date), "yyyy/MM/dd")
-        rsUsuarios("password").Value = Trim(TxNuevaPassword.Text)
-        If CInt(CboTipoUsuario.SelectedValue) = 1 Then
-            rsUsuarios("Rol").Value = "entrenador"
-        ElseIf CInt(CboTipoUsuario.SelectedValue) = 2 Then
-            rsUsuarios("Rol").Value = "jugador"
-        End If
+
+        If MsgBox("Desea Guardar al usuario?", vbQuestion) = vbOK Then
+            Cursor = Cursors.WaitCursor
+            rsUsuarios = New ADODB.Recordset
+            rsUsuarios.Open("Select * from Usuarios where IdUsuario = " & IIf(TxID.Text = "", 0, TxID.Text), Database.Connection, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic, 1)
+            If rsUsuarios.EOF Then
+                rsAux = New ADODB.Recordset
+                rsAux.Open("select top 1 IdUsuario from Usuarios order by IdUsuario desc", Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+                rsUsuarios.AddNew()
+                rsUsuarios("IDusuario").Value = CInt(rsAux("Idusuario").Value) + 1
+            End If
+            rsUsuarios("nombre").Value = Trim(TxNombre.Text)
+            rsUsuarios("apellido").Value = Trim(TxApellido.Text)
+            rsUsuarios("FechaNacimiento").Value = Format(CDate(DTPfechaNac.Value), "yyyy/MM/dd")
+            rsUsuarios("telefono").Value = Trim(TxTelefono.Text)
+            rsUsuarios("direccion").Value = Trim(TxDireccion.Text)
+            rsUsuarios("pais").Value = Trim(TxPais.Text)
+            rsUsuarios("provincia").Value = Trim(TxProvincia.Text)
+            rsUsuarios("poblacion").Value = Trim(TxLocalidad.Text)
+            rsUsuarios("DNI").Value = Trim(TxDNI.Text)
+            rsUsuarios("FechaAlta").Value = Format(CDate(Now.Date), "yyyy/MM/dd")
+            rsUsuarios("password").Value = Trim(TxNuevaPassword.Text)
+            If CInt(CboTipoUsuario.SelectedValue) = 1 Then
+                rsUsuarios("Rol").Value = "entrenador"
+            ElseIf CInt(CboTipoUsuario.SelectedValue) = 2 Then
+                rsUsuarios("Rol").Value = "jugador"
+            End If
 
 
 
-        If CboTipoUsuario.SelectedValue = 2 Then
-            rsUsuarios("IDequipoDondeJuega").Value = CInt(CboEquipo.SelectedValue)
+            If CboTipoUsuario.SelectedValue = 2 Then
+                rsUsuarios("IDequipoDondeJuega").Value = CInt(CboEquipo.SelectedValue)
+            End If
+            rsUsuarios.Update()
         End If
-        rsUsuarios.Update()
         Cursor = Cursors.Arrow
         Nuevo()
     End Sub
@@ -107,7 +110,9 @@ Public Class Usuarios
                     Exit Sub
                 End Try
             End If
+            Nuevo()
         End If
+
     End Sub
 
     Public Sub Nuevo()
@@ -124,6 +129,7 @@ Public Class Usuarios
         TxLocalidad.Text = ""
         CboTipoUsuario.SelectedValue = 1
         TxNuevaPassword.Text = ""
+        Consulta()
         Cursor = Cursors.Arrow
     End Sub
 
@@ -212,8 +218,11 @@ Public Class Usuarios
         If Trim(TxID.Text) = "" And Not IsNumeric(TxID.Text) Then Exit Sub
         rsAux = New ADODB.Recordset
         rsAux.Open("Select * from usuarios where IDusuario = " & CInt(TxID.Text), Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
-        If Not rsAux.EOF Then CargarClienteDeConsulta(CInt(rsAux("IDusuario").Value))
-        Nuevo()
+        If Not rsAux.EOF Then
+            CargarClienteDeConsulta(CInt(rsAux("IDusuario").Value))
+        Else
+            Nuevo()
+        End If
     End Sub
 
     Private Sub BtnFiltrar_Click(sender As Object, e As EventArgs) Handles BtnFiltrar.Click

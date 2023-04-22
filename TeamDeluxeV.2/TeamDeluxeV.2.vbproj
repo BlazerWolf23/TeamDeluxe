@@ -198,6 +198,9 @@
     <Compile Include="VariablesAPP.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Ejercicios.resx">
+      <DependentUpon>Ejercicios.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Equipos.resx">
       <DependentUpon>Equipos.vb</DependentUpon>
     </EmbeddedResource>

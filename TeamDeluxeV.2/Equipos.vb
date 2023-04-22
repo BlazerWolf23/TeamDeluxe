@@ -100,7 +100,9 @@ Public Class Equipos
         TxCategoria.Text = ""
         DTPInicioCompe.Value = Now.Date
         TxHoraPartido.Text = "00:00"
-        CboUsuario.SelectedIndex = 0
+        If CboUsuario.Items.Count > 0 Then
+            CboUsuario.SelectedIndex = 0
+        End If
         Cursor = Cursors.Arrow
     End Sub
 
