@@ -28,45 +28,47 @@ Partial Class Ejercicios
         Me.MaterialCard4 = New MaterialSkin.Controls.MaterialCard()
         Me.MaterialButton6 = New MaterialSkin.Controls.MaterialButton()
         Me.MaterialMaskedTextBox2 = New MaterialSkin.Controls.MaterialMaskedTextBox()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.DbgObjetivos = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MaterialCard3 = New MaterialSkin.Controls.MaterialCard()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DbgObjetivosEjercicios = New System.Windows.Forms.DataGridView()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Objetivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MaterialCard2 = New MaterialSkin.Controls.MaterialCard()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.MaterialButton5 = New MaterialSkin.Controls.MaterialButton()
-        Me.MaterialButton4 = New MaterialSkin.Controls.MaterialButton()
-        Me.MaterialButton2 = New MaterialSkin.Controls.MaterialButton()
-        Me.MaterialButton1 = New MaterialSkin.Controls.MaterialButton()
-        Me.MaterialButton3 = New MaterialSkin.Controls.MaterialButton()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.BtnLineaPunteada = New MaterialSkin.Controls.MaterialButton()
+        Me.BtnLineaNomal = New MaterialSkin.Controls.MaterialButton()
+        Me.Vaciarimagen = New MaterialSkin.Controls.MaterialButton()
+        Me.BtnImportarImagen = New MaterialSkin.Controls.MaterialButton()
+        Me.BtnPersona = New MaterialSkin.Controls.MaterialButton()
+        Me.BtnExportarImagen = New MaterialSkin.Controls.MaterialButton()
+        Me.BtnCono = New MaterialSkin.Controls.MaterialButton()
+        Me.PBImagenCampo = New System.Windows.Forms.PictureBox()
         Me.MaterialCard1 = New MaterialSkin.Controls.MaterialCard()
         Me.MaterialLabel8 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialMaskedTextBox1 = New MaterialSkin.Controls.MaterialMaskedTextBox()
+        Me.TxJugadores = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.MaterialLabel6 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialMultiLineTextBox23 = New MaterialSkin.Controls.MaterialMultiLineTextBox2()
+        Me.TxMaterial = New MaterialSkin.Controls.MaterialMultiLineTextBox2()
         Me.MaterialLabel5 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialMultiLineTextBox22 = New MaterialSkin.Controls.MaterialMultiLineTextBox2()
+        Me.TxObservaciones = New MaterialSkin.Controls.MaterialMultiLineTextBox2()
         Me.MaterialLabel4 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialMultiLineTextBox21 = New MaterialSkin.Controls.MaterialMultiLineTextBox2()
+        Me.TxDescripcion = New MaterialSkin.Controls.MaterialMultiLineTextBox2()
         Me.TxID = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
         Me.TxNombre = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.MaterialLabel2 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
-        Me.TxApellido = New MaterialSkin.Controls.MaterialMaskedTextBox()
+        Me.TxPorteros = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.MaterialCard4.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DbgObjetivos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MaterialCard3.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DbgObjetivosEjercicios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MaterialCard2.SuspendLayout()
         Me.Panel3.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PBImagenCampo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MaterialCard1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -98,7 +100,7 @@ Partial Class Ejercicios
         Me.MaterialCard4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.MaterialCard4.Controls.Add(Me.MaterialButton6)
         Me.MaterialCard4.Controls.Add(Me.MaterialMaskedTextBox2)
-        Me.MaterialCard4.Controls.Add(Me.DataGridView2)
+        Me.MaterialCard4.Controls.Add(Me.DbgObjetivos)
         Me.MaterialCard4.Depth = 0
         Me.MaterialCard4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.MaterialCard4.Location = New System.Drawing.Point(618, 490)
@@ -170,14 +172,14 @@ Partial Class Ejercicios
         Me.MaterialMaskedTextBox2.UseTallSize = False
         Me.MaterialMaskedTextBox2.ValidatingType = Nothing
         '
-        'DataGridView2
+        'DbgObjetivos
         '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
-        Me.DataGridView2.Location = New System.Drawing.Point(7, 28)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(272, 151)
-        Me.DataGridView2.TabIndex = 1
+        Me.DbgObjetivos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DbgObjetivos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
+        Me.DbgObjetivos.Location = New System.Drawing.Point(7, 28)
+        Me.DbgObjetivos.Name = "DbgObjetivos"
+        Me.DbgObjetivos.Size = New System.Drawing.Size(272, 151)
+        Me.DbgObjetivos.TabIndex = 1
         '
         'DataGridViewTextBoxColumn1
         '
@@ -195,7 +197,7 @@ Partial Class Ejercicios
         '
         Me.MaterialCard3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.MaterialCard3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.MaterialCard3.Controls.Add(Me.DataGridView1)
+        Me.MaterialCard3.Controls.Add(Me.DbgObjetivosEjercicios)
         Me.MaterialCard3.Depth = 0
         Me.MaterialCard3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.MaterialCard3.Location = New System.Drawing.Point(618, 300)
@@ -206,14 +208,14 @@ Partial Class Ejercicios
         Me.MaterialCard3.Size = New System.Drawing.Size(288, 181)
         Me.MaterialCard3.TabIndex = 28
         '
-        'DataGridView1
+        'DbgObjetivosEjercicios
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.Objetivo})
-        Me.DataGridView1.Location = New System.Drawing.Point(7, 67)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(272, 106)
-        Me.DataGridView1.TabIndex = 0
+        Me.DbgObjetivosEjercicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DbgObjetivosEjercicios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.Objetivo})
+        Me.DbgObjetivosEjercicios.Location = New System.Drawing.Point(7, 67)
+        Me.DbgObjetivosEjercicios.Name = "DbgObjetivosEjercicios"
+        Me.DbgObjetivosEjercicios.Size = New System.Drawing.Size(272, 106)
+        Me.DbgObjetivosEjercicios.TabIndex = 0
         '
         'ID
         '
@@ -232,7 +234,7 @@ Partial Class Ejercicios
         Me.MaterialCard2.AllowDrop = True
         Me.MaterialCard2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.MaterialCard2.Controls.Add(Me.Panel3)
-        Me.MaterialCard2.Controls.Add(Me.PictureBox1)
+        Me.MaterialCard2.Controls.Add(Me.PBImagenCampo)
         Me.MaterialCard2.Depth = 0
         Me.MaterialCard2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.MaterialCard2.Location = New System.Drawing.Point(5, 300)
@@ -246,141 +248,183 @@ Partial Class Ejercicios
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(207, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Panel3.Controls.Add(Me.MaterialButton5)
-        Me.Panel3.Controls.Add(Me.MaterialButton4)
-        Me.Panel3.Controls.Add(Me.MaterialButton2)
-        Me.Panel3.Controls.Add(Me.MaterialButton1)
-        Me.Panel3.Controls.Add(Me.MaterialButton3)
+        Me.Panel3.Controls.Add(Me.BtnLineaPunteada)
+        Me.Panel3.Controls.Add(Me.BtnLineaNomal)
+        Me.Panel3.Controls.Add(Me.Vaciarimagen)
+        Me.Panel3.Controls.Add(Me.BtnImportarImagen)
+        Me.Panel3.Controls.Add(Me.BtnPersona)
+        Me.Panel3.Controls.Add(Me.BtnExportarImagen)
+        Me.Panel3.Controls.Add(Me.BtnCono)
         Me.Panel3.Location = New System.Drawing.Point(8, 10)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(588, 52)
         Me.Panel3.TabIndex = 6
         '
-        'MaterialButton5
+        'BtnLineaPunteada
         '
-        Me.MaterialButton5.AutoSize = False
-        Me.MaterialButton5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.MaterialButton5.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
-        Me.MaterialButton5.Depth = 0
-        Me.MaterialButton5.HighEmphasis = True
-        Me.MaterialButton5.Icon = CType(resources.GetObject("MaterialButton5.Icon"), System.Drawing.Image)
-        Me.MaterialButton5.Location = New System.Drawing.Point(439, 5)
-        Me.MaterialButton5.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.MaterialButton5.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialButton5.Name = "MaterialButton5"
-        Me.MaterialButton5.NoAccentTextColor = System.Drawing.Color.Empty
-        Me.MaterialButton5.Size = New System.Drawing.Size(42, 42)
-        Me.MaterialButton5.TabIndex = 7
-        Me.MaterialButton5.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
-        Me.MaterialButton5.UseAccentColor = False
-        Me.MaterialButton5.UseVisualStyleBackColor = True
+        Me.BtnLineaPunteada.AutoSize = False
+        Me.BtnLineaPunteada.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BtnLineaPunteada.BackgroundImage = CType(resources.GetObject("BtnLineaPunteada.BackgroundImage"), System.Drawing.Image)
+        Me.BtnLineaPunteada.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
+        Me.BtnLineaPunteada.Depth = 0
+        Me.BtnLineaPunteada.HighEmphasis = True
+        Me.BtnLineaPunteada.Icon = CType(resources.GetObject("BtnLineaPunteada.Icon"), System.Drawing.Image)
+        Me.BtnLineaPunteada.Location = New System.Drawing.Point(299, 3)
+        Me.BtnLineaPunteada.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.BtnLineaPunteada.MouseState = MaterialSkin.MouseState.HOVER
+        Me.BtnLineaPunteada.Name = "BtnLineaPunteada"
+        Me.BtnLineaPunteada.NoAccentTextColor = System.Drawing.Color.Empty
+        Me.BtnLineaPunteada.Size = New System.Drawing.Size(42, 42)
+        Me.BtnLineaPunteada.TabIndex = 6
+        Me.BtnLineaPunteada.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        Me.BtnLineaPunteada.UseAccentColor = False
+        Me.BtnLineaPunteada.UseVisualStyleBackColor = True
         '
-        'MaterialButton4
+        'BtnLineaNomal
         '
-        Me.MaterialButton4.AutoSize = False
-        Me.MaterialButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.MaterialButton4.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
-        Me.MaterialButton4.Depth = 0
-        Me.MaterialButton4.HighEmphasis = True
-        Me.MaterialButton4.Icon = CType(resources.GetObject("MaterialButton4.Icon"), System.Drawing.Image)
-        Me.MaterialButton4.Location = New System.Drawing.Point(489, 5)
-        Me.MaterialButton4.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.MaterialButton4.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialButton4.Name = "MaterialButton4"
-        Me.MaterialButton4.NoAccentTextColor = System.Drawing.Color.Empty
-        Me.MaterialButton4.Size = New System.Drawing.Size(42, 42)
-        Me.MaterialButton4.TabIndex = 6
-        Me.MaterialButton4.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
-        Me.MaterialButton4.UseAccentColor = False
-        Me.MaterialButton4.UseVisualStyleBackColor = True
+        Me.BtnLineaNomal.AutoSize = False
+        Me.BtnLineaNomal.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BtnLineaNomal.BackgroundImage = CType(resources.GetObject("BtnLineaNomal.BackgroundImage"), System.Drawing.Image)
+        Me.BtnLineaNomal.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
+        Me.BtnLineaNomal.Depth = 0
+        Me.BtnLineaNomal.HighEmphasis = True
+        Me.BtnLineaNomal.Icon = CType(resources.GetObject("BtnLineaNomal.Icon"), System.Drawing.Image)
+        Me.BtnLineaNomal.Location = New System.Drawing.Point(249, 3)
+        Me.BtnLineaNomal.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.BtnLineaNomal.MouseState = MaterialSkin.MouseState.HOVER
+        Me.BtnLineaNomal.Name = "BtnLineaNomal"
+        Me.BtnLineaNomal.NoAccentTextColor = System.Drawing.Color.Empty
+        Me.BtnLineaNomal.Size = New System.Drawing.Size(42, 42)
+        Me.BtnLineaNomal.TabIndex = 7
+        Me.BtnLineaNomal.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        Me.BtnLineaNomal.UseAccentColor = False
+        Me.BtnLineaNomal.UseVisualStyleBackColor = True
         '
-        'MaterialButton2
+        'Vaciarimagen
         '
-        Me.MaterialButton2.AutoSize = False
-        Me.MaterialButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.MaterialButton2.BackgroundImage = CType(resources.GetObject("MaterialButton2.BackgroundImage"), System.Drawing.Image)
-        Me.MaterialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
-        Me.MaterialButton2.Depth = 0
-        Me.MaterialButton2.HighEmphasis = True
-        Me.MaterialButton2.Icon = CType(resources.GetObject("MaterialButton2.Icon"), System.Drawing.Image)
-        Me.MaterialButton2.Location = New System.Drawing.Point(56, 5)
-        Me.MaterialButton2.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.MaterialButton2.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialButton2.Name = "MaterialButton2"
-        Me.MaterialButton2.NoAccentTextColor = System.Drawing.Color.Empty
-        Me.MaterialButton2.Size = New System.Drawing.Size(42, 42)
-        Me.MaterialButton2.TabIndex = 4
-        Me.MaterialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
-        Me.MaterialButton2.UseAccentColor = False
-        Me.MaterialButton2.UseVisualStyleBackColor = True
+        Me.Vaciarimagen.AutoSize = False
+        Me.Vaciarimagen.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Vaciarimagen.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
+        Me.Vaciarimagen.Depth = 0
+        Me.Vaciarimagen.HighEmphasis = True
+        Me.Vaciarimagen.Icon = CType(resources.GetObject("Vaciarimagen.Icon"), System.Drawing.Image)
+        Me.Vaciarimagen.Location = New System.Drawing.Point(439, 5)
+        Me.Vaciarimagen.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.Vaciarimagen.MouseState = MaterialSkin.MouseState.HOVER
+        Me.Vaciarimagen.Name = "Vaciarimagen"
+        Me.Vaciarimagen.NoAccentTextColor = System.Drawing.Color.Empty
+        Me.Vaciarimagen.Size = New System.Drawing.Size(42, 42)
+        Me.Vaciarimagen.TabIndex = 7
+        Me.Vaciarimagen.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        Me.Vaciarimagen.UseAccentColor = False
+        Me.Vaciarimagen.UseVisualStyleBackColor = True
         '
-        'MaterialButton1
+        'BtnImportarImagen
         '
-        Me.MaterialButton1.AutoSize = False
-        Me.MaterialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.MaterialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
-        Me.MaterialButton1.Depth = 0
-        Me.MaterialButton1.HighEmphasis = True
-        Me.MaterialButton1.Icon = CType(resources.GetObject("MaterialButton1.Icon"), System.Drawing.Image)
-        Me.MaterialButton1.Location = New System.Drawing.Point(539, 5)
-        Me.MaterialButton1.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.MaterialButton1.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialButton1.Name = "MaterialButton1"
-        Me.MaterialButton1.NoAccentTextColor = System.Drawing.Color.Empty
-        Me.MaterialButton1.Size = New System.Drawing.Size(42, 42)
-        Me.MaterialButton1.TabIndex = 3
-        Me.MaterialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
-        Me.MaterialButton1.UseAccentColor = False
-        Me.MaterialButton1.UseVisualStyleBackColor = True
+        Me.BtnImportarImagen.AutoSize = False
+        Me.BtnImportarImagen.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BtnImportarImagen.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
+        Me.BtnImportarImagen.Depth = 0
+        Me.BtnImportarImagen.HighEmphasis = True
+        Me.BtnImportarImagen.Icon = CType(resources.GetObject("BtnImportarImagen.Icon"), System.Drawing.Image)
+        Me.BtnImportarImagen.Location = New System.Drawing.Point(489, 5)
+        Me.BtnImportarImagen.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.BtnImportarImagen.MouseState = MaterialSkin.MouseState.HOVER
+        Me.BtnImportarImagen.Name = "BtnImportarImagen"
+        Me.BtnImportarImagen.NoAccentTextColor = System.Drawing.Color.Empty
+        Me.BtnImportarImagen.Size = New System.Drawing.Size(42, 42)
+        Me.BtnImportarImagen.TabIndex = 6
+        Me.BtnImportarImagen.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        Me.BtnImportarImagen.UseAccentColor = False
+        Me.BtnImportarImagen.UseVisualStyleBackColor = True
         '
-        'MaterialButton3
+        'BtnPersona
         '
-        Me.MaterialButton3.AutoSize = False
-        Me.MaterialButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.MaterialButton3.BackgroundImage = CType(resources.GetObject("MaterialButton3.BackgroundImage"), System.Drawing.Image)
-        Me.MaterialButton3.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
-        Me.MaterialButton3.Depth = 0
-        Me.MaterialButton3.HighEmphasis = True
-        Me.MaterialButton3.Icon = CType(resources.GetObject("MaterialButton3.Icon"), System.Drawing.Image)
-        Me.MaterialButton3.Location = New System.Drawing.Point(6, 5)
-        Me.MaterialButton3.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.MaterialButton3.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialButton3.Name = "MaterialButton3"
-        Me.MaterialButton3.NoAccentTextColor = System.Drawing.Color.Empty
-        Me.MaterialButton3.Size = New System.Drawing.Size(42, 42)
-        Me.MaterialButton3.TabIndex = 5
-        Me.MaterialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
-        Me.MaterialButton3.UseAccentColor = False
-        Me.MaterialButton3.UseVisualStyleBackColor = True
+        Me.BtnPersona.AutoSize = False
+        Me.BtnPersona.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BtnPersona.BackgroundImage = CType(resources.GetObject("BtnPersona.BackgroundImage"), System.Drawing.Image)
+        Me.BtnPersona.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
+        Me.BtnPersona.Depth = 0
+        Me.BtnPersona.HighEmphasis = True
+        Me.BtnPersona.Icon = CType(resources.GetObject("BtnPersona.Icon"), System.Drawing.Image)
+        Me.BtnPersona.Location = New System.Drawing.Point(56, 5)
+        Me.BtnPersona.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.BtnPersona.MouseState = MaterialSkin.MouseState.HOVER
+        Me.BtnPersona.Name = "BtnPersona"
+        Me.BtnPersona.NoAccentTextColor = System.Drawing.Color.Empty
+        Me.BtnPersona.Size = New System.Drawing.Size(42, 42)
+        Me.BtnPersona.TabIndex = 4
+        Me.BtnPersona.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        Me.BtnPersona.UseAccentColor = False
+        Me.BtnPersona.UseVisualStyleBackColor = True
         '
-        'PictureBox1
+        'BtnExportarImagen
         '
-        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox1.Location = New System.Drawing.Point(8, 68)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(588, 380)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
+        Me.BtnExportarImagen.AutoSize = False
+        Me.BtnExportarImagen.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BtnExportarImagen.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
+        Me.BtnExportarImagen.Depth = 0
+        Me.BtnExportarImagen.HighEmphasis = True
+        Me.BtnExportarImagen.Icon = CType(resources.GetObject("BtnExportarImagen.Icon"), System.Drawing.Image)
+        Me.BtnExportarImagen.Location = New System.Drawing.Point(539, 5)
+        Me.BtnExportarImagen.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.BtnExportarImagen.MouseState = MaterialSkin.MouseState.HOVER
+        Me.BtnExportarImagen.Name = "BtnExportarImagen"
+        Me.BtnExportarImagen.NoAccentTextColor = System.Drawing.Color.Empty
+        Me.BtnExportarImagen.Size = New System.Drawing.Size(42, 42)
+        Me.BtnExportarImagen.TabIndex = 3
+        Me.BtnExportarImagen.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        Me.BtnExportarImagen.UseAccentColor = False
+        Me.BtnExportarImagen.UseVisualStyleBackColor = True
+        '
+        'BtnCono
+        '
+        Me.BtnCono.AutoSize = False
+        Me.BtnCono.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BtnCono.BackgroundImage = CType(resources.GetObject("BtnCono.BackgroundImage"), System.Drawing.Image)
+        Me.BtnCono.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
+        Me.BtnCono.Depth = 0
+        Me.BtnCono.HighEmphasis = True
+        Me.BtnCono.Icon = CType(resources.GetObject("BtnCono.Icon"), System.Drawing.Image)
+        Me.BtnCono.Location = New System.Drawing.Point(6, 5)
+        Me.BtnCono.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.BtnCono.MouseState = MaterialSkin.MouseState.HOVER
+        Me.BtnCono.Name = "BtnCono"
+        Me.BtnCono.NoAccentTextColor = System.Drawing.Color.Empty
+        Me.BtnCono.Size = New System.Drawing.Size(42, 42)
+        Me.BtnCono.TabIndex = 5
+        Me.BtnCono.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        Me.BtnCono.UseAccentColor = False
+        Me.BtnCono.UseVisualStyleBackColor = True
+        '
+        'PBImagenCampo
+        '
+        Me.PBImagenCampo.BackgroundImage = CType(resources.GetObject("PBImagenCampo.BackgroundImage"), System.Drawing.Image)
+        Me.PBImagenCampo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PBImagenCampo.Location = New System.Drawing.Point(8, 68)
+        Me.PBImagenCampo.Name = "PBImagenCampo"
+        Me.PBImagenCampo.Size = New System.Drawing.Size(588, 380)
+        Me.PBImagenCampo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.PBImagenCampo.TabIndex = 0
+        Me.PBImagenCampo.TabStop = False
         '
         'MaterialCard1
         '
         Me.MaterialCard1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.MaterialCard1.Controls.Add(Me.MaterialLabel8)
-        Me.MaterialCard1.Controls.Add(Me.MaterialMaskedTextBox1)
+        Me.MaterialCard1.Controls.Add(Me.TxJugadores)
         Me.MaterialCard1.Controls.Add(Me.MaterialLabel6)
-        Me.MaterialCard1.Controls.Add(Me.MaterialMultiLineTextBox23)
+        Me.MaterialCard1.Controls.Add(Me.TxMaterial)
         Me.MaterialCard1.Controls.Add(Me.MaterialLabel5)
-        Me.MaterialCard1.Controls.Add(Me.MaterialMultiLineTextBox22)
+        Me.MaterialCard1.Controls.Add(Me.TxObservaciones)
         Me.MaterialCard1.Controls.Add(Me.MaterialLabel4)
-        Me.MaterialCard1.Controls.Add(Me.MaterialMultiLineTextBox21)
+        Me.MaterialCard1.Controls.Add(Me.TxDescripcion)
         Me.MaterialCard1.Controls.Add(Me.TxID)
         Me.MaterialCard1.Controls.Add(Me.MaterialLabel1)
         Me.MaterialCard1.Controls.Add(Me.TxNombre)
         Me.MaterialCard1.Controls.Add(Me.MaterialLabel2)
         Me.MaterialCard1.Controls.Add(Me.MaterialLabel3)
-        Me.MaterialCard1.Controls.Add(Me.TxApellido)
+        Me.MaterialCard1.Controls.Add(Me.TxPorteros)
         Me.MaterialCard1.Depth = 0
         Me.MaterialCard1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.MaterialCard1.Location = New System.Drawing.Point(5, 6)
@@ -404,47 +448,47 @@ Partial Class Ejercicios
         Me.MaterialLabel8.TabIndex = 26
         Me.MaterialLabel8.Text = "Jugadores"
         '
-        'MaterialMaskedTextBox1
+        'TxJugadores
         '
-        Me.MaterialMaskedTextBox1.AllowPromptAsInput = True
-        Me.MaterialMaskedTextBox1.AnimateReadOnly = False
-        Me.MaterialMaskedTextBox1.AsciiOnly = False
-        Me.MaterialMaskedTextBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.MaterialMaskedTextBox1.BeepOnError = False
-        Me.MaterialMaskedTextBox1.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox1.Depth = 0
-        Me.MaterialMaskedTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.MaterialMaskedTextBox1.HidePromptOnLeave = False
-        Me.MaterialMaskedTextBox1.HideSelection = True
-        Me.MaterialMaskedTextBox1.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
-        Me.MaterialMaskedTextBox1.LeadingIcon = Nothing
-        Me.MaterialMaskedTextBox1.Location = New System.Drawing.Point(690, 17)
-        Me.MaterialMaskedTextBox1.Mask = ""
-        Me.MaterialMaskedTextBox1.MaxLength = 32767
-        Me.MaterialMaskedTextBox1.MouseState = MaterialSkin.MouseState.OUT
-        Me.MaterialMaskedTextBox1.Name = "MaterialMaskedTextBox1"
-        Me.MaterialMaskedTextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialMaskedTextBox1.PrefixSuffixText = Nothing
-        Me.MaterialMaskedTextBox1.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
-        Me.MaterialMaskedTextBox1.ReadOnly = False
-        Me.MaterialMaskedTextBox1.RejectInputOnFirstFailure = False
-        Me.MaterialMaskedTextBox1.ResetOnPrompt = True
-        Me.MaterialMaskedTextBox1.ResetOnSpace = True
-        Me.MaterialMaskedTextBox1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.MaterialMaskedTextBox1.SelectedText = ""
-        Me.MaterialMaskedTextBox1.SelectionLength = 0
-        Me.MaterialMaskedTextBox1.SelectionStart = 0
-        Me.MaterialMaskedTextBox1.ShortcutsEnabled = True
-        Me.MaterialMaskedTextBox1.Size = New System.Drawing.Size(71, 36)
-        Me.MaterialMaskedTextBox1.SkipLiterals = True
-        Me.MaterialMaskedTextBox1.TabIndex = 25
-        Me.MaterialMaskedTextBox1.TabStop = False
-        Me.MaterialMaskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.MaterialMaskedTextBox1.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox1.TrailingIcon = Nothing
-        Me.MaterialMaskedTextBox1.UseSystemPasswordChar = False
-        Me.MaterialMaskedTextBox1.UseTallSize = False
-        Me.MaterialMaskedTextBox1.ValidatingType = Nothing
+        Me.TxJugadores.AllowPromptAsInput = True
+        Me.TxJugadores.AnimateReadOnly = False
+        Me.TxJugadores.AsciiOnly = False
+        Me.TxJugadores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.TxJugadores.BeepOnError = False
+        Me.TxJugadores.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxJugadores.Depth = 0
+        Me.TxJugadores.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.TxJugadores.HidePromptOnLeave = False
+        Me.TxJugadores.HideSelection = True
+        Me.TxJugadores.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
+        Me.TxJugadores.LeadingIcon = Nothing
+        Me.TxJugadores.Location = New System.Drawing.Point(690, 17)
+        Me.TxJugadores.Mask = ""
+        Me.TxJugadores.MaxLength = 32767
+        Me.TxJugadores.MouseState = MaterialSkin.MouseState.OUT
+        Me.TxJugadores.Name = "TxJugadores"
+        Me.TxJugadores.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TxJugadores.PrefixSuffixText = Nothing
+        Me.TxJugadores.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
+        Me.TxJugadores.ReadOnly = False
+        Me.TxJugadores.RejectInputOnFirstFailure = False
+        Me.TxJugadores.ResetOnPrompt = True
+        Me.TxJugadores.ResetOnSpace = True
+        Me.TxJugadores.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.TxJugadores.SelectedText = ""
+        Me.TxJugadores.SelectionLength = 0
+        Me.TxJugadores.SelectionStart = 0
+        Me.TxJugadores.ShortcutsEnabled = True
+        Me.TxJugadores.Size = New System.Drawing.Size(71, 36)
+        Me.TxJugadores.SkipLiterals = True
+        Me.TxJugadores.TabIndex = 25
+        Me.TxJugadores.TabStop = False
+        Me.TxJugadores.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.TxJugadores.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxJugadores.TrailingIcon = Nothing
+        Me.TxJugadores.UseSystemPasswordChar = False
+        Me.TxJugadores.UseTallSize = False
+        Me.TxJugadores.ValidatingType = Nothing
         '
         'MaterialLabel6
         '
@@ -459,30 +503,30 @@ Partial Class Ejercicios
         Me.MaterialLabel6.TabIndex = 24
         Me.MaterialLabel6.Text = "Porteros"
         '
-        'MaterialMultiLineTextBox23
+        'TxMaterial
         '
-        Me.MaterialMultiLineTextBox23.AnimateReadOnly = False
-        Me.MaterialMultiLineTextBox23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.MaterialMultiLineTextBox23.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
-        Me.MaterialMultiLineTextBox23.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.MaterialMultiLineTextBox23.Depth = 0
-        Me.MaterialMultiLineTextBox23.HideSelection = True
-        Me.MaterialMultiLineTextBox23.Location = New System.Drawing.Point(486, 83)
-        Me.MaterialMultiLineTextBox23.MaxLength = 32767
-        Me.MaterialMultiLineTextBox23.MouseState = MaterialSkin.MouseState.OUT
-        Me.MaterialMultiLineTextBox23.Name = "MaterialMultiLineTextBox23"
-        Me.MaterialMultiLineTextBox23.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialMultiLineTextBox23.ReadOnly = False
-        Me.MaterialMultiLineTextBox23.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.MaterialMultiLineTextBox23.SelectedText = ""
-        Me.MaterialMultiLineTextBox23.SelectionLength = 0
-        Me.MaterialMultiLineTextBox23.SelectionStart = 0
-        Me.MaterialMultiLineTextBox23.ShortcutsEnabled = True
-        Me.MaterialMultiLineTextBox23.Size = New System.Drawing.Size(406, 100)
-        Me.MaterialMultiLineTextBox23.TabIndex = 23
-        Me.MaterialMultiLineTextBox23.TabStop = False
-        Me.MaterialMultiLineTextBox23.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.MaterialMultiLineTextBox23.UseSystemPasswordChar = False
+        Me.TxMaterial.AnimateReadOnly = False
+        Me.TxMaterial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.TxMaterial.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
+        Me.TxMaterial.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TxMaterial.Depth = 0
+        Me.TxMaterial.HideSelection = True
+        Me.TxMaterial.Location = New System.Drawing.Point(486, 83)
+        Me.TxMaterial.MaxLength = 32767
+        Me.TxMaterial.MouseState = MaterialSkin.MouseState.OUT
+        Me.TxMaterial.Name = "TxMaterial"
+        Me.TxMaterial.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TxMaterial.ReadOnly = False
+        Me.TxMaterial.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.TxMaterial.SelectedText = ""
+        Me.TxMaterial.SelectionLength = 0
+        Me.TxMaterial.SelectionStart = 0
+        Me.TxMaterial.ShortcutsEnabled = True
+        Me.TxMaterial.Size = New System.Drawing.Size(406, 100)
+        Me.TxMaterial.TabIndex = 23
+        Me.TxMaterial.TabStop = False
+        Me.TxMaterial.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.TxMaterial.UseSystemPasswordChar = False
         '
         'MaterialLabel5
         '
@@ -497,30 +541,30 @@ Partial Class Ejercicios
         Me.MaterialLabel5.TabIndex = 22
         Me.MaterialLabel5.Text = "Material"
         '
-        'MaterialMultiLineTextBox22
+        'TxObservaciones
         '
-        Me.MaterialMultiLineTextBox22.AnimateReadOnly = False
-        Me.MaterialMultiLineTextBox22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.MaterialMultiLineTextBox22.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
-        Me.MaterialMultiLineTextBox22.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.MaterialMultiLineTextBox22.Depth = 0
-        Me.MaterialMultiLineTextBox22.HideSelection = True
-        Me.MaterialMultiLineTextBox22.Location = New System.Drawing.Point(22, 210)
-        Me.MaterialMultiLineTextBox22.MaxLength = 32767
-        Me.MaterialMultiLineTextBox22.MouseState = MaterialSkin.MouseState.OUT
-        Me.MaterialMultiLineTextBox22.Name = "MaterialMultiLineTextBox22"
-        Me.MaterialMultiLineTextBox22.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialMultiLineTextBox22.ReadOnly = False
-        Me.MaterialMultiLineTextBox22.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.MaterialMultiLineTextBox22.SelectedText = ""
-        Me.MaterialMultiLineTextBox22.SelectionLength = 0
-        Me.MaterialMultiLineTextBox22.SelectionStart = 0
-        Me.MaterialMultiLineTextBox22.ShortcutsEnabled = True
-        Me.MaterialMultiLineTextBox22.Size = New System.Drawing.Size(870, 67)
-        Me.MaterialMultiLineTextBox22.TabIndex = 21
-        Me.MaterialMultiLineTextBox22.TabStop = False
-        Me.MaterialMultiLineTextBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.MaterialMultiLineTextBox22.UseSystemPasswordChar = False
+        Me.TxObservaciones.AnimateReadOnly = False
+        Me.TxObservaciones.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.TxObservaciones.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
+        Me.TxObservaciones.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TxObservaciones.Depth = 0
+        Me.TxObservaciones.HideSelection = True
+        Me.TxObservaciones.Location = New System.Drawing.Point(22, 210)
+        Me.TxObservaciones.MaxLength = 32767
+        Me.TxObservaciones.MouseState = MaterialSkin.MouseState.OUT
+        Me.TxObservaciones.Name = "TxObservaciones"
+        Me.TxObservaciones.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TxObservaciones.ReadOnly = False
+        Me.TxObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.TxObservaciones.SelectedText = ""
+        Me.TxObservaciones.SelectionLength = 0
+        Me.TxObservaciones.SelectionStart = 0
+        Me.TxObservaciones.ShortcutsEnabled = True
+        Me.TxObservaciones.Size = New System.Drawing.Size(870, 67)
+        Me.TxObservaciones.TabIndex = 21
+        Me.TxObservaciones.TabStop = False
+        Me.TxObservaciones.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.TxObservaciones.UseSystemPasswordChar = False
         '
         'MaterialLabel4
         '
@@ -535,30 +579,30 @@ Partial Class Ejercicios
         Me.MaterialLabel4.TabIndex = 20
         Me.MaterialLabel4.Text = "Observaciones"
         '
-        'MaterialMultiLineTextBox21
+        'TxDescripcion
         '
-        Me.MaterialMultiLineTextBox21.AnimateReadOnly = False
-        Me.MaterialMultiLineTextBox21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.MaterialMultiLineTextBox21.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
-        Me.MaterialMultiLineTextBox21.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.MaterialMultiLineTextBox21.Depth = 0
-        Me.MaterialMultiLineTextBox21.HideSelection = True
-        Me.MaterialMultiLineTextBox21.Location = New System.Drawing.Point(22, 83)
-        Me.MaterialMultiLineTextBox21.MaxLength = 32767
-        Me.MaterialMultiLineTextBox21.MouseState = MaterialSkin.MouseState.OUT
-        Me.MaterialMultiLineTextBox21.Name = "MaterialMultiLineTextBox21"
-        Me.MaterialMultiLineTextBox21.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialMultiLineTextBox21.ReadOnly = False
-        Me.MaterialMultiLineTextBox21.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.MaterialMultiLineTextBox21.SelectedText = ""
-        Me.MaterialMultiLineTextBox21.SelectionLength = 0
-        Me.MaterialMultiLineTextBox21.SelectionStart = 0
-        Me.MaterialMultiLineTextBox21.ShortcutsEnabled = True
-        Me.MaterialMultiLineTextBox21.Size = New System.Drawing.Size(430, 100)
-        Me.MaterialMultiLineTextBox21.TabIndex = 19
-        Me.MaterialMultiLineTextBox21.TabStop = False
-        Me.MaterialMultiLineTextBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.MaterialMultiLineTextBox21.UseSystemPasswordChar = False
+        Me.TxDescripcion.AnimateReadOnly = False
+        Me.TxDescripcion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.TxDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
+        Me.TxDescripcion.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.TxDescripcion.Depth = 0
+        Me.TxDescripcion.HideSelection = True
+        Me.TxDescripcion.Location = New System.Drawing.Point(22, 83)
+        Me.TxDescripcion.MaxLength = 32767
+        Me.TxDescripcion.MouseState = MaterialSkin.MouseState.OUT
+        Me.TxDescripcion.Name = "TxDescripcion"
+        Me.TxDescripcion.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TxDescripcion.ReadOnly = False
+        Me.TxDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.None
+        Me.TxDescripcion.SelectedText = ""
+        Me.TxDescripcion.SelectionLength = 0
+        Me.TxDescripcion.SelectionStart = 0
+        Me.TxDescripcion.ShortcutsEnabled = True
+        Me.TxDescripcion.Size = New System.Drawing.Size(430, 100)
+        Me.TxDescripcion.TabIndex = 19
+        Me.TxDescripcion.TabStop = False
+        Me.TxDescripcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.TxDescripcion.UseSystemPasswordChar = False
         '
         'TxID
         '
@@ -683,47 +727,47 @@ Partial Class Ejercicios
         Me.MaterialLabel3.TabIndex = 9
         Me.MaterialLabel3.Text = "Descripcion"
         '
-        'TxApellido
+        'TxPorteros
         '
-        Me.TxApellido.AllowPromptAsInput = True
-        Me.TxApellido.AnimateReadOnly = False
-        Me.TxApellido.AsciiOnly = False
-        Me.TxApellido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.TxApellido.BeepOnError = False
-        Me.TxApellido.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.TxApellido.Depth = 0
-        Me.TxApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.TxApellido.HidePromptOnLeave = False
-        Me.TxApellido.HideSelection = True
-        Me.TxApellido.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
-        Me.TxApellido.LeadingIcon = Nothing
-        Me.TxApellido.Location = New System.Drawing.Point(536, 17)
-        Me.TxApellido.Mask = ""
-        Me.TxApellido.MaxLength = 32767
-        Me.TxApellido.MouseState = MaterialSkin.MouseState.OUT
-        Me.TxApellido.Name = "TxApellido"
-        Me.TxApellido.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.TxApellido.PrefixSuffixText = Nothing
-        Me.TxApellido.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
-        Me.TxApellido.ReadOnly = False
-        Me.TxApellido.RejectInputOnFirstFailure = False
-        Me.TxApellido.ResetOnPrompt = True
-        Me.TxApellido.ResetOnSpace = True
-        Me.TxApellido.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.TxApellido.SelectedText = ""
-        Me.TxApellido.SelectionLength = 0
-        Me.TxApellido.SelectionStart = 0
-        Me.TxApellido.ShortcutsEnabled = True
-        Me.TxApellido.Size = New System.Drawing.Size(71, 36)
-        Me.TxApellido.SkipLiterals = True
-        Me.TxApellido.TabIndex = 3
-        Me.TxApellido.TabStop = False
-        Me.TxApellido.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.TxApellido.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.TxApellido.TrailingIcon = Nothing
-        Me.TxApellido.UseSystemPasswordChar = False
-        Me.TxApellido.UseTallSize = False
-        Me.TxApellido.ValidatingType = Nothing
+        Me.TxPorteros.AllowPromptAsInput = True
+        Me.TxPorteros.AnimateReadOnly = False
+        Me.TxPorteros.AsciiOnly = False
+        Me.TxPorteros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.TxPorteros.BeepOnError = False
+        Me.TxPorteros.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxPorteros.Depth = 0
+        Me.TxPorteros.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.TxPorteros.HidePromptOnLeave = False
+        Me.TxPorteros.HideSelection = True
+        Me.TxPorteros.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
+        Me.TxPorteros.LeadingIcon = Nothing
+        Me.TxPorteros.Location = New System.Drawing.Point(536, 17)
+        Me.TxPorteros.Mask = ""
+        Me.TxPorteros.MaxLength = 32767
+        Me.TxPorteros.MouseState = MaterialSkin.MouseState.OUT
+        Me.TxPorteros.Name = "TxPorteros"
+        Me.TxPorteros.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TxPorteros.PrefixSuffixText = Nothing
+        Me.TxPorteros.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
+        Me.TxPorteros.ReadOnly = False
+        Me.TxPorteros.RejectInputOnFirstFailure = False
+        Me.TxPorteros.ResetOnPrompt = True
+        Me.TxPorteros.ResetOnSpace = True
+        Me.TxPorteros.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.TxPorteros.SelectedText = ""
+        Me.TxPorteros.SelectionLength = 0
+        Me.TxPorteros.SelectionStart = 0
+        Me.TxPorteros.ShortcutsEnabled = True
+        Me.TxPorteros.Size = New System.Drawing.Size(71, 36)
+        Me.TxPorteros.SkipLiterals = True
+        Me.TxPorteros.TabIndex = 3
+        Me.TxPorteros.TabStop = False
+        Me.TxPorteros.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.TxPorteros.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxPorteros.TrailingIcon = Nothing
+        Me.TxPorteros.UseSystemPasswordChar = False
+        Me.TxPorteros.UseTallSize = False
+        Me.TxPorteros.ValidatingType = Nothing
         '
         'Ejercicios
         '
@@ -740,12 +784,12 @@ Partial Class Ejercicios
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.MaterialCard4.ResumeLayout(False)
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DbgObjetivos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MaterialCard3.ResumeLayout(False)
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DbgObjetivosEjercicios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MaterialCard2.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PBImagenCampo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MaterialCard1.ResumeLayout(False)
         Me.MaterialCard1.PerformLayout()
         Me.ResumeLayout(False)
@@ -760,31 +804,33 @@ Partial Class Ejercicios
     Friend WithEvents TxNombre As MaterialSkin.Controls.MaterialMaskedTextBox
     Friend WithEvents MaterialLabel2 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents MaterialLabel3 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents TxApellido As MaterialSkin.Controls.MaterialMaskedTextBox
+    Friend WithEvents TxPorteros As MaterialSkin.Controls.MaterialMaskedTextBox
     Friend WithEvents MaterialCard4 As MaterialSkin.Controls.MaterialCard
     Friend WithEvents MaterialCard3 As MaterialSkin.Controls.MaterialCard
     Friend WithEvents MaterialCard2 As MaterialSkin.Controls.MaterialCard
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PBImagenCampo As PictureBox
     Friend WithEvents MaterialLabel8 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialMaskedTextBox1 As MaterialSkin.Controls.MaterialMaskedTextBox
+    Friend WithEvents TxJugadores As MaterialSkin.Controls.MaterialMaskedTextBox
     Friend WithEvents MaterialLabel6 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialMultiLineTextBox23 As MaterialSkin.Controls.MaterialMultiLineTextBox2
+    Friend WithEvents TxMaterial As MaterialSkin.Controls.MaterialMultiLineTextBox2
     Friend WithEvents MaterialLabel5 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialMultiLineTextBox22 As MaterialSkin.Controls.MaterialMultiLineTextBox2
+    Friend WithEvents TxObservaciones As MaterialSkin.Controls.MaterialMultiLineTextBox2
     Friend WithEvents MaterialLabel4 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialMultiLineTextBox21 As MaterialSkin.Controls.MaterialMultiLineTextBox2
-    Friend WithEvents MaterialButton2 As MaterialSkin.Controls.MaterialButton
-    Friend WithEvents MaterialButton1 As MaterialSkin.Controls.MaterialButton
-    Friend WithEvents MaterialButton3 As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents TxDescripcion As MaterialSkin.Controls.MaterialMultiLineTextBox2
+    Friend WithEvents BtnPersona As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents BtnExportarImagen As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents BtnCono As MaterialSkin.Controls.MaterialButton
     Friend WithEvents MaterialButton6 As MaterialSkin.Controls.MaterialButton
     Friend WithEvents MaterialMaskedTextBox2 As MaterialSkin.Controls.MaterialMaskedTextBox
-    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents DbgObjetivos As DataGridView
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DbgObjetivosEjercicios As DataGridView
     Friend WithEvents ID As DataGridViewTextBoxColumn
     Friend WithEvents Objetivo As DataGridViewTextBoxColumn
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents MaterialButton5 As MaterialSkin.Controls.MaterialButton
-    Friend WithEvents MaterialButton4 As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents Vaciarimagen As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents BtnImportarImagen As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents BtnLineaPunteada As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents BtnLineaNomal As MaterialSkin.Controls.MaterialButton
 End Class

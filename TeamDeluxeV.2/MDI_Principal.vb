@@ -6,14 +6,12 @@ Public Class MDI_Principal
     Dim FormUsuarios As New Usuarios
     Dim FormEntrenamientos As New Entrenamientos
     Dim FormEjercicios As New Ejercicios
-    Dim FormObjetivos As New Objetivos
     Dim formEquipos As New Equipos
     Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles MDIusuarios.Click, MDIentrenamientos.Click, MDIejercicios.Click, MDIequipos.Click
         Select Case sender.name
             Case MDIusuarios.Name : AbrirFormu("Usuarios")
             Case MDIentrenamientos.Name : AbrirFormu("Entrenamientos")
             Case MDIejercicios.Name : AbrirFormu("Ejercicios")
-            Case MdiObjetivos.Name : AbrirFormu("Objetivos")
             Case MDIequipos.Name : AbrirFormu("Equipos")
         End Select
 
@@ -34,10 +32,6 @@ Public Class MDI_Principal
                 FormEjercicios = New Ejercicios
                 FormEjercicios.MdiParent = Me
                 FormEjercicios.Show()
-            Case "Objetivos"
-                FormObjetivos = New Objetivos
-                FormObjetivos.MdiParent = Me
-                FormObjetivos.Show()
             Case "Equipos"
                 formEquipos = New Equipos
                 formEquipos.MdiParent = Me

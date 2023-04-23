@@ -34,20 +34,20 @@ Partial Class MDI_Principal
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.MDIusuarios = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.MDIequipos = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.MDIentrenamientos = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.MDIejercicios = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
-        Me.MDIequipos = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
+        Me.MdiObjetivos = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.LabelSpacios = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.BtnCerrarFormulario = New System.Windows.Forms.ToolStripButton()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.MdiObjetivos = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -121,6 +121,19 @@ Partial Class MDI_Principal
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
         Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 36)
         '
+        'MDIequipos
+        '
+        Me.MDIequipos.Image = CType(resources.GetObject("MDIequipos.Image"), System.Drawing.Image)
+        Me.MDIequipos.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.MDIequipos.Name = "MDIequipos"
+        Me.MDIequipos.Size = New System.Drawing.Size(69, 33)
+        Me.MDIequipos.Text = "Equipos"
+        '
+        'ToolStripSeparator7
+        '
+        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
+        Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 36)
+        '
         'MDIentrenamientos
         '
         Me.MDIentrenamientos.Image = CType(resources.GetObject("MDIentrenamientos.Image"), System.Drawing.Image)
@@ -147,18 +160,18 @@ Partial Class MDI_Principal
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
         Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 36)
         '
-        'MDIequipos
+        'MdiObjetivos
         '
-        Me.MDIequipos.Image = CType(resources.GetObject("MDIequipos.Image"), System.Drawing.Image)
-        Me.MDIequipos.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.MDIequipos.Name = "MDIequipos"
-        Me.MDIequipos.Size = New System.Drawing.Size(69, 33)
-        Me.MDIequipos.Text = "Equipos"
+        Me.MdiObjetivos.Image = CType(resources.GetObject("MdiObjetivos.Image"), System.Drawing.Image)
+        Me.MdiObjetivos.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.MdiObjetivos.Name = "MdiObjetivos"
+        Me.MdiObjetivos.Size = New System.Drawing.Size(77, 33)
+        Me.MdiObjetivos.Text = "Objetivos"
         '
-        'ToolStripSeparator7
+        'ToolStripSeparator8
         '
-        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
-        Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 36)
+        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(6, 36)
         '
         'LabelSpacios
         '
@@ -195,19 +208,6 @@ Partial Class MDI_Principal
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
-        '
-        'MdiObjetivos
-        '
-        Me.MdiObjetivos.Image = CType(resources.GetObject("MdiObjetivos.Image"), System.Drawing.Image)
-        Me.MdiObjetivos.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.MdiObjetivos.Name = "MdiObjetivos"
-        Me.MdiObjetivos.Size = New System.Drawing.Size(77, 33)
-        Me.MdiObjetivos.Text = "Objetivos"
-        '
-        'ToolStripSeparator8
-        '
-        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(6, 36)
         '
         'MDI_Principal
         '
