@@ -1,6 +1,7 @@
 ﻿Imports System.Drawing.Drawing2D
 Imports System.Drawing.Imaging
 Imports System.IO
+Imports System.Net
 Imports System.Windows.Forms.LinkLabel
 Imports System.Windows.Media
 Imports System.Windows.Shapes
@@ -132,7 +133,7 @@ Public Class Ejercicios
             If rsAux.EOF Then
                 rsEjercicios("idEjercicios").Value = 1
             Else
-                rsEjercicios("idEjercicios").Value = CInt(rsAux("idEjercicios").Value)
+                rsEjercicios("idEjercicios").Value = CInt(rsAux("idEjercicios").Value) + 1
             End If
             rsEjercicios.AddNew()
             rsEjercicios("Nombre").Value = Trim(TxNombre.Text)
@@ -150,22 +151,87 @@ Public Class Ejercicios
                 rsAux("idObjetivo").Value = CInt(DbgObjetivosEjercicios.Rows(i).Cells("ID").Value)
             Next
             rsAux.Update()
-
-
         End If
         rsEjercicios.Update()
     End Sub
 
 
     Public Sub Consulta()
+        ' Mirar a ver si podemos hacer un tab para hacer la consulta de ejercicios
+    End Sub
 
+    Private Sub MaterialButton6_Click(sender As Object, e As EventArgs) Handles BtnNuevoObjetivo.Click
+        Dim ID As Integer
+        If Trim(TxNombreNuvObjetivo.Text) = "" Then
+            MsgBox("No se puede guardar, el nombre esta vacio", vbExclamation)
+            Exit Sub
+        End If
+
+        If MsgBox("Desea Guardar el Objetivo como '" & Trim(TxNombreNuvObjetivo.Text) & "'", vbQuestion) = MsgBoxResult.Ok Then
+            rsEjercicios = New ADODB.Recordset
+            rsEjercicios.Open("Select * from Objetivos where idobjetivo = 0", Database.Connection, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic, 1)
+            Try
+                rsAux = New ADODB.Recordset
+                rsAux.Open("select top 1 idobjetivo from Objetivos order by idobjetivo desc", Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+                If rsAux.EOF Then
+                    ID = 1
+                Else
+                    ID = CInt(rsAux("idobjetivo").Value) + 1
+                End If
+                rsEjercicios.AddNew()
+                rsEjercicios("idobjetivo").Value = CInt(ID)
+                rsEjercicios("descripcion").Value = Trim(TxNombreNuvObjetivo.Text)
+                rsEjercicios.Update()
+            Catch ex As Exception
+                MsgBox("Error al guardar el objetivo error(" & ex.Message & ")", vbExclamation)
+                Exit Sub
+            End Try
+        End If
+        TxNombreNuvObjetivo.Text = ""
+        CargarObjetivos()
     End Sub
 
     Public Sub Eliminar()
+        If Trim(TxID.Text) = "" Then
+            MsgBox("Antes de eliminar introduzca un ID de objetivo", vbExclamation)
+            Exit Sub
+        End If
+        If MsgBox("Desea elminar el objetivo con el ID '" & CInt(TxID.Text) & "'", vbQuestion) = vbOK Then
+            Try
+                Database.Connection.BeginTrans()
+                Database.Connection.Execute("Delete from Objetivos where idobjetivo = " & CInt(TxID.Text))
+                Database.Connection.CommitTrans()
+            Catch ex As Exception
+                Database.Connection.RollbackTrans()
+                MsgBox("Error al eliminar el objetivo error(" & ex.Message & ")")
+            End Try
+        End If
 
     End Sub
 
     Public Sub Nuevo()
+        TxID.Text = "" : TxNombre.Text = ""
+        TxDescripcion.Text = "" : TxJugadores.Text = ""
+        TxPorteros.Text = "" : TxObservaciones.Text = ""
+        TxMaterial.Text = ""
+        Vaciarimagen_Click(Vaciarimagen, New EventArgs)
+        DbgObjetivosEjercicios.Rows.Clear()
+        DbgObjetivos.Rows.Clear()
+        CargarObjetivos()
+    End Sub
 
+    Private Sub CargarObjetivos()
+        rsAux = New ADODB.Recordset
+        'Mirar con javeier a ver si poner el id del entrenador en la tabla de objetivos esta bien, para poder filtar
+        'por los objetivos que ha creado un usuario
+        rsAux.Open("Select * from Objetivos", Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        Do Until rsAux.EOF
+            Dim newRow As DataGridViewRow = New DataGridViewRow()
+            newRow.CreateCells(DbgObjetivos)
+            newRow.Cells(0).Value = CInt(rsAux("IDobjetivo").Value)
+            newRow.Cells(1).Value = Trim(rsAux("Descripcion").Value)
+            DbgObjetivos.Rows.Add(newRow)
+            rsAux.MoveNext()
+        Loop
     End Sub
 End Class
