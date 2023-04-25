@@ -35,7 +35,6 @@ Public Class Equipos
         rsEquipos("InicioCompeticion").Value = Format(CDate(DTPInicioCompe.Value), "yyyy/MM/dd")
         rsEquipos("HoraPartidos").Value = Format(CDate(TxHoraPartido.Text), "HH:mm")
         rsEquipos("IdUsuario").Value = Trim(CboUsuario.SelectedValue)
-        rsEquipos("FechaCreacion").Value = Format(CDate(Now.Date), "yyyy/MM/dd")
         rsEquipos.Update()
         Cursor = Cursors.Arrow
         Nuevo()
@@ -103,6 +102,8 @@ Public Class Equipos
         If CboUsuario.Items.Count > 0 Then
             CboUsuario.SelectedIndex = 0
         End If
+        CargarGridEquipos()
+        DbgUbicaciones.Rows.Clear()
         Cursor = Cursors.Arrow
     End Sub
 
@@ -159,5 +160,80 @@ Public Class Equipos
         CargarEntrenadores()
         Nuevo()
         Consulta()
+    End Sub
+
+    Private Sub TxGuardarUbicacion_Click(sender As Object, e As EventArgs) Handles TxGuardarUbicacion.Click
+        Dim rsUbi As New ADODB.Recordset
+        If Trim(TxIDEquipo.Text) = "" Then Exit Sub
+        rsUbi.Open("Select * from ubicaciones where idubicacion = " & IIf(Trim(TxIDubicacion.Text) = "", "999", 0), Database.Connection, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        If rsUbi.EOF Then
+            rsUbi.AddNew()
+            rsAux = New ADODB.Recordset
+            rsAux.Open("Select top 1 idubicacion from ubicaciones order by idubicacion desc", Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+            If rsAux.EOF Then
+                rsUbi("idubicacion").Value = 1
+            Else
+                rsUbi("idubicacion").Value = CInt(rsAux("idubicacion").Value) + 1
+            End If
+        End If
+        rsUbi("Direccion").Value = Trim(TxDireccionUbicacion.Text)
+        rsUbi("Nombre").Value = Trim(TxNombreUbicacion.Text)
+        rsUbi("Campo").Value = Trim(TxCampoUbicacion.Text)
+        rsUbi("idequipo").Value = CInt(TxIDEquipo.Text)
+        rsUbi.Update()
+        Nuevo()
+    End Sub
+
+
+    Private Sub AniadirLineaUbicaciones(id As Integer, direccion As String, nombre As String, campo As String)
+        Dim newRow As DataGridViewRow = New DataGridViewRow()
+        newRow.CreateCells(DbgEquipos)
+        newRow.Cells(0).Value = id
+        newRow.Cells(1).Value = direccion
+        newRow.Cells(2).Value = nombre
+        newRow.Cells(3).Value = campo
+        DbgUbicaciones.Rows.Add(newRow)
+    End Sub
+
+
+    Private Sub CargarGridUbicaciones(idequipo As Integer)
+        DbgUbicaciones.Rows.Clear()
+        rsAux = New ADODB.Recordset
+        rsAux.Open("Select * from ubicaciones where idequipo = " & CInt(idequipo), Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        Do Until rsAux.EOF
+            AniadirLineaUbicaciones(CInt(rsAux("idubicacion").Value), Trim(rsAux("Direccion").Value), Trim(rsAux("nombre").Value), Trim(rsAux("campo").Value))
+            rsAux.MoveNext()
+        Loop
+    End Sub
+
+    Private Sub CargarGridEquipos()
+        DbgEquipos.Rows.Clear()
+        rsAux = New ADODB.Recordset
+        rsAux.Open("Select * from equipos", Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        Do Until rsAux.EOF
+            AniadirLineaGridEquipos(CInt(rsAux("idequipos").Value), Trim(rsAux("nombre").Value), Trim(rsAux("temporada").Value), Trim(rsAux("categoria").Value), Trim(rsAux("inicioCompeticion").Value), CInt(rsAux("idusuario").Value))
+            rsAux.MoveNext()
+        Loop
+    End Sub
+
+
+    Private Sub DbgUbiciones_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgUbicaciones.CellContentDoubleClick
+        If Trim(TxIDEquipo.Text) = "" Then Exit Sub
+        rsAux = New ADODB.Recordset
+        rsAux.Open("select * from ubicaciones where idequipo = " & CInt(TxIDEquipo.Text), Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        If rsAux.EOF Then Nuevo() : Exit Sub
+        TxIDubicacion.Text = CInt(rsAux("idequipo").Value)
+        TxDireccionUbicacion.Text = Trim(rsAux("Direccion").Value)
+        TxNombreUbicacion.Text = Trim(rsAux("nombre").Value)
+        TxCampoUbicacion.Text = Trim(rsAux("campo").Value)
+    End Sub
+
+    Private Sub DbgEquipos_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgEquipos.CellContentDoubleClick
+        If Trim(DbgEquipos.Rows(e.RowIndex).Cells(0).Value) = "" Then Exit Sub
+        rsAux = New ADODB.Recordset
+        rsAux.Open("select * from equipos where idequipos = " & CInt(DbgEquipos.Rows(e.RowIndex).Cells(0).Value), Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        If rsAux.EOF Then Nuevo() : Exit Sub
+        CargarEquipoDeConsulta(CInt(rsAux("idequipos").Value))
+        CargarGridUbicaciones(CInt(rsAux("idequipos").Value))
     End Sub
 End Class

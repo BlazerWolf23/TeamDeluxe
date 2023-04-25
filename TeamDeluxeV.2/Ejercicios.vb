@@ -1,4 +1,5 @@
-﻿Imports System.Drawing.Drawing2D
+﻿Imports System.Data.SqlClient
+Imports System.Drawing.Drawing2D
 Imports System.Drawing.Imaging
 Imports System.IO
 Imports System.Net
@@ -144,6 +145,16 @@ Public Class Ejercicios
             rsEjercicios("NumPorteros").Value = CInt(TxPorteros.Text)
             rsEjercicios("RutaImagen").Value = Trim(PBImagenCampo.Tag)
 
+            Dim bmp As New Bitmap(PBImagenCampo.Width, PBImagenCampo.Height)
+            Dim ms As New MemoryStream()
+            bmp.Save(ms, ImageFormat.Jpeg)
+            Dim imgBytes() As Byte = ms.ToArray()
+
+            Using cmd As New SqlCommand("UPDATE EJERCICIOS SET Image = @ImagenBytes WHERE IDEJERCICIO = " & rsEjercicios("idEjercicios").Value, Database.Connection)
+                cmd.Parameters.AddWithValue("@ImagenBytes", imgBytes)
+                cmd.ExecuteNonQuery()
+            End Using
+
             rsAux = New ADODB.Recordset
             rsAux.Open("Select * from ObjetivosEjercicios", Database.Connection, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic, 1)
             For i As Integer = 0 To DbgObjetivosEjercicios.Rows.Count - 1
@@ -189,6 +200,20 @@ Public Class Ejercicios
         End If
         TxNombreNuvObjetivo.Text = ""
         CargarObjetivos()
+    End Sub
+
+    Private Sub BtnExportarImagen_Click(sender As Object, e As EventArgs) Handles BtnExportarImagen.Click
+
+
+
+    End Sub
+
+    Private Sub BtnImportarImagen_Click(sender As Object, e As EventArgs) Handles BtnImportarImagen.Click
+
+    End Sub
+
+    Private Sub DbgObjetivos_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgObjetivos.CellDoubleClick
+
     End Sub
 
     Public Sub Eliminar()

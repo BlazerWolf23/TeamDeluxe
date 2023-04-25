@@ -195,6 +195,9 @@
     <EmbeddedResource Include="Ejercicios.resx">
       <DependentUpon>Ejercicios.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Entrenamientos.resx">
+      <DependentUpon>Entrenamientos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Equipos.resx">
       <DependentUpon>Equipos.vb</DependentUpon>
     </EmbeddedResource>

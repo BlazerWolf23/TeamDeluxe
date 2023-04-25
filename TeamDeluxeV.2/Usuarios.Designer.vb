@@ -27,7 +27,7 @@ Partial Class Usuarios
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.PanelPass = New MaterialSkin.Controls.MaterialCard()
-        Me.BtnGuardarPassword = New MaterialSkin.Controls.MaterialFloatingActionButton()
+        Me.BtnGuardarPassword = New MaterialSkin.Controls.MaterialButton()
         Me.TxNuevaPassword = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.MaterialLabel13 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialCard2 = New MaterialSkin.Controls.MaterialCard()
@@ -39,14 +39,14 @@ Partial Class Usuarios
         Me.Telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Equipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.BtnFiltrar = New MaterialSkin.Controls.MaterialFloatingActionButton()
+        Me.BtnFiltrar = New MaterialSkin.Controls.MaterialButton()
         Me.CboEquipoBus = New MaterialSkin.Controls.MaterialComboBox()
         Me.TxNombreBus = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.TxIDbus = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.TxDNIbus = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.TxApellidoBus = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.MaterialCard1 = New MaterialSkin.Controls.MaterialCard()
-        Me.BtnAbrirPanelPassword = New MaterialSkin.Controls.MaterialFloatingActionButton()
+        Me.BtnAbrirPanelPassword = New MaterialSkin.Controls.MaterialButton()
         Me.CboTipoUsuario = New MaterialSkin.Controls.MaterialComboBox()
         Me.MaterialLabel12 = New MaterialSkin.Controls.MaterialLabel()
         Me.TxLocalidad = New MaterialSkin.Controls.MaterialMaskedTextBox()
@@ -115,22 +115,27 @@ Partial Class Usuarios
         Me.PanelPass.MouseState = MaterialSkin.MouseState.HOVER
         Me.PanelPass.Name = "PanelPass"
         Me.PanelPass.Padding = New System.Windows.Forms.Padding(14)
-        Me.PanelPass.Size = New System.Drawing.Size(297, 135)
+        Me.PanelPass.Size = New System.Drawing.Size(297, 127)
         Me.PanelPass.TabIndex = 8
         Me.PanelPass.Visible = False
         '
         'BtnGuardarPassword
         '
-        Me.BtnGuardarPassword.BackgroundImage = CType(resources.GetObject("BtnGuardarPassword.BackgroundImage"), System.Drawing.Image)
+        Me.BtnGuardarPassword.AutoSize = False
+        Me.BtnGuardarPassword.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BtnGuardarPassword.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
         Me.BtnGuardarPassword.Depth = 0
-        Me.BtnGuardarPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnGuardarPassword.HighEmphasis = True
         Me.BtnGuardarPassword.Icon = CType(resources.GetObject("BtnGuardarPassword.Icon"), System.Drawing.Image)
-        Me.BtnGuardarPassword.Image = CType(resources.GetObject("BtnGuardarPassword.Image"), System.Drawing.Image)
-        Me.BtnGuardarPassword.Location = New System.Drawing.Point(232, 73)
+        Me.BtnGuardarPassword.Location = New System.Drawing.Point(246, 76)
+        Me.BtnGuardarPassword.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.BtnGuardarPassword.MouseState = MaterialSkin.MouseState.HOVER
         Me.BtnGuardarPassword.Name = "BtnGuardarPassword"
-        Me.BtnGuardarPassword.Size = New System.Drawing.Size(56, 55)
-        Me.BtnGuardarPassword.TabIndex = 32
+        Me.BtnGuardarPassword.NoAccentTextColor = System.Drawing.Color.Empty
+        Me.BtnGuardarPassword.Size = New System.Drawing.Size(42, 42)
+        Me.BtnGuardarPassword.TabIndex = 33
+        Me.BtnGuardarPassword.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        Me.BtnGuardarPassword.UseAccentColor = False
         Me.BtnGuardarPassword.UseVisualStyleBackColor = True
         '
         'TxNuevaPassword
@@ -265,16 +270,21 @@ Partial Class Usuarios
         '
         'BtnFiltrar
         '
-        Me.BtnFiltrar.BackgroundImage = CType(resources.GetObject("BtnFiltrar.BackgroundImage"), System.Drawing.Image)
+        Me.BtnFiltrar.AutoSize = False
+        Me.BtnFiltrar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BtnFiltrar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
         Me.BtnFiltrar.Depth = 0
-        Me.BtnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnFiltrar.HighEmphasis = True
         Me.BtnFiltrar.Icon = CType(resources.GetObject("BtnFiltrar.Icon"), System.Drawing.Image)
-        Me.BtnFiltrar.Image = CType(resources.GetObject("BtnFiltrar.Image"), System.Drawing.Image)
-        Me.BtnFiltrar.Location = New System.Drawing.Point(557, 20)
+        Me.BtnFiltrar.Location = New System.Drawing.Point(584, 6)
+        Me.BtnFiltrar.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.BtnFiltrar.MouseState = MaterialSkin.MouseState.HOVER
         Me.BtnFiltrar.Name = "BtnFiltrar"
-        Me.BtnFiltrar.Size = New System.Drawing.Size(56, 55)
-        Me.BtnFiltrar.TabIndex = 20
+        Me.BtnFiltrar.NoAccentTextColor = System.Drawing.Color.Empty
+        Me.BtnFiltrar.Size = New System.Drawing.Size(42, 42)
+        Me.BtnFiltrar.TabIndex = 34
+        Me.BtnFiltrar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        Me.BtnFiltrar.UseAccentColor = False
         Me.BtnFiltrar.UseVisualStyleBackColor = True
         '
         'CboEquipoBus
@@ -292,7 +302,7 @@ Partial Class Usuarios
         Me.CboEquipoBus.Hint = "Equipo"
         Me.CboEquipoBus.IntegralHeight = False
         Me.CboEquipoBus.ItemHeight = 29
-        Me.CboEquipoBus.Location = New System.Drawing.Point(365, 56)
+        Me.CboEquipoBus.Location = New System.Drawing.Point(180, 56)
         Me.CboEquipoBus.MaxDropDownItems = 4
         Me.CboEquipoBus.MouseState = MaterialSkin.MouseState.OUT
         Me.CboEquipoBus.Name = "CboEquipoBus"
@@ -402,7 +412,7 @@ Partial Class Usuarios
         Me.TxDNIbus.Hint = "DNI"
         Me.TxDNIbus.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
         Me.TxDNIbus.LeadingIcon = Nothing
-        Me.TxDNIbus.Location = New System.Drawing.Point(192, 55)
+        Me.TxDNIbus.Location = New System.Drawing.Point(7, 55)
         Me.TxDNIbus.Mask = ""
         Me.TxDNIbus.MaxLength = 32767
         Me.TxDNIbus.MouseState = MaterialSkin.MouseState.OUT
@@ -462,7 +472,7 @@ Partial Class Usuarios
         Me.TxApellidoBus.SelectionLength = 0
         Me.TxApellidoBus.SelectionStart = 0
         Me.TxApellidoBus.ShortcutsEnabled = True
-        Me.TxApellidoBus.Size = New System.Drawing.Size(256, 36)
+        Me.TxApellidoBus.Size = New System.Drawing.Size(293, 36)
         Me.TxApellidoBus.SkipLiterals = True
         Me.TxApellidoBus.TabIndex = 17
         Me.TxApellidoBus.TabStop = False
@@ -513,16 +523,21 @@ Partial Class Usuarios
         '
         'BtnAbrirPanelPassword
         '
-        Me.BtnAbrirPanelPassword.BackgroundImage = CType(resources.GetObject("BtnAbrirPanelPassword.BackgroundImage"), System.Drawing.Image)
+        Me.BtnAbrirPanelPassword.AutoSize = False
+        Me.BtnAbrirPanelPassword.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BtnAbrirPanelPassword.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
         Me.BtnAbrirPanelPassword.Depth = 0
-        Me.BtnAbrirPanelPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAbrirPanelPassword.HighEmphasis = True
         Me.BtnAbrirPanelPassword.Icon = CType(resources.GetObject("BtnAbrirPanelPassword.Icon"), System.Drawing.Image)
-        Me.BtnAbrirPanelPassword.Image = CType(resources.GetObject("BtnAbrirPanelPassword.Image"), System.Drawing.Image)
-        Me.BtnAbrirPanelPassword.Location = New System.Drawing.Point(37, 228)
+        Me.BtnAbrirPanelPassword.Location = New System.Drawing.Point(37, 241)
+        Me.BtnAbrirPanelPassword.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.BtnAbrirPanelPassword.MouseState = MaterialSkin.MouseState.HOVER
         Me.BtnAbrirPanelPassword.Name = "BtnAbrirPanelPassword"
-        Me.BtnAbrirPanelPassword.Size = New System.Drawing.Size(56, 55)
-        Me.BtnAbrirPanelPassword.TabIndex = 11
+        Me.BtnAbrirPanelPassword.NoAccentTextColor = System.Drawing.Color.Empty
+        Me.BtnAbrirPanelPassword.Size = New System.Drawing.Size(42, 42)
+        Me.BtnAbrirPanelPassword.TabIndex = 35
+        Me.BtnAbrirPanelPassword.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        Me.BtnAbrirPanelPassword.UseAccentColor = False
         Me.BtnAbrirPanelPassword.UseVisualStyleBackColor = True
         '
         'CboTipoUsuario
@@ -1180,10 +1195,10 @@ Partial Class Usuarios
     Friend WithEvents DNI As DataGridViewTextBoxColumn
     Friend WithEvents Telefono As DataGridViewTextBoxColumn
     Friend WithEvents Equipo As DataGridViewTextBoxColumn
-    Friend WithEvents BtnFiltrar As MaterialSkin.Controls.MaterialFloatingActionButton
     Friend WithEvents PanelPass As MaterialSkin.Controls.MaterialCard
-    Friend WithEvents BtnAbrirPanelPassword As MaterialSkin.Controls.MaterialFloatingActionButton
     Friend WithEvents TxNuevaPassword As MaterialSkin.Controls.MaterialMaskedTextBox
     Friend WithEvents MaterialLabel13 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents BtnGuardarPassword As MaterialSkin.Controls.MaterialFloatingActionButton
+    Friend WithEvents BtnGuardarPassword As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents BtnFiltrar As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents BtnAbrirPanelPassword As MaterialSkin.Controls.MaterialButton
 End Class

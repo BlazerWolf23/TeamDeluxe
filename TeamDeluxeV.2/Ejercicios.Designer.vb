@@ -26,11 +26,17 @@ Partial Class Ejercicios
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.MaterialCard4 = New MaterialSkin.Controls.MaterialCard()
+        Me.MaterialLabel9 = New MaterialSkin.Controls.MaterialLabel()
         Me.BtnNuevoObjetivo = New MaterialSkin.Controls.MaterialButton()
         Me.TxNombreNuvObjetivo = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.DbgObjetivos = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MaterialCard3 = New MaterialSkin.Controls.MaterialCard()
+        Me.MaterialLabel7 = New MaterialSkin.Controls.MaterialLabel()
         Me.DbgObjetivosEjercicios = New System.Windows.Forms.DataGridView()
+        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Objetivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MaterialCard2 = New MaterialSkin.Controls.MaterialCard()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.BtnLineaPunteada = New MaterialSkin.Controls.MaterialButton()
@@ -56,12 +62,6 @@ Partial Class Ejercicios
         Me.MaterialLabel2 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
         Me.TxPorteros = New MaterialSkin.Controls.MaterialMaskedTextBox()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Objetivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MaterialLabel7 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialLabel9 = New MaterialSkin.Controls.MaterialLabel()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.MaterialCard4.SuspendLayout()
@@ -113,6 +113,19 @@ Partial Class Ejercicios
         Me.MaterialCard4.Padding = New System.Windows.Forms.Padding(14)
         Me.MaterialCard4.Size = New System.Drawing.Size(288, 264)
         Me.MaterialCard4.TabIndex = 29
+        '
+        'MaterialLabel9
+        '
+        Me.MaterialLabel9.AutoSize = True
+        Me.MaterialLabel9.Depth = 0
+        Me.MaterialLabel9.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.MaterialLabel9.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption
+        Me.MaterialLabel9.Location = New System.Drawing.Point(9, 10)
+        Me.MaterialLabel9.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialLabel9.Name = "MaterialLabel9"
+        Me.MaterialLabel9.Size = New System.Drawing.Size(51, 14)
+        Me.MaterialLabel9.TabIndex = 28
+        Me.MaterialLabel9.Text = "Objetivos"
         '
         'BtnNuevoObjetivo
         '
@@ -184,6 +197,18 @@ Partial Class Ejercicios
         Me.DbgObjetivos.Size = New System.Drawing.Size(272, 166)
         Me.DbgObjetivos.TabIndex = 1
         '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.Width = 40
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Objetivo"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.Width = 188
+        '
         'MaterialCard3
         '
         Me.MaterialCard3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
@@ -200,6 +225,19 @@ Partial Class Ejercicios
         Me.MaterialCard3.Size = New System.Drawing.Size(288, 181)
         Me.MaterialCard3.TabIndex = 28
         '
+        'MaterialLabel7
+        '
+        Me.MaterialLabel7.AutoSize = True
+        Me.MaterialLabel7.Depth = 0
+        Me.MaterialLabel7.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.MaterialLabel7.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption
+        Me.MaterialLabel7.Location = New System.Drawing.Point(10, 11)
+        Me.MaterialLabel7.MouseState = MaterialSkin.MouseState.HOVER
+        Me.MaterialLabel7.Name = "MaterialLabel7"
+        Me.MaterialLabel7.Size = New System.Drawing.Size(114, 14)
+        Me.MaterialLabel7.TabIndex = 27
+        Me.MaterialLabel7.Text = "Objetivos de ejercicio"
+        '
         'DbgObjetivosEjercicios
         '
         Me.DbgObjetivosEjercicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -208,6 +246,18 @@ Partial Class Ejercicios
         Me.DbgObjetivosEjercicios.Name = "DbgObjetivosEjercicios"
         Me.DbgObjetivosEjercicios.Size = New System.Drawing.Size(272, 141)
         Me.DbgObjetivosEjercicios.TabIndex = 0
+        '
+        'ID
+        '
+        Me.ID.HeaderText = "ID"
+        Me.ID.Name = "ID"
+        Me.ID.Width = 40
+        '
+        'Objetivo
+        '
+        Me.Objetivo.HeaderText = "Objetivo"
+        Me.Objetivo.Name = "Objetivo"
+        Me.Objetivo.Width = 188
         '
         'MaterialCard2
         '
@@ -748,56 +798,6 @@ Partial Class Ejercicios
         Me.TxPorteros.UseSystemPasswordChar = False
         Me.TxPorteros.UseTallSize = False
         Me.TxPorteros.ValidatingType = Nothing
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.Width = 40
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Objetivo"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.Width = 188
-        '
-        'ID
-        '
-        Me.ID.HeaderText = "ID"
-        Me.ID.Name = "ID"
-        Me.ID.Width = 40
-        '
-        'Objetivo
-        '
-        Me.Objetivo.HeaderText = "Objetivo"
-        Me.Objetivo.Name = "Objetivo"
-        Me.Objetivo.Width = 188
-        '
-        'MaterialLabel7
-        '
-        Me.MaterialLabel7.AutoSize = True
-        Me.MaterialLabel7.Depth = 0
-        Me.MaterialLabel7.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.MaterialLabel7.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption
-        Me.MaterialLabel7.Location = New System.Drawing.Point(10, 11)
-        Me.MaterialLabel7.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel7.Name = "MaterialLabel7"
-        Me.MaterialLabel7.Size = New System.Drawing.Size(114, 14)
-        Me.MaterialLabel7.TabIndex = 27
-        Me.MaterialLabel7.Text = "Objetivos de ejercicio"
-        '
-        'MaterialLabel9
-        '
-        Me.MaterialLabel9.AutoSize = True
-        Me.MaterialLabel9.Depth = 0
-        Me.MaterialLabel9.Font = New System.Drawing.Font("Roboto", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.MaterialLabel9.FontType = MaterialSkin.MaterialSkinManager.fontType.Caption
-        Me.MaterialLabel9.Location = New System.Drawing.Point(9, 10)
-        Me.MaterialLabel9.MouseState = MaterialSkin.MouseState.HOVER
-        Me.MaterialLabel9.Name = "MaterialLabel9"
-        Me.MaterialLabel9.Size = New System.Drawing.Size(51, 14)
-        Me.MaterialLabel9.TabIndex = 28
-        Me.MaterialLabel9.Text = "Objetivos"
         '
         'Ejercicios
         '
