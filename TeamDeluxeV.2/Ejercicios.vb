@@ -117,6 +117,7 @@ Public Class Ejercicios
     End Sub
 
     Public Sub Guardar()
+        Dim rsObjetivosEjercicios As New ADODB.Recordset
         If Trim(TxNombre.Text) = "" Then
             MsgBox("Introduzca un nombre para el entrenamiento", vbExclamation)
             Exit Sub
@@ -126,44 +127,46 @@ Public Class Ejercicios
             Exit Sub
         End If
         rsEjercicios = New ADODB.Recordset
-        rsEjercicios.Open("Select * from ejercicios where id = " & Trim(TxID.Text), Database.Connection, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        rsEjercicios.Open("Select * from ejercicios where idejercicios = " & IIf(Trim(TxID.Text) = "", 0, Trim(TxID.Text)), Database.Connection, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic, 1)
         If rsEjercicios.EOF Then
-
+            rsEjercicios.AddNew()
             rsAux = New ADODB.Recordset
-            rsAux.Open("select top 1 from ejercicios order by idejercicio desc", Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+            rsAux.Open("select top 1 idejercicios from ejercicios order by idejercicios desc", Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
             If rsAux.EOF Then
                 rsEjercicios("idEjercicios").Value = 1
             Else
                 rsEjercicios("idEjercicios").Value = CInt(rsAux("idEjercicios").Value) + 1
             End If
-            rsEjercicios.AddNew()
-            rsEjercicios("Nombre").Value = Trim(TxNombre.Text)
+        End If
+        rsEjercicios("Nombre").Value = Trim(TxNombre.Text)
             rsEjercicios("Descripcion").Value = Trim(TxDescripcion.Text)
             rsEjercicios("Observaciones").Value = Trim(TxObservaciones.Text)
             rsEjercicios("Material").Value = Trim(TxMaterial.Text)
             rsEjercicios("NumJugadores").Value = CInt(TxJugadores.Text)
             rsEjercicios("NumPorteros").Value = CInt(TxPorteros.Text)
-            rsEjercicios("RutaImagen").Value = Trim(PBImagenCampo.Tag)
+        rsEjercicios("RutaImagen").Value = Trim(PBImagenCampo.Tag)
 
-            Dim bmp As New Bitmap(PBImagenCampo.Width, PBImagenCampo.Height)
-            Dim ms As New MemoryStream()
-            bmp.Save(ms, ImageFormat.Jpeg)
-            Dim imgBytes() As Byte = ms.ToArray()
+        Dim bmp As New Bitmap(PBImagenCampo.Width, PBImagenCampo.Height)
+        Dim gfx As Graphics = Graphics.FromImage(bmp)
+        PBImagenCampo.DrawToBitmap(bmp, PBImagenCampo.ClientRectangle)
+        Dim ms As New MemoryStream()
+        bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png)
+        rsEjercicios("imagenEjer").Value = ms.GetBuffer
 
-            Using cmd As New SqlCommand("UPDATE EJERCICIOS SET Image = @ImagenBytes WHERE IDEJERCICIO = " & rsEjercicios("idEjercicios").Value, Database.Connection)
-                cmd.Parameters.AddWithValue("@ImagenBytes", imgBytes)
-                cmd.ExecuteNonQuery()
-            End Using
+        rsEjercicios.Update()
 
+            Database.Connection.Execute("Delete from ObjetivosEjercicios where idEjercicios = " & CInt(rsEjercicios("idEjercicios").Value))
             rsAux = New ADODB.Recordset
             rsAux.Open("Select * from ObjetivosEjercicios", Database.Connection, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic, 1)
-            For i As Integer = 0 To DbgObjetivosEjercicios.Rows.Count - 1
+            For i As Integer = 0 To DbgObjetivosEjercicios.Rows.Count - 2
+                rsAux.AddNew()
                 rsAux("idEjercicios").Value = CInt(rsEjercicios("idEjercicios").Value)
                 rsAux("idObjetivo").Value = CInt(DbgObjetivosEjercicios.Rows(i).Cells("ID").Value)
+                rsAux.Update()
             Next
-            rsAux.Update()
-        End If
-        rsEjercicios.Update()
+
+
+            TxID.Text = CInt(rsAux("idEjercicios").Value)
     End Sub
 
 
@@ -212,8 +215,53 @@ Public Class Ejercicios
 
     End Sub
 
-    Private Sub DbgObjetivos_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgObjetivos.CellDoubleClick
+    Private Sub DbgObjetivos_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgObjetivosEjercicios.CellDoubleClick
+        DbgObjetivosEjercicios.Rows.RemoveAt(e.RowIndex)
+    End Sub
 
+    Private Sub Ejercicios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Nuevo()
+    End Sub
+
+    Private Sub DbgObjetivos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgObjetivos.CellContentDoubleClick
+        AniadirLineaGrid(DbgObjetivos.Rows(e.RowIndex).Cells(0).Value, DbgObjetivos.Rows(e.RowIndex).Cells(1).Value)
+    End Sub
+
+    Private Sub AniadirLineaGrid(id As Integer, Descripcion As String)
+        Dim newRow As DataGridViewRow = New DataGridViewRow()
+        newRow.CreateCells(DbgObjetivosEjercicios)
+        newRow.Cells(0).Value = id
+        newRow.Cells(1).Value = Descripcion
+        DbgObjetivosEjercicios.Rows.Add(newRow)
+    End Sub
+
+
+    Private Sub TxID_KeyDown(sender As Object, e As KeyEventArgs) Handles TxID.KeyDown
+        Dim imageData As Byte()
+        Dim ms As MemoryStream
+        Dim img As Image
+        If e.KeyValue = Keys.Enter Then
+            If IsNumeric(TxID.Text) Then
+                rsAux = New ADODB.Recordset
+                rsAux.Open("Select * from ejercicios where idejercicios = " & CInt(TxID.Text), Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic)
+                If Not rsAux.EOF Then
+                    TxID.Text = CInt(rsAux("idejercicios").Value)
+                    TxNombre.Text = Trim(rsAux("nombre").Value)
+                    TxJugadores.Text = CInt(rsAux("numJugadores").Value)
+                    TxPorteros.Text = CInt(rsAux("Numporteros").Value)
+                    TxDescripcion.Text = Trim(rsAux("descripcion").Value)
+                    TxMaterial.Text = Trim(rsAux("material").Value)
+                    TxObservaciones.Text = Trim(rsAux("observaciones").Value)
+
+                    imageData = DirectCast(rsAux("imagenEjer").Value, Byte())
+                    ms = New MemoryStream(imageData)
+                    img = Image.FromStream(ms)
+                    PBImagenCampo.BackgroundImage = img
+
+                    CargarObjetivos(CInt(TxID.Text))
+                End If
+            End If
+        End If
     End Sub
 
     Public Sub Eliminar()
@@ -245,17 +293,37 @@ Public Class Ejercicios
         CargarObjetivos()
     End Sub
 
-    Private Sub CargarObjetivos()
+    Private Sub CargarObjetivos(Optional idejercicio As Integer = 0)
+        If idejercicio <> 0 Then
+            DbgObjetivosEjercicios.Rows.Clear()
+        Else
+            DbgObjetivos.Rows.Clear()
+        End If
         rsAux = New ADODB.Recordset
-        'Mirar con javeier a ver si poner el id del entrenador en la tabla de objetivos esta bien, para poder filtar
-        'por los objetivos que ha creado un usuario
-        rsAux.Open("Select * from Objetivos", Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        Dim sql As String
+        If idejercicio <> 0 Then
+            sql = "select objetivos.idobjetivo, objetivos.descripcion from objetivos 
+                inner join objetivosEjercicios on objetivos.idobjetivo = objetivosEjercicios.idobjetivo
+                where idejercicios = " & CInt(idejercicio)
+        Else
+            sql = "Select * from Objetivos"
+        End If
+        'poner el id del ususario en la bd acuerdate
+        rsAux.Open(sql, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
         Do Until rsAux.EOF
             Dim newRow As DataGridViewRow = New DataGridViewRow()
-            newRow.CreateCells(DbgObjetivos)
+            If idejercicio <> 0 Then
+                newRow.CreateCells(DbgObjetivosEjercicios)
+            Else
+                newRow.CreateCells(DbgObjetivos)
+            End If
             newRow.Cells(0).Value = CInt(rsAux("IDobjetivo").Value)
             newRow.Cells(1).Value = Trim(rsAux("Descripcion").Value)
-            DbgObjetivos.Rows.Add(newRow)
+            If idejercicio <> 0 Then
+                DbgObjetivosEjercicios.Rows.Add(newRow)
+            Else
+                DbgObjetivos.Rows.Add(newRow)
+            End If
             rsAux.MoveNext()
         Loop
     End Sub

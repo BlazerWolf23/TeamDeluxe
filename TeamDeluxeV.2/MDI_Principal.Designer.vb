@@ -40,8 +40,6 @@ Partial Class MDI_Principal
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.MDIejercicios = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
-        Me.MdiObjetivos = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.LabelSpacios = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.BtnCerrarFormulario = New System.Windows.Forms.ToolStripButton()
@@ -55,7 +53,7 @@ Partial Class MDI_Principal
         'ToolStrip
         '
         Me.ToolStrip.AutoSize = False
-        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnSalirInicio, Me.ToolStripSeparator4, Me.BtnMDINuevo, Me.BtnMDIGuardar, Me.BtnMDIEliminar, Me.ToolStripSeparator2, Me.MDIusuarios, Me.ToolStripSeparator3, Me.MDIequipos, Me.ToolStripSeparator7, Me.MDIentrenamientos, Me.ToolStripSeparator1, Me.MDIejercicios, Me.ToolStripSeparator6, Me.MdiObjetivos, Me.ToolStripSeparator8, Me.LabelSpacios, Me.ToolStripSeparator5, Me.BtnCerrarFormulario})
+        Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BtnSalirInicio, Me.ToolStripSeparator4, Me.BtnMDINuevo, Me.BtnMDIGuardar, Me.BtnMDIEliminar, Me.ToolStripSeparator2, Me.MDIusuarios, Me.ToolStripSeparator3, Me.MDIequipos, Me.ToolStripSeparator7, Me.MDIentrenamientos, Me.ToolStripSeparator1, Me.MDIejercicios, Me.ToolStripSeparator6, Me.LabelSpacios, Me.ToolStripSeparator5, Me.BtnCerrarFormulario})
         Me.ToolStrip.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip.Name = "ToolStrip"
         Me.ToolStrip.Size = New System.Drawing.Size(1193, 36)
@@ -160,19 +158,6 @@ Partial Class MDI_Principal
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
         Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 36)
         '
-        'MdiObjetivos
-        '
-        Me.MdiObjetivos.Image = CType(resources.GetObject("MdiObjetivos.Image"), System.Drawing.Image)
-        Me.MdiObjetivos.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.MdiObjetivos.Name = "MdiObjetivos"
-        Me.MdiObjetivos.Size = New System.Drawing.Size(77, 33)
-        Me.MdiObjetivos.Text = "Objetivos"
-        '
-        'ToolStripSeparator8
-        '
-        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(6, 36)
-        '
         'LabelSpacios
         '
         Me.LabelSpacios.Enabled = False
@@ -248,6 +233,4 @@ Partial Class MDI_Principal
     Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
     Friend WithEvents BtnCerrarFormulario As ToolStripButton
     Friend WithEvents LabelSpacios As ToolStripLabel
-    Friend WithEvents MdiObjetivos As ToolStripButton
-    Friend WithEvents ToolStripSeparator8 As ToolStripSeparator
 End Class
