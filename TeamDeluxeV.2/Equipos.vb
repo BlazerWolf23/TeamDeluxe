@@ -141,9 +141,9 @@ Public Class Equipos
         If salto Then Exit Sub
         rsAux = New ADODB.Recordset
         rsAux.Open("Select * from usuarios where rol = 'entrenador'", Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
-        Dim items As New List(Of Item)
+        Dim items As New List(Of ItemCBO)
         Do Until rsAux.EOF
-            items.Add(New Item With {.Value = CInt(rsAux("idUsuario").Value), .Description = Trim(rsAux("nombre").Value)})
+            items.Add(New ItemCBO With {.Value = CInt(rsAux("idUsuario").Value), .Description = Trim(rsAux("nombre").Value)})
             rsAux.MoveNext()
         Loop
         CboUsuario.DataSource = items
@@ -151,10 +151,6 @@ Public Class Equipos
         CboUsuario.DisplayMember = "Description"
     End Sub
 
-    Public Class Item
-        Public Property Value As Integer
-        Public Property Description As String
-    End Class
 
     Private Sub Equipos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CargarEntrenadores()

@@ -287,6 +287,10 @@ Public Class Ejercicios
         TxDescripcion.Text = "" : TxJugadores.Text = ""
         TxPorteros.Text = "" : TxObservaciones.Text = ""
         TxMaterial.Text = ""
+        For Each c As Control In PBImagenCampo.Controls
+            c.Dispose()
+        Next
+        PBImagenCampo.Invalidate()
         Vaciarimagen_Click(Vaciarimagen, New EventArgs)
         DbgObjetivosEjercicios.Rows.Clear()
         DbgObjetivos.Rows.Clear()

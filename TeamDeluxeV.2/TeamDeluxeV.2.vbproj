@@ -153,6 +153,7 @@
     <Compile Include="Equipos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ItemCBO.vb" />
     <Compile Include="Usuarios.Designer.vb">
       <DependentUpon>Usuarios.vb</DependentUpon>
     </Compile>

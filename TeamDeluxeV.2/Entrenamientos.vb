@@ -2,9 +2,19 @@
     Dim rsentrenameintos As New ADODB.Recordset
     Dim rsAux As New ADODB.Recordset
 
-
     Public Sub Nuevo()
-
+        TxID.Text = "" : DateTimePicker1.Value = Now.Date
+        CboEquipo.SelectedIndex = 0 : CboLugar.SelectedIndex = 0
+        TxHoraFin.Text = "00:00" : TxHoraInicio.Text = "00:00"
+        TxTiempoGuardar.Text = "00:00" : CboObjetivoGuardar.SelectedIndex = 0 : CboEjercicioGuardar.SelectedIndex = 0
+        TxNombre.Text = "" : TxPorteros.Text = "" : TxJugadores.Text = ""
+        TxDescripcionEjer.Text = "" : TxMaterialEjer.Text = ""
+        TxDescripcion.Text = ""
+        DbgEntrenamiento.Rows.Clear()
+        For Each c As Control In PBImagenCampo.Controls
+            c.Dispose()
+        Next
+        PBImagenCampo.Invalidate()
     End Sub
 
     Public Sub Guardar()
@@ -19,20 +29,74 @@
     End Sub
 
     Private Sub CargarEquipos()
-
+        Dim rs As New ADODB.Recordset
+        Dim items As New List(Of ItemCBO)
+        rs.Open("Select * from equipos where idusuario = " & VariablesAPP.IdUsuarioApp, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        Do Until rs.EOF
+            items.Add(New ItemCBO With {.Value = CInt(rsAux("idequipos").Value), .Description = Trim(rsAux("nombre").Value)})
+            rs.MoveNext()
+        Loop
+        CboEquipo.DataSource = items
+        CboEquipo.ValueMember = "Value"
+        CboEquipo.DisplayMember = "Description"
     End Sub
 
     Private Sub CargarUbicaciones()
-
+        If CboEquipo.SelectedValue = Nothing Or CboEquipo.SelectedValue = 0 Then Exit Sub
+        Dim rs As New ADODB.Recordset
+        Dim items As New List(Of ItemCBO)
+        rs.Open("Select * from ubicaciones where idequipo = " & CInt(CboEquipo.SelectedValue), Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        Do Until rs.EOF
+            items.Add(New ItemCBO With {.Value = CInt(rsAux("idubicacion").Value), .Description = Trim(rsAux("nombre").Value)})
+            rs.MoveNext()
+        Loop
+        CboLugar.DataSource = items
+        CboLugar.ValueMember = "Value"
+        CboLugar.DisplayMember = "Description"
     End Sub
 
     Private Sub cargarObjetivos()
-
-        CragarEjercicios()
+        Dim rs As New ADODB.Recordset
+        Dim items As New List(Of ItemCBO)
+        rs.Open("Select * from objetivos", Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        Do Until rs.EOF
+            items.Add(New ItemCBO With {.Value = CInt(rsAux("idobjetivo").Value), .Description = Trim(rsAux("Descripcion").Value)})
+            rs.MoveNext()
+        Loop
+        CboObjetivoGuardar.DataSource = items
+        CboObjetivoGuardar.ValueMember = "Value"
+        CboObjetivoGuardar.DisplayMember = "Description"
     End Sub
 
-    Private Sub CragarEjercicios(idEjercicio As Integer)
+    Private Sub CragarEjercicios(idObjetivo As Integer)
+        If idObjetivo = 0 Then Exit Sub
+        Dim rs As New ADODB.Recordset
+        Dim items As New List(Of ItemCBO)
+        rs.Open("select Ejercicios.* from Ejercicios 
+            Inner JOIN ObjetivosEjercicios on Ejercicios.IdEjercicios = ObjetivosEjercicios.IdEjercicios 
+            and ObjetivosEjercicios.Idobjetivo = " & CInt(idObjetivo), Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        Do Until rs.EOF
+            items.Add(New ItemCBO With {.Value = CInt(rsAux("idejercicios").Value), .Description = Trim(rsAux("Nombre").Value)})
+            rs.MoveNext()
+        Loop
+        CboEjercicioGuardar.DataSource = items
+        CboEjercicioGuardar.ValueMember = "Value"
+        CboEjercicioGuardar.DisplayMember = "Description"
+    End Sub
+
+    Private Sub DbgObjetivos_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgEntrenamiento.CellContentDoubleClick
 
     End Sub
 
+    Private Sub BtnAniadirGrid_Click(sender As Object, e As EventArgs) Handles BtnAniadirGrid.Click
+
+    End Sub
+
+    Private Sub Entrenamientos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Nuevo()
+        CargarEquipos()
+        CargarEquipos()
+        cargarObjetivos()
+        CragarEjercicios(1)
+    End Sub
 End Class

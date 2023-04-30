@@ -158,20 +158,15 @@ Public Class Usuarios
     End Sub
 
     Private Sub CargarTipoUsuarios()
-        Dim items As New List(Of Item)
+        Dim items As New List(Of ItemCBO)
         If UCase(VariablesAPP.RolUsuario) = UCase("admin") Then
-            items.Add(New Item With {.Value = 1, .Description = "Entrenador"})
+            items.Add(New ItemCBO With {.Value = 1, .Description = "Entrenador"})
         End If
-        items.Add(New Item With {.Value = 2, .Description = "Jugador"})
+        items.Add(New ItemCBO With {.Value = 2, .Description = "Jugador"})
         CboTipoUsuario.DataSource = items
         CboTipoUsuario.ValueMember = "Value"
         CboTipoUsuario.DisplayMember = "Description"
     End Sub
-
-    Public Class Item
-        Public Property Value As Integer
-        Public Property Description As String
-    End Class
 
 
     Private Sub Usuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
