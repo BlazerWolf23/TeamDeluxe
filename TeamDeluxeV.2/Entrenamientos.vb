@@ -25,7 +25,37 @@
     End Sub
 
     Private Sub TxID_KeyDown(sender As Object, e As KeyEventArgs) Handles TxID.KeyDown
+        Dim rs As New ADODB.Recordset
+        If TxID.Text = "" Or TxID.Text = 0 Then Exit Sub
+        rs.Open("Select * from entrenamientos where identrenamiento = " & CInt(TxID.Text) &
+            " and idusuario = " & VariablesAPP.IdUsuarioApp, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        If rs.EOF Then Exit Sub
+        TxID.Text = Trim(rs("identrenamiento").Value)
+        DateTimePicker1.Value = rs("FechaCreacion").Value
+        TxHoraInicio.Text = Format(Trim(rs("HoraIni").Value), "HH:mm")
+        TxHoraFin.Text = Format(Trim(rs("HoraFin").Value), "HH:mm")
+        TxPorteros.Text = Trim(rs("NumPorteros").Value)
+        TxJugadores.Text = Trim(rs("NumJugadores").Value)
+        CboEquipo.SelectedValue = CInt(rs("NumJugadores").Value)
+        CboLugar.SelectedValue = CInt(rs("idubicacion").Value)
 
+        rsAux = New ADODB.Recordset
+        rsAux.Open("select * from entrenamientos
+            inner join Objetivos_Entrenamiento on entrenamientos.identrenamiento = Objetivos_Entrenamiento.identrenamiento
+            Inner join Objetivos ON Objetivos_Entrenamiento.idobjetivo = Objetivos.idobjetivo
+            inner join Ejercicios ON Objetivos_Entrenamiento.idejercicio = ejercicios.idejercicios where identrenamiento = " & CInt(TxID.Text), Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+
+        Do Until rsAux.EOF
+            Dim newRow As DataGridViewRow = New DataGridViewRow()
+            newRow.CreateCells(DbgEntrenamiento)
+            newRow.Cells(0).Value = CInt(rsAux("IDobjetivo").Value) ' Tiempo
+            newRow.Cells(1).Value = Trim(rsAux("Descripcion").Value) ' IdObjetivo
+            newRow.Cells(2).Value = Trim(rsAux("Descripcion").Value) ' DescripcionObje
+            newRow.Cells(3).Value = Trim(rsAux("Descripcion").Value) ' IdEjercicio
+            newRow.Cells(4).Value = Trim(rsAux("Descripcion").Value) ' Descripcion Ejer
+            rsAux.MoveNext()
+            DbgEntrenamiento.Rows.Add(newRow)
+        Loop
     End Sub
 
     Private Sub CargarEquipos()
