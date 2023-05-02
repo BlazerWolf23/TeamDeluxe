@@ -71,7 +71,7 @@ Public Class MDI_Principal
         Select Case sender.name
             Case BtnMDINuevo.Name
                 If TypeOf formu Is Entrenamientos Then
-                    DirectCast(formu, Ejercicios).Nuevo()
+                    DirectCast(formu, Entrenamientos).Nuevo()
                 End If
                 If TypeOf formu Is Ejercicios Then
                     DirectCast(formu, Ejercicios).Nuevo()
@@ -93,7 +93,7 @@ Public Class MDI_Principal
                     DirectCast(formu, Equipos).Guardar()
                 End If
                 If TypeOf formu Is Entrenamientos Then
-                    DirectCast(formu, Ejercicios).Guardar()
+                    DirectCast(formu, Entrenamientos).Guardar()
                 End If
             Case BtnMDIEliminar.Name
                 If TypeOf formu Is Ejercicios Then
@@ -106,7 +106,7 @@ Public Class MDI_Principal
                     DirectCast(formu, Equipos).Eliminar()
                 End If
                 If TypeOf formu Is Entrenamientos Then
-                    DirectCast(formu, Ejercicios).Eliminar()
+                    DirectCast(formu, Entrenamientos).Eliminar()
                 End If
         End Select
     End Sub

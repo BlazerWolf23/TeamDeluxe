@@ -52,8 +52,6 @@ Partial Class Entrenamientos
         Me.CboObjetivoGuardar = New MaterialSkin.Controls.MaterialComboBox()
         Me.BtnAniadirGrid = New MaterialSkin.Controls.MaterialButton()
         Me.DbgEntrenamiento = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MaterialCard1 = New MaterialSkin.Controls.MaterialCard()
         Me.CboLugar = New MaterialSkin.Controls.MaterialComboBox()
         Me.MaterialLabel4 = New MaterialSkin.Controls.MaterialLabel()
@@ -67,6 +65,11 @@ Partial Class Entrenamientos
         Me.MaterialLabel6 = New MaterialSkin.Controls.MaterialLabel()
         Me.TxID = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
+        Me.Tiempo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDObj = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.objetivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IdEjercicio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.MaterialCard3.SuspendLayout()
@@ -631,23 +634,11 @@ Partial Class Entrenamientos
         'DbgEntrenamiento
         '
         Me.DbgEntrenamiento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DbgEntrenamiento.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
+        Me.DbgEntrenamiento.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Tiempo, Me.IDObj, Me.objetivo, Me.IdEjercicio, Me.Nombre})
         Me.DbgEntrenamiento.Location = New System.Drawing.Point(8, 68)
         Me.DbgEntrenamiento.Name = "DbgEntrenamiento"
         Me.DbgEntrenamiento.Size = New System.Drawing.Size(659, 431)
         Me.DbgEntrenamiento.TabIndex = 1
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.Width = 40
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Objetivo"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.Width = 188
         '
         'MaterialCard1
         '
@@ -934,6 +925,36 @@ Partial Class Entrenamientos
         Me.MaterialLabel1.TabIndex = 6
         Me.MaterialLabel1.Text = "ID"
         '
+        'Tiempo
+        '
+        Me.Tiempo.HeaderText = "Tiempo"
+        Me.Tiempo.Name = "Tiempo"
+        Me.Tiempo.Width = 80
+        '
+        'IDObj
+        '
+        Me.IDObj.HeaderText = "IDObj."
+        Me.IDObj.Name = "IDObj"
+        Me.IDObj.Width = 60
+        '
+        'objetivo
+        '
+        Me.objetivo.HeaderText = "Objetivo"
+        Me.objetivo.Name = "objetivo"
+        Me.objetivo.Width = 210
+        '
+        'IdEjercicio
+        '
+        Me.IdEjercicio.HeaderText = "IdEjer."
+        Me.IdEjercicio.Name = "IdEjercicio"
+        Me.IdEjercicio.Width = 60
+        '
+        'Nombre
+        '
+        Me.Nombre.HeaderText = "Nombre"
+        Me.Nombre.Name = "Nombre"
+        Me.Nombre.Width = 210
+        '
         'Entrenamientos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -969,8 +990,6 @@ Partial Class Entrenamientos
     Friend WithEvents Panel3 As Panel
     Friend WithEvents BtnAniadirGrid As MaterialSkin.Controls.MaterialButton
     Friend WithEvents DbgEntrenamiento As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents MaterialCard1 As MaterialSkin.Controls.MaterialCard
     Friend WithEvents CboLugar As MaterialSkin.Controls.MaterialComboBox
     Friend WithEvents MaterialLabel4 As MaterialSkin.Controls.MaterialLabel
@@ -1005,4 +1024,9 @@ Partial Class Entrenamientos
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Panel5 As Panel
     Friend WithEvents PBImagenCampo As PictureBox
+    Friend WithEvents Tiempo As DataGridViewTextBoxColumn
+    Friend WithEvents IDObj As DataGridViewTextBoxColumn
+    Friend WithEvents objetivo As DataGridViewTextBoxColumn
+    Friend WithEvents IdEjercicio As DataGridViewTextBoxColumn
+    Friend WithEvents Nombre As DataGridViewTextBoxColumn
 End Class
