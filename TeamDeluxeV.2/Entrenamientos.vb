@@ -193,6 +193,31 @@ Public Class Entrenamientos
         SaltoCombo = False
     End Sub
 
+    Private Sub CargarGridConsulta()
+        DbgBusEntreno.Rows.Clear()
+        Dim rs As New ADODB.Recordset
+        rs.Open("select Entrenamientos.idEntrenamiento, Entrenamientos.FechaCreacion,  equipos.nombre nombreEquipo, Ubicaciones.Nombre nombreUbi, Entrenamientos.HoraIni, Entrenamientos.HoraFin from entrenamientos 
+            inner join Equipos on Equipos.IdEquipos = Entrenamientos.idEquipo
+            inner join Ubicaciones on Entrenamientos.idUbicacon = Ubicaciones.Idubicacion", Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+
+
+
+        Do Until rs.EOF
+            Dim newRow As DataGridViewRow = New DataGridViewRow()
+            newRow.CreateCells(DbgBusEntreno)
+            newRow.Cells(0).Value = CInt(rs("idEntrenamiento").Value) ' Tiempo
+            newRow.Cells(1).Value = CDate(rs("FechaCreacion").Value) ' IdObjetivo
+            newRow.Cells(2).Value = Trim(rs("nombreEquipo").Value) ' DescripcionObje
+            newRow.Cells(3).Value = Trim(rs("nombreUbi").Value) ' IdEjercicio
+            newRow.Cells(4).Value = Format(CDate(rs("horaini").Value), "HH:mm")
+            newRow.Cells(5).Value = Format(CDate(rs("horaFin").Value), "HH:mm")
+            DbgBusEntreno.Rows.Add(newRow)
+            rs.MoveNext()
+        Loop
+
+    End Sub
+
+
     Private Sub TxHoraInicio_LostFocus(sender As Object, e As EventArgs) Handles TxHoraInicio.LostFocus, TxHoraFin.LostFocus, TxTiempoGuardar.LostFocus
         If Not DateTime.TryParseExact(sender.Text, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, hora) Then
             MsgBox("Introduzca una hora valida para el entrenamiento", vbExclamation)
@@ -200,4 +225,19 @@ Public Class Entrenamientos
             Exit Sub
         End If
     End Sub
+
+    Private Sub CboObjetivoGuardar_SelectedValueChanged(sender As Object, e As EventArgs) Handles CboObjetivoGuardar.SelectedValueChanged
+        If SaltoCombo Then Exit Sub
+        CragarEjercicios(CInt(CboObjetivoGuardar.SelectedValue))
+    End Sub
+
+    Private Sub BtnFiltrar_Click(sender As Object, e As EventArgs) Handles BtnFiltrar.Click
+        CargarGridConsulta()
+    End Sub
+
+
+    'select * from entrenamientos 
+    'Inner join Objetivos_Entrenamiento On Objetivos_Entrenamiento.idEntrenamiento = Entrenamientos.idEntrenamiento
+    'inner join Objetivos on Objetivos.Idobjetivo = Objetivos_Entrenamiento.Idobjetivo
+    'inner join Ejercicios on Ejercicios.IdEjercicios = Objetivos_Entrenamiento.idejercicio
 End Class
