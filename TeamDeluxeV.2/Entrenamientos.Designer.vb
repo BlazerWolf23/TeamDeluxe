@@ -77,21 +77,21 @@ Partial Class Entrenamientos
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.MaterialCard5 = New MaterialSkin.Controls.MaterialCard()
         Me.DbgBusEntreno = New System.Windows.Forms.DataGridView()
-        Me.MaterialCard6 = New MaterialSkin.Controls.MaterialCard()
-        Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.BtnFiltrar = New MaterialSkin.Controls.MaterialButton()
-        Me.TxIDbus = New MaterialSkin.Controls.MaterialMaskedTextBox()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.MaterialMaskedTextBox1 = New MaterialSkin.Controls.MaterialMaskedTextBox()
-        Me.MaterialLabel17 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialLabel18 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialMaskedTextBox2 = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.IDEntreno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FachaCreacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Equipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Ubicacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HoraIni = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HoraFin = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MaterialCard6 = New MaterialSkin.Controls.MaterialCard()
+        Me.BtnFiltrar = New MaterialSkin.Controls.MaterialButton()
+        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.MaterialMaskedTextBox1 = New MaterialSkin.Controls.MaterialMaskedTextBox()
+        Me.MaterialLabel17 = New MaterialSkin.Controls.MaterialLabel()
+        Me.MaterialLabel18 = New MaterialSkin.Controls.MaterialLabel()
+        Me.MaterialMaskedTextBox2 = New MaterialSkin.Controls.MaterialMaskedTextBox()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.TxIDbus = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.MaterialCard3.SuspendLayout()
@@ -1063,6 +1063,42 @@ Partial Class Entrenamientos
         Me.DbgBusEntreno.Size = New System.Drawing.Size(881, 598)
         Me.DbgBusEntreno.TabIndex = 1
         '
+        'IDEntreno
+        '
+        Me.IDEntreno.HeaderText = "ID"
+        Me.IDEntreno.Name = "IDEntreno"
+        Me.IDEntreno.Width = 30
+        '
+        'FachaCreacion
+        '
+        Me.FachaCreacion.HeaderText = "FachaCreacion"
+        Me.FachaCreacion.Name = "FachaCreacion"
+        Me.FachaCreacion.Width = 110
+        '
+        'Equipo
+        '
+        Me.Equipo.HeaderText = "Equipo"
+        Me.Equipo.Name = "Equipo"
+        Me.Equipo.Width = 280
+        '
+        'Ubicacion
+        '
+        Me.Ubicacion.HeaderText = "Ubicacion"
+        Me.Ubicacion.Name = "Ubicacion"
+        Me.Ubicacion.Width = 250
+        '
+        'HoraIni
+        '
+        Me.HoraIni.HeaderText = "Hora Ini."
+        Me.HoraIni.Name = "HoraIni"
+        Me.HoraIni.Width = 80
+        '
+        'HoraFin
+        '
+        Me.HoraFin.HeaderText = "Hora Fin."
+        Me.HoraFin.Name = "HoraFin"
+        Me.HoraFin.Width = 80
+        '
         'MaterialCard6
         '
         Me.MaterialCard6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -1077,21 +1113,6 @@ Partial Class Entrenamientos
         Me.MaterialCard6.Padding = New System.Windows.Forms.Padding(14)
         Me.MaterialCard6.Size = New System.Drawing.Size(552, 61)
         Me.MaterialCard6.TabIndex = 6
-        '
-        'Panel8
-        '
-        Me.Panel8.BackColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel8.Controls.Add(Me.MaterialMaskedTextBox1)
-        Me.Panel8.Controls.Add(Me.MaterialLabel17)
-        Me.Panel8.Controls.Add(Me.MaterialLabel18)
-        Me.Panel8.Controls.Add(Me.MaterialMaskedTextBox2)
-        Me.Panel8.Controls.Add(Me.DateTimePicker2)
-        Me.Panel8.Controls.Add(Me.TxIDbus)
-        Me.Panel8.Location = New System.Drawing.Point(5, 5)
-        Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(488, 50)
-        Me.Panel8.TabIndex = 2
         '
         'BtnFiltrar
         '
@@ -1112,56 +1133,20 @@ Partial Class Entrenamientos
         Me.BtnFiltrar.UseAccentColor = False
         Me.BtnFiltrar.UseVisualStyleBackColor = True
         '
-        'TxIDbus
+        'Panel8
         '
-        Me.TxIDbus.AllowPromptAsInput = True
-        Me.TxIDbus.AnimateReadOnly = False
-        Me.TxIDbus.AsciiOnly = False
-        Me.TxIDbus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.TxIDbus.BeepOnError = False
-        Me.TxIDbus.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.TxIDbus.Depth = 0
-        Me.TxIDbus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.TxIDbus.HidePromptOnLeave = False
-        Me.TxIDbus.HideSelection = True
-        Me.TxIDbus.Hint = "ID"
-        Me.TxIDbus.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
-        Me.TxIDbus.LeadingIcon = Nothing
-        Me.TxIDbus.Location = New System.Drawing.Point(7, 7)
-        Me.TxIDbus.Mask = ""
-        Me.TxIDbus.MaxLength = 32767
-        Me.TxIDbus.MouseState = MaterialSkin.MouseState.OUT
-        Me.TxIDbus.Name = "TxIDbus"
-        Me.TxIDbus.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.TxIDbus.PrefixSuffixText = Nothing
-        Me.TxIDbus.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
-        Me.TxIDbus.ReadOnly = False
-        Me.TxIDbus.RejectInputOnFirstFailure = False
-        Me.TxIDbus.ResetOnPrompt = True
-        Me.TxIDbus.ResetOnSpace = True
-        Me.TxIDbus.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.TxIDbus.SelectedText = ""
-        Me.TxIDbus.SelectionLength = 0
-        Me.TxIDbus.SelectionStart = 0
-        Me.TxIDbus.ShortcutsEnabled = True
-        Me.TxIDbus.Size = New System.Drawing.Size(71, 36)
-        Me.TxIDbus.SkipLiterals = True
-        Me.TxIDbus.TabIndex = 15
-        Me.TxIDbus.TabStop = False
-        Me.TxIDbus.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
-        Me.TxIDbus.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.TxIDbus.TrailingIcon = Nothing
-        Me.TxIDbus.UseSystemPasswordChar = False
-        Me.TxIDbus.UseTallSize = False
-        Me.TxIDbus.ValidatingType = Nothing
-        '
-        'DateTimePicker2
-        '
-        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker2.Location = New System.Drawing.Point(101, 16)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(85, 20)
-        Me.DateTimePicker2.TabIndex = 28
+        Me.Panel8.BackColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel8.Controls.Add(Me.MaterialMaskedTextBox1)
+        Me.Panel8.Controls.Add(Me.MaterialLabel17)
+        Me.Panel8.Controls.Add(Me.MaterialLabel18)
+        Me.Panel8.Controls.Add(Me.MaterialMaskedTextBox2)
+        Me.Panel8.Controls.Add(Me.DateTimePicker2)
+        Me.Panel8.Controls.Add(Me.TxIDbus)
+        Me.Panel8.Location = New System.Drawing.Point(5, 5)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(488, 50)
+        Me.Panel8.TabIndex = 2
         '
         'MaterialMaskedTextBox1
         '
@@ -1275,41 +1260,56 @@ Partial Class Entrenamientos
         Me.MaterialMaskedTextBox2.UseTallSize = False
         Me.MaterialMaskedTextBox2.ValidatingType = Nothing
         '
-        'IDEntreno
+        'DateTimePicker2
         '
-        Me.IDEntreno.HeaderText = "ID"
-        Me.IDEntreno.Name = "IDEntreno"
-        Me.IDEntreno.Width = 30
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker2.Location = New System.Drawing.Point(101, 16)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(85, 20)
+        Me.DateTimePicker2.TabIndex = 28
         '
-        'FachaCreacion
+        'TxIDbus
         '
-        Me.FachaCreacion.HeaderText = "FachaCreacion"
-        Me.FachaCreacion.Name = "FachaCreacion"
-        Me.FachaCreacion.Width = 110
-        '
-        'Equipo
-        '
-        Me.Equipo.HeaderText = "Equipo"
-        Me.Equipo.Name = "Equipo"
-        Me.Equipo.Width = 280
-        '
-        'Ubicacion
-        '
-        Me.Ubicacion.HeaderText = "Ubicacion"
-        Me.Ubicacion.Name = "Ubicacion"
-        Me.Ubicacion.Width = 250
-        '
-        'HoraIni
-        '
-        Me.HoraIni.HeaderText = "Hora Ini."
-        Me.HoraIni.Name = "HoraIni"
-        Me.HoraIni.Width = 80
-        '
-        'HoraFin
-        '
-        Me.HoraFin.HeaderText = "Hora Fin."
-        Me.HoraFin.Name = "HoraFin"
-        Me.HoraFin.Width = 80
+        Me.TxIDbus.AllowPromptAsInput = True
+        Me.TxIDbus.AnimateReadOnly = False
+        Me.TxIDbus.AsciiOnly = False
+        Me.TxIDbus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.TxIDbus.BeepOnError = False
+        Me.TxIDbus.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxIDbus.Depth = 0
+        Me.TxIDbus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.TxIDbus.HidePromptOnLeave = False
+        Me.TxIDbus.HideSelection = True
+        Me.TxIDbus.Hint = "ID"
+        Me.TxIDbus.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
+        Me.TxIDbus.LeadingIcon = Nothing
+        Me.TxIDbus.Location = New System.Drawing.Point(7, 7)
+        Me.TxIDbus.Mask = ""
+        Me.TxIDbus.MaxLength = 32767
+        Me.TxIDbus.MouseState = MaterialSkin.MouseState.OUT
+        Me.TxIDbus.Name = "TxIDbus"
+        Me.TxIDbus.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TxIDbus.PrefixSuffixText = Nothing
+        Me.TxIDbus.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
+        Me.TxIDbus.ReadOnly = False
+        Me.TxIDbus.RejectInputOnFirstFailure = False
+        Me.TxIDbus.ResetOnPrompt = True
+        Me.TxIDbus.ResetOnSpace = True
+        Me.TxIDbus.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.TxIDbus.SelectedText = ""
+        Me.TxIDbus.SelectionLength = 0
+        Me.TxIDbus.SelectionStart = 0
+        Me.TxIDbus.ShortcutsEnabled = True
+        Me.TxIDbus.Size = New System.Drawing.Size(71, 36)
+        Me.TxIDbus.SkipLiterals = True
+        Me.TxIDbus.TabIndex = 15
+        Me.TxIDbus.TabStop = False
+        Me.TxIDbus.TextAlign = System.Windows.Forms.HorizontalAlignment.Left
+        Me.TxIDbus.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxIDbus.TrailingIcon = Nothing
+        Me.TxIDbus.UseSystemPasswordChar = False
+        Me.TxIDbus.UseTallSize = False
+        Me.TxIDbus.ValidatingType = Nothing
         '
         'Entrenamientos
         '

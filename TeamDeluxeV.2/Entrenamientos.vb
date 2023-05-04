@@ -46,6 +46,7 @@ Public Class Entrenamientos
             rsentrenameintos("idubicacon").Value = CInt(CboLugar.SelectedValue)
             rsentrenameintos("HoraIni").Value = Format(CDate(TxHoraInicio.Text), "HH:mm")
             rsentrenameintos("HoraFin").Value = Format(CDate(TxHoraFin.Text), "HH:mm")
+            rsentrenameintos("descripcion").Value = Trim(TxDescripcion.Text)
             rsentrenameintos.Update()
 
             Database.Connection.Execute("delete from Objetivos_Entrenamiento where idejercicio = " & rsentrenameintos("identrenamiento").Value)
@@ -199,9 +200,6 @@ Public Class Entrenamientos
         rs.Open("select Entrenamientos.idEntrenamiento, Entrenamientos.FechaCreacion,  equipos.nombre nombreEquipo, Ubicaciones.Nombre nombreUbi, Entrenamientos.HoraIni, Entrenamientos.HoraFin from entrenamientos 
             inner join Equipos on Equipos.IdEquipos = Entrenamientos.idEquipo
             inner join Ubicaciones on Entrenamientos.idUbicacon = Ubicaciones.Idubicacion", Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
-
-
-
         Do Until rs.EOF
             Dim newRow As DataGridViewRow = New DataGridViewRow()
             newRow.CreateCells(DbgBusEntreno)
@@ -214,7 +212,6 @@ Public Class Entrenamientos
             DbgBusEntreno.Rows.Add(newRow)
             rs.MoveNext()
         Loop
-
     End Sub
 
 
@@ -235,6 +232,56 @@ Public Class Entrenamientos
         CargarGridConsulta()
     End Sub
 
+    Private Sub DbgBusEntreno_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgBusEntreno.CellDoubleClick
+        If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+            CargarEntreno(CInt(DbgBusEntreno.Rows(e.RowIndex).Cells(0).Value))
+        End If
+    End Sub
+
+
+    Private Sub CargarEntreno(idEntrenamiento As Integer)
+        Dim rs As New ADODB.Recordset
+        Dim rsAux2 As New ADODB.Recordset
+
+        rs.Open("select * from entrenamientos where identrenamiento = " & idEntrenamiento, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+
+        If Not rs.EOF Then
+            TxID.Text = CInt(rs("identrenamiento").Value)
+            DateTimePicker1.Value = CDate(rs("fechaCreacion").Value)
+            CboEquipo.SelectedValue = CInt(rs("idequipo").Value)
+            CboLugar.SelectedValue = CInt(rs("idubicacon").Value)
+            TxHoraInicio.Text = Format(CDate(rs("HoraIni").Value), "HH:mm")
+            TxHoraFin.Text = Format(CDate(rs("HoraFin").Value), "HH:mm")
+            TxDescripcion.Text = Trim(rs("descripcion").Value)
+            rsAux2 = New ADODB.Recordset
+            rsAux2.Open("select entrenamientos.identrenamiento, Objetivos_Entrenamiento.tiempo, Objetivos.Idobjetivo, Objetivos.Descripcion, Ejercicios.IdEjercicios, Ejercicios.Nombre from entrenamientos 
+                inner join Objetivos_Entrenamiento On Objetivos_Entrenamiento.idEntrenamiento = Entrenamientos.idEntrenamiento
+                inner join Objetivos on Objetivos.Idobjetivo = Objetivos_Entrenamiento.Idobjetivo
+                inner join Ejercicios on Ejercicios.IdEjercicios = Objetivos_Entrenamiento.idejercicio where Entrenamientos.idEntrenamiento = " & idEntrenamiento, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+
+            Do Until rsAux2.EOF
+                Dim newRow As DataGridViewRow = New DataGridViewRow()
+                newRow.CreateCells(DbgEntrenamiento)
+                newRow.Cells(0).Value = Format(CDate(rsAux2("tiempo").Value), "HH:mm") ' ' Tiempo
+                newRow.Cells(1).Value = CInt(rsAux2("Idobjetivo").Value) ' IdObjetivo
+                newRow.Cells(2).Value = Trim(rsAux2("Descripcion").Value) ' DescripcionObje
+                newRow.Cells(3).Value = CInt(rsAux2("IdEjercicios").Value) ' IdEjercicio
+                newRow.Cells(4).Value = Trim(rsAux2("Nombre").Value)
+                DbgEntrenamiento.Rows.Add(newRow)
+                rsAux2.MoveNext()
+            Loop
+        End If
+        TabControl1.SelectedTab = TabEntreno
+    End Sub
+
+
+    Private Sub CargarEjercicio()
+
+    End Sub
+
+    Private Sub DbgEntrenamiento_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgEntrenamiento.CellDoubleClick
+
+    End Sub
 
     'select * from entrenamientos 
     'Inner join Objetivos_Entrenamiento On Objetivos_Entrenamiento.idEntrenamiento = Entrenamientos.idEntrenamiento
