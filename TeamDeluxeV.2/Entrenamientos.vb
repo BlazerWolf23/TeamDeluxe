@@ -1,4 +1,5 @@
 ﻿Imports System.Globalization
+Imports System.IO
 
 Public Class Entrenamientos
     Dim rsentrenameintos As New ADODB.Recordset
@@ -160,10 +161,6 @@ Public Class Entrenamientos
         CboEjercicioGuardar.DisplayMember = "Description"
     End Sub
 
-    Private Sub DbgObjetivos_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgEntrenamiento.CellContentDoubleClick
-
-    End Sub
-
     Private Sub BtnAniadirGrid_Click(sender As Object, e As EventArgs) Handles BtnAniadirGrid.Click
 
         Dim newRow As DataGridViewRow = New DataGridViewRow()
@@ -275,12 +272,30 @@ Public Class Entrenamientos
     End Sub
 
 
-    Private Sub CargarEjercicio()
+    Private Sub CargarEjercicio(IDejercicio As Integer)
+        Dim imageData As Byte()
+        Dim ms As MemoryStream
+        Dim img As Image
+        Dim rs As New ADODB.Recordset
+        rs = New ADODB.Recordset
+        rs.Open("Select * from ejercicios where IdEjercicios = " & IDejercicio, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        If Not rs.EOF Then
+            TxNombre.Text = Trim(rs("nombre").Value)
+            TxPorteros.Text = Trim(rs("NumPorteros").Value)
+            TxJugadores.Text = Trim(rs("NumJugadores").Value)
+            TxDescripcion.Text = Trim(rs("descripcion").Value)
+            TxMaterialEjer.Text = Trim(rs("material").Value)
 
+            imageData = DirectCast(rs("imagenEjer").Value, Byte())
+            MS = New MemoryStream(imageData)
+            img = Image.FromStream(MS)
+            PBImagenCampo.BackgroundImage = img
+        End If
     End Sub
 
     Private Sub DbgEntrenamiento_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgEntrenamiento.CellDoubleClick
-
+        If Not IsNumeric(DbgEntrenamiento.Rows(e.RowIndex).Cells(3).Value) Then Exit Sub
+        CargarEjercicio(CInt(DbgEntrenamiento.Rows(e.RowIndex).Cells(3).Value))
     End Sub
 
     'select * from entrenamientos 

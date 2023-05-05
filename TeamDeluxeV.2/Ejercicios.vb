@@ -146,11 +146,14 @@ Public Class Ejercicios
             rsEjercicios("NumPorteros").Value = CInt(TxPorteros.Text)
         rsEjercicios("RutaImagen").Value = Trim(PBImagenCampo.Tag)
 
+
+
         Dim bmp As New Bitmap(PBImagenCampo.Width, PBImagenCampo.Height)
         Dim gfx As Graphics = Graphics.FromImage(bmp)
         PBImagenCampo.DrawToBitmap(bmp, PBImagenCampo.ClientRectangle)
         Dim ms As New MemoryStream()
         bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png)
+        bmp.Save("C:\Users\folge\Desktop\ejer.png", System.Drawing.Imaging.ImageFormat.Png)
         rsEjercicios("imagenEjer").Value = ms.GetBuffer
 
         rsEjercicios.Update()
