@@ -32,12 +32,6 @@ Partial Class Usuarios
         Me.MaterialLabel13 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialCard2 = New MaterialSkin.Controls.MaterialCard()
         Me.DbgUsuarios = New System.Windows.Forms.DataGridView()
-        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DNI = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Equipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.BtnFiltrar = New MaterialSkin.Controls.MaterialButton()
         Me.CboEquipoBus = New MaterialSkin.Controls.MaterialComboBox()
@@ -71,6 +65,12 @@ Partial Class Usuarios
         Me.MaterialLabel2 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
         Me.TxApellido = New MaterialSkin.Controls.MaterialMaskedTextBox()
+        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DNI = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Equipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.PanelPass.SuspendLayout()
@@ -216,42 +216,6 @@ Partial Class Usuarios
         Me.DbgUsuarios.Name = "DbgUsuarios"
         Me.DbgUsuarios.Size = New System.Drawing.Size(632, 330)
         Me.DbgUsuarios.TabIndex = 0
-        '
-        'ID
-        '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ID.DefaultCellStyle = DataGridViewCellStyle1
-        Me.ID.HeaderText = "ID"
-        Me.ID.Name = "ID"
-        Me.ID.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.ID.Width = 50
-        '
-        'Nombre
-        '
-        Me.Nombre.HeaderText = "Nombre"
-        Me.Nombre.Name = "Nombre"
-        '
-        'Apellidos
-        '
-        Me.Apellidos.HeaderText = "Apellidos"
-        Me.Apellidos.Name = "Apellidos"
-        Me.Apellidos.Width = 140
-        '
-        'DNI
-        '
-        Me.DNI.HeaderText = "DNI"
-        Me.DNI.Name = "DNI"
-        '
-        'Telefono
-        '
-        Me.Telefono.HeaderText = "Telefono"
-        Me.Telefono.Name = "Telefono"
-        '
-        'Equipo
-        '
-        Me.Equipo.HeaderText = "Equipo"
-        Me.Equipo.Name = "Equipo"
         '
         'Panel3
         '
@@ -1131,6 +1095,48 @@ Partial Class Usuarios
         Me.TxApellido.UseTallSize = False
         Me.TxApellido.ValidatingType = Nothing
         '
+        'ID
+        '
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ID.DefaultCellStyle = DataGridViewCellStyle1
+        Me.ID.HeaderText = "ID"
+        Me.ID.Name = "ID"
+        Me.ID.ReadOnly = True
+        Me.ID.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.ID.Width = 50
+        '
+        'Nombre
+        '
+        Me.Nombre.HeaderText = "Nombre"
+        Me.Nombre.Name = "Nombre"
+        Me.Nombre.ReadOnly = True
+        '
+        'Apellidos
+        '
+        Me.Apellidos.HeaderText = "Apellidos"
+        Me.Apellidos.Name = "Apellidos"
+        Me.Apellidos.ReadOnly = True
+        Me.Apellidos.Width = 140
+        '
+        'DNI
+        '
+        Me.DNI.HeaderText = "DNI"
+        Me.DNI.Name = "DNI"
+        Me.DNI.ReadOnly = True
+        '
+        'Telefono
+        '
+        Me.Telefono.HeaderText = "Telefono"
+        Me.Telefono.Name = "Telefono"
+        Me.Telefono.ReadOnly = True
+        '
+        'Equipo
+        '
+        Me.Equipo.HeaderText = "Equipo"
+        Me.Equipo.Name = "Equipo"
+        Me.Equipo.ReadOnly = True
+        '
         'Usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1189,16 +1195,16 @@ Partial Class Usuarios
     Friend WithEvents MaterialLabel12 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents MaterialCard2 As MaterialSkin.Controls.MaterialCard
     Friend WithEvents CboEquipoBus As MaterialSkin.Controls.MaterialComboBox
-    Friend WithEvents ID As DataGridViewTextBoxColumn
-    Friend WithEvents Nombre As DataGridViewTextBoxColumn
-    Friend WithEvents Apellidos As DataGridViewTextBoxColumn
-    Friend WithEvents DNI As DataGridViewTextBoxColumn
-    Friend WithEvents Telefono As DataGridViewTextBoxColumn
-    Friend WithEvents Equipo As DataGridViewTextBoxColumn
     Friend WithEvents PanelPass As MaterialSkin.Controls.MaterialCard
     Friend WithEvents TxNuevaPassword As MaterialSkin.Controls.MaterialMaskedTextBox
     Friend WithEvents MaterialLabel13 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents BtnGuardarPassword As MaterialSkin.Controls.MaterialButton
     Friend WithEvents BtnFiltrar As MaterialSkin.Controls.MaterialButton
     Friend WithEvents BtnAbrirPanelPassword As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents ID As DataGridViewTextBoxColumn
+    Friend WithEvents Nombre As DataGridViewTextBoxColumn
+    Friend WithEvents Apellidos As DataGridViewTextBoxColumn
+    Friend WithEvents DNI As DataGridViewTextBoxColumn
+    Friend WithEvents Telefono As DataGridViewTextBoxColumn
+    Friend WithEvents Equipo As DataGridViewTextBoxColumn
 End Class

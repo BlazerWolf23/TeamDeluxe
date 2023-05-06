@@ -11,7 +11,7 @@ Public Class Usuarios
             Exit Sub
         End If
 
-        If MsgBox("Desea Guardar al usuario?", vbQuestion) = vbOK Then
+        If MsgBox("Desea Guardar al usuario?", vbQuestion + vbYesNo) = vbYes Then
             Cursor = Cursors.WaitCursor
             rsUsuarios = New ADODB.Recordset
             rsUsuarios.Open("Select * from Usuarios where IdUsuario = " & IIf(TxID.Text = "", 0, TxID.Text), Database.Connection, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic, 1)
@@ -31,16 +31,11 @@ Public Class Usuarios
             rsUsuarios("poblacion").Value = Trim(TxLocalidad.Text)
             rsUsuarios("DNI").Value = Trim(TxDNI.Text)
             rsUsuarios("FechaAlta").Value = Format(CDate(Now.Date), "yyyy/MM/dd")
-            rsUsuarios("password").Value = Trim(TxNuevaPassword.Text)
             If CInt(CboTipoUsuario.SelectedValue) = 1 Then
+                rsUsuarios("password").Value = Trim(TxNuevaPassword.Text)
                 rsUsuarios("Rol").Value = "entrenador"
             ElseIf CInt(CboTipoUsuario.SelectedValue) = 2 Then
                 rsUsuarios("Rol").Value = "jugador"
-            End If
-
-
-
-            If CboTipoUsuario.SelectedValue = 2 Then
                 rsUsuarios("IDequipoDondeJuega").Value = CInt(CboEquipo.SelectedValue)
             End If
             rsUsuarios.Update()
@@ -53,30 +48,39 @@ Public Class Usuarios
         DbgUsuarios.Rows.Clear()
         rsUsuarios = New ADODB.Recordset
         If UCase(VariablesAPP.RolUsuario) <> UCase("admin") Then
-            sql = "Select * from usuarios where idusuario <> 1 and idEquipoDondeJuega <> null"
+            If Not CboEquipoBus.SelectedValue = 0 Then
+                sql = "Select usuarios.*, equipos.nombre nombreequip from usuarios inner join equipos on equipos.idequipos = usuarios.idequipodondejuega where usuarios.idusuario <> 1 and usuarios.idEquipoDondeJuega = " & CInt(CboEquipoBus.SelectedValue)
+            Else
+                sql = "Select usuarios.*  equipos.nombre nombreequip from usuarios inner join equipos on equipos.idequipos = usuarios.idequipodondejuega  where idusuario <> 1 and idEquipoDondeJuega <> null"
+            End If
         Else
-            sql = "Select * from usuarios where idusuario <> 1"
+            sql = "Select usuarios.*  equipos.nombre nombreequip from usuarios inner join equipos on equipos.idequipos = usuarios.idequipodondejuega from usuarios where idusuario <> 1"
         End If
 
         If IsNumeric(TxIDbus.Text) Then
-            sql &= " and idusuario = " & CInt(TxIDbus.Text)
+            sql &= " and usuarios.idusuario = " & CInt(TxIDbus.Text)
         End If
 
         If Trim(TxNombreBus.Text) <> "" Then
-            sql &= " and nombre like '%" & Trim(TxNombreBus.Text) & "%'"
+            sql &= " and usuarios.nombre like '%" & Trim(TxNombreBus.Text) & "%'"
         End If
 
         If Trim(TxApellidoBus.Text) <> "" Then
-            sql &= " and apellido like '%" & Trim(TxApellido.Text) & "%'"
+            sql &= " and usuarios.apellido like '%" & Trim(TxApellido.Text) & "%'"
         End If
 
         If TxDNIbus.Text.Length = 9 Then
-            sql &= " and DNI = '" & Trim(TxDNI.Text) & "'"
+            sql &= " and usuarios.DNI = '" & Trim(TxDNI.Text) & "'"
         End If
-
+        rsUsuarios = New ADODB.Recordset
         rsUsuarios.Open(sql, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic)
         Do Until rsUsuarios.EOF
-            AniadirLineaGridUsuarios(CInt(rsUsuarios("IDusuario").Value), Trim(rsUsuarios("nombre").Value), Trim(rsUsuarios("apellido").Value), Trim(rsUsuarios("DNI").Value), Trim(rsUsuarios("Telefono").Value))
+            If Not CboEquipoBus.SelectedValue = 0 Then
+                AniadirLineaGridUsuarios(CInt(rsUsuarios("IDusuario").Value), Trim(rsUsuarios("nombre").Value), Trim(rsUsuarios("apellido").Value), Trim(rsUsuarios("DNI").Value), Trim(rsUsuarios("Telefono").Value), Trim(rsUsuarios("nombreequip").Value))
+            Else
+                AniadirLineaGridUsuarios(CInt(rsUsuarios("IDusuario").Value), Trim(rsUsuarios("nombre").Value), Trim(rsUsuarios("apellido").Value), Trim(rsUsuarios("DNI").Value), Trim(rsUsuarios("Telefono").Value))
+            End If
+
             rsUsuarios.MoveNext()
         Loop
     End Sub
@@ -127,7 +131,11 @@ Public Class Usuarios
         TxPais.Text = ""
         TxProvincia.Text = ""
         TxLocalidad.Text = ""
-        CboTipoUsuario.SelectedValue = 1
+        If VariablesAPP.RolUsuario = "admin" Then
+            CboTipoUsuario.SelectedValue = 1
+        Else
+            CboTipoUsuario.SelectedValue = 2
+        End If
         TxNuevaPassword.Text = ""
         Consulta()
         Cursor = Cursors.Arrow
@@ -151,6 +159,7 @@ Public Class Usuarios
         If CboTipoUsuario.SelectedValue = 2 Then
             MaterialLabel7.Visible = True
             CboEquipo.Visible = True
+            CargarEquiposEntrenado()
         Else
             MaterialLabel7.Visible = False
             CboEquipo.Visible = False
@@ -170,11 +179,12 @@ Public Class Usuarios
 
 
     Private Sub Usuarios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Consulta()
         salto = True
         CargarTipoUsuarios()
+        CargarEquiposEntrenado()
         salto = False
         CboTipoUsuario.SelectedValue = 2
+        Consulta()
     End Sub
 
     Private Sub CargarClienteDeConsulta(idUsuario As Integer)
@@ -232,6 +242,20 @@ Public Class Usuarios
 
 
     Private Sub CargarEquiposEntrenado()
+        Dim items As New List(Of ItemCBO)
+        rsAux = New ADODB.Recordset
+        rsAux.Open("Select * from equipos where idusuario = " & VariablesAPP.IdUsuarioApp, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
 
+        Do Until rsAux.EOF
+            items.Add(New ItemCBO With {.Value = CInt(rsAux("idequipos").Value), .Description = Trim(rsAux("nombre").Value)})
+            rsAux.MoveNext()
+        Loop
+        CboEquipo.DataSource = items
+        CboEquipo.ValueMember = "Value"
+        CboEquipo.DisplayMember = "Description"
+
+        CboEquipoBus.DataSource = items
+        CboEquipoBus.ValueMember = "Value"
+        CboEquipoBus.DisplayMember = "Description"
     End Sub
 End Class
