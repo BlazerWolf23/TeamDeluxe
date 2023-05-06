@@ -46,7 +46,7 @@ Public Class MDI_Principal
     Private Sub MDI_Principal_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If MsgBox("Desea salir de TeamDeluxe?", vbOKCancel) = vbOK Then
             Me.Dispose()
-            Inicio.Show()
+            End
         Else
             e.Cancel = True
         End If

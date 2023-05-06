@@ -34,7 +34,7 @@ Public Class Inicio
     Private Sub CargarUsuarios()
         Dim rs As New ADODB.Recordset
         CboUsuarios.Items.Clear()
-        rs.Open("Select * from usuarios", Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        rs.Open("Select * from usuarios where rol in ('entrenador' , 'admin')", Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
         Do Until rs.EOF
             CboUsuarios.Items.Add(Trim(rs("Nombre").Value))
             rs.MoveNext()

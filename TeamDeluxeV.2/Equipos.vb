@@ -99,6 +99,10 @@ Public Class Equipos
         TxCategoria.Text = ""
         DTPInicioCompe.Value = Now.Date
         TxHoraPartido.Text = "00:00"
+        TxIDubicacion.Text = ""
+        TxNombreUbicacion.Text = ""
+        TxDireccionUbicacion.Text = ""
+        TxCampoUbicacion.Text = ""
         If CboUsuario.Items.Count > 0 Then
             CboUsuario.SelectedIndex = 0
         End If
@@ -183,7 +187,7 @@ Public Class Equipos
 
     Private Sub AniadirLineaUbicaciones(id As Integer, direccion As String, nombre As String, campo As String)
         Dim newRow As DataGridViewRow = New DataGridViewRow()
-        newRow.CreateCells(DbgEquipos)
+        newRow.CreateCells(DbgUbicaciones)
         newRow.Cells(0).Value = id
         newRow.Cells(1).Value = direccion
         newRow.Cells(2).Value = nombre
@@ -218,7 +222,7 @@ Public Class Equipos
         rsAux = New ADODB.Recordset
         rsAux.Open("select * from ubicaciones where idequipo = " & CInt(TxIDEquipo.Text), Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
         If rsAux.EOF Then Nuevo() : Exit Sub
-        TxIDubicacion.Text = CInt(rsAux("idequipo").Value)
+        TxIDubicacion.Text = CInt(rsAux("idubicacion").Value)
         TxDireccionUbicacion.Text = Trim(rsAux("Direccion").Value)
         TxNombreUbicacion.Text = Trim(rsAux("nombre").Value)
         TxCampoUbicacion.Text = Trim(rsAux("campo").Value)
@@ -231,5 +235,27 @@ Public Class Equipos
         If rsAux.EOF Then Nuevo() : Exit Sub
         CargarEquipoDeConsulta(CInt(rsAux("idequipos").Value))
         CargarGridUbicaciones(CInt(rsAux("idequipos").Value))
+    End Sub
+
+    Private Sub TxEliminarUbicacion_Click(sender As Object, e As EventArgs) Handles TxEliminarUbicacion.Click
+        If TxIDubicacion.Text = "" Or Not IsNumeric(TxIDubicacion.Text) Or TxIDubicacion.Text = 0 Then
+            Exit Sub
+        End If
+        If TxIDEquipo.Text = "" Or Not IsNumeric(TxIDEquipo.Text) Or TxIDEquipo.Text = 0 Then
+            Exit Sub
+        End If
+        If MsgBox("¿Desea eliminar la ubicacion del equipo seleccionado?", vbQuestion + vbYesNo) = vbYes Then
+            Try
+                Database.Connection.BeginTrans()
+                Database.Connection.Execute("update entrenamientos set idubicacon = null where idequipo = " & CInt(TxIDEquipo.Text) & "and idubicacon = " & CInt(TxIDubicacion.Text))
+                Database.Connection.Execute("Delete from ubicaciones where idequipo = " & CInt(TxIDEquipo.Text))
+                Database.Connection.CommitTrans()
+            Catch ex As Exception
+                Database.Connection.RollbackTrans()
+                MsgBox("Erro. No se ha podido eliminar la ubicacion. " & vbCrLf & ex.Message)
+                Exit Sub
+            End Try
+        End If
+        Nuevo()
     End Sub
 End Class
