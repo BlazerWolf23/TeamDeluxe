@@ -192,11 +192,29 @@ Public Class Entrenamientos
     End Sub
 
     Private Sub CargarGridConsulta()
-        DbgBusEntreno.Rows.Clear()
-        Dim rs As New ADODB.Recordset
-        rs.Open("select Entrenamientos.idEntrenamiento, Entrenamientos.FechaCreacion,  equipos.nombre nombreEquipo, Ubicaciones.Nombre nombreUbi, Entrenamientos.HoraIni, Entrenamientos.HoraFin from entrenamientos 
+        Dim sql As String = "select Entrenamientos.idEntrenamiento, Entrenamientos.FechaCreacion,  equipos.nombre nombreEquipo, isnull(Ubicaciones.Nombre , '') nombreUbi, Entrenamientos.HoraIni, Entrenamientos.HoraFin from entrenamientos 
             inner join Equipos on Equipos.IdEquipos = Entrenamientos.idEquipo
-            inner join Ubicaciones on Entrenamientos.idUbicacon = Ubicaciones.Idubicacion", Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+            left outer join Ubicaciones on Entrenamientos.idUbicacon = Ubicaciones.Idubicacion
+            where Entrenamientos.fechaCreacion < '" & Format(CDate(DateTimePicker2.Value), "dd/MM/yyyy") & "'"
+        DbgBusEntreno.Rows.Clear()
+
+        If TxIDbus.Text <> "" Then
+            sql &= "  and Entrenamientos.identrenamiento = " & CInt(TxIDbus.Text)
+        End If
+
+        If TxHoraIniBus.TextLength < 5 Then
+            sql &= "  and format(Entrenamientos.horaini, 'hh:mm') = '" & Format(CDate(TxHoraIniBus.Text), "hh:mm") & "'"
+        End If
+
+        If TxHoraFinBus.TextLength < 5 Then
+            sql &= "  and format(Entrenamientos.horafin, 'hh:mm') = '" & Format(CDate(TxHoraFinBus.Text), "hh:mm") & "'"
+        End If
+
+
+
+        Dim rs As New ADODB.Recordset
+        rs.Open(sql, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+
         Do Until rs.EOF
             Dim newRow As DataGridViewRow = New DataGridViewRow()
             newRow.CreateCells(DbgBusEntreno)
@@ -240,16 +258,16 @@ Public Class Entrenamientos
         Dim rs As New ADODB.Recordset
         Dim rsAux2 As New ADODB.Recordset
 
-        rs.Open("select * from entrenamientos where identrenamiento = " & idEntrenamiento, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        rs.Open("select *, isnull(idubicacon, -1) idubicacon1, isnull(descripcion, '') descripcion1  from entrenamientos where identrenamiento = " & idEntrenamiento, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
 
         If Not rs.EOF Then
             TxID.Text = CInt(rs("identrenamiento").Value)
             DateTimePicker1.Value = CDate(rs("fechaCreacion").Value)
             CboEquipo.SelectedValue = CInt(rs("idequipo").Value)
-            CboLugar.SelectedValue = CInt(rs("idubicacon").Value)
+            CboLugar.SelectedValue = CInt(rs("idubicacon1").Value)
             TxHoraInicio.Text = Format(CDate(rs("HoraIni").Value), "HH:mm")
             TxHoraFin.Text = Format(CDate(rs("HoraFin").Value), "HH:mm")
-            TxDescripcion.Text = Trim(rs("descripcion").Value)
+            TxDescripcion.Text = Trim(rs("descripcion1").Value)
             rsAux2 = New ADODB.Recordset
             rsAux2.Open("select entrenamientos.identrenamiento, Objetivos_Entrenamiento.tiempo, Objetivos.Idobjetivo, Objetivos.Descripcion, Ejercicios.IdEjercicios, Ejercicios.Nombre from entrenamientos 
                 inner join Objetivos_Entrenamiento On Objetivos_Entrenamiento.idEntrenamiento = Entrenamientos.idEntrenamiento

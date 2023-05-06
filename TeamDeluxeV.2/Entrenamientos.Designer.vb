@@ -86,10 +86,10 @@ Partial Class Entrenamientos
         Me.MaterialCard6 = New MaterialSkin.Controls.MaterialCard()
         Me.BtnFiltrar = New MaterialSkin.Controls.MaterialButton()
         Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.MaterialMaskedTextBox1 = New MaterialSkin.Controls.MaterialMaskedTextBox()
+        Me.TxHoraFinBus = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.MaterialLabel17 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialLabel18 = New MaterialSkin.Controls.MaterialLabel()
-        Me.MaterialMaskedTextBox2 = New MaterialSkin.Controls.MaterialMaskedTextBox()
+        Me.TxHoraIniBus = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.TxIDbus = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.Panel1.SuspendLayout()
@@ -1137,10 +1137,10 @@ Partial Class Entrenamientos
         '
         Me.Panel8.BackColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel8.Controls.Add(Me.MaterialMaskedTextBox1)
+        Me.Panel8.Controls.Add(Me.TxHoraFinBus)
         Me.Panel8.Controls.Add(Me.MaterialLabel17)
         Me.Panel8.Controls.Add(Me.MaterialLabel18)
-        Me.Panel8.Controls.Add(Me.MaterialMaskedTextBox2)
+        Me.Panel8.Controls.Add(Me.TxHoraIniBus)
         Me.Panel8.Controls.Add(Me.DateTimePicker2)
         Me.Panel8.Controls.Add(Me.TxIDbus)
         Me.Panel8.Location = New System.Drawing.Point(5, 5)
@@ -1148,48 +1148,48 @@ Partial Class Entrenamientos
         Me.Panel8.Size = New System.Drawing.Size(488, 50)
         Me.Panel8.TabIndex = 2
         '
-        'MaterialMaskedTextBox1
+        'TxHoraFinBus
         '
-        Me.MaterialMaskedTextBox1.AllowPromptAsInput = True
-        Me.MaterialMaskedTextBox1.AnimateReadOnly = False
-        Me.MaterialMaskedTextBox1.AsciiOnly = False
-        Me.MaterialMaskedTextBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.MaterialMaskedTextBox1.BeepOnError = False
-        Me.MaterialMaskedTextBox1.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox1.Depth = 0
-        Me.MaterialMaskedTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.MaterialMaskedTextBox1.HidePromptOnLeave = False
-        Me.MaterialMaskedTextBox1.HideSelection = True
-        Me.MaterialMaskedTextBox1.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
-        Me.MaterialMaskedTextBox1.LeadingIcon = Nothing
-        Me.MaterialMaskedTextBox1.Location = New System.Drawing.Point(404, 7)
-        Me.MaterialMaskedTextBox1.Mask = "00:00"
-        Me.MaterialMaskedTextBox1.MaxLength = 32767
-        Me.MaterialMaskedTextBox1.MouseState = MaterialSkin.MouseState.OUT
-        Me.MaterialMaskedTextBox1.Name = "MaterialMaskedTextBox1"
-        Me.MaterialMaskedTextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialMaskedTextBox1.PrefixSuffixText = Nothing
-        Me.MaterialMaskedTextBox1.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
-        Me.MaterialMaskedTextBox1.ReadOnly = False
-        Me.MaterialMaskedTextBox1.RejectInputOnFirstFailure = False
-        Me.MaterialMaskedTextBox1.ResetOnPrompt = True
-        Me.MaterialMaskedTextBox1.ResetOnSpace = True
-        Me.MaterialMaskedTextBox1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.MaterialMaskedTextBox1.SelectedText = ""
-        Me.MaterialMaskedTextBox1.SelectionLength = 0
-        Me.MaterialMaskedTextBox1.SelectionStart = 0
-        Me.MaterialMaskedTextBox1.ShortcutsEnabled = True
-        Me.MaterialMaskedTextBox1.Size = New System.Drawing.Size(69, 36)
-        Me.MaterialMaskedTextBox1.SkipLiterals = True
-        Me.MaterialMaskedTextBox1.TabIndex = 35
-        Me.MaterialMaskedTextBox1.TabStop = False
-        Me.MaterialMaskedTextBox1.Text = "  :"
-        Me.MaterialMaskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.MaterialMaskedTextBox1.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox1.TrailingIcon = Nothing
-        Me.MaterialMaskedTextBox1.UseSystemPasswordChar = False
-        Me.MaterialMaskedTextBox1.UseTallSize = False
-        Me.MaterialMaskedTextBox1.ValidatingType = Nothing
+        Me.TxHoraFinBus.AllowPromptAsInput = True
+        Me.TxHoraFinBus.AnimateReadOnly = False
+        Me.TxHoraFinBus.AsciiOnly = False
+        Me.TxHoraFinBus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.TxHoraFinBus.BeepOnError = False
+        Me.TxHoraFinBus.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxHoraFinBus.Depth = 0
+        Me.TxHoraFinBus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.TxHoraFinBus.HidePromptOnLeave = False
+        Me.TxHoraFinBus.HideSelection = True
+        Me.TxHoraFinBus.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
+        Me.TxHoraFinBus.LeadingIcon = Nothing
+        Me.TxHoraFinBus.Location = New System.Drawing.Point(404, 7)
+        Me.TxHoraFinBus.Mask = "00:00"
+        Me.TxHoraFinBus.MaxLength = 32767
+        Me.TxHoraFinBus.MouseState = MaterialSkin.MouseState.OUT
+        Me.TxHoraFinBus.Name = "TxHoraFinBus"
+        Me.TxHoraFinBus.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TxHoraFinBus.PrefixSuffixText = Nothing
+        Me.TxHoraFinBus.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
+        Me.TxHoraFinBus.ReadOnly = False
+        Me.TxHoraFinBus.RejectInputOnFirstFailure = False
+        Me.TxHoraFinBus.ResetOnPrompt = True
+        Me.TxHoraFinBus.ResetOnSpace = True
+        Me.TxHoraFinBus.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.TxHoraFinBus.SelectedText = ""
+        Me.TxHoraFinBus.SelectionLength = 0
+        Me.TxHoraFinBus.SelectionStart = 0
+        Me.TxHoraFinBus.ShortcutsEnabled = True
+        Me.TxHoraFinBus.Size = New System.Drawing.Size(69, 36)
+        Me.TxHoraFinBus.SkipLiterals = True
+        Me.TxHoraFinBus.TabIndex = 35
+        Me.TxHoraFinBus.TabStop = False
+        Me.TxHoraFinBus.Text = "  :"
+        Me.TxHoraFinBus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.TxHoraFinBus.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxHoraFinBus.TrailingIcon = Nothing
+        Me.TxHoraFinBus.UseSystemPasswordChar = False
+        Me.TxHoraFinBus.UseTallSize = False
+        Me.TxHoraFinBus.ValidatingType = Nothing
         '
         'MaterialLabel17
         '
@@ -1217,48 +1217,48 @@ Partial Class Entrenamientos
         Me.MaterialLabel18.TabIndex = 33
         Me.MaterialLabel18.Text = "Hora Ini."
         '
-        'MaterialMaskedTextBox2
+        'TxHoraIniBus
         '
-        Me.MaterialMaskedTextBox2.AllowPromptAsInput = True
-        Me.MaterialMaskedTextBox2.AnimateReadOnly = False
-        Me.MaterialMaskedTextBox2.AsciiOnly = False
-        Me.MaterialMaskedTextBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.MaterialMaskedTextBox2.BeepOnError = False
-        Me.MaterialMaskedTextBox2.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox2.Depth = 0
-        Me.MaterialMaskedTextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.MaterialMaskedTextBox2.HidePromptOnLeave = False
-        Me.MaterialMaskedTextBox2.HideSelection = True
-        Me.MaterialMaskedTextBox2.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
-        Me.MaterialMaskedTextBox2.LeadingIcon = Nothing
-        Me.MaterialMaskedTextBox2.Location = New System.Drawing.Point(263, 7)
-        Me.MaterialMaskedTextBox2.Mask = "00:00"
-        Me.MaterialMaskedTextBox2.MaxLength = 32767
-        Me.MaterialMaskedTextBox2.MouseState = MaterialSkin.MouseState.OUT
-        Me.MaterialMaskedTextBox2.Name = "MaterialMaskedTextBox2"
-        Me.MaterialMaskedTextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialMaskedTextBox2.PrefixSuffixText = Nothing
-        Me.MaterialMaskedTextBox2.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
-        Me.MaterialMaskedTextBox2.ReadOnly = False
-        Me.MaterialMaskedTextBox2.RejectInputOnFirstFailure = False
-        Me.MaterialMaskedTextBox2.ResetOnPrompt = True
-        Me.MaterialMaskedTextBox2.ResetOnSpace = True
-        Me.MaterialMaskedTextBox2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.MaterialMaskedTextBox2.SelectedText = ""
-        Me.MaterialMaskedTextBox2.SelectionLength = 0
-        Me.MaterialMaskedTextBox2.SelectionStart = 0
-        Me.MaterialMaskedTextBox2.ShortcutsEnabled = True
-        Me.MaterialMaskedTextBox2.Size = New System.Drawing.Size(71, 36)
-        Me.MaterialMaskedTextBox2.SkipLiterals = True
-        Me.MaterialMaskedTextBox2.TabIndex = 32
-        Me.MaterialMaskedTextBox2.TabStop = False
-        Me.MaterialMaskedTextBox2.Text = "  :"
-        Me.MaterialMaskedTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.MaterialMaskedTextBox2.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox2.TrailingIcon = Nothing
-        Me.MaterialMaskedTextBox2.UseSystemPasswordChar = False
-        Me.MaterialMaskedTextBox2.UseTallSize = False
-        Me.MaterialMaskedTextBox2.ValidatingType = Nothing
+        Me.TxHoraIniBus.AllowPromptAsInput = True
+        Me.TxHoraIniBus.AnimateReadOnly = False
+        Me.TxHoraIniBus.AsciiOnly = False
+        Me.TxHoraIniBus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.TxHoraIniBus.BeepOnError = False
+        Me.TxHoraIniBus.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxHoraIniBus.Depth = 0
+        Me.TxHoraIniBus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.TxHoraIniBus.HidePromptOnLeave = False
+        Me.TxHoraIniBus.HideSelection = True
+        Me.TxHoraIniBus.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
+        Me.TxHoraIniBus.LeadingIcon = Nothing
+        Me.TxHoraIniBus.Location = New System.Drawing.Point(263, 7)
+        Me.TxHoraIniBus.Mask = "00:00"
+        Me.TxHoraIniBus.MaxLength = 32767
+        Me.TxHoraIniBus.MouseState = MaterialSkin.MouseState.OUT
+        Me.TxHoraIniBus.Name = "TxHoraIniBus"
+        Me.TxHoraIniBus.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TxHoraIniBus.PrefixSuffixText = Nothing
+        Me.TxHoraIniBus.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
+        Me.TxHoraIniBus.ReadOnly = False
+        Me.TxHoraIniBus.RejectInputOnFirstFailure = False
+        Me.TxHoraIniBus.ResetOnPrompt = True
+        Me.TxHoraIniBus.ResetOnSpace = True
+        Me.TxHoraIniBus.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.TxHoraIniBus.SelectedText = ""
+        Me.TxHoraIniBus.SelectionLength = 0
+        Me.TxHoraIniBus.SelectionStart = 0
+        Me.TxHoraIniBus.ShortcutsEnabled = True
+        Me.TxHoraIniBus.Size = New System.Drawing.Size(71, 36)
+        Me.TxHoraIniBus.SkipLiterals = True
+        Me.TxHoraIniBus.TabIndex = 32
+        Me.TxHoraIniBus.TabStop = False
+        Me.TxHoraIniBus.Text = "  :"
+        Me.TxHoraIniBus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.TxHoraIniBus.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxHoraIniBus.TrailingIcon = Nothing
+        Me.TxHoraIniBus.UseSystemPasswordChar = False
+        Me.TxHoraIniBus.UseTallSize = False
+        Me.TxHoraIniBus.ValidatingType = Nothing
         '
         'DateTimePicker2
         '
@@ -1319,6 +1319,7 @@ Partial Class Entrenamientos
         Me.Controls.Add(Me.TabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Entrenamientos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Entrenamientos"
         Me.Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
@@ -1406,10 +1407,10 @@ Partial Class Entrenamientos
     Friend WithEvents Panel8 As Panel
     Friend WithEvents BtnFiltrar As MaterialSkin.Controls.MaterialButton
     Friend WithEvents TxIDbus As MaterialSkin.Controls.MaterialMaskedTextBox
-    Friend WithEvents MaterialMaskedTextBox1 As MaterialSkin.Controls.MaterialMaskedTextBox
+    Friend WithEvents TxHoraFinBus As MaterialSkin.Controls.MaterialMaskedTextBox
     Friend WithEvents MaterialLabel17 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents MaterialLabel18 As MaterialSkin.Controls.MaterialLabel
-    Friend WithEvents MaterialMaskedTextBox2 As MaterialSkin.Controls.MaterialMaskedTextBox
+    Friend WithEvents TxHoraIniBus As MaterialSkin.Controls.MaterialMaskedTextBox
     Friend WithEvents DateTimePicker2 As DateTimePicker
     Friend WithEvents IDEntreno As DataGridViewTextBoxColumn
     Friend WithEvents FachaCreacion As DataGridViewTextBoxColumn

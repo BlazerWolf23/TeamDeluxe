@@ -267,6 +267,10 @@ Public Class Ejercicios
         End If
     End Sub
 
+    Private Sub BtnFiltrar_Click(sender As Object, e As EventArgs) Handles BtnFiltrar.Click
+
+    End Sub
+
     Public Sub Eliminar()
         If Trim(TxID.Text) = "" Then
             MsgBox("Antes de eliminar introduzca un ID de objetivo", vbExclamation)
