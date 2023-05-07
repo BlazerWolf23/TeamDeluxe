@@ -289,7 +289,7 @@ Public Class Entrenamientos
         TabControl1.SelectedTab = TabEntreno
     End Sub
 
-
+    'prueba
     Private Sub CargarEjercicio(IDejercicio As Integer)
         Dim imageData As Byte()
         Dim ms As MemoryStream
