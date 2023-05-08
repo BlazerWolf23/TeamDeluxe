@@ -69,19 +69,19 @@ Partial Class Ejercicios
         Me.Panel10 = New System.Windows.Forms.Panel()
         Me.MaterialCard8 = New MaterialSkin.Controls.MaterialCard()
         Me.DbgBusEntreno = New System.Windows.Forms.DataGridView()
-        Me.MaterialCard9 = New MaterialSkin.Controls.MaterialCard()
-        Me.Panel11 = New System.Windows.Forms.Panel()
-        Me.BtnFiltrar = New MaterialSkin.Controls.MaterialButton()
-        Me.MaterialMaskedTextBox2 = New MaterialSkin.Controls.MaterialMaskedTextBox()
-        Me.MaterialMaskedTextBox1 = New MaterialSkin.Controls.MaterialMaskedTextBox()
-        Me.MaterialMaskedTextBox5 = New MaterialSkin.Controls.MaterialMaskedTextBox()
-        Me.MaterialMaskedTextBox6 = New MaterialSkin.Controls.MaterialMaskedTextBox()
-        Me.TxIDbus = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.IDEntreno = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Descripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.numPorteros = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Jugadores = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MaterialCard9 = New MaterialSkin.Controls.MaterialCard()
+        Me.Panel11 = New System.Windows.Forms.Panel()
+        Me.BtnFiltrar = New MaterialSkin.Controls.MaterialButton()
+        Me.TxDescripcionBus = New MaterialSkin.Controls.MaterialMaskedTextBox()
+        Me.TxNombreBus = New MaterialSkin.Controls.MaterialMaskedTextBox()
+        Me.TxNJugadoresBus = New MaterialSkin.Controls.MaterialMaskedTextBox()
+        Me.TxNPorterosBus = New MaterialSkin.Controls.MaterialMaskedTextBox()
+        Me.TxIDbus = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.MaterialCard4.SuspendLayout()
@@ -905,6 +905,36 @@ Partial Class Ejercicios
         Me.DbgBusEntreno.Size = New System.Drawing.Size(813, 583)
         Me.DbgBusEntreno.TabIndex = 1
         '
+        'IDEntreno
+        '
+        Me.IDEntreno.HeaderText = "ID"
+        Me.IDEntreno.Name = "IDEntreno"
+        Me.IDEntreno.Width = 30
+        '
+        'Nombre
+        '
+        Me.Nombre.HeaderText = "Nombre"
+        Me.Nombre.Name = "Nombre"
+        Me.Nombre.Width = 300
+        '
+        'Descripcion
+        '
+        Me.Descripcion.HeaderText = "Descripcion"
+        Me.Descripcion.Name = "Descripcion"
+        Me.Descripcion.Width = 300
+        '
+        'numPorteros
+        '
+        Me.numPorteros.HeaderText = "Porteros"
+        Me.numPorteros.Name = "numPorteros"
+        Me.numPorteros.Width = 70
+        '
+        'Jugadores
+        '
+        Me.Jugadores.HeaderText = "Jugadores"
+        Me.Jugadores.Name = "Jugadores"
+        Me.Jugadores.Width = 70
+        '
         'MaterialCard9
         '
         Me.MaterialCard9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -924,10 +954,10 @@ Partial Class Ejercicios
         Me.Panel11.BackColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel11.Controls.Add(Me.BtnFiltrar)
-        Me.Panel11.Controls.Add(Me.MaterialMaskedTextBox2)
-        Me.Panel11.Controls.Add(Me.MaterialMaskedTextBox1)
-        Me.Panel11.Controls.Add(Me.MaterialMaskedTextBox5)
-        Me.Panel11.Controls.Add(Me.MaterialMaskedTextBox6)
+        Me.Panel11.Controls.Add(Me.TxDescripcionBus)
+        Me.Panel11.Controls.Add(Me.TxNombreBus)
+        Me.Panel11.Controls.Add(Me.TxNJugadoresBus)
+        Me.Panel11.Controls.Add(Me.TxNPorterosBus)
         Me.Panel11.Controls.Add(Me.TxIDbus)
         Me.Panel11.Location = New System.Drawing.Point(5, 5)
         Me.Panel11.Name = "Panel11"
@@ -953,177 +983,177 @@ Partial Class Ejercicios
         Me.BtnFiltrar.UseAccentColor = False
         Me.BtnFiltrar.UseVisualStyleBackColor = True
         '
-        'MaterialMaskedTextBox2
+        'TxDescripcionBus
         '
-        Me.MaterialMaskedTextBox2.AllowPromptAsInput = True
-        Me.MaterialMaskedTextBox2.AnimateReadOnly = False
-        Me.MaterialMaskedTextBox2.AsciiOnly = False
-        Me.MaterialMaskedTextBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.MaterialMaskedTextBox2.BeepOnError = False
-        Me.MaterialMaskedTextBox2.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox2.Depth = 0
-        Me.MaterialMaskedTextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.MaterialMaskedTextBox2.HidePromptOnLeave = False
-        Me.MaterialMaskedTextBox2.HideSelection = True
-        Me.MaterialMaskedTextBox2.Hint = "Descripción"
-        Me.MaterialMaskedTextBox2.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
-        Me.MaterialMaskedTextBox2.LeadingIcon = Nothing
-        Me.MaterialMaskedTextBox2.Location = New System.Drawing.Point(7, 49)
-        Me.MaterialMaskedTextBox2.Mask = ""
-        Me.MaterialMaskedTextBox2.MaxLength = 32767
-        Me.MaterialMaskedTextBox2.MouseState = MaterialSkin.MouseState.OUT
-        Me.MaterialMaskedTextBox2.Name = "MaterialMaskedTextBox2"
-        Me.MaterialMaskedTextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialMaskedTextBox2.PrefixSuffixText = Nothing
-        Me.MaterialMaskedTextBox2.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
-        Me.MaterialMaskedTextBox2.ReadOnly = False
-        Me.MaterialMaskedTextBox2.RejectInputOnFirstFailure = False
-        Me.MaterialMaskedTextBox2.ResetOnPrompt = True
-        Me.MaterialMaskedTextBox2.ResetOnSpace = True
-        Me.MaterialMaskedTextBox2.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.MaterialMaskedTextBox2.SelectedText = ""
-        Me.MaterialMaskedTextBox2.SelectionLength = 0
-        Me.MaterialMaskedTextBox2.SelectionStart = 0
-        Me.MaterialMaskedTextBox2.ShortcutsEnabled = True
-        Me.MaterialMaskedTextBox2.Size = New System.Drawing.Size(435, 36)
-        Me.MaterialMaskedTextBox2.SkipLiterals = True
-        Me.MaterialMaskedTextBox2.TabIndex = 37
-        Me.MaterialMaskedTextBox2.TabStop = False
-        Me.MaterialMaskedTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.MaterialMaskedTextBox2.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox2.TrailingIcon = Nothing
-        Me.MaterialMaskedTextBox2.UseSystemPasswordChar = False
-        Me.MaterialMaskedTextBox2.UseTallSize = False
-        Me.MaterialMaskedTextBox2.ValidatingType = Nothing
+        Me.TxDescripcionBus.AllowPromptAsInput = True
+        Me.TxDescripcionBus.AnimateReadOnly = False
+        Me.TxDescripcionBus.AsciiOnly = False
+        Me.TxDescripcionBus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.TxDescripcionBus.BeepOnError = False
+        Me.TxDescripcionBus.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxDescripcionBus.Depth = 0
+        Me.TxDescripcionBus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.TxDescripcionBus.HidePromptOnLeave = False
+        Me.TxDescripcionBus.HideSelection = True
+        Me.TxDescripcionBus.Hint = "Descripción"
+        Me.TxDescripcionBus.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
+        Me.TxDescripcionBus.LeadingIcon = Nothing
+        Me.TxDescripcionBus.Location = New System.Drawing.Point(7, 49)
+        Me.TxDescripcionBus.Mask = ""
+        Me.TxDescripcionBus.MaxLength = 32767
+        Me.TxDescripcionBus.MouseState = MaterialSkin.MouseState.OUT
+        Me.TxDescripcionBus.Name = "TxDescripcionBus"
+        Me.TxDescripcionBus.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TxDescripcionBus.PrefixSuffixText = Nothing
+        Me.TxDescripcionBus.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
+        Me.TxDescripcionBus.ReadOnly = False
+        Me.TxDescripcionBus.RejectInputOnFirstFailure = False
+        Me.TxDescripcionBus.ResetOnPrompt = True
+        Me.TxDescripcionBus.ResetOnSpace = True
+        Me.TxDescripcionBus.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.TxDescripcionBus.SelectedText = ""
+        Me.TxDescripcionBus.SelectionLength = 0
+        Me.TxDescripcionBus.SelectionStart = 0
+        Me.TxDescripcionBus.ShortcutsEnabled = True
+        Me.TxDescripcionBus.Size = New System.Drawing.Size(435, 36)
+        Me.TxDescripcionBus.SkipLiterals = True
+        Me.TxDescripcionBus.TabIndex = 37
+        Me.TxDescripcionBus.TabStop = False
+        Me.TxDescripcionBus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.TxDescripcionBus.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxDescripcionBus.TrailingIcon = Nothing
+        Me.TxDescripcionBus.UseSystemPasswordChar = False
+        Me.TxDescripcionBus.UseTallSize = False
+        Me.TxDescripcionBus.ValidatingType = Nothing
         '
-        'MaterialMaskedTextBox1
+        'TxNombreBus
         '
-        Me.MaterialMaskedTextBox1.AllowPromptAsInput = True
-        Me.MaterialMaskedTextBox1.AnimateReadOnly = False
-        Me.MaterialMaskedTextBox1.AsciiOnly = False
-        Me.MaterialMaskedTextBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.MaterialMaskedTextBox1.BeepOnError = False
-        Me.MaterialMaskedTextBox1.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox1.Depth = 0
-        Me.MaterialMaskedTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.MaterialMaskedTextBox1.HidePromptOnLeave = False
-        Me.MaterialMaskedTextBox1.HideSelection = True
-        Me.MaterialMaskedTextBox1.Hint = "Nombre"
-        Me.MaterialMaskedTextBox1.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
-        Me.MaterialMaskedTextBox1.LeadingIcon = Nothing
-        Me.MaterialMaskedTextBox1.Location = New System.Drawing.Point(87, 7)
-        Me.MaterialMaskedTextBox1.Mask = ""
-        Me.MaterialMaskedTextBox1.MaxLength = 32767
-        Me.MaterialMaskedTextBox1.MouseState = MaterialSkin.MouseState.OUT
-        Me.MaterialMaskedTextBox1.Name = "MaterialMaskedTextBox1"
-        Me.MaterialMaskedTextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialMaskedTextBox1.PrefixSuffixText = Nothing
-        Me.MaterialMaskedTextBox1.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
-        Me.MaterialMaskedTextBox1.ReadOnly = False
-        Me.MaterialMaskedTextBox1.RejectInputOnFirstFailure = False
-        Me.MaterialMaskedTextBox1.ResetOnPrompt = True
-        Me.MaterialMaskedTextBox1.ResetOnSpace = True
-        Me.MaterialMaskedTextBox1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.MaterialMaskedTextBox1.SelectedText = ""
-        Me.MaterialMaskedTextBox1.SelectionLength = 0
-        Me.MaterialMaskedTextBox1.SelectionStart = 0
-        Me.MaterialMaskedTextBox1.ShortcutsEnabled = True
-        Me.MaterialMaskedTextBox1.Size = New System.Drawing.Size(355, 36)
-        Me.MaterialMaskedTextBox1.SkipLiterals = True
-        Me.MaterialMaskedTextBox1.TabIndex = 36
-        Me.MaterialMaskedTextBox1.TabStop = False
-        Me.MaterialMaskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.MaterialMaskedTextBox1.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox1.TrailingIcon = Nothing
-        Me.MaterialMaskedTextBox1.UseSystemPasswordChar = False
-        Me.MaterialMaskedTextBox1.UseTallSize = False
-        Me.MaterialMaskedTextBox1.ValidatingType = Nothing
+        Me.TxNombreBus.AllowPromptAsInput = True
+        Me.TxNombreBus.AnimateReadOnly = False
+        Me.TxNombreBus.AsciiOnly = False
+        Me.TxNombreBus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.TxNombreBus.BeepOnError = False
+        Me.TxNombreBus.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxNombreBus.Depth = 0
+        Me.TxNombreBus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.TxNombreBus.HidePromptOnLeave = False
+        Me.TxNombreBus.HideSelection = True
+        Me.TxNombreBus.Hint = "Nombre"
+        Me.TxNombreBus.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
+        Me.TxNombreBus.LeadingIcon = Nothing
+        Me.TxNombreBus.Location = New System.Drawing.Point(87, 7)
+        Me.TxNombreBus.Mask = ""
+        Me.TxNombreBus.MaxLength = 32767
+        Me.TxNombreBus.MouseState = MaterialSkin.MouseState.OUT
+        Me.TxNombreBus.Name = "TxNombreBus"
+        Me.TxNombreBus.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TxNombreBus.PrefixSuffixText = Nothing
+        Me.TxNombreBus.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
+        Me.TxNombreBus.ReadOnly = False
+        Me.TxNombreBus.RejectInputOnFirstFailure = False
+        Me.TxNombreBus.ResetOnPrompt = True
+        Me.TxNombreBus.ResetOnSpace = True
+        Me.TxNombreBus.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.TxNombreBus.SelectedText = ""
+        Me.TxNombreBus.SelectionLength = 0
+        Me.TxNombreBus.SelectionStart = 0
+        Me.TxNombreBus.ShortcutsEnabled = True
+        Me.TxNombreBus.Size = New System.Drawing.Size(355, 36)
+        Me.TxNombreBus.SkipLiterals = True
+        Me.TxNombreBus.TabIndex = 36
+        Me.TxNombreBus.TabStop = False
+        Me.TxNombreBus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.TxNombreBus.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxNombreBus.TrailingIcon = Nothing
+        Me.TxNombreBus.UseSystemPasswordChar = False
+        Me.TxNombreBus.UseTallSize = False
+        Me.TxNombreBus.ValidatingType = Nothing
         '
-        'MaterialMaskedTextBox5
+        'TxNJugadoresBus
         '
-        Me.MaterialMaskedTextBox5.AllowPromptAsInput = True
-        Me.MaterialMaskedTextBox5.AnimateReadOnly = False
-        Me.MaterialMaskedTextBox5.AsciiOnly = False
-        Me.MaterialMaskedTextBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.MaterialMaskedTextBox5.BeepOnError = False
-        Me.MaterialMaskedTextBox5.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox5.Depth = 0
-        Me.MaterialMaskedTextBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.MaterialMaskedTextBox5.HidePromptOnLeave = False
-        Me.MaterialMaskedTextBox5.HideSelection = True
-        Me.MaterialMaskedTextBox5.Hint = "Nº Jugadores"
-        Me.MaterialMaskedTextBox5.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
-        Me.MaterialMaskedTextBox5.LeadingIcon = Nothing
-        Me.MaterialMaskedTextBox5.Location = New System.Drawing.Point(459, 49)
-        Me.MaterialMaskedTextBox5.Mask = ""
-        Me.MaterialMaskedTextBox5.MaxLength = 32767
-        Me.MaterialMaskedTextBox5.MouseState = MaterialSkin.MouseState.OUT
-        Me.MaterialMaskedTextBox5.Name = "MaterialMaskedTextBox5"
-        Me.MaterialMaskedTextBox5.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialMaskedTextBox5.PrefixSuffixText = Nothing
-        Me.MaterialMaskedTextBox5.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
-        Me.MaterialMaskedTextBox5.ReadOnly = False
-        Me.MaterialMaskedTextBox5.RejectInputOnFirstFailure = False
-        Me.MaterialMaskedTextBox5.ResetOnPrompt = True
-        Me.MaterialMaskedTextBox5.ResetOnSpace = True
-        Me.MaterialMaskedTextBox5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.MaterialMaskedTextBox5.SelectedText = ""
-        Me.MaterialMaskedTextBox5.SelectionLength = 0
-        Me.MaterialMaskedTextBox5.SelectionStart = 0
-        Me.MaterialMaskedTextBox5.ShortcutsEnabled = True
-        Me.MaterialMaskedTextBox5.Size = New System.Drawing.Size(128, 36)
-        Me.MaterialMaskedTextBox5.SkipLiterals = True
-        Me.MaterialMaskedTextBox5.TabIndex = 35
-        Me.MaterialMaskedTextBox5.TabStop = False
-        Me.MaterialMaskedTextBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.MaterialMaskedTextBox5.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox5.TrailingIcon = Nothing
-        Me.MaterialMaskedTextBox5.UseSystemPasswordChar = False
-        Me.MaterialMaskedTextBox5.UseTallSize = False
-        Me.MaterialMaskedTextBox5.ValidatingType = Nothing
+        Me.TxNJugadoresBus.AllowPromptAsInput = True
+        Me.TxNJugadoresBus.AnimateReadOnly = False
+        Me.TxNJugadoresBus.AsciiOnly = False
+        Me.TxNJugadoresBus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.TxNJugadoresBus.BeepOnError = False
+        Me.TxNJugadoresBus.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxNJugadoresBus.Depth = 0
+        Me.TxNJugadoresBus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.TxNJugadoresBus.HidePromptOnLeave = False
+        Me.TxNJugadoresBus.HideSelection = True
+        Me.TxNJugadoresBus.Hint = "Nº Jugadores"
+        Me.TxNJugadoresBus.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
+        Me.TxNJugadoresBus.LeadingIcon = Nothing
+        Me.TxNJugadoresBus.Location = New System.Drawing.Point(459, 49)
+        Me.TxNJugadoresBus.Mask = ""
+        Me.TxNJugadoresBus.MaxLength = 32767
+        Me.TxNJugadoresBus.MouseState = MaterialSkin.MouseState.OUT
+        Me.TxNJugadoresBus.Name = "TxNJugadoresBus"
+        Me.TxNJugadoresBus.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TxNJugadoresBus.PrefixSuffixText = Nothing
+        Me.TxNJugadoresBus.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
+        Me.TxNJugadoresBus.ReadOnly = False
+        Me.TxNJugadoresBus.RejectInputOnFirstFailure = False
+        Me.TxNJugadoresBus.ResetOnPrompt = True
+        Me.TxNJugadoresBus.ResetOnSpace = True
+        Me.TxNJugadoresBus.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.TxNJugadoresBus.SelectedText = ""
+        Me.TxNJugadoresBus.SelectionLength = 0
+        Me.TxNJugadoresBus.SelectionStart = 0
+        Me.TxNJugadoresBus.ShortcutsEnabled = True
+        Me.TxNJugadoresBus.Size = New System.Drawing.Size(128, 36)
+        Me.TxNJugadoresBus.SkipLiterals = True
+        Me.TxNJugadoresBus.TabIndex = 35
+        Me.TxNJugadoresBus.TabStop = False
+        Me.TxNJugadoresBus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.TxNJugadoresBus.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxNJugadoresBus.TrailingIcon = Nothing
+        Me.TxNJugadoresBus.UseSystemPasswordChar = False
+        Me.TxNJugadoresBus.UseTallSize = False
+        Me.TxNJugadoresBus.ValidatingType = Nothing
         '
-        'MaterialMaskedTextBox6
+        'TxNPorterosBus
         '
-        Me.MaterialMaskedTextBox6.AllowPromptAsInput = True
-        Me.MaterialMaskedTextBox6.AnimateReadOnly = False
-        Me.MaterialMaskedTextBox6.AsciiOnly = False
-        Me.MaterialMaskedTextBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.MaterialMaskedTextBox6.BeepOnError = False
-        Me.MaterialMaskedTextBox6.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox6.Depth = 0
-        Me.MaterialMaskedTextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        Me.MaterialMaskedTextBox6.HidePromptOnLeave = False
-        Me.MaterialMaskedTextBox6.HideSelection = True
-        Me.MaterialMaskedTextBox6.Hint = "Nº Porteros"
-        Me.MaterialMaskedTextBox6.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
-        Me.MaterialMaskedTextBox6.LeadingIcon = Nothing
-        Me.MaterialMaskedTextBox6.Location = New System.Drawing.Point(459, 7)
-        Me.MaterialMaskedTextBox6.Mask = ""
-        Me.MaterialMaskedTextBox6.MaxLength = 32767
-        Me.MaterialMaskedTextBox6.MouseState = MaterialSkin.MouseState.OUT
-        Me.MaterialMaskedTextBox6.Name = "MaterialMaskedTextBox6"
-        Me.MaterialMaskedTextBox6.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MaterialMaskedTextBox6.PrefixSuffixText = Nothing
-        Me.MaterialMaskedTextBox6.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
-        Me.MaterialMaskedTextBox6.ReadOnly = False
-        Me.MaterialMaskedTextBox6.RejectInputOnFirstFailure = False
-        Me.MaterialMaskedTextBox6.ResetOnPrompt = True
-        Me.MaterialMaskedTextBox6.ResetOnSpace = True
-        Me.MaterialMaskedTextBox6.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.MaterialMaskedTextBox6.SelectedText = ""
-        Me.MaterialMaskedTextBox6.SelectionLength = 0
-        Me.MaterialMaskedTextBox6.SelectionStart = 0
-        Me.MaterialMaskedTextBox6.ShortcutsEnabled = True
-        Me.MaterialMaskedTextBox6.Size = New System.Drawing.Size(128, 36)
-        Me.MaterialMaskedTextBox6.SkipLiterals = True
-        Me.MaterialMaskedTextBox6.TabIndex = 32
-        Me.MaterialMaskedTextBox6.TabStop = False
-        Me.MaterialMaskedTextBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.MaterialMaskedTextBox6.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
-        Me.MaterialMaskedTextBox6.TrailingIcon = Nothing
-        Me.MaterialMaskedTextBox6.UseSystemPasswordChar = False
-        Me.MaterialMaskedTextBox6.UseTallSize = False
-        Me.MaterialMaskedTextBox6.ValidatingType = Nothing
+        Me.TxNPorterosBus.AllowPromptAsInput = True
+        Me.TxNPorterosBus.AnimateReadOnly = False
+        Me.TxNPorterosBus.AsciiOnly = False
+        Me.TxNPorterosBus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.TxNPorterosBus.BeepOnError = False
+        Me.TxNPorterosBus.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxNPorterosBus.Depth = 0
+        Me.TxNPorterosBus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.TxNPorterosBus.HidePromptOnLeave = False
+        Me.TxNPorterosBus.HideSelection = True
+        Me.TxNPorterosBus.Hint = "Nº Porteros"
+        Me.TxNPorterosBus.InsertKeyMode = System.Windows.Forms.InsertKeyMode.[Default]
+        Me.TxNPorterosBus.LeadingIcon = Nothing
+        Me.TxNPorterosBus.Location = New System.Drawing.Point(459, 7)
+        Me.TxNPorterosBus.Mask = ""
+        Me.TxNPorterosBus.MaxLength = 32767
+        Me.TxNPorterosBus.MouseState = MaterialSkin.MouseState.OUT
+        Me.TxNPorterosBus.Name = "TxNPorterosBus"
+        Me.TxNPorterosBus.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.TxNPorterosBus.PrefixSuffixText = Nothing
+        Me.TxNPorterosBus.PromptChar = Global.Microsoft.VisualBasic.ChrW(95)
+        Me.TxNPorterosBus.ReadOnly = False
+        Me.TxNPorterosBus.RejectInputOnFirstFailure = False
+        Me.TxNPorterosBus.ResetOnPrompt = True
+        Me.TxNPorterosBus.ResetOnSpace = True
+        Me.TxNPorterosBus.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.TxNPorterosBus.SelectedText = ""
+        Me.TxNPorterosBus.SelectionLength = 0
+        Me.TxNPorterosBus.SelectionStart = 0
+        Me.TxNPorterosBus.ShortcutsEnabled = True
+        Me.TxNPorterosBus.Size = New System.Drawing.Size(128, 36)
+        Me.TxNPorterosBus.SkipLiterals = True
+        Me.TxNPorterosBus.TabIndex = 32
+        Me.TxNPorterosBus.TabStop = False
+        Me.TxNPorterosBus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.TxNPorterosBus.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
+        Me.TxNPorterosBus.TrailingIcon = Nothing
+        Me.TxNPorterosBus.UseSystemPasswordChar = False
+        Me.TxNPorterosBus.UseTallSize = False
+        Me.TxNPorterosBus.ValidatingType = Nothing
         '
         'TxIDbus
         '
@@ -1167,36 +1197,6 @@ Partial Class Ejercicios
         Me.TxIDbus.UseSystemPasswordChar = False
         Me.TxIDbus.UseTallSize = False
         Me.TxIDbus.ValidatingType = Nothing
-        '
-        'IDEntreno
-        '
-        Me.IDEntreno.HeaderText = "ID"
-        Me.IDEntreno.Name = "IDEntreno"
-        Me.IDEntreno.Width = 30
-        '
-        'Nombre
-        '
-        Me.Nombre.HeaderText = "Nombre"
-        Me.Nombre.Name = "Nombre"
-        Me.Nombre.Width = 300
-        '
-        'Descripcion
-        '
-        Me.Descripcion.HeaderText = "Descripcion"
-        Me.Descripcion.Name = "Descripcion"
-        Me.Descripcion.Width = 300
-        '
-        'numPorteros
-        '
-        Me.numPorteros.HeaderText = "Porteros"
-        Me.numPorteros.Name = "numPorteros"
-        Me.numPorteros.Width = 70
-        '
-        'Jugadores
-        '
-        Me.Jugadores.HeaderText = "Jugadores"
-        Me.Jugadores.Name = "Jugadores"
-        Me.Jugadores.Width = 70
         '
         'Ejercicios
         '
@@ -1285,11 +1285,11 @@ Partial Class Ejercicios
     Friend WithEvents MaterialCard9 As MaterialSkin.Controls.MaterialCard
     Friend WithEvents BtnFiltrar As MaterialSkin.Controls.MaterialButton
     Friend WithEvents Panel11 As Panel
-    Friend WithEvents MaterialMaskedTextBox5 As MaterialSkin.Controls.MaterialMaskedTextBox
-    Friend WithEvents MaterialMaskedTextBox6 As MaterialSkin.Controls.MaterialMaskedTextBox
+    Friend WithEvents TxNJugadoresBus As MaterialSkin.Controls.MaterialMaskedTextBox
+    Friend WithEvents TxNPorterosBus As MaterialSkin.Controls.MaterialMaskedTextBox
     Friend WithEvents TxIDbus As MaterialSkin.Controls.MaterialMaskedTextBox
-    Friend WithEvents MaterialMaskedTextBox2 As MaterialSkin.Controls.MaterialMaskedTextBox
-    Friend WithEvents MaterialMaskedTextBox1 As MaterialSkin.Controls.MaterialMaskedTextBox
+    Friend WithEvents TxDescripcionBus As MaterialSkin.Controls.MaterialMaskedTextBox
+    Friend WithEvents TxNombreBus As MaterialSkin.Controls.MaterialMaskedTextBox
     Friend WithEvents IDEntreno As DataGridViewTextBoxColumn
     Friend WithEvents Nombre As DataGridViewTextBoxColumn
     Friend WithEvents Descripcion As DataGridViewTextBoxColumn

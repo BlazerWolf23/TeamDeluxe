@@ -139,23 +139,24 @@ Public Class Ejercicios
             End If
         End If
         rsEjercicios("Nombre").Value = Trim(TxNombre.Text)
-            rsEjercicios("Descripcion").Value = Trim(TxDescripcion.Text)
-            rsEjercicios("Observaciones").Value = Trim(TxObservaciones.Text)
-            rsEjercicios("Material").Value = Trim(TxMaterial.Text)
-            rsEjercicios("NumJugadores").Value = CInt(TxJugadores.Text)
-            rsEjercicios("NumPorteros").Value = CInt(TxPorteros.Text)
-        rsEjercicios("RutaImagen").Value = Trim(PBImagenCampo.Tag)
-
-
+        rsEjercicios("Descripcion").Value = Trim(TxDescripcion.Text)
+        rsEjercicios("Observaciones").Value = Trim(TxObservaciones.Text)
+        rsEjercicios("Material").Value = Trim(TxMaterial.Text)
+        rsEjercicios("NumJugadores").Value = CInt(TxJugadores.Text)
+        rsEjercicios("NumPorteros").Value = CInt(TxPorteros.Text)
+        rsEjercicios("idusuario").Value = CInt(VariablesAPP.IdUsuarioApp)
 
         Dim bmp As New Bitmap(PBImagenCampo.Width, PBImagenCampo.Height)
-        Dim gfx As Graphics = Graphics.FromImage(bmp)
         PBImagenCampo.DrawToBitmap(bmp, PBImagenCampo.ClientRectangle)
         Dim ms As New MemoryStream()
         bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png)
-        bmp.Save("C:\Users\folge\Desktop\ejer.png", System.Drawing.Imaging.ImageFormat.Png)
-        rsEjercicios("imagenEjer").Value = ms.GetBuffer
 
+        If Not System.IO.Directory.Exists(My.Application.Info.DirectoryPath & "\Ejercicios") Then
+            System.IO.Directory.CreateDirectory(My.Application.Info.DirectoryPath & "\Ejercicios")
+        End If
+
+        bmp.Save(My.Application.Info.DirectoryPath & "\Ejercicios\" & "ejercicio_" & CInt(rsEjercicios("idEjercicios").Value) & ".png", System.Drawing.Imaging.ImageFormat.Png)
+        rsEjercicios("RutaImagen").Value = My.Application.Info.DirectoryPath & "\Ejercicios\" & "ejercicio_" & CInt(rsEjercicios("idEjercicios").Value) & ".png"
         rsEjercicios.Update()
 
             Database.Connection.Execute("Delete from ObjetivosEjercicios where idEjercicios = " & CInt(rsEjercicios("idEjercicios").Value))
@@ -174,7 +175,51 @@ Public Class Ejercicios
 
 
     Public Sub Consulta()
-        ' Mirar a ver si podemos hacer un tab para hacer la consulta de ejercicios
+        Dim sql As String
+        Dim rs As New ADODB.Recordset
+
+        If UCase(VariablesAPP.RolUsuario) <> UCase("admin") Then
+            sql = "select * from ejercicios where idusuario = " & VariablesAPP.IdUsuarioApp
+        Else
+            sql = "select * from ejercicios where idusuario like '%'"
+        End If
+
+        If Trim(TxIDbus.Text) <> "" Then
+            If IsNumeric(TxIDbus.Text) Then
+                sql &= " and id = '" & CInt(TxIDbus.Text) & "'"
+            End If
+        End If
+
+        If Trim(TxDescripcionBus.Text) <> "" Then
+            sql &= " and descripcion like '" & Trim(TxDescripcionBus.Text) & "'"
+        End If
+
+        If Trim(TxNJugadoresBus.Text) <> "" Then
+            If IsNumeric(TxNJugadoresBus.Text) Then
+                sql &= " and NumJugadores  = " & CInt(TxNJugadoresBus.Text)
+            End If
+        End If
+
+        If Trim(TxNPorterosBus.Text) <> "" Then
+            If IsNumeric(TxNPorterosBus.Text) Then
+                sql &= " and NumPorteros  = " & CInt(TxNPorterosBus.Text)
+            End If
+        End If
+
+        rs = New ADODB.Recordset
+        rs.Open(sql, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic)
+
+        Do Until rs.EOF
+            Dim newRow As DataGridViewRow = New DataGridViewRow()
+            newRow.CreateCells(DbgBusEntreno)
+            newRow.Cells(0).Value = CInt(rs("IdEjercicios").Value)
+            newRow.Cells(1).Value = Trim(rs("nombre").Value)
+            newRow.Cells(2).Value = Trim(rs("descripcion").Value)
+            newRow.Cells(3).Value = Trim(rs("NumPorteros").Value)
+            newRow.Cells(4).Value = Trim(rs("NumJugadores").Value)
+            DbgBusEntreno.Rows.Add(newRow)
+            rs.MoveNext()
+        Loop
     End Sub
 
     Private Sub MaterialButton6_Click(sender As Object, e As EventArgs) Handles BtnNuevoObjetivo.Click
@@ -185,7 +230,7 @@ Public Class Ejercicios
         End If
 
         If MsgBox("Desea Guardar el Objetivo como '" & Trim(TxNombreNuvObjetivo.Text) & "'", vbQuestion) = MsgBoxResult.Ok Then
-            rsEjercicios = New ADODB.Recordset
+        rsEjercicios = New ADODB.Recordset
             rsEjercicios.Open("Select * from Objetivos where idobjetivo = 0", Database.Connection, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic, 1)
             Try
                 rsAux = New ADODB.Recordset
@@ -256,11 +301,6 @@ Public Class Ejercicios
                     TxMaterial.Text = Trim(rsAux("material").Value)
                     TxObservaciones.Text = Trim(rsAux("observaciones").Value)
 
-                    imageData = DirectCast(rsAux("imagenEjer").Value, Byte())
-                    ms = New MemoryStream(imageData)
-                    img = Image.FromStream(ms)
-                    PBImagenCampo.BackgroundImage = img
-
                     CargarObjetivos(CInt(TxID.Text))
                 End If
             End If
@@ -268,7 +308,20 @@ Public Class Ejercicios
     End Sub
 
     Private Sub BtnFiltrar_Click(sender As Object, e As EventArgs) Handles BtnFiltrar.Click
+        Consulta()
+    End Sub
 
+    Private Sub TabControl1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TabControl1.SelectedIndexChanged
+        If TabControl1.SelectedTab.Name = TabBusEjer.Name Then
+            Consulta()
+        End If
+    End Sub
+
+    Private Sub DbgBusEntreno_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgBusEntreno.CellDoubleClick
+        If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+            If Not IsNumeric(DbgBusEntreno.Rows(e.RowIndex).Cells(0).Value) Or DbgBusEntreno.Rows(e.RowIndex).Cells(0).Value = 0 Then Exit Sub
+            TxID.Text = CInt(CInt(DbgBusEntreno.Rows(e.RowIndex).Cells(0).Value))
+        End If
     End Sub
 
     Public Sub Eliminar()

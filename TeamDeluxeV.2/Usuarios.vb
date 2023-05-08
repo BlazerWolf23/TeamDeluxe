@@ -49,12 +49,12 @@ Public Class Usuarios
         rsUsuarios = New ADODB.Recordset
         If UCase(VariablesAPP.RolUsuario) <> UCase("admin") Then
             If Not CboEquipoBus.SelectedValue = 0 Then
-                sql = "Select usuarios.*, equipos.nombre nombreequip from usuarios inner join equipos on equipos.idequipos = usuarios.idequipodondejuega where usuarios.idusuario <> 1 and usuarios.idEquipoDondeJuega = " & CInt(CboEquipoBus.SelectedValue)
+                sql = "Select usuarios.*, equipos.nombre nombreequip from usuarios left outer join equipos on equipos.idequipos = usuarios.idequipodondejuega where usuarios.idusuario <> 1 and usuarios.idEquipoDondeJuega = " & CInt(CboEquipoBus.SelectedValue)
             Else
-                sql = "Select usuarios.*  equipos.nombre nombreequip from usuarios inner join equipos on equipos.idequipos = usuarios.idequipodondejuega  where idusuario <> 1 and idEquipoDondeJuega <> null"
+                sql = "Select usuarios.*,  equipos.nombre nombreequip from usuarios left outer join equipos on equipos.idequipos = usuarios.idequipodondejuega  where usuarios.idusuario <> 1 and idEquipoDondeJuega <> null"
             End If
         Else
-            sql = "Select usuarios.*  equipos.nombre nombreequip from usuarios inner join equipos on equipos.idequipos = usuarios.idequipodondejuega from usuarios where idusuario <> 1"
+            sql = "Select usuarios.*,  equipos.nombre nombreequip from usuarios left outer join equipos on equipos.idequipos = usuarios.idequipodondejuega"
         End If
 
         If IsNumeric(TxIDbus.Text) Then
