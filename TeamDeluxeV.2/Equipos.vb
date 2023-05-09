@@ -26,8 +26,6 @@ Public Class Equipos
                 idequi = CInt(rsAux("Idequipos").Value)
                 rsEquipos("Idequipos").Value = CInt(idequi) + 1
             End If
-
-
         End If
         rsEquipos("nombre").Value = Trim(TxNombreEquipo.Text)
         rsEquipos("Temporada").Value = Trim(TxTemporada.Text)
@@ -208,8 +206,14 @@ Public Class Equipos
 
     Private Sub CargarGridEquipos()
         DbgEquipos.Rows.Clear()
+        Dim Sql As String
+        If UCase(VariablesAPP.IdUsuarioApp) = UCase("admin") Then
+            Sql = "Select * from equipos"
+        Else
+            Sql = "Select * from equipos where idusuario = " & VariablesAPP.IdUsuarioApp
+        End If
         rsAux = New ADODB.Recordset
-        rsAux.Open("Select * from equipos", Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        rsAux.Open(Sql, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
         Do Until rsAux.EOF
             AniadirLineaGridEquipos(CInt(rsAux("idequipos").Value), Trim(rsAux("nombre").Value), Trim(rsAux("temporada").Value), Trim(rsAux("categoria").Value), Trim(rsAux("inicioCompeticion").Value), CInt(rsAux("idusuario").Value))
             rsAux.MoveNext()

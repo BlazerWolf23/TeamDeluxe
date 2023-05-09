@@ -40,6 +40,7 @@ Public Class MDI_Principal
     End Sub
     Private Sub BtnSalirInicio_Click(sender As Object, e As EventArgs) Handles BtnSalirInicio.Click
         Me.Dispose()
+        Inicio.Inicio_Load(sender, New EventArgs)
         Inicio.Show()
     End Sub
 

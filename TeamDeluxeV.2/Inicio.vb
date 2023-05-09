@@ -1,4 +1,5 @@
-﻿Imports Microsoft.Win32
+﻿Imports System.Security.Cryptography
+Imports Microsoft.Win32
 
 Public Class Inicio
 
@@ -8,7 +9,7 @@ Public Class Inicio
         PanelBD.Visible = True
     End Sub
 
-    Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Public Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.StartPosition = FormStartPosition.CenterScreen
         PanelBD.Visible = False
         TxServerBD.Text = Registry.GetValue("HKEY_CURRENT_USER\SOFTWARE\TeamDeluxe", "ServerSQL", "")
@@ -35,16 +36,21 @@ Public Class Inicio
         Dim rs As New ADODB.Recordset
         CboUsuarios.Items.Clear()
         rs.Open("Select * from usuarios where rol in ('entrenador' , 'admin')", Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+
+        Dim items As New List(Of ItemCBO)
         Do Until rs.EOF
-            CboUsuarios.Items.Add(Trim(rs("Nombre").Value))
+            items.Add(New ItemCBO With {.Value = CInt(rs("idUsuario").Value), .Description = Trim(rs("nombre").Value)})
             rs.MoveNext()
         Loop
+        CboUsuarios.DataSource = items
+        CboUsuarios.ValueMember = "Value"
+        CboUsuarios.DisplayMember = "Description"
         CboUsuarios.SelectedIndex = 0
     End Sub
 
     Private Sub BtnComprobarContra_Click(sender As Object, e As EventArgs) Handles BtnComprobarContra.Click
         Dim rs As New ADODB.Recordset
-        rs.Open("Select password, rol, nombre, idUsuario from usuarios where nombre like '%" & Trim(CboUsuarios.SelectedItem) & "%'", Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        rs.Open("Select password, rol, nombre, idUsuario from usuarios where nombre idUsuario = " & CInt(CboUsuarios.SelectedValue), Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
         If rs.EOF Then Exit Sub
         If Trim(rs("password").Value) = Trim(TxPassword.Text) Then
             Cursor = Cursors.WaitCursor
@@ -63,6 +69,6 @@ Public Class Inicio
     End Sub
 
     Private Sub Inicio_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        Environment.Exit(1)
+        End
     End Sub
 End Class
