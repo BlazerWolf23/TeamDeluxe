@@ -50,7 +50,7 @@ Public Class Inicio
 
     Private Sub BtnComprobarContra_Click(sender As Object, e As EventArgs) Handles BtnComprobarContra.Click
         Dim rs As New ADODB.Recordset
-        rs.Open("Select password, rol, nombre, idUsuario from usuarios where nombre idUsuario = " & CInt(CboUsuarios.SelectedValue), Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        rs.Open("Select password, rol, nombre, idUsuario from usuarios where idUsuario = " & CInt(CboUsuarios.SelectedValue), Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
         If rs.EOF Then Exit Sub
         If Trim(rs("password").Value) = Trim(TxPassword.Text) Then
             Cursor = Cursors.WaitCursor
