@@ -11,7 +11,12 @@ Public Class Entrenamientos
         TxID.Text = "" : DateTimePicker1.Value = Now.Date
         If Not SaltoCombo Then
             CboEquipo.SelectedIndex = 0 : CboLugar.SelectedIndex = 0
-            CboObjetivoGuardar.SelectedIndex = 0 : CboEjercicioGuardar.SelectedIndex = 0
+            If Not CboObjetivoGuardar.Items.Count <= 0 Then
+                CboObjetivoGuardar.SelectedIndex = 0
+            End If
+            If Not CboEjercicioGuardar.Items.Count <= 0 Then
+                CboEjercicioGuardar.SelectedIndex = 0
+            End If
         End If
         TxHoraFin.Text = "00:00" : TxHoraInicio.Text = "00:00"
         TxTiempoGuardar.Text = "00:00"
@@ -173,8 +178,13 @@ Public Class Entrenamientos
             newRow.Cells(4).Value = Trim(CboEjercicioGuardar.Text)  ' Descripcion Ejer
             DbgEntrenamiento.Rows.Add(newRow)
             TxTiempoGuardar.Text = "00:00"
-            CboObjetivoGuardar.SelectedIndex = 0
-            CboEjercicioGuardar.SelectedIndex = 0
+            If Not CboObjetivoGuardar.Items.Count <= 0 Then
+                CboObjetivoGuardar.SelectedIndex = 0
+            End If
+
+            If Not CboEjercicioGuardar.Items.Count <= 0 Then
+                CboEjercicioGuardar.SelectedIndex = 0
+            End If
         Else
             MsgBox("Introduzca una hora valida", vbExclamation)
             Nuevo()
@@ -303,11 +313,7 @@ Public Class Entrenamientos
             TxJugadores.Text = Trim(rs("NumJugadores").Value)
             TxDescripcion.Text = Trim(rs("descripcion").Value)
             TxMaterialEjer.Text = Trim(rs("material").Value)
-
-            imageData = DirectCast(rs("imagenEjer").Value, Byte())
-            MS = New MemoryStream(imageData)
-            img = Image.FromStream(MS)
-            PBImagenCampo.BackgroundImage = img
+            PBImagenCampo.BackgroundImage = Image.FromFile(rs("RutaImagen").Value)
         End If
     End Sub
 
