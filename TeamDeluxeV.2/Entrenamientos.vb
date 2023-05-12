@@ -6,6 +6,7 @@ Public Class Entrenamientos
     Dim rsAux As New ADODB.Recordset
     Dim SaltoCombo As Boolean = True
     Dim hora As DateTime
+    Dim imagenOrifinal As Image
 
     Public Sub Nuevo()
         TxID.Text = "" : DateTimePicker1.Value = Now.Date
@@ -24,10 +25,7 @@ Public Class Entrenamientos
         TxDescripcionEjer.Text = "" : TxMaterialEjer.Text = ""
         TxDescripcion.Text = ""
         DbgEntrenamiento.Rows.Clear()
-        For Each c As Control In PBImagenCampo.Controls
-            c.Dispose()
-        Next
-        PBImagenCampo.Invalidate()
+        PBImagenCampo.BackgroundImage = imagenOrifinal
     End Sub
 
 
@@ -138,9 +136,16 @@ Public Class Entrenamientos
     End Sub
 
     Private Sub cargarObjetivos()
+        Dim sql As String
         Dim rs As New ADODB.Recordset
         Dim items As New List(Of ItemCBO)
-        rs.Open("Select * from objetivos", Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        If UCase(VariablesAPP.RolUsuario) = UCase("admin") Then
+            sql = "select * from objetivos"
+        Else
+            sql = "Select * from objetivos where idusuario = " & VariablesAPP.IdUsuarioApp
+        End If
+
+        rs.Open(sql, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
         Do Until rs.EOF
             items.Add(New ItemCBO With {.Value = CInt(rs("idobjetivo").Value), .Description = Trim(rs("Descripcion").Value)})
             rs.MoveNext()
@@ -193,11 +198,13 @@ Public Class Entrenamientos
     End Sub
 
     Private Sub Entrenamientos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        imagenOrifinal = PBImagenCampo.BackgroundImage
         Nuevo()
         CargarEquipos()
         CargarUbicaciones()
         cargarObjetivos()
         CragarEjercicios(1)
+
         SaltoCombo = False
     End Sub
 

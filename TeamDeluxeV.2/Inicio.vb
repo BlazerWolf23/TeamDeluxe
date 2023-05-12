@@ -34,8 +34,7 @@ Public Class Inicio
 
     Private Sub CargarUsuarios()
         Dim rs As New ADODB.Recordset
-        CboUsuarios.Items.Clear()
-        rs.Open("Select * from usuarios where rol in ('entrenador' , 'admin')", Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        rs.Open("Select * from usuarios where rol in ('entrenador' , 'admin')", Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
 
         Dim items As New List(Of ItemCBO)
         Do Until rs.EOF
@@ -70,5 +69,9 @@ Public Class Inicio
 
     Private Sub Inicio_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         End
+    End Sub
+
+    Private Sub CboUsuarios_SelectedValueChanged(sender As Object, e As EventArgs) Handles CboUsuarios.SelectedValueChanged
+        TxPassword.Text = ""
     End Sub
 End Class

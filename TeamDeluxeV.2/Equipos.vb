@@ -32,7 +32,7 @@ Public Class Equipos
         rsEquipos("Categoria").Value = Trim(TxCategoria.Text)
         rsEquipos("InicioCompeticion").Value = Format(CDate(DTPInicioCompe.Value), "yyyy/MM/dd")
         rsEquipos("HoraPartidos").Value = Format(CDate(TxHoraPartido.Text), "HH:mm")
-        rsEquipos("IdUsuario").Value = Trim(CboUsuario.SelectedValue)
+        rsEquipos("IdUsuario").Value = Trim(VariablesAPP.IdUsuarioApp)
         rsEquipos.Update()
         Cursor = Cursors.Arrow
         Nuevo()
@@ -116,7 +116,7 @@ Public Class Equipos
     End Sub
 
     Private Sub LostFocus1(sender As Object, e As EventArgs) Handles TxIDEquipo.LostFocus
-        If Trim(TxIDEquipo.Text) = "" And Not IsNumeric(TxIDEquipo.Text) Then Exit Sub
+        If Trim(TxIDEquipo.Text) = "" Or Not IsNumeric(TxIDEquipo.Text) Then Exit Sub
         rsAux = New ADODB.Recordset
         rsAux.Open("Select * from equipos where idequipos = " & CInt(TxIDEquipo.Text), Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
         If Not rsAux.EOF Then
@@ -136,7 +136,7 @@ Public Class Equipos
         TxCategoria.Text = Trim(rs("Categoria").Value)
         DTPInicioCompe.Value = CDate(rs("InicioCompeticion").Value)
         TxHoraPartido.Text = Trim(rs("HoraPartidos").Value)
-        CboUsuario.SelectedValue = CInt(rs("idUsuario").Value)
+        'CboUsuario.SelectedValue = CInt(rs("idUsuario").Value)
     End Sub
 
     Private Sub CargarEntrenadores()
@@ -155,6 +155,8 @@ Public Class Equipos
 
 
     Private Sub Equipos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CboUsuario.Visible = False
+        MaterialLabel12.Visible = False
         CargarEntrenadores()
         Nuevo()
         Consulta()
@@ -207,15 +209,19 @@ Public Class Equipos
     Private Sub CargarGridEquipos()
         DbgEquipos.Rows.Clear()
         Dim Sql As String
-        If UCase(VariablesAPP.IdUsuarioApp) = UCase("admin") Then
-            Sql = "Select * from equipos"
+        If UCase(VariablesAPP.RolUsuario) = UCase("admin") Then
+            Sql = "Select Equipos.*, Usuarios.nombre as Entrenador " &
+            " from Equipos inner join Usuarios on Equipos.IdUsuario = Usuarios.IdUsuario "
         Else
-            Sql = "Select * from equipos where idusuario = " & VariablesAPP.IdUsuarioApp
+            Sql = "Select Equipos.*, Usuarios.Nombre as Entrenador " &
+            " from Equipos inner join Usuarios on Equipos.IdUsuario = Usuarios.IdUsuario " &
+            " where Usuarios.idusuario = " & VariablesAPP.IdUsuarioApp
         End If
+
         rsAux = New ADODB.Recordset
         rsAux.Open(Sql, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
         Do Until rsAux.EOF
-            AniadirLineaGridEquipos(CInt(rsAux("idequipos").Value), Trim(rsAux("nombre").Value), Trim(rsAux("temporada").Value), Trim(rsAux("categoria").Value), Trim(rsAux("inicioCompeticion").Value), CInt(rsAux("idusuario").Value))
+            AniadirLineaGridEquipos(CInt(rsAux("idequipos").Value), Trim(rsAux("nombre").Value), Trim(rsAux("temporada").Value), Trim(rsAux("categoria").Value), Trim(rsAux("inicioCompeticion").Value), Trim(rsAux("entrenador").Value))
             rsAux.MoveNext()
         Loop
     End Sub

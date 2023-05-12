@@ -266,7 +266,6 @@ Partial Class Inicio
         Me.CboUsuarios.MouseState = MaterialSkin.MouseState.OUT
         Me.CboUsuarios.Name = "CboUsuarios"
         Me.CboUsuarios.Size = New System.Drawing.Size(180, 35)
-        Me.CboUsuarios.Sorted = True
         Me.CboUsuarios.StartIndex = 0
         Me.CboUsuarios.TabIndex = 9
         Me.CboUsuarios.UseTallSize = False

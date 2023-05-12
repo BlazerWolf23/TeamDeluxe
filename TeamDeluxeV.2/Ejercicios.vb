@@ -241,6 +241,7 @@ Public Class Ejercicios
                 rsEjercicios.AddNew()
                 rsEjercicios("idobjetivo").Value = CInt(ID)
                 rsEjercicios("descripcion").Value = Trim(TxNombreNuvObjetivo.Text)
+                rsEjercicios("idusuario").Value = CInt(VariablesAPP.IdUsuarioApp)
                 rsEjercicios.Update()
             Catch ex As Exception
                 MsgBox("Error al guardar el objetivo error(" & ex.Message & ")", vbExclamation)
@@ -371,7 +372,9 @@ Public Class Ejercicios
         For Each c As Control In PBImagenCampo.Controls
             c.Dispose()
         Next
+        PBImagenCampo.Controls.Clear()
         PBImagenCampo.Invalidate()
+        PBImagenCampo.Controls.Clear()
         Vaciarimagen_Click(Vaciarimagen, New EventArgs)
         DbgObjetivosEjercicios.Rows.Clear()
         DbgObjetivos.Rows.Clear()
@@ -389,9 +392,9 @@ Public Class Ejercicios
         If idejercicio <> 0 Then
             sql = "select objetivos.idobjetivo, objetivos.descripcion from objetivos 
                 inner join objetivosEjercicios on objetivos.idobjetivo = objetivosEjercicios.idobjetivo
-                where idejercicios = " & CInt(idejercicio)
+                where idejercicios = " & CInt(idejercicio) & " and idusuario = " & VariablesAPP.IdUsuarioApp
         Else
-            sql = "Select * from Objetivos"
+            sql = "Select * from Objetivos where idusuario = " & VariablesAPP.IdUsuarioApp
         End If
         'poner el id del ususario en la bd acuerdate
         rsAux.Open(sql, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
