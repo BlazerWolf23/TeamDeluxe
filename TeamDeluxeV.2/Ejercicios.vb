@@ -303,7 +303,6 @@ Public Class Ejercicios
 
 
     Private Sub TxID_KeyDown(sender As Object, e As KeyEventArgs) Handles TxID.KeyDown
-        Dim imageData As Byte()
         Dim ms As MemoryStream
         Dim img As Image
         If e.KeyValue = Keys.Enter Then
