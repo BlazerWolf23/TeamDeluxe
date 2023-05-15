@@ -15,6 +15,7 @@ Public Class Ejercicios
     Dim lineasSolidas As New List(Of Linea)
     Dim lineasPunteadas As New List(Of Linea)
     Dim saltoPintarLineas As Boolean
+    Dim imagenOrifinal As Image
     Private Structure Linea
         Public PuntoInicio As Point
         Public PuntoFinal As Point
@@ -110,10 +111,7 @@ Public Class Ejercicios
 
     Private Sub Vaciarimagen_Click(sender As Object, e As EventArgs) Handles Vaciarimagen.Click
         saltoPintarLineas = True
-        For Each c As Control In PBImagenCampo.Controls
-            c.Dispose()
-        Next
-        PBImagenCampo.Invalidate()
+        PBImagenCampo.BackgroundImage = imagenOrifinal
     End Sub
 
     Public Sub Guardar()
@@ -263,10 +261,13 @@ Public Class Ejercicios
     End Sub
 
     Private Sub DbgObjetivos_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgObjetivosEjercicios.CellDoubleClick
-        DbgObjetivosEjercicios.Rows.RemoveAt(e.RowIndex)
+        If MsgBox("¿Desea eliminar el objetivo del ejercicio actual?", vbQuestion + vbYesNo) = vbYes Then
+            DbgObjetivosEjercicios.Rows.RemoveAt(e.RowIndex)
+        End If
     End Sub
 
     Private Sub Ejercicios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        imagenOrifinal = PBImagenCampo.BackgroundImage
         Nuevo()
     End Sub
 
@@ -339,10 +340,14 @@ Public Class Ejercicios
             TxDescripcion.Text = Trim(rsAux("descripcion").Value)
             TxMaterial.Text = Trim(rsAux("material").Value)
             TxObservaciones.Text = Trim(rsAux("observaciones").Value)
-            PBImagenCampo.BackgroundImage = Image.FromFile(Trim(rsAux("RutaImagen").Value))
+            Try
+                PBImagenCampo.BackgroundImage = Image.FromFile(Trim(rsAux("RutaImagen").Value))
+            Catch ex As Exception
+
+            End Try
+
             CargarObjetivos(CInt(TxID.Text))
         End If
-
         TabControl1.SelectedTab = TabEjercicios
     End Sub
 
@@ -369,12 +374,8 @@ Public Class Ejercicios
         TxDescripcion.Text = "" : TxJugadores.Text = ""
         TxPorteros.Text = "" : TxObservaciones.Text = ""
         TxMaterial.Text = ""
-        For Each c As Control In PBImagenCampo.Controls
-            c.Dispose()
-        Next
         PBImagenCampo.Controls.Clear()
-        PBImagenCampo.Invalidate()
-        PBImagenCampo.Controls.Clear()
+        PBImagenCampo.BackgroundImage = imagenOrifinal
         Vaciarimagen_Click(Vaciarimagen, New EventArgs)
         DbgObjetivosEjercicios.Rows.Clear()
         DbgObjetivos.Rows.Clear()

@@ -53,7 +53,7 @@ Public Class Entrenamientos
             rsentrenameintos("descripcion").Value = Trim(TxDescripcion.Text)
             rsentrenameintos.Update()
 
-            Database.Connection.Execute("delete from Objetivos_Entrenamiento where idejercicio = " & rsentrenameintos("identrenamiento").Value)
+            Database.Connection.Execute("delete from Objetivos_Entrenamiento where identrenamiento = " & rsentrenameintos("identrenamiento").Value)
             rsAux = New ADODB.Recordset
             rsAux.Open("Select * from Objetivos_Entrenamiento where idejercicio = 999", Database.Connection, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic, 1)
 
@@ -204,7 +204,6 @@ Public Class Entrenamientos
         CargarUbicaciones()
         cargarObjetivos()
         CragarEjercicios(1)
-
         SaltoCombo = False
     End Sub
 
@@ -308,9 +307,6 @@ Public Class Entrenamientos
 
     'prueba
     Private Sub CargarEjercicio(IDejercicio As Integer)
-        Dim imageData As Byte()
-        Dim ms As MemoryStream
-        Dim img As Image
         Dim rs As New ADODB.Recordset
         rs = New ADODB.Recordset
         rs.Open("Select * from ejercicios where IdEjercicios = " & IDejercicio, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
@@ -320,7 +316,11 @@ Public Class Entrenamientos
             TxJugadores.Text = Trim(rs("NumJugadores").Value)
             TxDescripcion.Text = Trim(rs("descripcion").Value)
             TxMaterialEjer.Text = Trim(rs("material").Value)
-            PBImagenCampo.BackgroundImage = Image.FromFile(rs("RutaImagen").Value)
+            Try
+                PBImagenCampo.BackgroundImage = Image.FromFile(rs("RutaImagen").Value)
+            Catch ex As Exception
+                PBImagenCampo.BackgroundImage = imagenOrifinal
+            End Try
         End If
     End Sub
 
