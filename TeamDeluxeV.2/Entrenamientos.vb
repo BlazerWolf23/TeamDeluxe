@@ -319,7 +319,9 @@ Public Class Entrenamientos
             Try
                 PBImagenCampo.BackgroundImage = Image.FromFile(rs("RutaImagen").Value)
             Catch ex As Exception
+                MsgBox("No se ha encontrado la imagen para el ejercicio.", vbExclamation + vbOK)
                 PBImagenCampo.BackgroundImage = imagenOrifinal
+                Exit Sub
             End Try
         End If
     End Sub

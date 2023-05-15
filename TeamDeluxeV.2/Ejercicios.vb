@@ -11,6 +11,7 @@ Imports Microsoft.VisualBasic.Devices
 
 Public Class Ejercicios
     Dim rsEjercicios As New ADODB.Recordset
+    Dim ima As Image
     Dim rsAux As New ADODB.Recordset
     Dim lineasSolidas As New List(Of Linea)
     Dim lineasPunteadas As New List(Of Linea)
@@ -143,6 +144,8 @@ Public Class Ejercicios
         rsEjercicios("NumJugadores").Value = CInt(TxJugadores.Text)
         rsEjercicios("NumPorteros").Value = CInt(TxPorteros.Text)
         rsEjercicios("idusuario").Value = CInt(VariablesAPP.IdUsuarioApp)
+        Dim rutaArchivo As String = My.Application.Info.DirectoryPath & "\Ejercicios\" & "ejercicio_" & CInt(rsEjercicios("idEjercicios").Value) & ".png"
+
 
         Dim bmp As New Bitmap(PBImagenCampo.Width, PBImagenCampo.Height)
         PBImagenCampo.DrawToBitmap(bmp, PBImagenCampo.ClientRectangle)
@@ -153,9 +156,14 @@ Public Class Ejercicios
             System.IO.Directory.CreateDirectory(My.Application.Info.DirectoryPath & "\Ejercicios")
         End If
 
+        If File.Exists(rutaArchivo) Then
+            File.Delete(rutaArchivo)
+        End If
+
         bmp.Save(My.Application.Info.DirectoryPath & "\Ejercicios\" & "ejercicio_" & CInt(rsEjercicios("idEjercicios").Value) & ".png", System.Drawing.Imaging.ImageFormat.Png)
         rsEjercicios("RutaImagen").Value = My.Application.Info.DirectoryPath & "\Ejercicios\" & "ejercicio_" & CInt(rsEjercicios("idEjercicios").Value) & ".png"
         rsEjercicios.Update()
+
         Database.Connection.Execute("Delete from ObjetivosEjercicios where idEjercicios = " & CInt(rsEjercicios("idEjercicios").Value))
         rsAux = New ADODB.Recordset
         rsAux.Open("Select * from ObjetivosEjercicios", Database.Connection, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic, 1)
@@ -169,6 +177,7 @@ Public Class Ejercicios
 
         TxID.Text = CInt(rsAux("idEjercicios").Value)
     End Sub
+
     Public Sub Consulta()
         Dim sql As String
         Dim rs As New ADODB.Recordset
@@ -327,8 +336,11 @@ Public Class Ejercicios
     End Sub
 
     Private Sub DbgBusEntreno_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgBusEntreno.CellDoubleClick
+
         If Not IsNumeric(DbgBusEntreno.Rows(e.RowIndex).Cells(0).Value) Or DbgBusEntreno.Rows(e.RowIndex).Cells(0).Value = 0 Then Exit Sub
         TxID.Text = CInt(CInt(DbgBusEntreno.Rows(e.RowIndex).Cells(0).Value))
+
+
 
         rsAux = New ADODB.Recordset
         rsAux.Open("Select * from ejercicios where idejercicios = " & CInt(TxID.Text) & " and idusuario = " & VariablesAPP.IdUsuarioApp, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic)
@@ -340,12 +352,22 @@ Public Class Ejercicios
             TxDescripcion.Text = Trim(rsAux("descripcion").Value)
             TxMaterial.Text = Trim(rsAux("material").Value)
             TxObservaciones.Text = Trim(rsAux("observaciones").Value)
+
+
             Try
-                PBImagenCampo.BackgroundImage = Image.FromFile(Trim(rsAux("RutaImagen").Value))
+                Using fs As New FileStream(Trim(rsAux("RutaImagen").Value), FileMode.Open, FileAccess.Read)
+                    ' Crear una copia de la imagen desde el flujo de datos
+                    Dim img As Image = Image.FromStream(fs)
+
+                    ' Asignar la imagen al PictureBox
+                    PBImagenCampo.Image = img
+                End Using
+
             Catch ex As Exception
-
+                MsgBox("No se ha encontrado la imagen para el ejercicio.", vbExclamation + vbOK)
+                PBImagenCampo.BackgroundImage = imagenOrifinal
+                Exit Sub
             End Try
-
             CargarObjetivos(CInt(TxID.Text))
         End If
         TabControl1.SelectedTab = TabEjercicios
