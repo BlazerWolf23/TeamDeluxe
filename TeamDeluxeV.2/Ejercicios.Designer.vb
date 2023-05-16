@@ -38,13 +38,19 @@ Partial Class Ejercicios
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Objetivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MaterialCard2 = New MaterialSkin.Controls.MaterialCard()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.BtnExportarImagen = New MaterialSkin.Controls.MaterialButton()
+        Me.BtnImportarImagen = New MaterialSkin.Controls.MaterialButton()
+        Me.Vaciarimagen = New MaterialSkin.Controls.MaterialButton()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.BtnPica = New MaterialSkin.Controls.MaterialButton()
+        Me.BtnValla = New MaterialSkin.Controls.MaterialButton()
+        Me.BtnEscalera = New MaterialSkin.Controls.MaterialButton()
+        Me.BtnBalon = New MaterialSkin.Controls.MaterialButton()
         Me.BtnLineaPunteada = New MaterialSkin.Controls.MaterialButton()
         Me.BtnLineaNomal = New MaterialSkin.Controls.MaterialButton()
-        Me.Vaciarimagen = New MaterialSkin.Controls.MaterialButton()
-        Me.BtnImportarImagen = New MaterialSkin.Controls.MaterialButton()
         Me.BtnPersona = New MaterialSkin.Controls.MaterialButton()
-        Me.BtnExportarImagen = New MaterialSkin.Controls.MaterialButton()
         Me.BtnCono = New MaterialSkin.Controls.MaterialButton()
         Me.PBImagenCampo = New System.Windows.Forms.PictureBox()
         Me.MaterialCard1 = New MaterialSkin.Controls.MaterialCard()
@@ -89,6 +95,7 @@ Partial Class Ejercicios
         Me.MaterialCard3.SuspendLayout()
         CType(Me.DbgObjetivosEjercicios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MaterialCard2.SuspendLayout()
+        Me.Panel4.SuspendLayout()
         Me.Panel3.SuspendLayout()
         CType(Me.PBImagenCampo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MaterialCard1.SuspendLayout()
@@ -246,7 +253,7 @@ Partial Class Ejercicios
         Me.MaterialCard3.Controls.Add(Me.DbgObjetivosEjercicios)
         Me.MaterialCard3.Depth = 0
         Me.MaterialCard3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialCard3.Location = New System.Drawing.Point(618, 280)
+        Me.MaterialCard3.Location = New System.Drawing.Point(618, 278)
         Me.MaterialCard3.Margin = New System.Windows.Forms.Padding(14)
         Me.MaterialCard3.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialCard3.Name = "MaterialCard3"
@@ -292,32 +299,193 @@ Partial Class Ejercicios
         '
         Me.MaterialCard2.AllowDrop = True
         Me.MaterialCard2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MaterialCard2.Controls.Add(Me.Panel4)
         Me.MaterialCard2.Controls.Add(Me.Panel3)
         Me.MaterialCard2.Controls.Add(Me.PBImagenCampo)
         Me.MaterialCard2.Depth = 0
         Me.MaterialCard2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MaterialCard2.Location = New System.Drawing.Point(5, 280)
+        Me.MaterialCard2.Location = New System.Drawing.Point(5, 278)
         Me.MaterialCard2.Margin = New System.Windows.Forms.Padding(14)
         Me.MaterialCard2.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialCard2.Name = "MaterialCard2"
         Me.MaterialCard2.Padding = New System.Windows.Forms.Padding(14)
-        Me.MaterialCard2.Size = New System.Drawing.Size(607, 446)
+        Me.MaterialCard2.Size = New System.Drawing.Size(607, 448)
         Me.MaterialCard2.TabIndex = 27
+        '
+        'Panel4
+        '
+        Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(207, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Panel4.Controls.Add(Me.Label1)
+        Me.Panel4.Controls.Add(Me.BtnExportarImagen)
+        Me.Panel4.Controls.Add(Me.BtnImportarImagen)
+        Me.Panel4.Controls.Add(Me.Vaciarimagen)
+        Me.Panel4.Location = New System.Drawing.Point(5, 5)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(598, 52)
+        Me.Panel4.TabIndex = 12
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Arial", 17.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
+        Me.Label1.Location = New System.Drawing.Point(12, 13)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(223, 26)
+        Me.Label1.TabIndex = 28
+        Me.Label1.Text = "Diseño de Ejercicio"
+        '
+        'BtnExportarImagen
+        '
+        Me.BtnExportarImagen.AutoSize = False
+        Me.BtnExportarImagen.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BtnExportarImagen.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
+        Me.BtnExportarImagen.Depth = 0
+        Me.BtnExportarImagen.HighEmphasis = True
+        Me.BtnExportarImagen.Icon = CType(resources.GetObject("BtnExportarImagen.Icon"), System.Drawing.Image)
+        Me.BtnExportarImagen.Location = New System.Drawing.Point(550, 5)
+        Me.BtnExportarImagen.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.BtnExportarImagen.MouseState = MaterialSkin.MouseState.HOVER
+        Me.BtnExportarImagen.Name = "BtnExportarImagen"
+        Me.BtnExportarImagen.NoAccentTextColor = System.Drawing.Color.Empty
+        Me.BtnExportarImagen.Size = New System.Drawing.Size(42, 42)
+        Me.BtnExportarImagen.TabIndex = 3
+        Me.BtnExportarImagen.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        Me.BtnExportarImagen.UseAccentColor = False
+        Me.BtnExportarImagen.UseVisualStyleBackColor = True
+        '
+        'BtnImportarImagen
+        '
+        Me.BtnImportarImagen.AutoSize = False
+        Me.BtnImportarImagen.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BtnImportarImagen.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
+        Me.BtnImportarImagen.Depth = 0
+        Me.BtnImportarImagen.HighEmphasis = True
+        Me.BtnImportarImagen.Icon = CType(resources.GetObject("BtnImportarImagen.Icon"), System.Drawing.Image)
+        Me.BtnImportarImagen.Location = New System.Drawing.Point(500, 5)
+        Me.BtnImportarImagen.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.BtnImportarImagen.MouseState = MaterialSkin.MouseState.HOVER
+        Me.BtnImportarImagen.Name = "BtnImportarImagen"
+        Me.BtnImportarImagen.NoAccentTextColor = System.Drawing.Color.Empty
+        Me.BtnImportarImagen.Size = New System.Drawing.Size(42, 42)
+        Me.BtnImportarImagen.TabIndex = 6
+        Me.BtnImportarImagen.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        Me.BtnImportarImagen.UseAccentColor = False
+        Me.BtnImportarImagen.UseVisualStyleBackColor = True
+        '
+        'Vaciarimagen
+        '
+        Me.Vaciarimagen.AutoSize = False
+        Me.Vaciarimagen.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Vaciarimagen.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
+        Me.Vaciarimagen.Depth = 0
+        Me.Vaciarimagen.HighEmphasis = True
+        Me.Vaciarimagen.Icon = CType(resources.GetObject("Vaciarimagen.Icon"), System.Drawing.Image)
+        Me.Vaciarimagen.Location = New System.Drawing.Point(450, 5)
+        Me.Vaciarimagen.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.Vaciarimagen.MouseState = MaterialSkin.MouseState.HOVER
+        Me.Vaciarimagen.Name = "Vaciarimagen"
+        Me.Vaciarimagen.NoAccentTextColor = System.Drawing.Color.Empty
+        Me.Vaciarimagen.Size = New System.Drawing.Size(42, 42)
+        Me.Vaciarimagen.TabIndex = 7
+        Me.Vaciarimagen.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        Me.Vaciarimagen.UseAccentColor = False
+        Me.Vaciarimagen.UseVisualStyleBackColor = True
         '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(207, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Panel3.Controls.Add(Me.BtnPica)
+        Me.Panel3.Controls.Add(Me.BtnValla)
+        Me.Panel3.Controls.Add(Me.BtnEscalera)
+        Me.Panel3.Controls.Add(Me.BtnBalon)
         Me.Panel3.Controls.Add(Me.BtnLineaPunteada)
         Me.Panel3.Controls.Add(Me.BtnLineaNomal)
-        Me.Panel3.Controls.Add(Me.Vaciarimagen)
-        Me.Panel3.Controls.Add(Me.BtnImportarImagen)
         Me.Panel3.Controls.Add(Me.BtnPersona)
-        Me.Panel3.Controls.Add(Me.BtnExportarImagen)
         Me.Panel3.Controls.Add(Me.BtnCono)
-        Me.Panel3.Location = New System.Drawing.Point(8, 6)
+        Me.Panel3.Location = New System.Drawing.Point(5, 391)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(588, 52)
+        Me.Panel3.Size = New System.Drawing.Size(598, 52)
         Me.Panel3.TabIndex = 6
+        '
+        'BtnPica
+        '
+        Me.BtnPica.AutoSize = False
+        Me.BtnPica.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BtnPica.BackgroundImage = CType(resources.GetObject("BtnPica.BackgroundImage"), System.Drawing.Image)
+        Me.BtnPica.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
+        Me.BtnPica.Depth = 0
+        Me.BtnPica.HighEmphasis = True
+        Me.BtnPica.Icon = CType(resources.GetObject("BtnPica.Icon"), System.Drawing.Image)
+        Me.BtnPica.Location = New System.Drawing.Point(256, 5)
+        Me.BtnPica.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.BtnPica.MouseState = MaterialSkin.MouseState.HOVER
+        Me.BtnPica.Name = "BtnPica"
+        Me.BtnPica.NoAccentTextColor = System.Drawing.Color.Empty
+        Me.BtnPica.Size = New System.Drawing.Size(42, 42)
+        Me.BtnPica.TabIndex = 11
+        Me.BtnPica.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        Me.BtnPica.UseAccentColor = False
+        Me.BtnPica.UseVisualStyleBackColor = True
+        '
+        'BtnValla
+        '
+        Me.BtnValla.AutoSize = False
+        Me.BtnValla.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BtnValla.BackgroundImage = CType(resources.GetObject("BtnValla.BackgroundImage"), System.Drawing.Image)
+        Me.BtnValla.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
+        Me.BtnValla.Depth = 0
+        Me.BtnValla.HighEmphasis = True
+        Me.BtnValla.Icon = CType(resources.GetObject("BtnValla.Icon"), System.Drawing.Image)
+        Me.BtnValla.Location = New System.Drawing.Point(206, 5)
+        Me.BtnValla.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.BtnValla.MouseState = MaterialSkin.MouseState.HOVER
+        Me.BtnValla.Name = "BtnValla"
+        Me.BtnValla.NoAccentTextColor = System.Drawing.Color.Empty
+        Me.BtnValla.Size = New System.Drawing.Size(42, 42)
+        Me.BtnValla.TabIndex = 10
+        Me.BtnValla.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        Me.BtnValla.UseAccentColor = False
+        Me.BtnValla.UseVisualStyleBackColor = True
+        '
+        'BtnEscalera
+        '
+        Me.BtnEscalera.AutoSize = False
+        Me.BtnEscalera.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BtnEscalera.BackgroundImage = CType(resources.GetObject("BtnEscalera.BackgroundImage"), System.Drawing.Image)
+        Me.BtnEscalera.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
+        Me.BtnEscalera.Depth = 0
+        Me.BtnEscalera.HighEmphasis = True
+        Me.BtnEscalera.Icon = CType(resources.GetObject("BtnEscalera.Icon"), System.Drawing.Image)
+        Me.BtnEscalera.Location = New System.Drawing.Point(156, 5)
+        Me.BtnEscalera.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.BtnEscalera.MouseState = MaterialSkin.MouseState.HOVER
+        Me.BtnEscalera.Name = "BtnEscalera"
+        Me.BtnEscalera.NoAccentTextColor = System.Drawing.Color.Empty
+        Me.BtnEscalera.Size = New System.Drawing.Size(42, 42)
+        Me.BtnEscalera.TabIndex = 9
+        Me.BtnEscalera.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        Me.BtnEscalera.UseAccentColor = False
+        Me.BtnEscalera.UseVisualStyleBackColor = True
+        '
+        'BtnBalon
+        '
+        Me.BtnBalon.AutoSize = False
+        Me.BtnBalon.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.BtnBalon.BackgroundImage = CType(resources.GetObject("BtnBalon.BackgroundImage"), System.Drawing.Image)
+        Me.BtnBalon.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
+        Me.BtnBalon.Depth = 0
+        Me.BtnBalon.HighEmphasis = True
+        Me.BtnBalon.Icon = CType(resources.GetObject("BtnBalon.Icon"), System.Drawing.Image)
+        Me.BtnBalon.Location = New System.Drawing.Point(106, 5)
+        Me.BtnBalon.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.BtnBalon.MouseState = MaterialSkin.MouseState.HOVER
+        Me.BtnBalon.Name = "BtnBalon"
+        Me.BtnBalon.NoAccentTextColor = System.Drawing.Color.Empty
+        Me.BtnBalon.Size = New System.Drawing.Size(42, 42)
+        Me.BtnBalon.TabIndex = 8
+        Me.BtnBalon.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
+        Me.BtnBalon.UseAccentColor = False
+        Me.BtnBalon.UseVisualStyleBackColor = True
         '
         'BtnLineaPunteada
         '
@@ -328,7 +496,7 @@ Partial Class Ejercicios
         Me.BtnLineaPunteada.Depth = 0
         Me.BtnLineaPunteada.HighEmphasis = True
         Me.BtnLineaPunteada.Icon = CType(resources.GetObject("BtnLineaPunteada.Icon"), System.Drawing.Image)
-        Me.BtnLineaPunteada.Location = New System.Drawing.Point(299, 3)
+        Me.BtnLineaPunteada.Location = New System.Drawing.Point(550, 5)
         Me.BtnLineaPunteada.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.BtnLineaPunteada.MouseState = MaterialSkin.MouseState.HOVER
         Me.BtnLineaPunteada.Name = "BtnLineaPunteada"
@@ -348,7 +516,7 @@ Partial Class Ejercicios
         Me.BtnLineaNomal.Depth = 0
         Me.BtnLineaNomal.HighEmphasis = True
         Me.BtnLineaNomal.Icon = CType(resources.GetObject("BtnLineaNomal.Icon"), System.Drawing.Image)
-        Me.BtnLineaNomal.Location = New System.Drawing.Point(249, 3)
+        Me.BtnLineaNomal.Location = New System.Drawing.Point(500, 5)
         Me.BtnLineaNomal.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
         Me.BtnLineaNomal.MouseState = MaterialSkin.MouseState.HOVER
         Me.BtnLineaNomal.Name = "BtnLineaNomal"
@@ -358,44 +526,6 @@ Partial Class Ejercicios
         Me.BtnLineaNomal.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
         Me.BtnLineaNomal.UseAccentColor = False
         Me.BtnLineaNomal.UseVisualStyleBackColor = True
-        '
-        'Vaciarimagen
-        '
-        Me.Vaciarimagen.AutoSize = False
-        Me.Vaciarimagen.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Vaciarimagen.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
-        Me.Vaciarimagen.Depth = 0
-        Me.Vaciarimagen.HighEmphasis = True
-        Me.Vaciarimagen.Icon = CType(resources.GetObject("Vaciarimagen.Icon"), System.Drawing.Image)
-        Me.Vaciarimagen.Location = New System.Drawing.Point(439, 5)
-        Me.Vaciarimagen.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.Vaciarimagen.MouseState = MaterialSkin.MouseState.HOVER
-        Me.Vaciarimagen.Name = "Vaciarimagen"
-        Me.Vaciarimagen.NoAccentTextColor = System.Drawing.Color.Empty
-        Me.Vaciarimagen.Size = New System.Drawing.Size(42, 42)
-        Me.Vaciarimagen.TabIndex = 7
-        Me.Vaciarimagen.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
-        Me.Vaciarimagen.UseAccentColor = False
-        Me.Vaciarimagen.UseVisualStyleBackColor = True
-        '
-        'BtnImportarImagen
-        '
-        Me.BtnImportarImagen.AutoSize = False
-        Me.BtnImportarImagen.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.BtnImportarImagen.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
-        Me.BtnImportarImagen.Depth = 0
-        Me.BtnImportarImagen.HighEmphasis = True
-        Me.BtnImportarImagen.Icon = CType(resources.GetObject("BtnImportarImagen.Icon"), System.Drawing.Image)
-        Me.BtnImportarImagen.Location = New System.Drawing.Point(489, 5)
-        Me.BtnImportarImagen.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.BtnImportarImagen.MouseState = MaterialSkin.MouseState.HOVER
-        Me.BtnImportarImagen.Name = "BtnImportarImagen"
-        Me.BtnImportarImagen.NoAccentTextColor = System.Drawing.Color.Empty
-        Me.BtnImportarImagen.Size = New System.Drawing.Size(42, 42)
-        Me.BtnImportarImagen.TabIndex = 6
-        Me.BtnImportarImagen.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
-        Me.BtnImportarImagen.UseAccentColor = False
-        Me.BtnImportarImagen.UseVisualStyleBackColor = True
         '
         'BtnPersona
         '
@@ -416,25 +546,6 @@ Partial Class Ejercicios
         Me.BtnPersona.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
         Me.BtnPersona.UseAccentColor = False
         Me.BtnPersona.UseVisualStyleBackColor = True
-        '
-        'BtnExportarImagen
-        '
-        Me.BtnExportarImagen.AutoSize = False
-        Me.BtnExportarImagen.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.BtnExportarImagen.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.[Default]
-        Me.BtnExportarImagen.Depth = 0
-        Me.BtnExportarImagen.HighEmphasis = True
-        Me.BtnExportarImagen.Icon = CType(resources.GetObject("BtnExportarImagen.Icon"), System.Drawing.Image)
-        Me.BtnExportarImagen.Location = New System.Drawing.Point(539, 5)
-        Me.BtnExportarImagen.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
-        Me.BtnExportarImagen.MouseState = MaterialSkin.MouseState.HOVER
-        Me.BtnExportarImagen.Name = "BtnExportarImagen"
-        Me.BtnExportarImagen.NoAccentTextColor = System.Drawing.Color.Empty
-        Me.BtnExportarImagen.Size = New System.Drawing.Size(42, 42)
-        Me.BtnExportarImagen.TabIndex = 3
-        Me.BtnExportarImagen.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained
-        Me.BtnExportarImagen.UseAccentColor = False
-        Me.BtnExportarImagen.UseVisualStyleBackColor = True
         '
         'BtnCono
         '
@@ -460,9 +571,9 @@ Partial Class Ejercicios
         '
         Me.PBImagenCampo.BackgroundImage = CType(resources.GetObject("PBImagenCampo.BackgroundImage"), System.Drawing.Image)
         Me.PBImagenCampo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PBImagenCampo.Location = New System.Drawing.Point(8, 63)
+        Me.PBImagenCampo.Location = New System.Drawing.Point(5, 61)
         Me.PBImagenCampo.Name = "PBImagenCampo"
-        Me.PBImagenCampo.Size = New System.Drawing.Size(588, 380)
+        Me.PBImagenCampo.Size = New System.Drawing.Size(598, 325)
         Me.PBImagenCampo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.PBImagenCampo.TabIndex = 0
         Me.PBImagenCampo.TabStop = False
@@ -1219,6 +1330,8 @@ Partial Class Ejercicios
         Me.MaterialCard3.PerformLayout()
         CType(Me.DbgObjetivosEjercicios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MaterialCard2.ResumeLayout(False)
+        Me.Panel4.ResumeLayout(False)
+        Me.Panel4.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         CType(Me.PBImagenCampo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MaterialCard1.ResumeLayout(False)
@@ -1295,4 +1408,10 @@ Partial Class Ejercicios
     Friend WithEvents Descripcion As DataGridViewTextBoxColumn
     Friend WithEvents numPorteros As DataGridViewTextBoxColumn
     Friend WithEvents Jugadores As DataGridViewTextBoxColumn
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents BtnPica As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents BtnValla As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents BtnEscalera As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents BtnBalon As MaterialSkin.Controls.MaterialButton
+    Friend WithEvents Label1 As Label
 End Class

@@ -28,7 +28,7 @@ Public Class Ejercicios
     Dim AnteriorBoton2 As MaterialButton = Nothing
     Dim Punteado As Boolean = False
 
-    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles BtnPersona.Click, BtnCono.Click
+    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles BtnPersona.Click, BtnCono.Click, BtnBalon.Click, BtnEscalera.Click, BtnPica.Click, BtnValla.Click
         If sender.UseAccentColor = True Then
             sender.UseAccentColor = False
         Else
@@ -40,6 +40,14 @@ Public Class Ejercicios
         If sender.name = BtnPersona.Name Then
             selectedImage = New Bitmap(sender.BackgroundImage, 20, 20)
         ElseIf sender.name = BtnCono.Name Then
+            selectedImage = New Bitmap(sender.BackgroundImage, 10, 10)
+        ElseIf sender.name = BtnBalon.Name Then
+            selectedImage = New Bitmap(sender.BackgroundImage, 10, 10)
+        ElseIf sender.name = BtnEscalera.Name Then
+            selectedImage = New Bitmap(sender.BackgroundImage, 10, 10)
+        ElseIf sender.name = BtnPica.Name Then
+            selectedImage = New Bitmap(sender.BackgroundImage, 10, 10)
+        ElseIf sender.name = BtnValla.Name Then
             selectedImage = New Bitmap(sender.BackgroundImage, 10, 10)
         End If
         AnteriorBoton = sender
@@ -64,7 +72,7 @@ Public Class Ejercicios
     End Sub
 
     Private Sub PictureBox1_MouseClick(sender As Object, e As MouseEventArgs) Handles PBImagenCampo.MouseClick
-        If BtnPersona.UseAccentColor = True Or BtnCono.UseAccentColor = True Then
+        If BtnPersona.UseAccentColor = True Or BtnCono.UseAccentColor = True Or BtnValla.UseAccentColor = True Or BtnEscalera.UseAccentColor = True Or BtnPica.UseAccentColor = True Or BtnBalon.UseAccentColor = True Then
             If selectedImage IsNot Nothing Then
                 Dim pictureboxImage As New PictureBox()
                 pictureboxImage.Size = selectedImage.Size
