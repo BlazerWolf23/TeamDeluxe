@@ -8,6 +8,7 @@ Imports System.Windows.Media
 Imports System.Windows.Shapes
 Imports MaterialSkin.Controls
 Imports Microsoft.VisualBasic.Devices
+Imports Microsoft.Win32
 
 Public Class Ejercicios
     Dim rsEjercicios As New ADODB.Recordset
@@ -17,6 +18,7 @@ Public Class Ejercicios
     Dim lineasPunteadas As New List(Of Linea)
     Dim saltoPintarLineas As Boolean
     Dim imagenOrifinal As Image
+    Private openFileDialog1 As New OpenFileDialog
     Private Structure Linea
         Public PuntoInicio As Point
         Public PuntoFinal As Point
@@ -274,7 +276,16 @@ Public Class Ejercicios
     End Sub
 
     Private Sub BtnImportarImagen_Click(sender As Object, e As EventArgs) Handles BtnImportarImagen.Click
+        openFileDialog1.Filter = "Archivos PNG|*.png"
+        openFileDialog1.Title = "Seleccionar Imagen"
+        openFileDialog1.FileName = ""
+        openFileDialog1.ShowDialog()
+        Try
+            Dim selectedImage As Image = Image.FromFile(openFileDialog1.FileName)
+            PBImagenCampo.BackgroundImage = selectedImage
+        Catch ex As Exception
 
+        End Try
     End Sub
 
     Private Sub DbgObjetivos_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgObjetivosEjercicios.CellDoubleClick
