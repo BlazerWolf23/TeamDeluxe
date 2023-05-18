@@ -270,9 +270,16 @@ Public Class Ejercicios
     End Sub
 
     Private Sub BtnExportarImagen_Click(sender As Object, e As EventArgs) Handles BtnExportarImagen.Click
-
-
-
+        Dim guardarDialogo As New SaveFileDialog()
+        guardarDialogo.Filter = "Archivos PNG (*.png)|*.png"
+        guardarDialogo.Title = "Guardar imagen"
+        guardarDialogo.ShowDialog()
+        Dim rutaArchivo As String = guardarDialogo.FileName
+        If Not String.IsNullOrEmpty(rutaArchivo) Then
+            Dim bmp As New Bitmap(PBImagenCampo.Width, PBImagenCampo.Height)
+            PBImagenCampo.DrawToBitmap(bmp, PBImagenCampo.ClientRectangle)
+            bmp.Save(rutaArchivo, System.Drawing.Imaging.ImageFormat.Png)
+        End If
     End Sub
 
     Private Sub BtnImportarImagen_Click(sender As Object, e As EventArgs) Handles BtnImportarImagen.Click

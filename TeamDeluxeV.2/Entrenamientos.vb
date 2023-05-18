@@ -172,6 +172,13 @@ Public Class Entrenamientos
     End Sub
 
     Private Sub BtnAniadirGrid_Click(sender As Object, e As EventArgs) Handles BtnAniadirGrid.Click
+        Dim tiempo As TimeSpan
+        If TimeSpan.TryParse(TxTiempoGuardar.Text, tiempo) Then
+            If tiempo.TotalMinutes <= 0 Then
+                MsgBox("El tiempo no puede ser 0", vbExclamation)
+                Exit Sub
+            End If
+        End If
 
         Dim newRow As DataGridViewRow = New DataGridViewRow()
         If DateTime.TryParseExact(TxTiempoGuardar.Text, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, hora) Then
@@ -314,7 +321,7 @@ Public Class Entrenamientos
             TxNombre.Text = Trim(rs("nombre").Value)
             TxPorteros.Text = Trim(rs("NumPorteros").Value)
             TxJugadores.Text = Trim(rs("NumJugadores").Value)
-            TxDescripcion.Text = Trim(rs("descripcion").Value)
+            TxDescripcionEjer.Text = Trim(rs("descripcion").Value)
             TxMaterialEjer.Text = Trim(rs("material").Value)
             Try
                 PBImagenCampo.BackgroundImage = Image.FromFile(rs("RutaImagen").Value)
