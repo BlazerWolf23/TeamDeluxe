@@ -23,7 +23,7 @@ Partial Class Usuarios
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Usuarios))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.PanelPass = New MaterialSkin.Controls.MaterialCard()
@@ -32,6 +32,12 @@ Partial Class Usuarios
         Me.MaterialLabel13 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialCard2 = New MaterialSkin.Controls.MaterialCard()
         Me.DbgUsuarios = New System.Windows.Forms.DataGridView()
+        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DNI = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Equipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.BtnFiltrar = New MaterialSkin.Controls.MaterialButton()
         Me.CboEquipoBus = New MaterialSkin.Controls.MaterialComboBox()
@@ -65,12 +71,6 @@ Partial Class Usuarios
         Me.MaterialLabel2 = New MaterialSkin.Controls.MaterialLabel()
         Me.MaterialLabel3 = New MaterialSkin.Controls.MaterialLabel()
         Me.TxApellido = New MaterialSkin.Controls.MaterialMaskedTextBox()
-        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Apellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DNI = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Telefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Equipo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.PanelPass.SuspendLayout()
@@ -87,11 +87,14 @@ Partial Class Usuarios
         Me.Panel1.Controls.Add(Me.Panel2)
         Me.Panel1.Location = New System.Drawing.Point(2, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1167, 774)
+        Me.Panel1.Size = New System.Drawing.Size(971, 774)
         Me.Panel1.TabIndex = 0
         '
         'Panel2
         '
+        Me.Panel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(207, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel2.Controls.Add(Me.PanelPass)
@@ -99,7 +102,7 @@ Partial Class Usuarios
         Me.Panel2.Controls.Add(Me.MaterialCard1)
         Me.Panel2.Location = New System.Drawing.Point(3, 3)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1159, 766)
+        Me.Panel2.Size = New System.Drawing.Size(963, 766)
         Me.Panel2.TabIndex = 1
         '
         'PanelPass
@@ -110,7 +113,7 @@ Partial Class Usuarios
         Me.PanelPass.Controls.Add(Me.MaterialLabel13)
         Me.PanelPass.Depth = 0
         Me.PanelPass.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.PanelPass.Location = New System.Drawing.Point(675, 6)
+        Me.PanelPass.Location = New System.Drawing.Point(658, 6)
         Me.PanelPass.Margin = New System.Windows.Forms.Padding(14)
         Me.PanelPass.MouseState = MaterialSkin.MouseState.HOVER
         Me.PanelPass.Name = "PanelPass"
@@ -210,6 +213,9 @@ Partial Class Usuarios
         '
         'DbgUsuarios
         '
+        Me.DbgUsuarios.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DbgUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DbgUsuarios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.Nombre, Me.Apellidos, Me.DNI, Me.Telefono, Me.Equipo})
         Me.DbgUsuarios.Location = New System.Drawing.Point(5, 117)
@@ -217,8 +223,52 @@ Partial Class Usuarios
         Me.DbgUsuarios.Size = New System.Drawing.Size(632, 330)
         Me.DbgUsuarios.TabIndex = 0
         '
+        'ID
+        '
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ID.DefaultCellStyle = DataGridViewCellStyle3
+        Me.ID.HeaderText = "ID"
+        Me.ID.Name = "ID"
+        Me.ID.ReadOnly = True
+        Me.ID.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.ID.Width = 50
+        '
+        'Nombre
+        '
+        Me.Nombre.HeaderText = "Nombre"
+        Me.Nombre.Name = "Nombre"
+        Me.Nombre.ReadOnly = True
+        '
+        'Apellidos
+        '
+        Me.Apellidos.HeaderText = "Apellidos"
+        Me.Apellidos.Name = "Apellidos"
+        Me.Apellidos.ReadOnly = True
+        Me.Apellidos.Width = 140
+        '
+        'DNI
+        '
+        Me.DNI.HeaderText = "DNI"
+        Me.DNI.Name = "DNI"
+        Me.DNI.ReadOnly = True
+        '
+        'Telefono
+        '
+        Me.Telefono.HeaderText = "Telefono"
+        Me.Telefono.Name = "Telefono"
+        Me.Telefono.ReadOnly = True
+        '
+        'Equipo
+        '
+        Me.Equipo.HeaderText = "Equipo"
+        Me.Equipo.Name = "Equipo"
+        Me.Equipo.ReadOnly = True
+        '
         'Panel3
         '
+        Me.Panel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(227, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel3.Controls.Add(Me.BtnFiltrar)
@@ -1095,52 +1145,11 @@ Partial Class Usuarios
         Me.TxApellido.UseTallSize = False
         Me.TxApellido.ValidatingType = Nothing
         '
-        'ID
-        '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ID.DefaultCellStyle = DataGridViewCellStyle1
-        Me.ID.HeaderText = "ID"
-        Me.ID.Name = "ID"
-        Me.ID.ReadOnly = True
-        Me.ID.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.ID.Width = 50
-        '
-        'Nombre
-        '
-        Me.Nombre.HeaderText = "Nombre"
-        Me.Nombre.Name = "Nombre"
-        Me.Nombre.ReadOnly = True
-        '
-        'Apellidos
-        '
-        Me.Apellidos.HeaderText = "Apellidos"
-        Me.Apellidos.Name = "Apellidos"
-        Me.Apellidos.ReadOnly = True
-        Me.Apellidos.Width = 140
-        '
-        'DNI
-        '
-        Me.DNI.HeaderText = "DNI"
-        Me.DNI.Name = "DNI"
-        Me.DNI.ReadOnly = True
-        '
-        'Telefono
-        '
-        Me.Telefono.HeaderText = "Telefono"
-        Me.Telefono.Name = "Telefono"
-        Me.Telefono.ReadOnly = True
-        '
-        'Equipo
-        '
-        Me.Equipo.HeaderText = "Equipo"
-        Me.Equipo.Name = "Equipo"
-        Me.Equipo.ReadOnly = True
-        '
         'Usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(1335, 779)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None

@@ -210,7 +210,7 @@ Public Class Entrenamientos
         CargarEquipos()
         CargarUbicaciones()
         cargarObjetivos()
-        CragarEjercicios(1)
+        CragarEjercicios(CboObjetivoGuardar.SelectedValue)
         SaltoCombo = False
     End Sub
 

@@ -122,7 +122,9 @@ Public Class Ejercicios
 
     Private Sub Vaciarimagen_Click(sender As Object, e As EventArgs) Handles Vaciarimagen.Click
         saltoPintarLineas = True
+
         PBImagenCampo.BackgroundImage = imagenOrifinal
+
     End Sub
 
     Public Sub Guardar()
@@ -302,6 +304,7 @@ Public Class Ejercicios
     End Sub
 
     Private Sub Ejercicios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        PBImagenCampo.Invalidate()
         imagenOrifinal = PBImagenCampo.BackgroundImage
         Nuevo()
     End Sub
@@ -329,12 +332,10 @@ Public Class Ejercicios
 
 
     Private Sub TxID_KeyDown(sender As Object, e As KeyEventArgs) Handles TxID.KeyDown
-        Dim ms As MemoryStream
-        Dim img As Image
         If e.KeyValue = Keys.Enter Then
             If IsNumeric(TxID.Text) Then
                 rsAux = New ADODB.Recordset
-                rsAux.Open("Select * from ejercicios where idejercicios = " & CInt(TxID.Text), Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic)
+                rsAux.Open("Select * from ejercicios where idejercicios = " & CInt(TxID.Text) & " and idusuario = " & VariablesAPP.IdUsuarioApp, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic)
                 If Not rsAux.EOF Then
                     TxID.Text = CInt(rsAux("idejercicios").Value)
                     TxNombre.Text = Trim(rsAux("nombre").Value)
@@ -345,6 +346,8 @@ Public Class Ejercicios
                     TxObservaciones.Text = Trim(rsAux("observaciones").Value)
                     PBImagenCampo.BackgroundImage = Image.FromFile(rsAux("RutaImagen").Value)
                     CargarObjetivos(CInt(TxID.Text))
+                Else
+                    Nuevo()
                 End If
             End If
         End If
@@ -381,17 +384,14 @@ Public Class Ejercicios
 
             Try
                 Using fs As New FileStream(Trim(rsAux("RutaImagen").Value), FileMode.Open, FileAccess.Read)
-                    ' Crear una copia de la imagen desde el flujo de datos
                     Dim img As Image = Image.FromStream(fs)
-
-                    ' Asignar la imagen al PictureBox
-                    PBImagenCampo.Image = img
+                    PBImagenCampo.BackgroundImage = img
+                    PBImagenCampo.BackgroundImageLayout = ImageLayout.Stretch
                 End Using
 
             Catch ex As Exception
                 MsgBox("No se ha encontrado la imagen para el ejercicio.", vbExclamation + vbOK)
                 PBImagenCampo.BackgroundImage = imagenOrifinal
-                Exit Sub
             End Try
             CargarObjetivos(CInt(TxID.Text))
         End If
@@ -423,7 +423,7 @@ Public Class Ejercicios
         TxMaterial.Text = ""
         PBImagenCampo.Controls.Clear()
         PBImagenCampo.BackgroundImage = imagenOrifinal
-        Vaciarimagen_Click(Vaciarimagen, New EventArgs)
+        PBImagenCampo.Invalidate()
         DbgObjetivosEjercicios.Rows.Clear()
         DbgObjetivos.Rows.Clear()
         CargarObjetivos()

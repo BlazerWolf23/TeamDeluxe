@@ -1,4 +1,5 @@
-﻿Imports System.Security.Cryptography
+﻿Imports System.Globalization
+Imports System.Security.Cryptography
 
 Public Class Equipos
     Dim sql As String
@@ -6,7 +7,12 @@ Public Class Equipos
     Dim rsAux As New ADODB.Recordset
     Dim rsEquipos As New ADODB.Recordset
     Dim idequi As Integer = 0
+    Dim hora As DateTime
     Public Sub Guardar()
+        If Not IsNumeric(TxIDEquipo.Text) Then
+            MsgBox("Introduzca un ID valido.", vbExclamation)
+            Exit Sub
+        End If
         If Trim(TxNombreEquipo.Text) = "" Or Trim(TxHoraPartido.Text) = "" Or Trim(TxCategoria.Text) = "" Then
             MsgBox("Rellene todos los campos", vbExclamation)
             Exit Sub
@@ -109,11 +115,40 @@ Public Class Equipos
         Cursor = Cursors.Arrow
     End Sub
 
-    Private Sub TxIDEquipo_KeyDown(sender As Object, e As KeyEventArgs) Handles TxIDEquipo.KeyDown, TxNombreEquipo.KeyDown, TxTemporada.KeyDown, TxCategoria.KeyDown, DTPInicioCompe.KeyDown, TxHoraPartido.KeyDown
+    Private Sub TxIDEquipo_KeyDown(sender As Object, e As KeyEventArgs) Handles TxIDEquipo.KeyDown, TxIDubicacion.KeyDown, TxNombreEquipo.KeyDown, TxTemporada.KeyDown, TxCategoria.KeyDown, DTPInicioCompe.KeyDown, TxHoraPartido.KeyDown
         If e.KeyCode = Keys.Enter Then
             SendKeys.Send("{TAB}")
         End If
     End Sub
+    Private Sub LostFocus2(sender As Object, e As EventArgs) Handles TxHoraPartido.LostFocus
+        If Not DateTime.TryParseExact(sender.Text, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, hora) Then
+            MsgBox("Introduzca una hora valida para el entrenamiento", vbExclamation)
+            sender.text = "00:00"
+            Exit Sub
+        End If
+    End Sub
+
+    Private Sub LostFocus3(sender As Object, e As EventArgs) Handles TxIDubicacion.LostFocus
+        If Not Trim(TxIDEquipo.Text) = "" Or IsNumeric(TxIDEquipo.Text) Then
+            If Not Trim(TxIDubicacion.Text) = "" And IsNumeric(TxIDubicacion.Text) Then
+                rsAux = New ADODB.Recordset
+                rsAux.Open("select * from ubicaciones where idequipo = " & CInt(TxIDEquipo.Text), Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+                If rsAux.EOF Then Nuevo() : Exit Sub
+                TxIDubicacion.Text = CInt(rsAux("idubicacion").Value)
+                TxDireccionUbicacion.Text = Trim(rsAux("Direccion").Value)
+                TxNombreUbicacion.Text = Trim(rsAux("nombre").Value)
+                TxCampoUbicacion.Text = Trim(rsAux("campo").Value)
+            Else
+                TxIDubicacion.Text = ""
+                TxDireccionUbicacion.Text = ""
+                TxNombreUbicacion.Text = ""
+                TxCampoUbicacion.Text = ""
+            End If
+        End If
+    End Sub
+
+
+
 
     Private Sub LostFocus1(sender As Object, e As EventArgs) Handles TxIDEquipo.LostFocus
         If Trim(TxIDEquipo.Text) = "" Or Not IsNumeric(TxIDEquipo.Text) Then Exit Sub
@@ -136,6 +171,7 @@ Public Class Equipos
         TxCategoria.Text = Trim(rs("Categoria").Value)
         DTPInicioCompe.Value = CDate(rs("InicioCompeticion").Value)
         TxHoraPartido.Text = Trim(rs("HoraPartidos").Value)
+        CargarGridUbicaciones(IdEquipo)
         'CboUsuario.SelectedValue = CInt(rs("idUsuario").Value)
     End Sub
 
@@ -164,6 +200,11 @@ Public Class Equipos
 
     Private Sub TxGuardarUbicacion_Click(sender As Object, e As EventArgs) Handles TxGuardarUbicacion.Click
         Dim rsUbi As New ADODB.Recordset
+        If Not IsNumeric(TxIDubicacion.Text) Then
+            MsgBox("Introduzca un ID de ubicacion valido.", vbExclamation)
+            Exit Sub
+        End If
+
         If Trim(TxIDEquipo.Text) = "" Then Exit Sub
         rsUbi.Open("Select * from ubicaciones where idubicacion = " & IIf(Trim(TxIDubicacion.Text) = "", "999", 0), Database.Connection, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic, 1)
         If rsUbi.EOF Then
@@ -244,7 +285,6 @@ Public Class Equipos
         rsAux.Open("select * from equipos where idequipos = " & CInt(DbgEquipos.Rows(e.RowIndex).Cells(0).Value), Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
         If rsAux.EOF Then Nuevo() : Exit Sub
         CargarEquipoDeConsulta(CInt(rsAux("idequipos").Value))
-        CargarGridUbicaciones(CInt(rsAux("idequipos").Value))
     End Sub
 
     Private Sub TxEliminarUbicacion_Click(sender As Object, e As EventArgs) Handles TxEliminarUbicacion.Click

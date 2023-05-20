@@ -44,8 +44,10 @@ Partial Class MDI_Principal
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.BtnCerrarFormulario = New System.Windows.Forms.ToolStripButton()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
-        Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.Lbusuario = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
+        Me.LbFecha = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -181,18 +183,31 @@ Partial Class MDI_Principal
         '
         'StatusStrip
         '
-        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
-        Me.StatusStrip.Location = New System.Drawing.Point(0, 433)
+        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Lbusuario, Me.ToolStripSeparator8, Me.LbFecha})
+        Me.StatusStrip.Location = New System.Drawing.Point(0, 432)
         Me.StatusStrip.Name = "StatusStrip"
-        Me.StatusStrip.Size = New System.Drawing.Size(1193, 22)
+        Me.StatusStrip.Size = New System.Drawing.Size(1193, 23)
         Me.StatusStrip.TabIndex = 7
         Me.StatusStrip.Text = "StatusStrip"
         '
-        'ToolStripStatusLabel
+        'Lbusuario
         '
-        Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
-        Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
-        Me.ToolStripStatusLabel.Text = "Status"
+        Me.Lbusuario.Image = CType(resources.GetObject("Lbusuario.Image"), System.Drawing.Image)
+        Me.Lbusuario.Name = "Lbusuario"
+        Me.Lbusuario.Size = New System.Drawing.Size(69, 18)
+        Me.Lbusuario.Text = "Usuario: "
+        '
+        'ToolStripSeparator8
+        '
+        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(6, 23)
+        '
+        'LbFecha
+        '
+        Me.LbFecha.Image = CType(resources.GetObject("LbFecha.Image"), System.Drawing.Image)
+        Me.LbFecha.Name = "LbFecha"
+        Me.LbFecha.Size = New System.Drawing.Size(60, 18)
+        Me.LbFecha.Text = "Fecha: "
         '
         'MDI_Principal
         '
@@ -201,6 +216,7 @@ Partial Class MDI_Principal
         Me.ClientSize = New System.Drawing.Size(1193, 455)
         Me.Controls.Add(Me.ToolStrip)
         Me.Controls.Add(Me.StatusStrip)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
         Me.Name = "MDI_Principal"
         Me.Text = "Team Deluxe v1.0"
@@ -213,7 +229,7 @@ Partial Class MDI_Principal
 
     End Sub
     Friend WithEvents ToolTip As System.Windows.Forms.ToolTip
-    Friend WithEvents ToolStripStatusLabel As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents Lbusuario As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents StatusStrip As System.Windows.Forms.StatusStrip
     Friend WithEvents BtnMDINuevo As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStrip As System.Windows.Forms.ToolStrip
@@ -233,4 +249,6 @@ Partial Class MDI_Principal
     Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
     Friend WithEvents BtnCerrarFormulario As ToolStripButton
     Friend WithEvents LabelSpacios As ToolStripLabel
+    Friend WithEvents ToolStripSeparator8 As ToolStripSeparator
+    Friend WithEvents LbFecha As ToolStripStatusLabel
 End Class

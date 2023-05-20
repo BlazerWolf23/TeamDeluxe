@@ -24,6 +24,7 @@ Partial Class Inicio
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Inicio))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PanelBD = New MaterialSkin.Controls.MaterialCard()
         Me.BtnRealizarConexion = New MaterialSkin.Controls.MaterialButton()
         Me.TxPasswordBD = New MaterialSkin.Controls.MaterialTextBox()
@@ -34,18 +35,34 @@ Partial Class Inicio
         Me.BtnComprobarContra = New MaterialSkin.Controls.MaterialButton()
         Me.TxPassword = New MaterialSkin.Controls.MaterialTextBox2()
         Me.CboUsuarios = New MaterialSkin.Controls.MaterialComboBox()
+        Me.LbVersion = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelBD.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Panel1.Controls.Add(Me.LbVersion)
+        Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.PanelBD)
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(476, 100)
         Me.Panel1.TabIndex = 0
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.InitialImage = CType(resources.GetObject("PictureBox1.InitialImage"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(81, 6)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(315, 88)
+        Me.PictureBox1.TabIndex = 10
+        Me.PictureBox1.TabStop = False
         '
         'PanelBD
         '
@@ -57,7 +74,7 @@ Partial Class Inicio
         Me.PanelBD.Controls.Add(Me.TxServerBD)
         Me.PanelBD.Depth = 0
         Me.PanelBD.ForeColor = System.Drawing.Color.FromArgb(CType(CType(222, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.PanelBD.Location = New System.Drawing.Point(5, 5)
+        Me.PanelBD.Location = New System.Drawing.Point(6, 6)
         Me.PanelBD.Margin = New System.Windows.Forms.Padding(14)
         Me.PanelBD.MouseState = MaterialSkin.MouseState.HOVER
         Me.PanelBD.Name = "PanelBD"
@@ -270,6 +287,15 @@ Partial Class Inicio
         Me.CboUsuarios.TabIndex = 9
         Me.CboUsuarios.UseTallSize = False
         '
+        'LbVersion
+        '
+        Me.LbVersion.AutoSize = True
+        Me.LbVersion.Location = New System.Drawing.Point(168, 75)
+        Me.LbVersion.Name = "LbVersion"
+        Me.LbVersion.Size = New System.Drawing.Size(134, 13)
+        Me.LbVersion.TabIndex = 10
+        Me.LbVersion.Text = "TeamDeluxe V-05.20.2023"
+        '
         'Inicio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -280,10 +306,13 @@ Partial Class Inicio
         Me.Controls.Add(Me.BtnComprobarContra)
         Me.Controls.Add(Me.BtnConnection)
         Me.Controls.Add(Me.Panel1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Inicio"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Login"
         Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelBD.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -300,4 +329,6 @@ Partial Class Inicio
     Friend WithEvents TxDatabase As MaterialSkin.Controls.MaterialTextBox
     Friend WithEvents TxServerBD As MaterialSkin.Controls.MaterialTextBox
     Friend WithEvents CboUsuarios As MaterialSkin.Controls.MaterialComboBox
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents LbVersion As Label
 End Class

@@ -6,7 +6,15 @@ Public Class Inicio
     Dim FormMDI As New MDI_Principal
 
     Private Sub BtnConnection_Click(sender As Object, e As EventArgs) Handles BtnConnection.Click
-        PanelBD.Visible = True
+        If PanelBD.Visible = True Then
+            PanelBD.Visible = False
+            PictureBox1.Visible = True
+            LbVersion.Visible = True
+        Else
+            PanelBD.Visible = True
+            PictureBox1.Visible = False
+            LbVersion.Visible = False
+        End If
     End Sub
 
     Public Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -28,6 +36,8 @@ Public Class Inicio
 
     Private Sub MaterialButton2_Click(sender As Object, e As EventArgs) Handles BtnRealizarConexion.Click
         PanelBD.Visible = False
+        PictureBox1.Visible = True
+        LbVersion.Visible = True
         Database.InicializarBD(Trim(TxUserBD.Text), Trim(TxPasswordBD.Text), Trim(TxServerBD.Text), Trim(TxDatabase.Text))
         CargarUsuarios()
     End Sub
@@ -53,13 +63,13 @@ Public Class Inicio
         If rs.EOF Then Exit Sub
         If Trim(rs("password").Value) = Trim(TxPassword.Text) Then
             Cursor = Cursors.WaitCursor
+            VariablesAPP.IdUsuarioApp = Trim(rs("idUsuario").Value)
+            VariablesAPP.UsuarioApp = Trim(rs("Nombre").Value)
+            VariablesAPP.RolUsuario = Trim(rs("rol").Value)
             FormMDI = Nothing
             FormMDI = New MDI_Principal
             FormMDI.Show()
             Me.Visible = False
-            VariablesAPP.IdUsuarioApp = Trim(rs("idUsuario").Value)
-            VariablesAPP.UsuarioApp = Trim(rs("Nombre").Value)
-            VariablesAPP.RolUsuario = Trim(rs("rol").Value)
             Cursor = Cursors.Arrow
         Else
             MsgBox("Credenciales incorrectas, Compruebe el usuario y la contraseña y inicie sesión de nuevo.", vbExclamation)

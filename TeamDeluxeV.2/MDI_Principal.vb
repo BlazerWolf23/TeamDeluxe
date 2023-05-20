@@ -55,6 +55,9 @@ Public Class MDI_Principal
 
     Private Sub MDI_Principal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LabelSpacios.Text = Space(250)
+        Me.WindowState = FormWindowState.Maximized
+        Lbusuario.Text &= VariablesAPP.UsuarioApp
+        LbFecha.Text &= Format(CDate(Now.Date), "dd/MM/yyyy")
     End Sub
 
     Private Sub BtnCerrarFormulario_Click(sender As Object, e As EventArgs) Handles BtnCerrarFormulario.Click

@@ -30,13 +30,9 @@ Partial Class Ejercicios
         Me.BtnNuevoObjetivo = New MaterialSkin.Controls.MaterialButton()
         Me.TxNombreNuvObjetivo = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.DbgObjetivos = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MaterialCard3 = New MaterialSkin.Controls.MaterialCard()
         Me.MaterialLabel7 = New MaterialSkin.Controls.MaterialLabel()
         Me.DbgObjetivosEjercicios = New System.Windows.Forms.DataGridView()
-        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Objetivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MaterialCard2 = New MaterialSkin.Controls.MaterialCard()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -88,6 +84,10 @@ Partial Class Ejercicios
         Me.TxNJugadoresBus = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.TxNPorterosBus = New MaterialSkin.Controls.MaterialMaskedTextBox()
         Me.TxIDbus = New MaterialSkin.Controls.MaterialMaskedTextBox()
+        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Objetivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.MaterialCard4.SuspendLayout()
@@ -233,18 +233,6 @@ Partial Class Ejercicios
         Me.DbgObjetivos.Size = New System.Drawing.Size(272, 166)
         Me.DbgObjetivos.TabIndex = 1
         '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.Width = 40
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Objetivo"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.Width = 188
-        '
         'MaterialCard3
         '
         Me.MaterialCard3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
@@ -282,18 +270,6 @@ Partial Class Ejercicios
         Me.DbgObjetivosEjercicios.Name = "DbgObjetivosEjercicios"
         Me.DbgObjetivosEjercicios.Size = New System.Drawing.Size(272, 141)
         Me.DbgObjetivosEjercicios.TabIndex = 0
-        '
-        'ID
-        '
-        Me.ID.HeaderText = "ID"
-        Me.ID.Name = "ID"
-        Me.ID.Width = 40
-        '
-        'Objetivo
-        '
-        Me.Objetivo.HeaderText = "Objetivo"
-        Me.Objetivo.Name = "Objetivo"
-        Me.Objetivo.Width = 188
         '
         'MaterialCard2
         '
@@ -570,11 +546,10 @@ Partial Class Ejercicios
         'PBImagenCampo
         '
         Me.PBImagenCampo.BackgroundImage = CType(resources.GetObject("PBImagenCampo.BackgroundImage"), System.Drawing.Image)
-        Me.PBImagenCampo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PBImagenCampo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PBImagenCampo.Location = New System.Drawing.Point(5, 61)
         Me.PBImagenCampo.Name = "PBImagenCampo"
         Me.PBImagenCampo.Size = New System.Drawing.Size(598, 325)
-        Me.PBImagenCampo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.PBImagenCampo.TabIndex = 0
         Me.PBImagenCampo.TabStop = False
         '
@@ -1309,6 +1284,34 @@ Partial Class Ejercicios
         Me.TxIDbus.UseTallSize = False
         Me.TxIDbus.ValidatingType = Nothing
         '
+        'ID
+        '
+        Me.ID.HeaderText = "ID"
+        Me.ID.Name = "ID"
+        Me.ID.ReadOnly = True
+        Me.ID.Width = 40
+        '
+        'Objetivo
+        '
+        Me.Objetivo.HeaderText = "Objetivo"
+        Me.Objetivo.Name = "Objetivo"
+        Me.Objetivo.ReadOnly = True
+        Me.Objetivo.Width = 188
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 40
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Objetivo"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 188
+        '
         'Ejercicios
         '
         Me.AllowDrop = True
@@ -1382,10 +1385,6 @@ Partial Class Ejercicios
     Friend WithEvents BtnImportarImagen As MaterialSkin.Controls.MaterialButton
     Friend WithEvents BtnLineaPunteada As MaterialSkin.Controls.MaterialButton
     Friend WithEvents BtnLineaNomal As MaterialSkin.Controls.MaterialButton
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents ID As DataGridViewTextBoxColumn
-    Friend WithEvents Objetivo As DataGridViewTextBoxColumn
     Friend WithEvents MaterialLabel9 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents MaterialLabel7 As MaterialSkin.Controls.MaterialLabel
     Friend WithEvents TabControl1 As TabControl
@@ -1414,4 +1413,8 @@ Partial Class Ejercicios
     Friend WithEvents BtnEscalera As MaterialSkin.Controls.MaterialButton
     Friend WithEvents BtnBalon As MaterialSkin.Controls.MaterialButton
     Friend WithEvents Label1 As Label
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents ID As DataGridViewTextBoxColumn
+    Friend WithEvents Objetivo As DataGridViewTextBoxColumn
 End Class

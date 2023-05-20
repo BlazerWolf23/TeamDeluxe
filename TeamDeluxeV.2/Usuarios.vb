@@ -6,8 +6,22 @@ Public Class Usuarios
     Dim rsAux As New ADODB.Recordset
     Dim sql As String
     Public Sub Guardar()
+        If Not IsNumeric(TxID.Text) Then
+            MsgBox("Introduzca un ID valido.", vbExclamation)
+            Exit Sub
+        End If
         If Trim(TxNombre.Text) = "" Then
             MsgBox("Introduzca un nombre para el usuario.", vbExclamation)
+            Exit Sub
+        End If
+
+        If ValidarDNI(Trim(TxDNI.Text)) = False Then
+            MsgBox("Introduzca un DNI valido.", vbExclamation)
+            Exit Sub
+        End If
+
+        If ValidarTelefono(Trim(TxTelefono.Text)) = False Then
+            MsgBox("Introduzca un telefono valido.", vbExclamation)
             Exit Sub
         End If
 
@@ -43,6 +57,27 @@ Public Class Usuarios
         Cursor = Cursors.Arrow
         Nuevo()
     End Sub
+
+    Function ValidarTelefono(ByVal telefono As String) As Boolean
+        telefono = telefono.Replace(" ", "")
+        If telefono.Length < 7 Or telefono.Length > 15 Then Return False
+        For Each c As Char In telefono
+            If Not Char.IsDigit(c) Then Return False
+        Next
+        Return True
+    End Function
+
+
+    Function ValidarDNI(ByVal dni As String) As Boolean
+        If dni.Length <> 9 Then Return False
+        For i As Integer = 0 To 7
+            If Not Char.IsDigit(dni(i)) Then
+                Return False
+            End If
+        Next
+        Return True
+    End Function
+
 
     Public Sub Consulta()
         DbgUsuarios.Rows.Clear()
@@ -80,7 +115,6 @@ Public Class Usuarios
             Else
                 AniadirLineaGridUsuarios(CInt(rsUsuarios("IDusuario").Value), Trim(rsUsuarios("nombre").Value), Trim(rsUsuarios("apellido").Value), Trim(rsUsuarios("DNI").Value), Trim(rsUsuarios("Telefono").Value))
             End If
-
             rsUsuarios.MoveNext()
         Loop
     End Sub
@@ -157,12 +191,14 @@ Public Class Usuarios
     Private Sub CboTipoUsuario_SelectedValueChanged(sender As Object, e As EventArgs) Handles CboTipoUsuario.SelectedValueChanged
         If salto Then Exit Sub
         If CboTipoUsuario.SelectedValue = 2 Then
+            BtnAbrirPanelPassword.Visible = False
             MaterialLabel7.Visible = True
             CboEquipo.Visible = True
             CargarEquiposEntrenado()
         Else
             MaterialLabel7.Visible = False
             CboEquipo.Visible = False
+            BtnAbrirPanelPassword.Visible = True
         End If
     End Sub
 
@@ -184,6 +220,7 @@ Public Class Usuarios
         CargarEquiposEntrenado()
         salto = False
         CboTipoUsuario.SelectedValue = 2
+        CboTipoUsuario_SelectedValueChanged(sender, New EventArgs)
         Consulta()
     End Sub
 
@@ -258,4 +295,5 @@ Public Class Usuarios
         CboEquipoBus.ValueMember = "Value"
         CboEquipoBus.DisplayMember = "Description"
     End Sub
+
 End Class
