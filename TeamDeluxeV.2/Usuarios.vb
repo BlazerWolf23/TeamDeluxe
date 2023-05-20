@@ -6,9 +6,11 @@ Public Class Usuarios
     Dim rsAux As New ADODB.Recordset
     Dim sql As String
     Public Sub Guardar()
-        If Not IsNumeric(TxID.Text) Then
-            MsgBox("Introduzca un ID valido.", vbExclamation)
-            Exit Sub
+        If TxID.Text <> "" Then
+            If Not IsNumeric(TxID.Text) Then
+                MsgBox("Introduzca un ID valido.", vbExclamation)
+                Exit Sub
+            End If
         End If
         If Trim(TxNombre.Text) = "" Then
             MsgBox("Introduzca un nombre para el usuario.", vbExclamation)
@@ -194,7 +196,7 @@ Public Class Usuarios
             BtnAbrirPanelPassword.Visible = False
             MaterialLabel7.Visible = True
             CboEquipo.Visible = True
-            CargarEquiposEntrenado()
+
         Else
             MaterialLabel7.Visible = False
             CboEquipo.Visible = False
@@ -282,6 +284,12 @@ Public Class Usuarios
         Dim items As New List(Of ItemCBO)
         rsAux = New ADODB.Recordset
         rsAux.Open("Select * from equipos where idusuario = " & VariablesAPP.IdUsuarioApp, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+
+
+        If rsAux.EOF Then
+            MsgBox("No hay ningun equipo creado. Creelo antes de añadir un usuario.", vbExclamation)
+            Exit Sub
+        End If
 
         Do Until rsAux.EOF
             items.Add(New ItemCBO With {.Value = CInt(rsAux("idequipos").Value), .Description = Trim(rsAux("nombre").Value)})

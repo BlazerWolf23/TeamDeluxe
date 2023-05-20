@@ -46,11 +46,11 @@ Public Class Ejercicios
         ElseIf sender.name = BtnBalon.Name Then
             selectedImage = New Bitmap(sender.BackgroundImage, 10, 10)
         ElseIf sender.name = BtnEscalera.Name Then
-            selectedImage = New Bitmap(sender.BackgroundImage, 10, 10)
+            selectedImage = New Bitmap(sender.BackgroundImage, 20, 20)
         ElseIf sender.name = BtnPica.Name Then
             selectedImage = New Bitmap(sender.BackgroundImage, 10, 10)
         ElseIf sender.name = BtnValla.Name Then
-            selectedImage = New Bitmap(sender.BackgroundImage, 10, 10)
+            selectedImage = New Bitmap(sender.BackgroundImage, 20, 20)
         End If
         AnteriorBoton = sender
     End Sub
@@ -77,8 +77,8 @@ Public Class Ejercicios
         If BtnPersona.UseAccentColor = True Or BtnCono.UseAccentColor = True Or BtnValla.UseAccentColor = True Or BtnEscalera.UseAccentColor = True Or BtnPica.UseAccentColor = True Or BtnBalon.UseAccentColor = True Then
             If selectedImage IsNot Nothing Then
                 Dim pictureboxImage As New PictureBox()
-                pictureboxImage.Size = selectedImage.Size
                 pictureboxImage.BackgroundImage = selectedImage
+                pictureboxImage.Size = selectedImage.Size
                 pictureboxImage.Location = New Point(e.Location.X - 5, e.Location.Y)
                 PBImagenCampo.Controls.Add(pictureboxImage)
             End If
@@ -110,21 +110,23 @@ Public Class Ejercicios
         Y1 = e.Y
     End Sub
     Private Sub PictureBox1_MouseUp(sender As Object, e As MouseEventArgs) Handles PBImagenCampo.MouseUp
-        X2 = e.X
-        Y2 = e.Y
-        If Punteado Then
-            lineasPunteadas.Add(New Linea With {.PuntoInicio = New Point(X1, Y1), .PuntoFinal = New Point(X2, Y2)})
-        Else
-            lineasSolidas.Add(New Linea With {.PuntoInicio = New Point(X1, Y1), .PuntoFinal = New Point(X2, Y2)})
+        If BtnLineaNomal.UseAccentColor = True Or BtnLineaPunteada.UseAccentColor = True Then
+            X2 = e.X
+            Y2 = e.Y
+            If Punteado Then
+                lineasPunteadas.Add(New Linea With {.PuntoInicio = New Point(X1, Y1), .PuntoFinal = New Point(X2, Y2)})
+            Else
+                lineasSolidas.Add(New Linea With {.PuntoInicio = New Point(X1, Y1), .PuntoFinal = New Point(X2, Y2)})
+            End If
+            PBImagenCampo.Invalidate()
         End If
-        PBImagenCampo.Invalidate()
     End Sub
 
     Private Sub Vaciarimagen_Click(sender As Object, e As EventArgs) Handles Vaciarimagen.Click
         saltoPintarLineas = True
-
+        PBImagenCampo.Controls.Clear()
         PBImagenCampo.BackgroundImage = imagenOrifinal
-
+        PBImagenCampo.Invalidate()
     End Sub
 
     Public Sub Guardar()
@@ -364,11 +366,13 @@ Public Class Ejercicios
     End Sub
 
     Private Sub DbgBusEntreno_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgBusEntreno.CellDoubleClick
+        saltoPintarLineas = True
+        PBImagenCampo.Controls.Clear()
+        PBImagenCampo.Invalidate()
+        PBImagenCampo.BackgroundImage = imagenOrifinal
 
         If Not IsNumeric(DbgBusEntreno.Rows(e.RowIndex).Cells(0).Value) Or DbgBusEntreno.Rows(e.RowIndex).Cells(0).Value = 0 Then Exit Sub
         TxID.Text = CInt(CInt(DbgBusEntreno.Rows(e.RowIndex).Cells(0).Value))
-
-
 
         rsAux = New ADODB.Recordset
         rsAux.Open("Select * from ejercicios where idejercicios = " & CInt(TxID.Text) & " and idusuario = " & VariablesAPP.IdUsuarioApp, Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic)
@@ -380,7 +384,6 @@ Public Class Ejercicios
             TxDescripcion.Text = Trim(rsAux("descripcion").Value)
             TxMaterial.Text = Trim(rsAux("material").Value)
             TxObservaciones.Text = Trim(rsAux("observaciones").Value)
-
 
             Try
                 Using fs As New FileStream(Trim(rsAux("RutaImagen").Value), FileMode.Open, FileAccess.Read)
@@ -421,6 +424,7 @@ Public Class Ejercicios
         TxDescripcion.Text = "" : TxJugadores.Text = ""
         TxPorteros.Text = "" : TxObservaciones.Text = ""
         TxMaterial.Text = ""
+        saltoPintarLineas = True
         PBImagenCampo.Controls.Clear()
         PBImagenCampo.BackgroundImage = imagenOrifinal
         PBImagenCampo.Invalidate()
