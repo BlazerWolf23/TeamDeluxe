@@ -314,7 +314,7 @@ Public Class Ejercicios
     Private Sub DbgObjetivos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgObjetivos.CellContentDoubleClick
         Dim find As Boolean
         For i As Integer = 0 To DbgObjetivosEjercicios.Rows.Count - 2
-            If DbgObjetivos.Rows(i).Cells(0).Value = DbgObjetivos.Rows(e.RowIndex).Cells(0).Value Then
+            If DbgObjetivosEjercicios.Rows(i).Cells("ID").Value = DbgObjetivos.Rows(e.RowIndex).Cells(0).Value Then
                 find = True
             End If
         Next
@@ -406,11 +406,14 @@ Public Class Ejercicios
             MsgBox("Antes de eliminar introduzca un ID de objetivo", vbExclamation)
             Exit Sub
         End If
-        If MsgBox("Desea elminar el objetivo con el ID '" & CInt(TxID.Text) & "'", vbQuestion) = vbOK Then
+        If MsgBox("Desea elminar el objetivo con el ID '" & CInt(TxID.Text) & "'", vbQuestion + vbYesNo) = vbYes Then
             Try
                 Database.Connection.BeginTrans()
-                Database.Connection.Execute("Delete from Objetivos where idobjetivo = " & CInt(TxID.Text))
+                Database.Connection.Execute("Delete from ObjetivosEjercicios where idejercicios = " & CInt(TxID.Text))
+                Database.Connection.Execute("Delete from Objetivos_Entrenamiento where idejercicio = " & CInt(TxID.Text))
+                Database.Connection.Execute("Delete from ejercicios where idejercicios = " & CInt(TxID.Text))
                 Database.Connection.CommitTrans()
+                Nuevo()
             Catch ex As Exception
                 Database.Connection.RollbackTrans()
                 MsgBox("Error al eliminar el objetivo error(" & ex.Message & ")")

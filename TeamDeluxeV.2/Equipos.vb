@@ -9,10 +9,13 @@ Public Class Equipos
     Dim idequi As Integer = 0
     Dim hora As DateTime
     Public Sub Guardar()
-        If Not IsNumeric(TxIDEquipo.Text) Then
-            MsgBox("Introduzca un ID valido.", vbExclamation)
-            Exit Sub
+        If Trim(TxIDEquipo.Text) <> "" Then
+            If Not IsNumeric(TxIDEquipo.Text) Then
+                MsgBox("Introduzca un ID valido.", vbExclamation)
+                Exit Sub
+            End If
         End If
+
         If Trim(TxNombreEquipo.Text) = "" Or Trim(TxHoraPartido.Text) = "" Or Trim(TxCategoria.Text) = "" Then
             MsgBox("Rellene todos los campos", vbExclamation)
             Exit Sub
@@ -200,13 +203,19 @@ Public Class Equipos
 
     Private Sub TxGuardarUbicacion_Click(sender As Object, e As EventArgs) Handles TxGuardarUbicacion.Click
         Dim rsUbi As New ADODB.Recordset
-        If Not IsNumeric(TxIDubicacion.Text) Then
-            MsgBox("Introduzca un ID de ubicacion valido.", vbExclamation)
+        If Trim(TxIDubicacion.Text) <> "" Then
+            If Not IsNumeric(TxIDubicacion.Text) Then
+                MsgBox("Introduzca un ID de ubicacion valido.", vbExclamation)
+                Exit Sub
+            End If
+        End If
+        If Trim(TxNombreUbicacion.Text) = "" Then
+            MsgBox("Ponga un nombre para la ubicacion ", vbExclamation)
             Exit Sub
         End If
-
         If Trim(TxIDEquipo.Text) = "" Then Exit Sub
-        rsUbi.Open("Select * from ubicaciones where idubicacion = " & IIf(Trim(TxIDubicacion.Text) = "", "999", 0), Database.Connection, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        rsUbi = New ADODB.Recordset
+        rsUbi.Open("Select * from ubicaciones where idubicacion = " & IIf(Trim(TxIDubicacion.Text) = "", "999", Trim(TxIDubicacion.Text)), Database.Connection, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic, 1)
         If rsUbi.EOF Then
             rsUbi.AddNew()
             rsAux = New ADODB.Recordset
@@ -271,7 +280,7 @@ Public Class Equipos
     Private Sub DbgUbiciones_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgUbicaciones.CellContentDoubleClick
         If Trim(TxIDEquipo.Text) = "" Then Exit Sub
         rsAux = New ADODB.Recordset
-        rsAux.Open("select * from ubicaciones where idequipo = " & CInt(TxIDEquipo.Text), Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+        rsAux.Open("select * from ubicaciones where idubicacion = " & CInt(DbgUbicaciones.Rows(e.RowIndex).Cells("IDubi").Value), Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
         If rsAux.EOF Then Nuevo() : Exit Sub
         TxIDubicacion.Text = CInt(rsAux("idubicacion").Value)
         TxDireccionUbicacion.Text = Trim(rsAux("Direccion").Value)
@@ -297,8 +306,8 @@ Public Class Equipos
         If MsgBox("¿Desea eliminar la ubicacion del equipo seleccionado?", vbQuestion + vbYesNo) = vbYes Then
             Try
                 Database.Connection.BeginTrans()
-                Database.Connection.Execute("update entrenamientos set idubicacon = null where idequipo = " & CInt(TxIDEquipo.Text) & "and idubicacon = " & CInt(TxIDubicacion.Text))
-                Database.Connection.Execute("Delete from ubicaciones where idequipo = " & CInt(TxIDEquipo.Text))
+                Database.Connection.Execute("update entrenamientos set idubicacon = null where idequipo = " & CInt(TxIDEquipo.Text) & " and idubicacon = " & CInt(TxIDubicacion.Text))
+                Database.Connection.Execute("Delete from ubicaciones where idequipo = " & CInt(TxIDEquipo.Text) & " and idubicacion = " & CInt(TxIDubicacion.Text))
                 Database.Connection.CommitTrans()
             Catch ex As Exception
                 Database.Connection.RollbackTrans()

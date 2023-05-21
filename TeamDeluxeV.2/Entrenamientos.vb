@@ -30,7 +30,7 @@ Public Class Entrenamientos
 
 
     Public Sub Guardar()
-        If MsgBox("Desea Guardar el entrenamiento", vbQuestion) = vbOK Then
+        If MsgBox("Desea Guardar el entrenamiento", vbQuestion + vbYesNo) = vbYes Then
             rsentrenameintos = New ADODB.Recordset
             rsentrenameintos.Open("Select * from entrenamientos where identrenamiento = " & IIf(Trim(TxID.Text) = "", 0, Trim(TxID.Text)), Database.Connection, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic, 1)
             If rsentrenameintos.EOF Then
@@ -65,6 +65,7 @@ Public Class Entrenamientos
                 rsAux("idejercicio").Value = CInt(DbgEntrenamiento.Rows(i).Cells("IdEjercicio").Value)
                 rsAux.Update()
             Next
+            TxID.Text = CInt(rsentrenameintos("identrenamiento").Value)
         End If
     End Sub
     Public Sub Eliminar()
@@ -218,7 +219,7 @@ Public Class Entrenamientos
         Dim sql As String = "select Entrenamientos.idEntrenamiento, Entrenamientos.FechaCreacion,  equipos.nombre nombreEquipo, isnull(Ubicaciones.Nombre , '') nombreUbi, Entrenamientos.HoraIni, Entrenamientos.HoraFin from entrenamientos 
             inner join Equipos on Equipos.IdEquipos = Entrenamientos.idEquipo
             left outer join Ubicaciones on Entrenamientos.idUbicacon = Ubicaciones.Idubicacion
-            where Entrenamientos.fechaCreacion < '" & Format(CDate(DateTimePicker2.Value), "dd/MM/yyyy") & "'"
+            where Entrenamientos.fechaCreacion <= '" & Format(CDate(DateTimePicker2.Value), "dd/MM/yyyy") & "'"
         DbgBusEntreno.Rows.Clear()
 
         If TxIDbus.Text <> "" Then

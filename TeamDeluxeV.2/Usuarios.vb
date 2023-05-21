@@ -139,7 +139,7 @@ Public Class Usuarios
             Nuevo()
             Exit Sub
         Else
-            If MsgBox("Desea eliminar el Usuario seleccionado (" & Trim(TxID.Text) & ")", vbOKCancel) = vbOK Then
+            If MsgBox("Desea eliminar el Usuario seleccionado (" & Trim(TxID.Text) & ")", vbQuestion + vbYesNo) = vbYes Then
                 Try
                     Database.Connection.BeginTrans()
                     Database.Connection.Execute("Delete from Usuarios where IDusuario = " & CInt(TxID.Text))

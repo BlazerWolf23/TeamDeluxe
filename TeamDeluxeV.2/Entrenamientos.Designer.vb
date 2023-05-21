@@ -183,6 +183,7 @@ Partial Class Entrenamientos
         '
         Me.PBImagenCampo.BackgroundImage = CType(resources.GetObject("PBImagenCampo.BackgroundImage"), System.Drawing.Image)
         Me.PBImagenCampo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PBImagenCampo.Enabled = False
         Me.PBImagenCampo.Location = New System.Drawing.Point(59, 5)
         Me.PBImagenCampo.Name = "PBImagenCampo"
         Me.PBImagenCampo.Size = New System.Drawing.Size(489, 281)
@@ -197,6 +198,7 @@ Partial Class Entrenamientos
         Me.TxMaterialEjer.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
         Me.TxMaterialEjer.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.TxMaterialEjer.Depth = 0
+        Me.TxMaterialEjer.Enabled = False
         Me.TxMaterialEjer.HideSelection = True
         Me.TxMaterialEjer.Location = New System.Drawing.Point(12, 228)
         Me.TxMaterialEjer.MaxLength = 32767
@@ -235,6 +237,7 @@ Partial Class Entrenamientos
         Me.TxDescripcionEjer.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
         Me.TxDescripcionEjer.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.TxDescripcionEjer.Depth = 0
+        Me.TxDescripcionEjer.Enabled = False
         Me.TxDescripcionEjer.HideSelection = True
         Me.TxDescripcionEjer.Location = New System.Drawing.Point(12, 102)
         Me.TxDescripcionEjer.MaxLength = 32767
@@ -288,6 +291,7 @@ Partial Class Entrenamientos
         Me.TxJugadores.BeepOnError = False
         Me.TxJugadores.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
         Me.TxJugadores.Depth = 0
+        Me.TxJugadores.Enabled = False
         Me.TxJugadores.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
         Me.TxJugadores.HidePromptOnLeave = False
         Me.TxJugadores.HideSelection = True
@@ -343,6 +347,7 @@ Partial Class Entrenamientos
         Me.TxPorteros.BeepOnError = False
         Me.TxPorteros.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
         Me.TxPorteros.Depth = 0
+        Me.TxPorteros.Enabled = False
         Me.TxPorteros.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
         Me.TxPorteros.HidePromptOnLeave = False
         Me.TxPorteros.HideSelection = True
@@ -398,6 +403,7 @@ Partial Class Entrenamientos
         Me.TxNombre.BeepOnError = False
         Me.TxNombre.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals
         Me.TxNombre.Depth = 0
+        Me.TxNombre.Enabled = False
         Me.TxNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
         Me.TxNombre.HidePromptOnLeave = False
         Me.TxNombre.HideSelection = True
