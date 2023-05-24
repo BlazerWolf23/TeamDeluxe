@@ -30,6 +30,15 @@ Public Class Entrenamientos
 
 
     Public Sub Guardar()
+        If Trim(TxID.Text) <> "" Then
+            If Not IsNumeric(Trim(TxID.Text)) Then
+                MsgBox("Introduzca un ID valido.", vbExclamation)
+                Exit Sub
+            End If
+        End If
+        If CboEquipo.SelectedIndex < 0 Then Exit Sub
+        If CboLugar.SelectedIndex < 0 Then Exit Sub
+
         If MsgBox("Desea Guardar el entrenamiento", vbQuestion + vbYesNo) = vbYes Then
             rsentrenameintos = New ADODB.Recordset
             rsentrenameintos.Open("Select * from entrenamientos where identrenamiento = " & IIf(Trim(TxID.Text) = "", 0, Trim(TxID.Text)), Database.Connection, ADODB.CursorTypeEnum.adOpenKeyset, ADODB.LockTypeEnum.adLockOptimistic, 1)
@@ -69,6 +78,27 @@ Public Class Entrenamientos
         End If
     End Sub
     Public Sub Eliminar()
+        If Trim(TxID.Text) <> "" Then
+            If Not IsNumeric(Trim(TxID.Text)) Then
+                MsgBox("Introduzca un ID valido de entrenamiento.", vbExclamation)
+                Exit Sub
+            End If
+        End If
+
+        If MsgBox("¿Desea eliminar el entrenamiento selecionado (" & CInt(TxID.Text) & ")?", vbQuestion + vbYesNo) = vbYes Then
+            Try
+                Database.Connection.BeginTrans()
+                Database.Connection.Execute("Delete from objetivos_entrenamiento where identrenamiento = " & CInt(TxID.Text))
+                Database.Connection.Execute("Delete from entrenamientos where identrenamiento = " & CInt(TxID.Text))
+                Database.Connection.CommitTrans()
+                Nuevo()
+            Catch ex As Exception
+                Database.Connection.RollbackTrans()
+                MsgBox("No se ha podido eliminar el entrenamiento (" & ex.Message & ")")
+                Exit Sub
+            End Try
+        End If
+
 
     End Sub
 
@@ -180,6 +210,9 @@ Public Class Entrenamientos
                 Exit Sub
             End If
         End If
+        If CboObjetivoGuardar.Items.Count <= 0 Or CboEjercicioGuardar.Items.Count <= 0 Then
+            Exit Sub
+        End If
 
         Dim newRow As DataGridViewRow = New DataGridViewRow()
         If DateTime.TryParseExact(TxTiempoGuardar.Text, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal, hora) Then
@@ -273,6 +306,7 @@ Public Class Entrenamientos
 
     Private Sub DbgBusEntreno_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DbgBusEntreno.CellDoubleClick
         If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+            Nuevo()
             CargarEntreno(CInt(DbgBusEntreno.Rows(e.RowIndex).Cells(0).Value))
         End If
     End Sub

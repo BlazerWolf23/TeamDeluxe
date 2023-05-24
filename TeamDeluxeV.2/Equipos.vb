@@ -79,12 +79,20 @@ Public Class Equipos
     End Sub
 
     Public Sub Eliminar()
+        Dim RsEliminar As New ADODB.Recordset
         If Trim(TxIDEquipo.Text) = "" Or Trim(TxIDEquipo.Text) = "0" Then
             MsgBox("Seleccione un ID valido para eliminar", vbExclamation)
             Nuevo()
             Exit Sub
         Else
-            If MsgBox("Desea eliminar el Usuario seleccionado (" & Trim(TxIDEquipo.Text) & ")", vbOKCancel) = vbOK Then
+            If MsgBox("Desea eliminar el Equipo seleccionado (" & Trim(TxIDEquipo.Text) & ")", vbQuestion + vbYesNo) = vbYes Then
+                RsEliminar.Open("Select count(idusuario) usuarios from usuarios where idequipodondejuega = " & CInt(TxIDEquipo.Text), Database.Connection, ADODB.CursorTypeEnum.adOpenForwardOnly, ADODB.LockTypeEnum.adLockOptimistic, 1)
+                If CInt(RsEliminar("usuarios").Value) > 0 Then
+                    MsgBox("No se puede eliminar el equipo por que tiene usuarios asociados. Elimine los usuarios y luego borre el equipo.", vbExclamation)
+                    Exit Sub
+                End If
+                RsEliminar.Close()
+
                 Try
                     Database.Connection.BeginTrans()
                     Database.Connection.Execute("Delete from equipos where idequipos = " & CInt(TxIDEquipo.Text))
@@ -94,6 +102,7 @@ Public Class Equipos
                     MsgBox("Error, no se ha podido eliminar el usuario")
                     Exit Sub
                 End Try
+                Nuevo()
             End If
         End If
     End Sub
@@ -297,6 +306,7 @@ Public Class Equipos
     End Sub
 
     Private Sub TxEliminarUbicacion_Click(sender As Object, e As EventArgs) Handles TxEliminarUbicacion.Click
+        Dim rsEliminar As New ADODB.Recordset
         If TxIDubicacion.Text = "" Or Not IsNumeric(TxIDubicacion.Text) Or TxIDubicacion.Text = 0 Then
             Exit Sub
         End If
@@ -306,7 +316,7 @@ Public Class Equipos
         If MsgBox("¿Desea eliminar la ubicacion del equipo seleccionado?", vbQuestion + vbYesNo) = vbYes Then
             Try
                 Database.Connection.BeginTrans()
-                Database.Connection.Execute("update entrenamientos set idubicacon = null where idequipo = " & CInt(TxIDEquipo.Text) & " and idubicacon = " & CInt(TxIDubicacion.Text))
+                'Database.Connection.Execute("update entrenamientos set idubicacon = null where idequipo = " & CInt(TxIDEquipo.Text) & " and idubicacon = " & CInt(TxIDubicacion.Text))
                 Database.Connection.Execute("Delete from ubicaciones where idequipo = " & CInt(TxIDEquipo.Text) & " and idubicacion = " & CInt(TxIDubicacion.Text))
                 Database.Connection.CommitTrans()
             Catch ex As Exception

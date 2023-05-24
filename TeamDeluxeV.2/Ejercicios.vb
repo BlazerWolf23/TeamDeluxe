@@ -159,7 +159,9 @@ Public Class Ejercicios
         rsEjercicios("NumPorteros").Value = CInt(TxPorteros.Text)
         rsEjercicios("idusuario").Value = CInt(VariablesAPP.IdUsuarioApp)
         Dim rutaArchivo As String = My.Application.Info.DirectoryPath & "\Ejercicios\" & "ejercicio_" & CInt(rsEjercicios("idEjercicios").Value) & ".png"
-
+        Dim image2 As Image
+        image2 = Image.FromFile(rutaArchivo)
+        image2.Dispose()
 
         Dim bmp As New Bitmap(PBImagenCampo.Width, PBImagenCampo.Height)
         PBImagenCampo.DrawToBitmap(bmp, PBImagenCampo.ClientRectangle)

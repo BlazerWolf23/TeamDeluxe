@@ -24,6 +24,7 @@ Partial Class Inicio
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Inicio))
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.LbVersion = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PanelBD = New MaterialSkin.Controls.MaterialCard()
         Me.BtnRealizarConexion = New MaterialSkin.Controls.MaterialButton()
@@ -35,7 +36,6 @@ Partial Class Inicio
         Me.BtnComprobarContra = New MaterialSkin.Controls.MaterialButton()
         Me.TxPassword = New MaterialSkin.Controls.MaterialTextBox2()
         Me.CboUsuarios = New MaterialSkin.Controls.MaterialComboBox()
-        Me.LbVersion = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelBD.SuspendLayout()
@@ -51,6 +51,15 @@ Partial Class Inicio
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(476, 100)
         Me.Panel1.TabIndex = 0
+        '
+        'LbVersion
+        '
+        Me.LbVersion.AutoSize = True
+        Me.LbVersion.Location = New System.Drawing.Point(168, 75)
+        Me.LbVersion.Name = "LbVersion"
+        Me.LbVersion.Size = New System.Drawing.Size(134, 13)
+        Me.LbVersion.TabIndex = 10
+        Me.LbVersion.Text = "TeamDeluxe V-05.24.2023"
         '
         'PictureBox1
         '
@@ -286,15 +295,6 @@ Partial Class Inicio
         Me.CboUsuarios.StartIndex = 0
         Me.CboUsuarios.TabIndex = 9
         Me.CboUsuarios.UseTallSize = False
-        '
-        'LbVersion
-        '
-        Me.LbVersion.AutoSize = True
-        Me.LbVersion.Location = New System.Drawing.Point(168, 75)
-        Me.LbVersion.Name = "LbVersion"
-        Me.LbVersion.Size = New System.Drawing.Size(134, 13)
-        Me.LbVersion.TabIndex = 10
-        Me.LbVersion.Text = "TeamDeluxe V-05.20.2023"
         '
         'Inicio
         '
