@@ -15,50 +15,50 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_26C012B078F643CE97DDF2C4E99C5CB2"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_3BFA57F248343AD11616883C7998A1C5"
-        "OwnerKey" = "8:_89AA5CD882C44BC69570998DABE7575D"
+        "OwnerKey" = "8:_26C012B078F643CE97DDF2C4E99C5CB2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_3F1A3ED45E406DAD81CD19D674EC7ABA"
-        "OwnerKey" = "8:_89AA5CD882C44BC69570998DABE7575D"
+        "OwnerKey" = "8:_26C012B078F643CE97DDF2C4E99C5CB2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_4745F1EB0BAB555E10DD6F76B22B6CE6"
-        "OwnerKey" = "8:_89AA5CD882C44BC69570998DABE7575D"
+        "OwnerKey" = "8:_26C012B078F643CE97DDF2C4E99C5CB2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_56D99F0C1D12B944717C11DFFDAB0263"
-        "OwnerKey" = "8:_89AA5CD882C44BC69570998DABE7575D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_89AA5CD882C44BC69570998DABE7575D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_AE2F652A6429448FAF82448BFF3142BC"
-        "OwnerKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_26C012B078F643CE97DDF2C4E99C5CB2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_D18782450D7E2EBD300D399AC6D01175"
-        "OwnerKey" = "8:_89AA5CD882C44BC69570998DABE7575D"
+        "OwnerKey" = "8:_26C012B078F643CE97DDF2C4E99C5CB2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_89AA5CD882C44BC69570998DABE7575D"
+        "OwnerKey" = "8:_56D99F0C1D12B944717C11DFFDAB0263"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_26C012B078F643CE97DDF2C4E99C5CB2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -83,12 +83,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_3F1A3ED45E406DAD81CD19D674EC7ABA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_56D99F0C1D12B944717C11DFFDAB0263"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -116,6 +110,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -140,6 +142,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -294,26 +304,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AE2F652A6429448FAF82448BFF3142BC"
-            {
-            "SourcePath" = "8:..\\..\\..\\Icons\\TeamDeluxe.ico"
-            "TargetName" = "8:TeamDeluxe.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_31FBBEFF2BDD462A835C857574C59690"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D18782450D7E2EBD300D399AC6D01175"
             {
             "AssemblyRegister" = "3:1"
@@ -402,7 +392,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:TeamDeluxe"
         "ProductCode" = "8:{4E36B05B-A80B-4B7E-A724-0E62578876A8}"
-        "PackageCode" = "8:{2D42327D-0C2A-4D1F-B368-20CEF653B0E9}"
+        "PackageCode" = "8:{C50A1F60-F351-4D2A-8D2B-B6CB117E95F8}"
         "UpgradeCode" = "8:{8435C5EF-A5B6-4EF4-A808-70C487BE3511}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -921,7 +911,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_89AA5CD882C44BC69570998DABE7575D"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_26C012B078F643CE97DDF2C4E99C5CB2"
             {
             "SourcePath" = "8:..\\TeamDeluxeV.2\\obj\\x86\\Debug\\TeamDeluxeV.2.exe"
             "TargetName" = "8:"
@@ -941,7 +931,7 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:Release|Any CPU"
+            "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:Built"
             "OutputProjectGuid" = "8:{E5ED7F7E-693F-4FAA-82C1-C97ED1AC4781}"
             "ShowKeyOutput" = "11:TRUE"
