@@ -158,25 +158,25 @@ Public Class Ejercicios
         rsEjercicios("NumJugadores").Value = CInt(TxJugadores.Text)
         rsEjercicios("NumPorteros").Value = CInt(TxPorteros.Text)
         rsEjercicios("idusuario").Value = CInt(VariablesAPP.IdUsuarioApp)
-
-
+        Dim rutaArchivo As String = My.Application.Info.DirectoryPath & "\Ejercicios\" & "ejercicio_" & CInt(rsEjercicios("idEjercicios").Value) & ".png"
+        Dim image2 As Image
+        image2 = Image.FromFile(rutaArchivo)
+        image2.Dispose()
 
         Dim bmp As New Bitmap(PBImagenCampo.Width, PBImagenCampo.Height)
         PBImagenCampo.DrawToBitmap(bmp, PBImagenCampo.ClientRectangle)
-        'Dim ms As New MemoryStream()
-        'bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png)
+        Dim ms As New MemoryStream()
+        bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png)
 
         If Not System.IO.Directory.Exists(My.Application.Info.DirectoryPath & "\Ejercicios") Then
             System.IO.Directory.CreateDirectory(My.Application.Info.DirectoryPath & "\Ejercicios")
         End If
 
-        Dim rutaArchivo As String = My.Application.Info.DirectoryPath & "\Ejercicios\" & "ejercicio_" & CInt(rsEjercicios("idEjercicios").Value) & ".png"
         If File.Exists(rutaArchivo) Then
             File.Delete(rutaArchivo)
         End If
 
         bmp.Save(My.Application.Info.DirectoryPath & "\Ejercicios\" & "ejercicio_" & CInt(rsEjercicios("idEjercicios").Value) & ".png", System.Drawing.Imaging.ImageFormat.Png)
-
         rsEjercicios("RutaImagen").Value = My.Application.Info.DirectoryPath & "\Ejercicios\" & "ejercicio_" & CInt(rsEjercicios("idEjercicios").Value) & ".png"
         rsEjercicios.Update()
 
