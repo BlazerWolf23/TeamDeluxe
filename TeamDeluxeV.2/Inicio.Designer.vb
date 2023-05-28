@@ -59,7 +59,7 @@ Partial Class Inicio
         Me.LbVersion.Name = "LbVersion"
         Me.LbVersion.Size = New System.Drawing.Size(134, 13)
         Me.LbVersion.TabIndex = 10
-        Me.LbVersion.Text = "TeamDeluxe V-05.24.2023"
+        Me.LbVersion.Text = "TeamDeluxe V-05.29.2023"
         '
         'PictureBox1
         '
