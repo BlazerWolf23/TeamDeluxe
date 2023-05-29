@@ -23,7 +23,7 @@ Partial Class Usuarios
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Usuarios))
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.PanelPass = New MaterialSkin.Controls.MaterialCard()
@@ -225,9 +225,9 @@ Partial Class Usuarios
         '
         'ID
         '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ID.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ID.DefaultCellStyle = DataGridViewCellStyle1
         Me.ID.HeaderText = "ID"
         Me.ID.Name = "ID"
         Me.ID.ReadOnly = True
@@ -897,9 +897,9 @@ Partial Class Usuarios
         Me.MaterialLabel6.Location = New System.Drawing.Point(449, 85)
         Me.MaterialLabel6.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialLabel6.Name = "MaterialLabel6"
-        Me.MaterialLabel6.Size = New System.Drawing.Size(48, 14)
+        Me.MaterialLabel6.Size = New System.Drawing.Size(53, 14)
         Me.MaterialLabel6.TabIndex = 15
-        Me.MaterialLabel6.Text = "Telefono"
+        Me.MaterialLabel6.Text = "Telefono*"
         '
         'MaterialLabel5
         '
@@ -1073,9 +1073,9 @@ Partial Class Usuarios
         Me.MaterialLabel4.Location = New System.Drawing.Point(10, 85)
         Me.MaterialLabel4.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialLabel4.Name = "MaterialLabel4"
-        Me.MaterialLabel4.Size = New System.Drawing.Size(21, 14)
+        Me.MaterialLabel4.Size = New System.Drawing.Size(26, 14)
         Me.MaterialLabel4.TabIndex = 11
-        Me.MaterialLabel4.Text = "DNI"
+        Me.MaterialLabel4.Text = "DNI*"
         '
         'MaterialLabel2
         '
@@ -1086,9 +1086,9 @@ Partial Class Usuarios
         Me.MaterialLabel2.Location = New System.Drawing.Point(120, 28)
         Me.MaterialLabel2.MouseState = MaterialSkin.MouseState.HOVER
         Me.MaterialLabel2.Name = "MaterialLabel2"
-        Me.MaterialLabel2.Size = New System.Drawing.Size(45, 14)
+        Me.MaterialLabel2.Size = New System.Drawing.Size(50, 14)
         Me.MaterialLabel2.TabIndex = 7
-        Me.MaterialLabel2.Text = "Nombre"
+        Me.MaterialLabel2.Text = "Nombre*"
         '
         'MaterialLabel3
         '

@@ -121,7 +121,7 @@
   <data name="BtnGuardarPassword.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAALDRJREFUeF7t3XnUbGV5pnFkDoooOATBqIjajRrFCUFbNI5xiopTJ52EqJ1W4tBR
+        vQAADr0BR/uQrQAALDRJREFUeF7t3XnUbGV5pnFkDoooOATBqIjajRrFCUFbNI5xiopTJ52EqJ1W4tBR
         cVYcuhEFh44STZzAJbaaqHQ7dRwRETCioomioiiKBrQdGW0G+74XnsWhfM453/e8e+/az1vXtdZvraT+
         kFN1qr59n/qq9t7q17/+NQAAWDHhjQAAoG/hjQAAoG/hjQAAoG/hjQAAoG/hjQAAoG/hjQAAoG/hjQAA
         oG/hjQAAoG/hjQAAoG/hjQAAoG/hjQAAoG/hjQAAoG/hjQAAoG/hjQAAoG/hjQAAoG/hjQAAoG/hjQAA
@@ -331,28 +331,10 @@
   <metadata name="Equipo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Nombre.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Apellidos.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DNI.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Telefono.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Equipo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="BtnFiltrar.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAp
-        pwAAKacBYoMc/AAAMqVJREFUeF7t3QfUbWV17nGR3myg2FBKECyo2MWOEhRjEI0tUSyxJwZ7z40Rb2JF
+        pgAAKaYBsMT+GAAAMqVJREFUeF7t3QfUbWV17nGR3myg2FBKECyo2MWOEhRjEI0tUSyxJwZ7z40Rb2JF
         UBQSVNSLJaKIDWIBxQZi74JiAUVEERGVrveZcNCXc55zzlf2nHutd/3/Y/zGHXeOjBhhrzX3t/faa13l
         T3/6EwAAmBg7BAAAfbNDAADQNzsEAAB9s0MAANA3OwQAAH2zQwAA0Dc7BAAAfbNDAADQNzsEAAB9s0MA
         ANA3OwQAAH2zQwAA0Dc7BAAAfbNDAADQNzsEAAB9s0MAANA3OwQAAH2zQwAA0Dc7BAAAfbNDAADQNzsE
@@ -574,7 +556,7 @@
   <data name="BtnAbrirPanelPassword.Icon" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAANStJREFUeF7t3Qm4rtd89/FEBoSQGENNrZqnmom50hpaqtRYQqjUUA01hLf1Njq8
+        vQAADr0BR/uQrQAANStJREFUeF7t3Qm4rtd89/FEBoSQGENNrZqnmom50hpaqtRYQqjUUA01hLf1Njq8
         qJqrKBWJqWhKhaKUUjUmMVVVDFW0KgiRCJl4f/9kJ1kn57ef/x7uZ611P+v7va7PdeX6i5xz7nuvtdfZ
         z7TLT3/6UwAAMBg7BAAAq80OAQDAarNDAACw2uwQAACsNjsEAACrzQ4BAMBqs0MAALDa7BAAAKw2OwQA
         AKvNDgEAwGqzQwAAsNrsEAAArDY7BAAAq80OAQDAarNDAACw2uwQyBBtot3kKnIHeagcJn8pb5b3y2fk
