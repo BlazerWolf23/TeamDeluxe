@@ -158,26 +158,24 @@ Public Class Ejercicios
         rsEjercicios("NumJugadores").Value = CInt(TxJugadores.Text)
         rsEjercicios("NumPorteros").Value = CInt(TxPorteros.Text)
         rsEjercicios("idusuario").Value = CInt(VariablesAPP.IdUsuarioApp)
-        Dim rutaArchivo As String = My.Application.Info.DirectoryPath & "\Ejercicios\" & "ejercicio_" & CInt(rsEjercicios("idEjercicios").Value) & ".png"
-        Dim image2 As Image
-        image2 = Image.FromFile(rutaArchivo)
-        image2.Dispose()
 
         Dim bmp As New Bitmap(PBImagenCampo.Width, PBImagenCampo.Height)
         PBImagenCampo.DrawToBitmap(bmp, PBImagenCampo.ClientRectangle)
-        Dim ms As New MemoryStream()
-        bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png)
+        'Dim ms As New MemoryStream()
+        'bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png)
 
         If Not System.IO.Directory.Exists(My.Application.Info.DirectoryPath & "\Ejercicios") Then
             System.IO.Directory.CreateDirectory(My.Application.Info.DirectoryPath & "\Ejercicios")
         End If
 
-        If File.Exists(rutaArchivo) Then
-            File.Delete(rutaArchivo)
+        Dim rutaArchivo As String = My.Application.Info.DirectoryPath & "\Ejercicios\" & "ejercicio_" & CInt(rsEjercicios("idEjercicios").Value) & ".png"
+
+        If IO.File.Exists(rutaArchivo) Then
+            IO.File.Delete(rutaArchivo)
         End If
 
         bmp.Save(My.Application.Info.DirectoryPath & "\Ejercicios\" & "ejercicio_" & CInt(rsEjercicios("idEjercicios").Value) & ".png", System.Drawing.Imaging.ImageFormat.Png)
-        rsEjercicios("RutaImagen").Value = My.Application.Info.DirectoryPath & "\Ejercicios\" & "ejercicio_" & CInt(rsEjercicios("idEjercicios").Value) & ".png"
+        rsEjercicios("RutaImagen").Value = rutaArchivo
         rsEjercicios.Update()
 
         Database.Connection.Execute("Delete from ObjetivosEjercicios where idEjercicios = " & CInt(rsEjercicios("idEjercicios").Value))
@@ -293,9 +291,14 @@ Public Class Ejercicios
         openFileDialog1.Title = "Seleccionar Imagen"
         openFileDialog1.FileName = ""
         openFileDialog1.ShowDialog()
+        Dim fs As IO.FileStream
         Try
-            Dim selectedImage As Image = Image.FromFile(openFileDialog1.FileName)
-            PBImagenCampo.BackgroundImage = selectedImage
+            fs = New IO.FileStream(openFileDialog1.FileName, IO.FileMode.Open, IO.FileAccess.Read)
+            PBImagenCampo.BackgroundImage = Image.FromStream(fs)
+            fs.Close()
+            'Dim selectedImage As Bitmap = Image.FromFile(openFileDialog1.FileName)
+            'PBImagenCampo.BackgroundImage = selectedImage
+            'selectedImage.Dispose()
         Catch ex As Exception
 
         End Try
@@ -371,7 +374,7 @@ Public Class Ejercicios
         saltoPintarLineas = True
         PBImagenCampo.Controls.Clear()
         PBImagenCampo.Invalidate()
-        PBImagenCampo.BackgroundImage = imagenOrifinal
+        'PBImagenCampo.BackgroundImage = imagenOrifinal
 
         If Not IsNumeric(DbgBusEntreno.Rows(e.RowIndex).Cells(0).Value) Or DbgBusEntreno.Rows(e.RowIndex).Cells(0).Value = 0 Then Exit Sub
         TxID.Text = CInt(CInt(DbgBusEntreno.Rows(e.RowIndex).Cells(0).Value))
@@ -386,16 +389,18 @@ Public Class Ejercicios
             TxDescripcion.Text = Trim(rsAux("descripcion").Value)
             TxMaterial.Text = Trim(rsAux("material").Value)
             TxObservaciones.Text = Trim(rsAux("observaciones").Value)
+            Dim fs As FileStream
+
 
             Try
-                Using fs As New FileStream(Trim(rsAux("RutaImagen").Value), FileMode.Open, FileAccess.Read)
-                    Dim img As Image = Image.FromStream(fs)
-                    PBImagenCampo.BackgroundImage = img
-                    PBImagenCampo.BackgroundImageLayout = ImageLayout.Stretch
-                End Using
-
+                fs = New FileStream(Trim(rsAux("RutaImagen").Value), FileMode.Open, FileAccess.Read)
+                PBImagenCampo.BackgroundImage = Image.FromStream(fs)
+                PBImagenCampo.BackgroundImageLayout = ImageLayout.Stretch
+                fs.Close()
             Catch ex As Exception
                 MsgBox("No se ha encontrado la imagen para el ejercicio.", vbExclamation + vbOK)
+                PBImagenCampo.Controls.Clear()
+                PBImagenCampo.Invalidate()
                 PBImagenCampo.BackgroundImage = imagenOrifinal
             End Try
             CargarObjetivos(CInt(TxID.Text))
